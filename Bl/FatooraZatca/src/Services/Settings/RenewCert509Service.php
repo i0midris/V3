@@ -1,0 +1,28 @@
+<?php
+
+namespace Bl\FatooraZatca\Services\Settings;
+
+use Bl\FatooraZatca\Actions\PostRequestAction;
+
+class RenewCert509Service extends Cert509Service
+{
+    /**
+     * renew the cert 509
+     */
+    public function renew(string $otp, object $settings): object
+    {
+        $response = (new PostRequestAction)->handle(
+            '/production/csids',
+            ['csr' => $settings->csr],
+            $this->getHeaders($otp),
+            $settings->cert_production.':'.$settings->secret_production,
+            'PATCH'
+        );
+
+        $settings->cert_production = $response['binarySecurityToken'];
+        $settings->secret_production = $response['secret'];
+        $settings->csid_id_production = $response['requestID'];
+
+        return $settings;
+    }
+}

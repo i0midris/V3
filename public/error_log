@@ -1,0 +1,2 @@
+[13-May-2025 23:31:17 Asia/Aden] PHP Fatal error:  Cannot use Modules\WhatsApp\Services\WhatsAppServices as WhatsAppServices because the name is already in use in /home/pos/our.albaseet-pos.cloud/app/Utils/NotificationUtil.php on line 16
+[13-May-2025 23:32:11 Asia/Aden] PHP Fatal error:  Cannot use Modules\WhatsApp\Services\WhatsAppServices as WhatsAppServices because the name is already in use in /home/pos/our.albaseet-pos.cloud/app/Utils/NotificationUtil.php on line 16

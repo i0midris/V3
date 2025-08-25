@@ -1,0 +1,114 @@
+ComposerRequireChecker 4.16.1@2449a6298a0c39d940287d5d3afaf05a6f80fd0c
+The following 108 unknown symbols were found:
++-------------------------------------------------------------+--------------------+
+| Unknown Symbol                                              | Guessed Dependency |
++-------------------------------------------------------------+--------------------+
+| apcu_add                                                    |                    |
+| apcu_fetch                                                  |                    |
+| App                                                         |                    |
+| App\Http\Controllers\Exception                              |                    |
+| App\Http\Controllers\Install\Exception                      |                    |
+| App\Http\Controllers\Restaurant\Exception                   |                    |
+| App\Http\Controllers\Unit                                   |                    |
+| App\Models\User                                             |                    |
+| App\Utils\Exception                                         |                    |
+| Auth                                                        |                    |
+| Cache                                                       |                    |
+| Carbon                                                      |                    |
+| Carbon\Carbon                                               |                    |
+| Config                                                      |                    |
+| config_item                                                 |                    |
+| CURLINFO_HTTP_CODE                                          | ext-curl           |
+| CURLOPT_CUSTOMREQUEST                                       | ext-curl           |
+| CURLOPT_ENCODING                                            | ext-curl           |
+| CURLOPT_FOLLOWLOCATION                                      | ext-curl           |
+| CURLOPT_HTTPHEADER                                          | ext-curl           |
+| CURLOPT_HTTP_VERSION                                        | ext-curl           |
+| CURLOPT_MAXREDIRS                                           | ext-curl           |
+| CURLOPT_POST                                                | ext-curl           |
+| CURLOPT_POSTFIELDS                                          | ext-curl           |
+| CURLOPT_RETURNTRANSFER                                      | ext-curl           |
+| CURLOPT_SSL_VERIFYHOST                                      | ext-curl           |
+| CURLOPT_SSL_VERIFYPEER                                      | ext-curl           |
+| CURLOPT_TIMEOUT                                             | ext-curl           |
+| CURLOPT_URL                                                 | ext-curl           |
+| CURLOPT_USERPWD                                             | ext-curl           |
+| curl_close                                                  | ext-curl           |
+| curl_errno                                                  | ext-curl           |
+| curl_error                                                  | ext-curl           |
+| curl_exec                                                   | ext-curl           |
+| curl_getinfo                                                | ext-curl           |
+| CURL_HTTP_VERSION_1_1                                       | ext-curl           |
+| curl_init                                                   | ext-curl           |
+| curl_setopt                                                 | ext-curl           |
+| curl_setopt_array                                           | ext-curl           |
+| Datatables                                                  |                    |
+| DataTables                                                  |                    |
+| DB                                                          |                    |
+| DOMDocument                                                 | ext-dom            |
+| Eexception                                                  |                    |
+| Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow |                    |
+| Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeNone    |                    |
+| Excel                                                       |                    |
+| FILTER_SANITIZE_NUMBER_INT                                  | ext-filter         |
+| FILTER_VALIDATE_BOOLEAN                                     | ext-filter         |
+| FILTER_VALIDATE_EMAIL                                       | ext-filter         |
+| FILTER_VALIDATE_URL                                         | ext-filter         |
+| filter_var                                                  | ext-filter         |
+| includeFile                                                 |                    |
+| League\Flysystem\Filesystem                                 |                    |
+| Log                                                         |                    |
+| mac_verify_licence_code                                     |                    |
+| Menu                                                        |                    |
+| Module                                                      |                    |
+| Modules\Accounting\Http\Controllers\Exception               |                    |
+| Modules\Accounting\Utils\Error                              |                    |
+| Modules\AssetManagement\Http\Controllers\Exception          |                    |
+| Modules\Crm\Entities\CrmContact                             |                    |
+| Modules\Crm\Http\Controllers\DashboardController            |                    |
+| Modules\Ecommerce\Entities\EcomApiSetting                   |                    |
+| Modules\InventoryManagement\Entities\InventoryTransaction   |                    |
+| Modules\InventoryManagement\Http\Controllers\Exception      |                    |
+| Modules\Manufacturing\Http\Controllers\ProductionController |                    |
+| Modules\ProductCatalogue\Http\Controllers\Exception         |                    |
+| Modules\Repair\Entities\DeviceModel                         |                    |
+| Modules\Repair\Entities\JobSheet                            |                    |
+| Modules\Repair\Entities\RepairStatus                        |                    |
+| Modules\Repair\Http\Controllers\RepairController            |                    |
+| Modules\Spreadsheet\Http\Controllers\Exception              |                    |
+| MyFatoorah\Library\API\Payment\MyFatoorahPayment            |                    |
+| MyFatoorah\Library\API\Payment\MyFatoorahPaymentEmbedded    |                    |
+| MyFatoorah\Library\API\Payment\MyFatoorahPaymentStatus      |                    |
+| MyFatoorah\Library\MyFatoorah                               |                    |
+| MYFATOORAH_LARAVEL_PACKAGE_VERSION                          |                    |
+| mysqli_connect                                              | ext-mysqli         |
+| mysqli_connect_errno                                        | ext-mysqli         |
+| mysqli_connect_error                                        | ext-mysqli         |
+| Notification                                                |                    |
+| NumberFormatter                                             | ext-intl           |
+| openssl_csr_export                                          | ext-openssl        |
+| openssl_csr_new                                             | ext-openssl        |
+| openssl_error_string                                        | ext-openssl        |
+| OPENSSL_KEYTYPE_EC                                          | ext-openssl        |
+| openssl_pkey_export                                         | ext-openssl        |
+| openssl_pkey_get_details                                    | ext-openssl        |
+| openssl_pkey_new                                            | ext-openssl        |
+| openssl_sign                                                | ext-openssl        |
+| Paystack                                                    |                    |
+| phpseclib3\File\X509                                        |                    |
+| Response                                                    |                    |
+| Route                                                       |                    |
+| Schema                                                      |                    |
+| SimpleSoftwareIO\QrCode\Facades\QrCode                      |                    |
+| simplexml_load_string                                       | ext-SimpleXML      |
+| Spatie\Dropbox\Client                                       |                    |
+| Storage                                                     |                    |
+| Str                                                         |                    |
+| Symfony\Component\Console\Output\BufferedOutput             |                    |
+| Symfony\Component\HttpFoundation\Response                   |                    |
+| URL                                                         |                    |
+| Validator                                                   |                    |
+| Yii                                                         |                    |
+| zend_loader_file_encoded                                    |                    |
+| ZipArchive                                                  | ext-zip            |
++-------------------------------------------------------------+--------------------+

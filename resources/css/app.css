@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Point to source files containing your Tailwind classes */
+@source "../views";
+
+/* Plugins */
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+

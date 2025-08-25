@@ -1,0 +1,29 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+        - routes
+        - resources
+        - config
+        - Modules
+
+    level: 8
+
+    excludePaths:
+        analyseAndScan:
+            - vendor
+            - storage
+            - public
+            - database
+            - tests
+            - packages
+            - nc_assets
+            - bootstrap/cache
+
+    inferPrivatePropertyTypeFromConstructor: true
+    treatPhpDocTypesAsCertain: true
+    reportUnmatchedIgnoredErrors: false
+
+
