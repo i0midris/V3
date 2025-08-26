@@ -1,1 +1,471 @@
-<?php /* File protected by copyright four albaseetsoft Checksum: 33c9e9fb8688924bee97872b2e8af2e4ae5c0c8db07fa10b74b728d42c893e7eb1d0e9ae59fec2e755e093fe92752c3a15c078a6b020ed414e5e305cd2d5d2ce */ eval(base64_decode("JE9PTzBPMDAwMDA9ZmlsZShwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXykpOwppZihwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXyk9PV9fRklMRV9fIG9yCnByZWdfcmVwbGFjZSgiQFwoLipcKC4qJEAiLCIiLF9fTElORV9fKSAhPSAzKWRpZSgiPHR0PkVSUk9SIik7"));eval(base64_decode("ZnVuY3Rpb24gSTExSTExMWxsbCgkYSwkYil7JGM9YXJyYXkoOTI1LDQ4OCwxMjgsNTQ2Nik7aWYoJGI9PTI1KXskZD1zdWJzdHIoJGEsJGNbMF0rJGNbMV0sJGNbMl0pO31lbHNlaWYoJGI9PTE0MCl7JGQ9c3Vic3RyKCRhLCRjWzBdLCRjWzFdKTt9ZWxzZWlmKCRiPT0xNDYpeyRkPXRyaW0oc3Vic3RyKCRhLCRjWzBdKyRjWzFdKyRjWzJdKSk7fXJldHVybiRkO30="));eval(base64_decode(I11I111lll($OOO0O00000[0],140)));eval(Ill11I1ll1(I11I111lll($OOO0O00000[0],146),I11I111lll($OOO0O00000[0],25),$OOO0O00000));__halt_compiler();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
+<?php
+
+namespace App\Http\Controllers;
+
+use App\AccountTransaction;
+use App\BusinessLocation;
+use App\PurchaseLine;
+use App\Transaction;
+use App\Utils\ProductUtil;
+use App\Utils\TransactionUtil;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
+use Yajra\DataTables\Facades\DataTables;
+
+class PurchaseReturnController extends Controller
+{
+    /**
+     * All Utils instance.
+     */
+    protected $transactionUtil;
+
+    protected $productUtil;
+
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    public function __construct(TransactionUtil $transactionUtil, ProductUtil $productUtil)
+    {
+        $this->transactionUtil = $transactionUtil;
+        $this->productUtil = $productUtil;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        if (! auth()->user()->can('purchase.view') && ! auth()->user()->can('purchase.create')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        if (request()->ajax()) {
+            $purchases_returns = Transaction::leftJoin('contacts', 'transactions.contact_id', '=', 'contacts.id')
+                ->join(
+                    'business_locations AS BS',
+                    'transactions.location_id',
+                    '=',
+                    'BS.id'
+                )
+                ->leftJoin(
+                    'transactions AS T',
+                    'transactions.return_parent_id',
+                    '=',
+                    'T.id'
+                )
+                ->leftJoin(
+                    'transaction_payments AS TP',
+                    'transactions.id',
+                    '=',
+                    'TP.transaction_id'
+                )
+                ->where('transactions.business_id', $business_id)
+                ->where('transactions.type', 'purchase_return')
+                ->select(
+                    'transactions.id',
+                    'transactions.transaction_date',
+                    'transactions.ref_no',
+                    'contacts.name',
+                    'contacts.supplier_business_name',
+                    'transactions.status',
+                    'transactions.payment_status',
+                    'transactions.final_total',
+                    'transactions.return_parent_id',
+                    'BS.name as location_name',
+                    'T.ref_no as parent_purchase',
+                    DB::raw('SUM(TP.amount) as amount_paid')
+                )
+                ->groupBy('transactions.id');
+
+            $permitted_locations = auth()->user()->permitted_locations();
+            if ($permitted_locations != 'all') {
+                $purchases_returns->whereIn('transactions.location_id', $permitted_locations);
+            }
+
+            if (! empty(request()->location_id)) {
+                $purchases_returns->where('transactions.location_id', request()->location_id);
+            }
+
+            if (! empty(request()->supplier_id)) {
+                $supplier_id = request()->supplier_id;
+                $purchases_returns->where('contacts.id', $supplier_id);
+            }
+            if (! empty(request()->start_date) && ! empty(request()->end_date)) {
+                $start = request()->start_date;
+                $end = request()->end_date;
+                $purchases_returns->whereDate('transactions.transaction_date', '>=', $start)
+                    ->whereDate('transactions.transaction_date', '<=', $end);
+            }
+
+            return Datatables::of($purchases_returns)
+                ->addColumn('action', function ($row) {
+                    $html = '<div class="btn-group">
+                                    <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-info tw-w-max dropdown-toggle" 
+                                        data-toggle="dropdown" aria-expanded="false">'.
+                                        __('messages.actions').
+                                        '<span class="caret"></span><span class="sr-only">Toggle Dropdown
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">';
+                    if ((new \App\Utils\ModuleUtil)->getModuleData('MKamel_checkTreeAccountingDefined') == false) {
+                        if (! empty($row->return_parent_id)) {
+                            $html .= '<li><a href="'.action([\App\Http\Controllers\PurchaseReturnController::class, 'add'], $row->return_parent_id).'" ><i class="glyphicon glyphicon-edit"></i>'.
+                                    __('messages.edit').
+                                    '</a></li>';
+                        } else {
+                            $html .= '<li><a href="'.action([\App\Http\Controllers\CombinedPurchaseReturnController::class, 'edit'], $row->id).'" ><i class="glyphicon glyphicon-edit"></i>'.
+                                    __('messages.edit').
+                                    '</a></li>';
+                        }
+                    }
+
+                    if ($row->payment_status != 'paid') {
+                        $html .= '<li><a href="'.action([\App\Http\Controllers\TransactionPaymentController::class, 'addPayment'], [$row->id]).'" class="add_payment_modal"><i class="fas fa-money-bill-alt"></i>'.__('purchase.add_payment').'</a></li>';
+                    }
+
+                    $html .= '<li><a href="'.action([\App\Http\Controllers\TransactionPaymentController::class, 'show'], [$row->id]).'" class="view_payment_modal"><i class="fas fa-money-bill-alt"></i>'.__('purchase.view_payments').'</a></li>';
+
+                    if ((new \App\Utils\ModuleUtil)->getModuleData('MKamel_checkTreeAccountingDefined') == false) {
+                        $html .= '<li><a href="'.action([\App\Http\Controllers\PurchaseReturnController::class, 'destroy'], $row->id).'" class="delete_purchase_return" ><i class="fa fa-trash"></i>'.
+                            __('messages.delete').
+                            '</a></li>';
+                    }
+                    $html .= '</ul></div>';
+
+                    return $html;
+                })
+                ->removeColumn('id')
+                ->removeColumn('return_parent_id')
+                ->editColumn(
+                    'final_total',
+                    '<span class="display_currency final_total" data-currency_symbol="true" data-orig-value="{{$final_total}}">{{$final_total}}</span>'
+                )
+                ->editColumn('transaction_date', '{{@format_datetime($transaction_date)}}')
+                ->editColumn('name', function ($row) {
+                    $name = ! empty($row->name) ? $row->name : '';
+
+                    return $name.' '.$row->supplier_business_name;
+                })
+                ->editColumn(
+                    'payment_status',
+                    '<a href="{{ action([\App\Http\Controllers\TransactionPaymentController::class, \'show\'], [$id])}}" class="view_payment_modal payment-status payment-status-label" data-orig-value="{{$payment_status}}" data-status-name="@if($payment_status != "paid"){{__(\'lang_v1.\' . $payment_status)}}@else{{__("lang_v1.received")}}@endif"><span class="label @payment_status($payment_status)">@if($payment_status != "paid"){{__(\'lang_v1.\' . $payment_status)}} @else {{__("lang_v1.received")}} @endif
+                        </span></a>'
+                )
+                ->editColumn('parent_purchase', function ($row) {
+                    $html = '';
+                    if (! empty($row->parent_purchase)) {
+                        $html = '<a href="#" data-href="'.action([\App\Http\Controllers\PurchaseController::class, 'show'], [$row->return_parent_id]).'" class="btn-modal" data-container=".view_modal">'.$row->parent_purchase.'</a>';
+                    }
+
+                    return $html;
+                })
+                ->addColumn('payment_due', function ($row) {
+                    $due = $row->final_total - $row->amount_paid;
+
+                    return '<span class="display_currency payment_due" data-currency_symbol="true" data-orig-value="'.$due.'">'.$due.'</sapn>';
+                })
+                ->setRowAttr([
+                    'data-href' => function ($row) {
+                        if (auth()->user()->can('purchase.view')) {
+                            $return_id = ! empty($row->return_parent_id) ? $row->return_parent_id : $row->id;
+
+                            return action([\App\Http\Controllers\PurchaseReturnController::class, 'show'], [$return_id]);
+                        } else {
+                            return '';
+                        }
+                    }, ])
+                ->rawColumns(['final_total', 'action', 'payment_status', 'parent_purchase', 'payment_due'])
+                ->make(true);
+        }
+
+        $business_locations = BusinessLocation::forDropdown($business_id);
+
+        return view('purchase_return.index')->with(compact('business_locations'));
+    }
+
+    /**
+     * Show the form for purchase return.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add($id)
+    {
+        if (! auth()->user()->can('purchase.update')) {
+            abort(403, 'Unauthorized action.');
+        }
+        $business_id = request()->session()->get('user.business_id');
+
+        $purchase = Transaction::where('business_id', $business_id)
+            ->where('type', 'purchase')
+            ->with(['purchase_lines', 'contact', 'tax', 'return_parent', 'purchase_lines.sub_unit', 'purchase_lines.product', 'purchase_lines.product.unit'])
+            ->find($id);
+
+        foreach ($purchase->purchase_lines as $key => $value) {
+            if (! empty($value->sub_unit_id)) {
+                $formated_purchase_line = $this->productUtil->changePurchaseLineUnit($value, $business_id);
+                $purchase->purchase_lines[$key] = $formated_purchase_line;
+            }
+        }
+
+        foreach ($purchase->purchase_lines as $key => $value) {
+            $qty_available = $value->quantity - $value->quantity_sold - $value->quantity_adjusted;
+
+            $purchase->purchase_lines[$key]->formatted_qty_available = $this->transactionUtil->num_f($qty_available);
+        }
+
+        return view('purchase_return.add')
+            ->with(compact('purchase'));
+    }
+
+    /**
+     * Saves Purchase returns in the database.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        if (! auth()->user()->can('purchase.update')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $business_id = request()->session()->get('user.business_id');
+
+            $purchase = Transaction::where('business_id', $business_id)
+                ->where('type', 'purchase')
+                ->with(['purchase_lines', 'purchase_lines.sub_unit'])
+                ->findOrFail($request->input('transaction_id'));
+
+            $output = (new \App\Utils\ModuleUtil)->getModuleData('MKamel_check222', ['request' => $request, 'purchase' => $purchase]);
+            if (isset($output['Accounting']['success']) && $output['Accounting']['success'] == 0) {
+                return redirect()->back()->with(['status' => $output['Accounting']]);
+            }
+
+            $return_quantities = $request->input('returns');
+            $return_total = 0;
+
+            DB::beginTransaction();
+
+            foreach ($purchase->purchase_lines as $purchase_line) {
+                $old_return_qty = $purchase_line->quantity_returned;
+
+                $return_quantity = ! empty($return_quantities[$purchase_line->id]) ? $this->productUtil->num_uf($return_quantities[$purchase_line->id]) : 0;
+
+                $multiplier = 1;
+                if (! empty($purchase_line->sub_unit->base_unit_multiplier)) {
+                    $multiplier = $purchase_line->sub_unit->base_unit_multiplier;
+                    $return_quantity *= $multiplier;
+                }
+
+                $purchase_line->quantity_returned = $return_quantity;
+                $purchase_line->save();
+                $return_total += $purchase_line->purchase_price_inc_tax * $purchase_line->quantity_returned;
+
+                // Decrease quantity in variation location details
+                if ($old_return_qty != $purchase_line->quantity_returned) {
+                    $this->productUtil->decreaseProductQuantity(
+                        $purchase_line->product_id,
+                        $purchase_line->variation_id,
+                        $purchase->location_id,
+                        $purchase_line->quantity_returned,
+                        $old_return_qty
+                    );
+                }
+            }
+            $return_total_inc_tax = $return_total + $request->input('tax_amount');
+
+            $return_transaction_data = [
+                'total_before_tax' => $return_total,
+                'final_total' => $return_total_inc_tax,
+                'tax_amount' => $request->input('tax_amount'),
+                'tax_id' => $purchase->tax_id,
+            ];
+
+            if (empty($request->input('ref_no'))) {
+                // Update reference count
+                $ref_count = $this->transactionUtil->setAndGetReferenceCount('purchase_return');
+                $return_transaction_data['ref_no'] = $this->transactionUtil->generateReferenceNumber('purchase_return', $ref_count);
+            }
+
+            $return_transaction = Transaction::where('business_id', $business_id)
+                ->where('type', 'purchase_return')
+                ->where('return_parent_id', $purchase->id)
+                ->first();
+
+            if (! empty($return_transaction)) {
+                $return_transaction_before = $return_transaction->replicate();
+
+                $return_transaction->update($return_transaction_data);
+
+                $this->transactionUtil->activityLog($return_transaction, 'edited', $return_transaction_before);
+            } else {
+                $return_transaction_data['business_id'] = $business_id;
+                $return_transaction_data['location_id'] = $purchase->location_id;
+                $return_transaction_data['type'] = 'purchase_return';
+                $return_transaction_data['status'] = 'final';
+                $return_transaction_data['contact_id'] = $purchase->contact_id;
+                $return_transaction_data['transaction_date'] = \Carbon::now();
+                $return_transaction_data['created_by'] = request()->session()->get('user.id');
+                $return_transaction_data['return_parent_id'] = $purchase->id;
+
+                $return_transaction = Transaction::create($return_transaction_data);
+
+                $this->transactionUtil->activityLog($return_transaction, 'added');
+            }
+
+            if (isset($output['Accounting']['success']) && $output['Accounting']['success'] == 1) {
+                (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store222', ['request' => $request, 'purchase' => $purchase, 'return_quantities' => $return_quantities, 'supplier_linked' => $output['Accounting']['supplier_linked'], 'return_transaction' => $return_transaction]);
+            }
+
+            // update payment status
+            $this->transactionUtil->updatePaymentStatus($return_transaction->id, $return_transaction->final_total);
+
+            $output = ['success' => 1,
+                'msg' => __('lang_v1.purchase_return_added_success'),
+            ];
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => 0,
+                'msg' => __('messages.something_went_wrong'),
+            ];
+        }
+
+        return redirect('purchase-return')->with('status', $output);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        if (! auth()->user()->can('purchase.view')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $purchase = Transaction::where('business_id', $business_id)
+            ->with(['return_parent', 'return_parent.tax', 'purchase_lines', 'contact', 'tax', 'purchase_lines.sub_unit', 'purchase_lines.product', 'purchase_lines.product.unit'])
+            ->find($id);
+
+        foreach ($purchase->purchase_lines as $key => $value) {
+            if (! empty($value->sub_unit_id)) {
+                $formated_purchase_line = $this->productUtil->changePurchaseLineUnit($value, $business_id);
+                $purchase->purchase_lines[$key] = $formated_purchase_line;
+            }
+        }
+
+        $purchase_taxes = [];
+        if (! empty($purchase->return_parent->tax)) {
+            if ($purchase->return_parent->tax->is_tax_group) {
+                $purchase_taxes = $this->transactionUtil->sumGroupTaxDetails($this->transactionUtil->groupTaxDetails($purchase->return_parent->tax, $purchase->return_parent->tax_amount));
+            } else {
+                $purchase_taxes[$purchase->return_parent->tax->name] = $purchase->return_parent->tax_amount;
+            }
+        }
+
+        // For combined purchase return return_parent is empty
+        if (empty($purchase->return_parent) && ! empty($purchase->tax)) {
+            if ($purchase->tax->is_tax_group) {
+                $purchase_taxes = $this->transactionUtil->sumGroupTaxDetails($this->transactionUtil->groupTaxDetails($purchase->tax, $purchase->tax_amount));
+            } else {
+                $purchase_taxes[$purchase->tax->name] = $purchase->tax_amount;
+            }
+        }
+        $return = ! empty($purchase->return_parent) ? $purchase->return_parent : $purchase;
+        $activities = Activity::forSubject($return)
+            ->with(['causer', 'subject'])
+            ->latest()
+            ->get();
+
+        return view('purchase_return.show')
+            ->with(compact('purchase', 'purchase_taxes', 'activities'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        if (! auth()->user()->can('purchase.delete')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            if (request()->ajax()) {
+                $business_id = request()->session()->get('user.business_id');
+
+                $purchase_return = Transaction::where('id', $id)
+                    ->where('business_id', $business_id)
+                    ->where('type', 'purchase_return')
+                    ->with(['purchase_lines'])
+                    ->first();
+
+                DB::beginTransaction();
+
+                if (empty($purchase_return->return_parent_id)) {
+                    $delete_purchase_lines = $purchase_return->purchase_lines;
+                    $delete_purchase_line_ids = [];
+                    foreach ($delete_purchase_lines as $purchase_line) {
+                        $delete_purchase_line_ids[] = $purchase_line->id;
+                        $this->productUtil->updateProductQuantity($purchase_return->location_id, $purchase_line->product_id, $purchase_line->variation_id, $purchase_line->quantity_returned, 0, null, false);
+                    }
+                    PurchaseLine::where('transaction_id', $purchase_return->id)
+                        ->whereIn('id', $delete_purchase_line_ids)
+                        ->delete();
+                } else {
+                    $parent_purchase = Transaction::where('id', $purchase_return->return_parent_id)
+                        ->where('business_id', $business_id)
+                        ->where('type', 'purchase')
+                        ->with(['purchase_lines'])
+                        ->first();
+
+                    $updated_purchase_lines = $parent_purchase->purchase_lines;
+                    foreach ($updated_purchase_lines as $purchase_line) {
+                        $this->productUtil->updateProductQuantity($parent_purchase->location_id, $purchase_line->product_id, $purchase_line->variation_id, $purchase_line->quantity_returned, 0, null, false);
+                        $purchase_line->quantity_returned = 0;
+                        $purchase_line->save();
+                    }
+                }
+
+                // Delete Transaction
+                $purchase_return->delete();
+
+                // Delete account transactions
+                AccountTransaction::where('transaction_id', $id)->delete();
+
+                DB::commit();
+
+                $output = ['success' => true,
+                    'msg' => __('lang_v1.deleted_success'),
+                ];
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => false,
+                'msg' => __('messages.something_went_wrong'),
+            ];
+        }
+
+        return $output;
+    }
+}

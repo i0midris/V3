@@ -1,1 +1,1712 @@
-<?php /* File protected by copyright four albaseetsoft Checksum: 97cc29574e0f1467bd9df364345a332ea316c686d8e9b2ee329353b0819e7f2cb5f1594b4d00e1fc85fe3e35af3131db94aa47613b6f0124fcbba61046af5f5f */ eval(base64_decode("JE8wME8wTzAwTzA9ZmlsZShwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXykpOwppZihwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXyk9PV9fRklMRV9fIG9yCnByZWdfcmVwbGFjZSgiQFwoLipcKC4qJEAiLCIiLF9fTElORV9fKSAhPSAzKWRpZSgiPHR0PkVSUk9SIik7"));eval(base64_decode("ZnVuY3Rpb24gTzAwT09PME9PMCgkYSwkYil7JGM9YXJyYXkoOTIzLDQ4OCwxMjgsMTg4MzYpO2lmKCRiPT0xNTQpeyRkPXN1YnN0cigkYSwkY1swXSskY1sxXSwkY1syXSk7fWVsc2VpZigkYj09OTYpeyRkPXN1YnN0cigkYSwkY1swXSwkY1sxXSk7fWVsc2VpZigkYj09MTcyKXskZD10cmltKHN1YnN0cigkYSwkY1swXSskY1sxXSskY1syXSkpO31yZXR1cm4kZDt9"));eval(base64_decode(O00OOO0OO0($O00O0O00O0[0],96)));eval(OOOO0OO000(O00OOO0OO0($O00O0O00O0[0],172),O00OOO0OO0($O00O0O00O0[0],154),$O00O0O00O0));__halt_compiler();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
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Account;
+use App\Business;
+use App\BusinessLocation;
+use App\Contact;
+use App\CustomerGroup;
+use App\InvoiceScheme;
+use App\Media;
+use App\Product;
+use App\SellingPriceGroup;
+use App\TaxRate;
+use App\Transaction;
+use App\TransactionSellLine;
+use App\TypesOfService;
+use App\User;
+use App\Utils\BusinessUtil;
+use App\Utils\ContactUtil;
+use App\Utils\ModuleUtil;
+use App\Utils\ProductUtil;
+use App\Utils\TransactionUtil;
+use App\Variation;
+use App\Warranty;
+use DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Spatie\Activitylog\Models\Activity;
+use Yajra\DataTables\Facades\DataTables;
+
+class SellController extends Controller
+{
+    /**
+     * All Utils instance.
+     */
+    protected $contactUtil;
+
+    protected $moduleUtil;
+
+    protected $businessUtil;
+
+    protected $transactionUtil;
+
+    protected $productUtil;
+
+    /**
+     * Constructor
+     *
+     * @param  ProductUtils  $product
+     * @return void
+     */
+    public function __construct(ContactUtil $contactUtil, BusinessUtil $businessUtil, TransactionUtil $transactionUtil, ModuleUtil $moduleUtil, ProductUtil $productUtil)
+    {
+        $this->contactUtil = $contactUtil;
+        $this->businessUtil = $businessUtil;
+        $this->transactionUtil = $transactionUtil;
+        $this->moduleUtil = $moduleUtil;
+        $this->productUtil = $productUtil;
+
+        $this->dummyPaymentLine = ['method' => '', 'amount' => 0, 'note' => '', 'card_transaction_number' => '', 'card_number' => '', 'card_type' => '', 'card_holder_name' => '', 'card_month' => '', 'card_year' => '', 'card_security' => '', 'cheque_number' => '', 'bank_account_number' => '',
+            'is_return' => 0, 'transaction_no' => '', ];
+
+        $this->shipping_status_colors = [
+            'ordered' => 'bg-yellow',
+            'packed' => 'bg-info',
+            'shipped' => 'bg-navy',
+            'delivered' => 'bg-green',
+            'cancelled' => 'bg-red',
+        ];
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $is_admin = $this->businessUtil->is_admin(auth()->user());
+
+        if (! $is_admin && ! auth()->user()->hasAnyPermission(['sell.view', 'sell.create', 'direct_sell.access', 'direct_sell.view', 'view_own_sell_only', 'view_commission_agent_sell', 'access_shipping', 'access_own_shipping', 'access_commission_agent_shipping', 'so.view_all', 'so.view_own'])) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+        $is_woocommerce = $this->moduleUtil->isModuleInstalled('Woocommerce');
+        $is_crm = $this->moduleUtil->isModuleInstalled('Crm');
+        $is_tables_enabled = $this->transactionUtil->isModuleEnabled('tables');
+        $is_service_staff_enabled = $this->transactionUtil->isModuleEnabled('service_staff');
+        $is_types_service_enabled = $this->moduleUtil->isModuleEnabled('types_of_service');
+
+        if (request()->ajax()) {
+            $payment_types = $this->transactionUtil->payment_types(null, true, $business_id);
+            $with = [];
+            $shipping_statuses = $this->transactionUtil->shipping_statuses();
+
+            $sale_type = ! empty(request()->input('sale_type')) ? request()->input('sale_type') : 'sell';
+
+            $sells = $this->transactionUtil->getListSells($business_id, $sale_type);
+            $sells->addSelect('transactions.created_at');
+
+
+            // only display sell invoice we add it because project invoive show in sell list
+            if ($sale_type == 'sell') {
+                $sells->whereNull('transactions.sub_type');
+            }
+
+            $permitted_locations = auth()->user()->permitted_locations();
+            if ($permitted_locations != 'all') {
+                $sells->whereIn('transactions.location_id', $permitted_locations);
+            }
+
+            // Add condition for created_by,used in sales representative sales report
+            if (request()->has('created_by')) {
+                $created_by = request()->get('created_by');
+                if (! empty($created_by)) {
+                    $sells->where('transactions.created_by', $created_by);
+                }
+            }
+
+            $partial_permissions = ['view_own_sell_only', 'view_commission_agent_sell', 'access_own_shipping', 'access_commission_agent_shipping'];
+            if (! auth()->user()->can('direct_sell.view')) {
+                $sells->where(function ($q): void {
+                    if (auth()->user()->hasAnyPermission(['view_own_sell_only', 'access_own_shipping'])) {
+                        $q->where('transactions.created_by', request()->session()->get('user.id'));
+                    }
+
+                    // if user is commission agent display only assigned sells
+                    if (auth()->user()->hasAnyPermission(['view_commission_agent_sell', 'access_commission_agent_shipping'])) {
+                        $q->orWhere('transactions.commission_agent', request()->session()->get('user.id'));
+                    }
+                });
+            }
+
+            $only_shipments = request()->only_shipments == 'true' ? true : false;
+            if ($only_shipments) {
+                $sells->whereNotNull('transactions.shipping_status');
+
+                if (auth()->user()->hasAnyPermission(['access_pending_shipments_only'])) {
+                    $sells->where('transactions.shipping_status', '!=', 'delivered');
+                }
+            }
+
+            if (! $is_admin && ! $only_shipments && $sale_type != 'sales_order') {
+                $payment_status_arr = [];
+                if (auth()->user()->can('view_paid_sells_only')) {
+                    $payment_status_arr[] = 'paid';
+                }
+
+                if (auth()->user()->can('view_due_sells_only')) {
+                    $payment_status_arr[] = 'due';
+                }
+
+                if (auth()->user()->can('view_partial_sells_only')) {
+                    $payment_status_arr[] = 'partial';
+                }
+
+                if (empty($payment_status_arr)) {
+                    if (auth()->user()->can('view_overdue_sells_only')) {
+                        $sells->OverDue();
+                    }
+                } else {
+                    if (auth()->user()->can('view_overdue_sells_only')) {
+                        $sells->where(function ($q) use ($payment_status_arr): void {
+                            $q->whereIn('transactions.payment_status', $payment_status_arr)
+                                ->orWhere(function ($qr): void {
+                                    $qr->OverDue();
+                                });
+                        });
+                    } else {
+                        $sells->whereIn('transactions.payment_status', $payment_status_arr);
+                    }
+                }
+            }
+
+            if (! empty(request()->input('payment_status')) && request()->input('payment_status') != 'overdue') {
+                $sells->where('transactions.payment_status', request()->input('payment_status'));
+            } elseif (request()->input('payment_status') == 'overdue') {
+                $sells->whereIn('transactions.payment_status', ['due', 'partial'])
+                    ->whereNotNull('transactions.pay_term_number')
+                    ->whereNotNull('transactions.pay_term_type')
+                    ->whereRaw("IF(transactions.pay_term_type='days', DATE_ADD(transactions.transaction_date, INTERVAL transactions.pay_term_number DAY) < CURDATE(), DATE_ADD(transactions.transaction_date, INTERVAL transactions.pay_term_number MONTH) < CURDATE())");
+            }
+
+            // Add condition for location,used in sales representative expense report
+            if (request()->has('location_id')) {
+                $location_id = request()->get('location_id');
+                if (! empty($location_id)) {
+                    $sells->where('transactions.location_id', $location_id);
+                }
+            }
+
+            if (! empty(request()->input('rewards_only')) && request()->input('rewards_only') == true) {
+                $sells->where(function ($q): void {
+                    $q->whereNotNull('transactions.rp_earned')
+                        ->orWhere('transactions.rp_redeemed', '>', 0);
+                });
+            }
+
+            if (! empty(request()->customer_id)) {
+                $customer_id = request()->customer_id;
+                $sells->where('contacts.id', $customer_id);
+            }
+            if (! empty(request()->start_date) && ! empty(request()->end_date)) {
+                $start = request()->start_date;
+                $end = request()->end_date;
+                $sells->whereDate('transactions.transaction_date', '>=', $start)
+                    ->whereDate('transactions.transaction_date', '<=', $end);
+            }
+
+            // Check is_direct sell
+            if (request()->has('is_direct_sale')) {
+                $is_direct_sale = request()->is_direct_sale;
+                if ($is_direct_sale == 0) {
+                    $sells->where('transactions.is_direct_sale', 0);
+                    $sells->whereNull('transactions.sub_type');
+                }
+            }
+
+            // Add condition for commission_agent,used in sales representative sales with commission report
+            if (request()->has('commission_agent')) {
+                $commission_agent = request()->get('commission_agent');
+                if (! empty($commission_agent)) {
+                    $sells->where('transactions.commission_agent', $commission_agent);
+                }
+            }
+
+            if (! empty(request()->input('source'))) {
+                // only exception for woocommerce
+                if (request()->input('source') == 'woocommerce') {
+                    $sells->whereNotNull('transactions.woocommerce_order_id');
+                } else {
+                    $sells->where('transactions.source', request()->input('source'));
+                }
+            }
+
+            if ($is_crm) {
+                $sells->addSelect('transactions.crm_is_order_request');
+
+                if (request()->has('crm_is_order_request')) {
+                    $sells->where('transactions.crm_is_order_request', 1);
+                }
+            }
+
+            if (request()->only_subscriptions) {
+                $sells->where(function ($q): void {
+                    $q->whereNotNull('transactions.recur_parent_id')
+                        ->orWhere('transactions.is_recurring', 1);
+                });
+            }
+
+            if (! empty(request()->list_for) && request()->list_for == 'service_staff_report') {
+                $sells->whereNotNull('transactions.res_waiter_id');
+            }
+
+            if (! empty(request()->res_waiter_id)) {
+                $sells->where('transactions.res_waiter_id', request()->res_waiter_id);
+            }
+
+            if (! empty(request()->input('sub_type'))) {
+                $sells->where('transactions.sub_type', request()->input('sub_type'));
+            }
+
+            if (! empty(request()->input('created_by'))) {
+                $sells->where('transactions.created_by', request()->input('created_by'));
+            }
+
+            if (! empty(request()->input('status'))) {
+                $sells->where('transactions.status', request()->input('status'));
+            }
+
+            if (! empty(request()->input('sales_cmsn_agnt'))) {
+                $sells->where('transactions.commission_agent', request()->input('sales_cmsn_agnt'));
+            }
+
+            if (! empty(request()->input('service_staffs'))) {
+                $sells->where('transactions.res_waiter_id', request()->input('service_staffs'));
+            }
+
+            $only_pending_shipments = request()->only_pending_shipments == 'true' ? true : false;
+            if ($only_pending_shipments) {
+                $sells->where('transactions.shipping_status', '!=', 'delivered')
+                    ->whereNotNull('transactions.shipping_status');
+                $only_shipments = true;
+            }
+
+            if (! empty(request()->input('shipping_status'))) {
+                $sells->where('transactions.shipping_status', request()->input('shipping_status'));
+            }
+
+            if (! empty(request()->input('for_dashboard_sales_order'))) {
+                $sells->whereIn('transactions.status', ['partial', 'ordered'])
+                    ->orHavingRaw('so_qty_remaining > 0');
+            }
+
+            if ($sale_type == 'sales_order') {
+                if (! auth()->user()->can('so.view_all') && auth()->user()->can('so.view_own')) {
+                    $sells->where('transactions.created_by', request()->session()->get('user.id'));
+                }
+            }
+
+            if (! empty(request()->input('delivery_person'))) {
+                $sells->where('transactions.delivery_person', request()->input('delivery_person'));
+            }
+
+            $sells->groupBy('transactions.id');
+
+            if (! empty(request()->suspended)) {
+                $transaction_sub_type = request()->get('transaction_sub_type');
+                if (! empty($transaction_sub_type)) {
+                    $sells->where('transactions.sub_type', $transaction_sub_type);
+                } else {
+                    $sells->where('transactions.sub_type', null);
+                }
+
+                $with = ['sell_lines'];
+
+                if ($is_tables_enabled) {
+                    $with[] = 'table';
+                }
+
+                if ($is_service_staff_enabled) {
+                    $with[] = 'service_staff';
+                }
+
+                $sales = $sells->where('transactions.is_suspend', 1)
+                    ->with($with)
+                    ->addSelect('transactions.is_suspend', 'transactions.res_table_id', 'transactions.res_waiter_id', 'transactions.additional_notes')
+                    ->get();
+
+                return view('sale_pos.partials.suspended_sales_modal')->with(compact('sales', 'is_tables_enabled', 'is_service_staff_enabled', 'transaction_sub_type'));
+            }
+
+            $with[] = 'payment_lines';
+
+            if (! empty($with)) {
+                foreach ($with as $relation) {
+                    if ($relation == 'payment_lines' && ! empty(request()->input('payment_method'))) {
+                        $sells->whereHas($relation, function ($query): void {
+                            $query->where('method', request()->input('payment_method'));
+                        });
+                    } else {
+                        $sells->with($relation);
+                    }
+                }
+            }
+
+            // $business_details = $this->businessUtil->getDetails($business_id);
+            if ($this->businessUtil->isModuleEnabled('subscription')) {
+                $sells->addSelect('transactions.is_recurring', 'transactions.recur_parent_id');
+            }
+            $sales_order_statuses = Transaction::sales_order_statuses();
+            $datatable = Datatables::of($sells)
+                ->addColumn(
+                    'action',
+                    function ($row) use ($only_shipments, $is_admin, $sale_type) {
+                        $html = '<div class="btn-group">
+                                    <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-info tw-w-max dropdown-toggle" 
+                                        data-toggle="dropdown" aria-expanded="false">'.
+                                        __('messages.actions').
+                                        '<span class="caret"></span><span class="sr-only">Toggle Dropdown
+                                        </span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-left" role="menu">';
+
+                        if (auth()->user()->can('sell.view') || auth()->user()->can('direct_sell.view') || auth()->user()->can('view_own_sell_only')) {
+                            $html .= '<li><a href="#" data-href="'.action([\App\Http\Controllers\SellController::class, 'show'], [$row->id]).'" class="btn-modal" data-container=".view_modal"><i class="fas fa-eye" aria-hidden="true"></i> '.__('messages.view').'</a></li>';
+                        }
+                        $html .= '<li><a href="javascript:void(0)" class="zatca-link" data-transaction="'.$row->id.'"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send To Zatca </a></li>';
+                        $html .= '<li><a href="javascript:void(0)" data-container="#zatca-link-details" class="zatca-link-details-modal btn" data-transaction="'.$row->id.'"><i class="fa fa-paper-plane" aria-hidden="true"></i>Zatca Invoice Detail </a></li>';
+                        if ((new \App\Utils\ModuleUtil)->getModuleData('MKamel_checkTreeAccountingDefined') == true) {
+                            if (! $only_shipments) {
+                                if ($row->is_direct_sale == 0) {
+                                    if (auth()->user()->can('sell.update')) {
+                                        $html .= '<li><a target="_blank" href="'.action([\App\Http\Controllers\SellPosController::class, 'edit'], [$row->id]).'"><i class="fas fa-edit"></i> '.__('messages.edit').'</a></li>';
+                                    }
+                                } elseif ($row->type == 'sales_order') {
+                                    if (auth()->user()->can('so.update')) {
+                                        $html .= '<li><a target="_blank" href="'.action([\App\Http\Controllers\SellController::class, 'edit'], [$row->id]).'"><i class="fas fa-edit"></i> '.__('messages.edit').'</a></li>';
+                                    }
+                                } else {
+                                    if (auth()->user()->can('direct_sell.update')) {
+                                        $html .= '<li><a target="_blank" href="'.action([\App\Http\Controllers\SellController::class, 'edit'], [$row->id]).'"><i class="fas fa-edit"></i> '.__('messages.edit').'</a></li>';
+                                    }
+                                }
+
+                                $delete_link = '<li><a href="'.action([\App\Http\Controllers\SellPosController::class, 'destroy'], [$row->id]).'" class="delete-sale"><i class="fas fa-trash"></i> '.__('messages.delete').'</a></li>';
+                                if ($row->is_direct_sale == 0) {
+                                    if (auth()->user()->can('sell.delete')) {
+                                        $html .= $delete_link;
+                                    }
+                                } elseif ($row->type == 'sales_order') {
+                                    if (auth()->user()->can('so.delete')) {
+                                        $html .= $delete_link;
+                                    }
+                                } else {
+                                    if (auth()->user()->can('direct_sell.delete')) {
+                                        $html .= $delete_link;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (config('constants.enable_download_pdf') && auth()->user()->can('print_invoice') && $sale_type != 'sales_order') {
+                            $html .= '<li><a href="'.route('sell.downloadPdf', [$row->id]).'" target="_blank"><i class="fas fa-print" aria-hidden="true"></i> '.__('lang_v1.download_pdf').'</a></li>';
+
+                            if (! empty($row->shipping_status)) {
+                                $html .= '<li><a href="'.route('packing.downloadPdf', [$row->id]).'" target="_blank"><i class="fas fa-print" aria-hidden="true"></i> '.__('lang_v1.download_paking_pdf').'</a></li>';
+                            }
+                        }
+
+                        if (auth()->user()->can('sell.view') || auth()->user()->can('direct_sell.access')) {
+                            if (! empty($row->document)) {
+                                $document_name = ! empty(explode('_', $row->document, 2)[1]) ? explode('_', $row->document, 2)[1] : $row->document;
+                                $html .= '<li><a href="'.url('uploads/documents/'.$row->document).'" download="'.$document_name.'"><i class="fas fa-download" aria-hidden="true"></i>'.__('purchase.download_document').'</a></li>';
+                                if (isFileImage($document_name)) {
+                                    $html .= '<li><a href="#" data-href="'.url('uploads/documents/'.$row->document).'" class="view_uploaded_document"><i class="fas fa-image" aria-hidden="true"></i>'.__('lang_v1.view_document').'</a></li>';
+                                }
+                            }
+                        }
+
+                        if ($is_admin || auth()->user()->hasAnyPermission(['access_shipping', 'access_own_shipping', 'access_commission_agent_shipping'])) {
+                            $html .= '<li><a href="#" data-href="'.action([\App\Http\Controllers\SellController::class, 'editShipping'], [$row->id]).'" class="btn-modal" data-container=".view_modal"><i class="fas fa-truck" aria-hidden="true"></i>'.__('lang_v1.edit_shipping').'</a></li>';
+                        }
+
+                        if ($row->type == 'sell') {
+                            if (auth()->user()->can('print_invoice')) {
+                                $html .= '<li><a href="#" class="print-invoice" data-href="'.route('sell.printInvoice', [$row->id]).'"><i class="fas fa-print" aria-hidden="true"></i> '.__('lang_v1.print_invoice').'</a></li>
+                                    <li><a href="#" class="print-invoice" data-href="'.route('sell.printInvoice', [$row->id]).'?package_slip=true"><i class="fas fa-file-alt" aria-hidden="true"></i> '.__('lang_v1.packing_slip').'</a></li>';
+
+                                $html .= '<li><a href="#" class="print-invoice" data-href="'.route('sell.printInvoice', [$row->id]).'?delivery_note=true"><i class="fas fa-file-alt" aria-hidden="true"></i> '.__('lang_v1.delivery_note').'</a></li>';
+                            }
+                            $html .= '<li class="divider"></li>';
+                            if (! $only_shipments) {
+                                if ($row->is_direct_sale == 0 && ! auth()->user()->can('sell.update') &&
+                                auth()->user()->can('edit_pos_payment')) {
+                                    $html .= '<li><a href="'.route('edit-pos-payment', [$row->id]).'" 
+                                    ><i class="fas fa-money-bill-alt"></i> '.__('lang_v1.add_edit_payment').
+                                    '</a></li>';
+                                }
+
+                                if (auth()->user()->can('sell.payments') ||
+                                    auth()->user()->can('edit_sell_payment') ||
+                                    auth()->user()->can('delete_sell_payment')) {
+                                    if ($row->payment_status != 'paid') {
+                                        $html .= '<li><a href="'.action([\App\Http\Controllers\TransactionPaymentController::class, 'addPayment'], [$row->id]).'" class="add_payment_modal"><i class="fas fa-money-bill-alt"></i> '.__('purchase.add_payment').'</a></li>';
+                                    }
+
+                                    $html .= '<li><a href="'.action([\App\Http\Controllers\TransactionPaymentController::class, 'show'], [$row->id]).'" class="view_payment_modal"><i class="fas fa-money-bill-alt"></i> '.__('purchase.view_payments').'</a></li>';
+                                }
+
+                                if (auth()->user()->can('sell.create') || auth()->user()->can('direct_sell.access')) {
+                                    // $html .= '<li><a href="' . action([\App\Http\Controllers\SellController::class, 'duplicateSell'], [$row->id]) . '"><i class="fas fa-copy"></i> ' . __("lang_v1.duplicate_sell") . '</a></li>';
+
+                                    $html .= '<li><a href="'.action([\App\Http\Controllers\SellReturnController::class, 'add'], [$row->id]).'"><i class="fas fa-undo"></i> '.__('lang_v1.sell_return').'</a></li>
+
+                                    <li><a href="'.action([\App\Http\Controllers\SellPosController::class, 'showInvoiceUrl'], [$row->id]).'" class="view_invoice_url"><i class="fas fa-eye"></i> '.__('lang_v1.view_invoice_url').'</a></li>';
+                                }
+                            }
+
+                            $html .= '<li><a href="#" data-href="'.action([\App\Http\Controllers\NotificationController::class, 'getTemplate'], ['transaction_id' => $row->id, 'template_for' => 'new_sale']).'" class="btn-modal" data-container=".view_modal"><i class="fa fa-envelope" aria-hidden="true"></i>'.__('lang_v1.new_sale_notification').'</a></li>';
+                        } else {
+                            $html .= '<li><a href="#" data-href="'.action([\App\Http\Controllers\SellController::class, 'viewMedia'], ['model_id' => $row->id, 'model_type' => \App\Transaction::class, 'model_media_type' => 'shipping_document']).'" class="btn-modal" data-container=".view_modal"><i class="fas fa-paperclip" aria-hidden="true"></i>'.__('lang_v1.shipping_documents').'</a></li>';
+                        }
+
+                        $html .= '</ul></div>';
+
+                        return $html;
+                    }
+                )
+                ->removeColumn('id')
+                ->editColumn(
+                    'final_total',
+                    '<span class="final-total" data-orig-value="{{$final_total}}">@format_currency($final_total)</span>'
+                )
+                ->editColumn(
+                    'tax_amount',
+                    '<span class="total-tax" data-orig-value="{{$tax_amount}}">@format_currency($tax_amount)</span>'
+                )
+                ->editColumn(
+                    'total_paid',
+                    '<span class="total-paid" data-orig-value="{{$total_paid}}">@format_currency($total_paid)</span>'
+                )
+                ->editColumn(
+                    'total_before_tax',
+                    '<span class="total_before_tax" data-orig-value="{{$total_before_tax}}">@format_currency($total_before_tax)</span>'
+                )
+                ->editColumn(
+                    'discount_amount',
+                    function ($row) {
+                        $discount = ! empty($row->discount_amount) ? $row->discount_amount : 0;
+
+                        if (! empty($discount) && $row->discount_type == 'percentage') {
+                            $discount = $row->total_before_tax * ($discount / 100);
+                        }
+
+                        return '<span class="total-discount" data-orig-value="'.$discount.'">'.$this->transactionUtil->num_f($discount, true).'</span>';
+                    }
+                )
+                ->editColumn('transaction_date', '{{@format_datetime($transaction_date)}}')
+                ->editColumn(
+                    'payment_status',
+                    function ($row) {
+                        $payment_status = Transaction::getPaymentStatus($row);
+
+                        return (string) view('sell.partials.payment_status', ['payment_status' => $payment_status, 'id' => $row->id]);
+                    }
+                )
+                ->editColumn(
+                    'types_of_service_name',
+                    '<span class="service-type-label" data-orig-value="{{$types_of_service_name}}" data-status-name="{{$types_of_service_name}}">{{$types_of_service_name}}</span>'
+                )
+                ->addColumn('total_remaining', function ($row) {
+                    $total_remaining = $row->final_total - $row->total_paid;
+                    $total_remaining_html = '<span class="payment_due" data-orig-value="'.$total_remaining.'">'.$this->transactionUtil->num_f($total_remaining, true).'</span>';
+
+                    return $total_remaining_html;
+                })
+                ->addColumn('return_due', function ($row) {
+                    $return_due_html = '';
+                    if (! empty($row->return_exists)) {
+                        $return_due = $row->amount_return - $row->return_paid;
+                        $return_due_html .= '<a href="'.action([\App\Http\Controllers\TransactionPaymentController::class, 'show'], [$row->return_transaction_id]).'" class="view_purchase_return_payment_modal"><span class="sell_return_due" data-orig-value="'.$return_due.'">'.$this->transactionUtil->num_f($return_due, true).'</span></a>';
+                    }
+
+                    return $return_due_html;
+                })
+                ->editColumn('invoice_no', function ($row) use ($is_crm) {
+                    $invoice_no = $row->invoice_no;
+                    if (! empty($row->woocommerce_order_id)) {
+                        $invoice_no .= ' <i class="fab fa-wordpress text-primary no-print" title="'.__('lang_v1.synced_from_woocommerce').'"></i>';
+                    }
+                    if (! empty($row->return_exists)) {
+                        $invoice_no .= ' &nbsp;<small class="label bg-red label-round no-print" title="'.__('lang_v1.some_qty_returned_from_sell').'"><i class="fas fa-undo"></i></small>';
+                    }
+                    if (! empty($row->is_recurring)) {
+                        $invoice_no .= ' &nbsp;<small class="label bg-red label-round no-print" title="'.__('lang_v1.subscribed_invoice').'"><i class="fas fa-recycle"></i></small>';
+                    }
+
+                    if (! empty($row->recur_parent_id)) {
+                        $invoice_no .= ' &nbsp;<small class="label bg-info label-round no-print" title="'.__('lang_v1.subscription_invoice').'"><i class="fas fa-recycle"></i></small>';
+                    }
+
+                    if (! empty($row->is_export)) {
+                        $invoice_no .= '</br><small class="label label-default no-print" title="'.__('lang_v1.export').'">'.__('lang_v1.export').'</small>';
+                    }
+
+                    if ($is_crm && ! empty($row->crm_is_order_request)) {
+                        $invoice_no .= ' &nbsp;<small class="label bg-yellow label-round no-print" title="'.__('crm::lang.order_request').'"><i class="fas fa-tasks"></i></small>';
+                    }
+
+                    return $invoice_no;
+                })
+                ->editColumn('shipping_status', function ($row) use ($shipping_statuses) {
+                    $status_color = ! empty($this->shipping_status_colors[$row->shipping_status]) ? $this->shipping_status_colors[$row->shipping_status] : 'bg-gray';
+                    $status = ! empty($row->shipping_status) ? '<a href="#" class="btn-modal" data-href="'.action([\App\Http\Controllers\SellController::class, 'editShipping'], [$row->id]).'" data-container=".view_modal"><span class="label '.$status_color.'">'.$shipping_statuses[$row->shipping_status].'</span></a>' : '';
+
+                    return $status;
+                })
+                ->addColumn('conatct_name', '@if(!empty($supplier_business_name)) {{$supplier_business_name}}, <br> @endif {{$name}}')
+                ->editColumn('total_items', '{{@format_quantity($total_items)}}')
+                ->filterColumn('conatct_name', function ($query, $keyword): void {
+                    $query->where(function ($q) use ($keyword): void {
+                        $q->where('contacts.name', 'like', "%{$keyword}%")
+                            ->orWhere('contacts.supplier_business_name', 'like', "%{$keyword}%");
+                    });
+                })
+                ->addColumn('payment_methods', function ($row) use ($payment_types) {
+                    $methods = array_unique($row->payment_lines->pluck('method')->toArray());
+                    $count = count($methods);
+                    $payment_method = '';
+                    if ($count == 1) {
+                        $payment_method = $payment_types[$methods[0]] ?? '';
+                    } elseif ($count > 1) {
+                        $payment_method = __('lang_v1.checkout_multi_pay');
+                    }
+
+                    $html = ! empty($payment_method) ? '<span class="payment-method" data-orig-value="'.$payment_method.'" data-status-name="'.$payment_method.'">'.$payment_method.'</span>' : '';
+
+                    return $html;
+                })
+                ->editColumn('status', function ($row) use ($sales_order_statuses, $is_admin) {
+                    $status = '';
+
+                    if ($row->type == 'sales_order') {
+                        if ($is_admin && $row->status != 'completed') {
+                            $status = '<span class="edit-so-status label '.$sales_order_statuses[$row->status]['class'].'" data-href="'.action([\App\Http\Controllers\SalesOrderController::class, 'getEditSalesOrderStatus'], ['id' => $row->id]).'">'.$sales_order_statuses[$row->status]['label'].'</span>';
+                        } else {
+                            $status = '<span class="label '.$sales_order_statuses[$row->status]['class'].'" >'.$sales_order_statuses[$row->status]['label'].'</span>';
+                        }
+                    }
+
+                    return $status;
+                })
+                
+                ->addColumn('invoice_age', function ($row) {
+                    if (empty($row->created_at)) {
+                        return '';
+                    }
+                
+                    $created_at_date = \Carbon\Carbon::parse($row->created_at)->startOfDay();
+                    $today = \Carbon\Carbon::now()->startOfDay();
+                    $days = $created_at_date->diffInDays($today);
+                
+                    $full_date = $created_at_date->format('Y-m-d');
+                
+                    return '<span title="'.$full_date.'">'.$days.' يوم' . ($days !== 1 ? '' : '') . '</span>';
+                })
+                
+                
+                
+                
+                ->editColumn('so_qty_remaining', '{{@format_quantity($so_qty_remaining)}}')
+                ->setRowAttr([
+                    'data-href' => function ($row) {
+                        if (auth()->user()->can('sell.view') || auth()->user()->can('view_own_sell_only')) {
+                            return action([\App\Http\Controllers\SellController::class, 'show'], [$row->id]);
+                        } else {
+                            return '';
+                        }
+                    }, ]);
+
+            $rawColumns = ['final_total', 'action', 'total_paid', 'total_remaining', 'payment_status', 'invoice_no', 'discount_amount', 'tax_amount', 'total_before_tax', 'shipping_status', 'types_of_service_name', 'payment_methods', 'return_due', 'conatct_name', 'status','invoice_age'];
+
+            return $datatable->rawColumns($rawColumns)
+                ->make(true);
+        }
+
+        $business_locations = BusinessLocation::forDropdown($business_id, false);
+        $customers = Contact::customersDropdown($business_id, false);
+        $sales_representative = User::forDropdown($business_id, false, false, true);
+
+        // Commission agent filter
+        $is_cmsn_agent_enabled = request()->session()->get('business.sales_cmsn_agnt');
+        $commission_agents = [];
+        if (! empty($is_cmsn_agent_enabled)) {
+            $commission_agents = User::forDropdown($business_id, false, true, true);
+        }
+
+        // Service staff filter
+        $service_staffs = null;
+        if ($this->productUtil->isModuleEnabled('service_staff')) {
+            $service_staffs = $this->productUtil->serviceStaffDropdown($business_id);
+        }
+
+        $shipping_statuses = $this->transactionUtil->shipping_statuses();
+
+        $sources = $this->transactionUtil->getSources($business_id);
+        if ($is_woocommerce) {
+            $sources['woocommerce'] = 'Woocommerce';
+        }
+
+        $payment_types = $this->transactionUtil->payment_types(null, true, $business_id);
+
+        return view('sell.index')
+            ->with(compact('business_locations', 'customers', 'is_woocommerce', 'sales_representative', 'is_cmsn_agent_enabled', 'commission_agents', 'service_staffs', 'is_tables_enabled', 'is_service_staff_enabled', 'is_types_service_enabled', 'shipping_statuses', 'sources', 'payment_types'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $sale_type = request()->get('sale_type', '');
+
+        if ($sale_type == 'sales_order') {
+            if (! auth()->user()->can('so.create')) {
+                abort(403, 'Unauthorized action.');
+            }
+        } else {
+            if (! auth()->user()->can('direct_sell.access')) {
+                abort(403, 'Unauthorized action.');
+            }
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        // Check if subscribed or not, then check for users quota
+        if (! $this->moduleUtil->isSubscribed($business_id)) {
+            return $this->moduleUtil->expiredResponse();
+        } elseif (! $this->moduleUtil->isQuotaAvailable('invoices', $business_id)) {
+            return $this->moduleUtil->quotaExpiredResponse('invoices', $business_id, action([\App\Http\Controllers\SellController::class, 'index']));
+        }
+
+        $walk_in_customer = $this->contactUtil->getWalkInCustomer($business_id);
+
+        $business_details = $this->businessUtil->getDetails($business_id);
+        $taxes = TaxRate::forBusinessDropdown($business_id, true, true);
+
+        $business_locations = BusinessLocation::forDropdown($business_id, false, true);
+        $bl_attributes = $business_locations['attributes'];
+        $business_locations = $business_locations['locations'];
+
+        $default_location = null;
+        foreach ($business_locations as $id => $name) {
+            $default_location = BusinessLocation::findOrFail($id);
+            break;
+        }
+
+        $commsn_agnt_setting = $business_details->sales_cmsn_agnt;
+        $commission_agent = [];
+        if ($commsn_agnt_setting == 'user') {
+            $commission_agent = User::forDropdown($business_id);
+        } elseif ($commsn_agnt_setting == 'cmsn_agnt') {
+            $commission_agent = User::saleCommissionAgentsDropdown($business_id);
+        }
+
+        $types = [];
+        if (auth()->user()->can('supplier.create')) {
+            $types['supplier'] = __('report.supplier');
+        }
+        if (auth()->user()->can('customer.create')) {
+            $types['customer'] = __('report.customer');
+        }
+        if (auth()->user()->can('supplier.create') && auth()->user()->can('customer.create')) {
+            $types['both'] = __('lang_v1.both_supplier_customer');
+        }
+        $customer_groups = CustomerGroup::forDropdown($business_id);
+
+        $payment_line = $this->dummyPaymentLine;
+        $payment_types = $this->transactionUtil->payment_types(null, true, $business_id);
+
+        // Selling Price Group Dropdown
+        $price_groups = SellingPriceGroup::forDropdown($business_id);
+
+        $default_price_group_id = ! empty($default_location->selling_price_group_id) && array_key_exists($default_location->selling_price_group_id, $price_groups) ? $default_location->selling_price_group_id : null;
+
+        $default_datetime = $this->businessUtil->format_date('now', true);
+
+        $pos_settings = empty($business_details->pos_settings) ? $this->businessUtil->defaultPosSettings() : json_decode($business_details->pos_settings, true);
+
+        $invoice_schemes = InvoiceScheme::forDropdown($business_id);
+        $default_invoice_schemes = InvoiceScheme::getDefault($business_id);
+        if (! empty($default_location) && ! empty($default_location->sale_invoice_scheme_id)) {
+            $default_invoice_schemes = InvoiceScheme::where('business_id', $business_id)
+                ->findorfail($default_location->sale_invoice_scheme_id);
+        }
+        $shipping_statuses = $this->transactionUtil->shipping_statuses();
+
+        // Types of service
+        $types_of_service = [];
+        if ($this->moduleUtil->isModuleEnabled('types_of_service')) {
+            $types_of_service = TypesOfService::forDropdown($business_id);
+        }
+
+        // Accounts
+        $accounts = [];
+        if ($this->moduleUtil->isModuleEnabled('account')) {
+            $accounts = Account::forDropdown($business_id, true, false);
+        }
+
+        $status = request()->get('status', '');
+
+        $statuses = Transaction::sell_statuses();
+
+        if ($sale_type == 'sales_order') {
+            $status = 'ordered';
+        }
+
+        $is_order_request_enabled = false;
+        $is_crm = $this->moduleUtil->isModuleInstalled('Crm');
+        if ($is_crm) {
+            $crm_settings = Business::where('id', auth()->user()->business_id)
+                ->value('crm_settings');
+            $crm_settings = ! empty($crm_settings) ? json_decode($crm_settings, true) : [];
+
+            if (! empty($crm_settings['enable_order_request'])) {
+                $is_order_request_enabled = true;
+            }
+        }
+
+        // Added check because $users is of no use if enable_contact_assign if false
+        $users = config('constants.enable_contact_assign') ? User::forDropdown($business_id, false, false, false, true) : [];
+
+        $change_return = $this->dummyPaymentLine;
+
+        return view('sell.create')
+            ->with(compact(
+                'business_details',
+                'taxes',
+                'walk_in_customer',
+                'business_locations',
+                'bl_attributes',
+                'default_location',
+                'commission_agent',
+                'types',
+                'customer_groups',
+                'payment_line',
+                'payment_types',
+                'price_groups',
+                'default_datetime',
+                'pos_settings',
+                'invoice_schemes',
+                'default_invoice_schemes',
+                'types_of_service',
+                'accounts',
+                'shipping_statuses',
+                'status',
+                'sale_type',
+                'statuses',
+                'is_order_request_enabled',
+                'users',
+                'default_price_group_id',
+                'change_return'
+            ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        // if (!auth()->user()->can('sell.view') && !auth()->user()->can('direct_sell.access') && !auth()->user()->can('view_own_sell_only')) {
+        //     abort(403, 'Unauthorized action.');
+        // }
+
+        $business_id = request()->session()->get('user.business_id');
+        $taxes = TaxRate::where('business_id', $business_id)
+            ->pluck('name', 'id');
+        $query = Transaction::where('business_id', $business_id)
+            ->where('id', $id)
+            ->with(['contact', 'delivery_person_user', 'sell_lines' => function ($q): void {
+                $q->whereNull('parent_sell_line_id');
+            }, 'sell_lines.product', 'sell_lines.product.unit', 'sell_lines.product.second_unit', 'sell_lines.variations', 'sell_lines.variations.product_variation', 'payment_lines', 'sell_lines.modifiers', 'sell_lines.lot_details', 'tax', 'sell_lines.sub_unit', 'table', 'service_staff', 'sell_lines.service_staff', 'types_of_service', 'sell_lines.warranties', 'media']);
+
+        if (! auth()->user()->can('sell.view') && ! auth()->user()->can('direct_sell.access') && auth()->user()->can('view_own_sell_only')) {
+            $query->where('transactions.created_by', request()->session()->get('user.id'));
+        }
+
+        $sell = $query->firstOrFail();
+
+        $activities = Activity::forSubject($sell)
+            ->with(['causer', 'subject'])
+            ->latest()
+            ->get();
+
+        $line_taxes = [];
+        foreach ($sell->sell_lines as $key => $value) {
+            if (! empty($value->sub_unit_id)) {
+                $formated_sell_line = $this->transactionUtil->recalculateSellLineTotals($business_id, $value);
+                $sell->sell_lines[$key] = $formated_sell_line;
+            }
+
+            if (! empty($taxes[$value->tax_id])) {
+                if (isset($line_taxes[$taxes[$value->tax_id]])) {
+                    $line_taxes[$taxes[$value->tax_id]] += ($value->item_tax * $value->quantity);
+                } else {
+                    $line_taxes[$taxes[$value->tax_id]] = ($value->item_tax * $value->quantity);
+                }
+            }
+        }
+
+        $payment_types = $this->transactionUtil->payment_types($sell->location_id, true);
+        $order_taxes = [];
+        if (! empty($sell->tax)) {
+            if ($sell->tax->is_tax_group) {
+                $order_taxes = $this->transactionUtil->sumGroupTaxDetails($this->transactionUtil->groupTaxDetails($sell->tax, $sell->tax_amount));
+            } else {
+                $order_taxes[$sell->tax->name] = $sell->tax_amount;
+            }
+        }
+
+        $business_details = $this->businessUtil->getDetails($business_id);
+        $pos_settings = empty($business_details->pos_settings) ? $this->businessUtil->defaultPosSettings() : json_decode($business_details->pos_settings, true);
+        $shipping_statuses = $this->transactionUtil->shipping_statuses();
+        $shipping_status_colors = $this->shipping_status_colors;
+        $common_settings = session()->get('business.common_settings');
+        $is_warranty_enabled = ! empty($common_settings['enable_product_warranty']) ? true : false;
+
+        $statuses = Transaction::sell_statuses();
+
+        if ($sell->type == 'sales_order') {
+            $sales_order_statuses = Transaction::sales_order_statuses(true);
+            $statuses = array_merge($statuses, $sales_order_statuses);
+        }
+        $status_color_in_activity = Transaction::sales_order_statuses();
+        $sales_orders = $sell->salesOrders();
+
+        return view('sale_pos.show')
+            ->with(compact(
+                'taxes',
+                'sell',
+                'payment_types',
+                'order_taxes',
+                'pos_settings',
+                'shipping_statuses',
+                'shipping_status_colors',
+                'is_warranty_enabled',
+                'activities',
+                'statuses',
+                'status_color_in_activity',
+                'sales_orders',
+                'line_taxes'
+            ));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        if (! auth()->user()->can('direct_sell.update') && ! auth()->user()->can('so.update')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        // Check if the transaction can be edited or not.
+        $edit_days = request()->session()->get('business.transaction_edit_days');
+        if (! $this->transactionUtil->canBeEdited($id, $edit_days)) {
+            return back()
+                ->with('status', ['success' => 0,
+                    'msg' => __('messages.transaction_edit_not_allowed', ['days' => $edit_days]), ]);
+        }
+
+        // Check if return exist then not allowed
+        if ($this->transactionUtil->isReturnExist($id)) {
+            return back()->with('status', ['success' => 0,
+                'msg' => __('lang_v1.return_exist'), ]);
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $business_details = $this->businessUtil->getDetails($business_id);
+        $taxes = TaxRate::forBusinessDropdown($business_id, true, true);
+
+        $transaction = Transaction::where('business_id', $business_id)
+            ->with(['price_group', 'types_of_service', 'media', 'media.uploaded_by_user'])
+            ->whereIn('type', ['sell', 'sales_order'])
+            ->findorfail($id);
+
+        if ($transaction->type == 'sales_order' && ! auth()->user()->can('so.update')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $location_id = $transaction->location_id;
+        $location_printer_type = BusinessLocation::find($location_id)->receipt_printer_type;
+
+        $sell_details = TransactionSellLine::join(
+            'products AS p',
+            'transaction_sell_lines.product_id',
+            '=',
+            'p.id'
+        )
+            ->join(
+                'variations AS variations',
+                'transaction_sell_lines.variation_id',
+                '=',
+                'variations.id'
+            )
+            ->join(
+                'product_variations AS pv',
+                'variations.product_variation_id',
+                '=',
+                'pv.id'
+            )
+            ->leftjoin('variation_location_details AS vld', function ($join) use ($location_id): void {
+                $join->on('variations.id', '=', 'vld.variation_id')
+                    ->where('vld.location_id', '=', $location_id);
+            })
+            ->leftjoin('units', 'units.id', '=', 'p.unit_id')
+            ->leftjoin('units as u', 'p.secondary_unit_id', '=', 'u.id')
+            ->where('transaction_sell_lines.transaction_id', $id)
+            ->with(['warranties', 'so_line'])
+            ->select(
+                DB::raw("IF(pv.is_dummy = 0, CONCAT(p.name, ' (', pv.name, ':',variations.name, ')'), p.name) AS product_name"),
+                'p.id as product_id',
+                'p.image as product_image',
+                'p.enable_stock',
+                'p.name as product_actual_name',
+                'p.type as product_type',
+                'pv.name as product_variation_name',
+                'pv.is_dummy as is_dummy',
+                'variations.name as variation_name',
+                'variations.sub_sku',
+                'p.barcode_type',
+                'p.enable_sr_no',
+                'variations.id as variation_id',
+                'units.short_name as unit',
+                'units.allow_decimal as unit_allow_decimal',
+                'u.short_name as second_unit',
+                'transaction_sell_lines.secondary_unit_quantity',
+                'transaction_sell_lines.tax_id as tax_id',
+                'transaction_sell_lines.item_tax as item_tax',
+                'transaction_sell_lines.unit_price as default_sell_price',
+                'transaction_sell_lines.unit_price_inc_tax as sell_price_inc_tax',
+                'transaction_sell_lines.unit_price_before_discount as unit_price_before_discount',
+                'transaction_sell_lines.id as transaction_sell_lines_id',
+                'transaction_sell_lines.id',
+                'transaction_sell_lines.quantity as quantity_ordered',
+                'transaction_sell_lines.sell_line_note as sell_line_note',
+                'transaction_sell_lines.parent_sell_line_id',
+                'transaction_sell_lines.lot_no_line_id',
+                'transaction_sell_lines.line_discount_type',
+                'transaction_sell_lines.line_discount_amount',
+                'transaction_sell_lines.res_service_staff_id',
+                'units.id as unit_id',
+                'transaction_sell_lines.sub_unit_id',
+                'transaction_sell_lines.so_line_id',
+                DB::raw('vld.qty_available + transaction_sell_lines.quantity AS qty_available')
+            )
+            ->get();
+
+        if (! empty($sell_details)) {
+            foreach ($sell_details as $key => $value) {
+
+                $variation = Variation::with('media')->findOrFail($value->variation_id);
+                $sell_details[$key]->media = $variation->media;
+
+                // If modifier or combo sell line then unset
+                if (! empty($sell_details[$key]->parent_sell_line_id)) {
+                    unset($sell_details[$key]);
+                } else {
+                    if ($transaction->status != 'final') {
+                        $actual_qty_avlbl = $value->qty_available - $value->quantity_ordered;
+                        $sell_details[$key]->qty_available = $actual_qty_avlbl;
+                        $value->qty_available = $actual_qty_avlbl;
+                    }
+
+                    $sell_details[$key]->formatted_qty_available = $this->productUtil->num_f($value->qty_available, false, null, true);
+                    $lot_numbers = [];
+                    if (request()->session()->get('business.enable_lot_number') == 1) {
+                        $lot_number_obj = $this->transactionUtil->getLotNumbersFromVariation($value->variation_id, $business_id, $location_id);
+                        foreach ($lot_number_obj as $lot_number) {
+                            // If lot number is selected added ordered quantity to lot quantity available
+                            if ($value->lot_no_line_id == $lot_number->purchase_line_id) {
+                                $lot_number->qty_available += $value->quantity_ordered;
+                            }
+
+                            $lot_number->qty_formated = $this->transactionUtil->num_f($lot_number->qty_available);
+                            $lot_numbers[] = $lot_number;
+                        }
+                    }
+                    $sell_details[$key]->lot_numbers = $lot_numbers;
+
+                    if (! empty($value->sub_unit_id)) {
+                        $value = $this->productUtil->changeSellLineUnit($business_id, $value);
+                        $sell_details[$key] = $value;
+                    }
+
+                    if ($this->transactionUtil->isModuleEnabled('modifiers')) {
+                        // Add modifier details to sel line details
+                        $sell_line_modifiers = TransactionSellLine::where('parent_sell_line_id', $sell_details[$key]->transaction_sell_lines_id)
+                            ->where('children_type', 'modifier')
+                            ->get();
+                        $modifiers_ids = [];
+                        if (count($sell_line_modifiers) > 0) {
+                            $sell_details[$key]->modifiers = $sell_line_modifiers;
+                            foreach ($sell_line_modifiers as $sell_line_modifier) {
+                                $modifiers_ids[] = $sell_line_modifier->variation_id;
+                            }
+                        }
+                        $sell_details[$key]->modifiers_ids = $modifiers_ids;
+
+                        // add product modifier sets for edit
+                        $this_product = Product::find($sell_details[$key]->product_id);
+                        if (count($this_product->modifier_sets) > 0) {
+                            $sell_details[$key]->product_ms = $this_product->modifier_sets;
+                        }
+                    }
+
+                    // Get details of combo items
+                    if ($sell_details[$key]->product_type == 'combo') {
+                        $sell_line_combos = TransactionSellLine::where('parent_sell_line_id', $sell_details[$key]->transaction_sell_lines_id)
+                            ->where('children_type', 'combo')
+                            ->get()
+                            ->toArray();
+                        if (! empty($sell_line_combos)) {
+                            $sell_details[$key]->combo_products = $sell_line_combos;
+                        }
+
+                        // calculate quantity available if combo product
+                        $combo_variations = [];
+                        foreach ($sell_line_combos as $combo_line) {
+                            $combo_variations[] = [
+                                'variation_id' => $combo_line['variation_id'],
+                                'quantity' => $combo_line['quantity'] / $sell_details[$key]->quantity_ordered,
+                                'unit_id' => null,
+                            ];
+                        }
+                        $sell_details[$key]->qty_available =
+                        $this->productUtil->calculateComboQuantity($location_id, $combo_variations);
+
+                        if ($transaction->status == 'final') {
+                            $sell_details[$key]->qty_available += $sell_details[$key]->quantity_ordered;
+                        }
+
+                        $sell_details[$key]->formatted_qty_available = $this->productUtil->num_f($sell_details[$key]->qty_available, false, null, true);
+                    }
+                }
+            }
+        }
+
+        $commsn_agnt_setting = $business_details->sales_cmsn_agnt;
+        $commission_agent = [];
+        if ($commsn_agnt_setting == 'user') {
+            $commission_agent = User::forDropdown($business_id);
+        } elseif ($commsn_agnt_setting == 'cmsn_agnt') {
+            $commission_agent = User::saleCommissionAgentsDropdown($business_id);
+        }
+
+        $types = [];
+        if (auth()->user()->can('supplier.create')) {
+            $types['supplier'] = __('report.supplier');
+        }
+        if (auth()->user()->can('customer.create')) {
+            $types['customer'] = __('report.customer');
+        }
+        if (auth()->user()->can('supplier.create') && auth()->user()->can('customer.create')) {
+            $types['both'] = __('lang_v1.both_supplier_customer');
+        }
+        $customer_groups = CustomerGroup::forDropdown($business_id);
+
+        $transaction->transaction_date = $this->transactionUtil->format_date($transaction->transaction_date, true);
+
+        $pos_settings = empty($business_details->pos_settings) ? $this->businessUtil->defaultPosSettings() : json_decode($business_details->pos_settings, true);
+
+        $waiters = [];
+        if ($this->productUtil->isModuleEnabled('service_staff') && ! empty($pos_settings['inline_service_staff'])) {
+            $waiters = $this->productUtil->serviceStaffDropdown($business_id);
+        }
+
+        $invoice_schemes = [];
+        $default_invoice_schemes = null;
+
+        if ($transaction->status == 'draft') {
+            $invoice_schemes = InvoiceScheme::forDropdown($business_id);
+            $default_invoice_schemes = InvoiceScheme::getDefault($business_id);
+        }
+
+        $redeem_details = [];
+        if (request()->session()->get('business.enable_rp') == 1) {
+            $redeem_details = $this->transactionUtil->getRewardRedeemDetails($business_id, $transaction->contact_id);
+
+            $redeem_details['points'] += $transaction->rp_redeemed;
+            $redeem_details['points'] -= $transaction->rp_earned;
+        }
+
+        $edit_discount = auth()->user()->can('edit_product_discount_from_sale_screen');
+        $edit_price = auth()->user()->can('edit_product_price_from_sale_screen');
+
+        // Accounts
+        $accounts = [];
+        if ($this->moduleUtil->isModuleEnabled('account')) {
+            $accounts = Account::forDropdown($business_id, true, false);
+        }
+
+        $shipping_statuses = $this->transactionUtil->shipping_statuses();
+
+        $common_settings = session()->get('business.common_settings');
+        $is_warranty_enabled = ! empty($common_settings['enable_product_warranty']) ? true : false;
+        $warranties = $is_warranty_enabled ? Warranty::forDropdown($business_id) : [];
+
+        $statuses = Transaction::sell_statuses();
+
+        $is_order_request_enabled = false;
+        $is_crm = $this->moduleUtil->isModuleInstalled('Crm');
+        if ($is_crm) {
+            $crm_settings = Business::where('id', auth()->user()->business_id)
+                ->value('crm_settings');
+            $crm_settings = ! empty($crm_settings) ? json_decode($crm_settings, true) : [];
+
+            if (! empty($crm_settings['enable_order_request'])) {
+                $is_order_request_enabled = true;
+            }
+        }
+
+        $sales_orders = [];
+        if (! empty($pos_settings['enable_sales_order']) || $is_order_request_enabled) {
+            $sales_orders = Transaction::where('business_id', $business_id)
+                ->where('type', 'sales_order')
+                ->where('contact_id', $transaction->contact_id)
+                ->where(function ($q) use ($transaction): void {
+                    $q->where('status', '!=', 'completed');
+
+                    if (! empty($transaction->sales_order_ids)) {
+                        $q->orWhereIn('id', $transaction->sales_order_ids);
+                    }
+                })
+                ->pluck('invoice_no', 'id');
+        }
+
+        $payment_types = $this->transactionUtil->payment_types($transaction->location_id, false, $business_id);
+
+        $payment_lines = $this->transactionUtil->getPaymentDetails($id);
+        // If no payment lines found then add dummy payment line.
+        if (empty($payment_lines)) {
+            $payment_lines[] = $this->dummyPaymentLine;
+        }
+
+        $change_return = $this->dummyPaymentLine;
+
+        $customer_due = $this->transactionUtil->getContactDue($transaction->contact_id, $transaction->business_id);
+
+        $customer_due = $customer_due != 0 ? $this->transactionUtil->num_f($customer_due, true) : '';
+
+        // Added check because $users is of no use if enable_contact_assign if false
+        $users = config('constants.enable_contact_assign') ? User::forDropdown($business_id, false, false, false, true) : [];
+
+        return view('sell.edit')
+            ->with(compact('business_details', 'taxes', 'sell_details', 'transaction', 'commission_agent', 'types', 'customer_groups', 'pos_settings', 'waiters', 'invoice_schemes', 'default_invoice_schemes', 'redeem_details', 'edit_discount', 'edit_price', 'shipping_statuses', 'warranties', 'statuses', 'sales_orders', 'payment_types', 'accounts', 'payment_lines', 'change_return', 'is_order_request_enabled', 'customer_due', 'users'));
+    }
+
+    /**
+     * Display a listing sell drafts.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getDrafts()
+    {
+        if (! auth()->user()->can('draft.view_all') && ! auth()->user()->can('draft.view_own')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $business_locations = BusinessLocation::forDropdown($business_id, false);
+        $customers = Contact::customersDropdown($business_id, false);
+
+        $sales_representative = User::forDropdown($business_id, false, false, true);
+
+        return view('sale_pos.draft')
+            ->with(compact('business_locations', 'customers', 'sales_representative'));
+    }
+
+    /**
+     * Display a listing sell quotations.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getQuotations()
+    {
+        if (! auth()->user()->can('quotation.view_all') && ! auth()->user()->can('quotation.view_own')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $business_locations = BusinessLocation::forDropdown($business_id, false);
+        $customers = Contact::customersDropdown($business_id, false);
+
+        $sales_representative = User::forDropdown($business_id, false, false, true);
+
+        return view('sale_pos.quotations')
+            ->with(compact('business_locations', 'customers', 'sales_representative'));
+    }
+
+    /**
+     * Send the datatable response for draft or quotations.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getDraftDatables()
+    {
+        if (request()->ajax()) {
+            $business_id = request()->session()->get('user.business_id');
+            $is_quotation = request()->input('is_quotation', 0);
+
+            $is_woocommerce = $this->moduleUtil->isModuleInstalled('Woocommerce');
+
+            $sells = Transaction::leftJoin('contacts', 'transactions.contact_id', '=', 'contacts.id')
+                ->leftJoin('users as u', 'transactions.created_by', '=', 'u.id')
+                ->join(
+                    'business_locations AS bl',
+                    'transactions.location_id',
+                    '=',
+                    'bl.id'
+                )
+                ->leftJoin('transaction_sell_lines as tsl', function ($join): void {
+                    $join->on('transactions.id', '=', 'tsl.transaction_id')
+                        ->whereNull('tsl.parent_sell_line_id');
+                })
+                ->where('transactions.business_id', $business_id)
+                ->where('transactions.type', 'sell')
+                ->where('transactions.status', 'draft')
+                ->select(
+                    'transactions.id',
+                    'transaction_date',
+                    'invoice_no',
+                    'contacts.name',
+                    'contacts.mobile',
+                    'contacts.supplier_business_name',
+                    'bl.name as business_location',
+                    'is_direct_sale',
+                    'sub_status',
+                    DB::raw('COUNT( DISTINCT tsl.id) as total_items'),
+                    DB::raw('SUM(tsl.quantity) as total_quantity'),
+                    DB::raw("CONCAT(COALESCE(u.surname, ''), ' ', COALESCE(u.first_name, ''), ' ', COALESCE(u.last_name, '')) as added_by"),
+                    'transactions.is_export'
+                );
+
+            if ($is_quotation == 1) {
+                $sells->where('transactions.sub_status', 'quotation');
+
+                if (! auth()->user()->can('quotation.view_all') && auth()->user()->can('quotation.view_own')) {
+                    $sells->where('transactions.created_by', request()->session()->get('user.id'));
+                }
+            } else {
+                if (! auth()->user()->can('draft.view_all') && auth()->user()->can('draft.view_own')) {
+                    $sells->where('transactions.created_by', request()->session()->get('user.id'));
+                }
+            }
+
+            $permitted_locations = auth()->user()->permitted_locations();
+            if ($permitted_locations != 'all') {
+                $sells->whereIn('transactions.location_id', $permitted_locations);
+            }
+
+            if (! empty(request()->start_date) && ! empty(request()->end_date)) {
+                $start = request()->start_date;
+                $end = request()->end_date;
+                $sells->whereDate('transaction_date', '>=', $start)
+                    ->whereDate('transaction_date', '<=', $end);
+            }
+
+            if (request()->has('location_id')) {
+                $location_id = request()->get('location_id');
+                if (! empty($location_id)) {
+                    $sells->where('transactions.location_id', $location_id);
+                }
+            }
+
+            if (request()->has('created_by')) {
+                $created_by = request()->get('created_by');
+                if (! empty($created_by)) {
+                    $sells->where('transactions.created_by', $created_by);
+                }
+            }
+
+            if (! empty(request()->customer_id)) {
+                $customer_id = request()->customer_id;
+                $sells->where('contacts.id', $customer_id);
+            }
+
+            if ($is_woocommerce) {
+                $sells->addSelect('transactions.woocommerce_order_id');
+            }
+
+            $sells->groupBy('transactions.id');
+
+            return Datatables::of($sells)
+                ->addColumn(
+                    'action', function ($row) {
+                        $html = '<div class="btn-group">
+                                <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-info tw-w-max dropdown-toggle" 
+                                    data-toggle="dropdown" aria-expanded="false">'.
+                                    __('messages.actions').
+                                    '<span class="caret"></span><span class="sr-only">Toggle Dropdown
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li>
+                                    <a href="#" data-href="'.action([\App\Http\Controllers\SellController::class, 'show'], [$row->id]).'" class="btn-modal" data-container=".view_modal">
+                                        <i class="fas fa-eye" aria-hidden="true"></i>'.__('messages.view').'
+                                    </a>
+                                    </li>';
+
+                        if (auth()->user()->can('draft.update') || auth()->user()->can('quotation.update')) {
+                            if ($row->is_direct_sale == 1) {
+                                $html .= '<li>
+                                            <a target="_blank" href="'.action([\App\Http\Controllers\SellController::class, 'edit'], [$row->id]).'">
+                                                <i class="fas fa-edit"></i>'.__('messages.edit').'
+                                            </a>
+                                        </li>';
+                            } else {
+                                $html .= '<li>
+                                            <a target="_blank" href="'.action([\App\Http\Controllers\SellPosController::class, 'edit'], [$row->id]).'">
+                                                <i class="fas fa-edit"></i>'.__('messages.edit').'
+                                            </a>
+                                        </li>';
+                            }
+                        }
+
+                        $html .= '<li>
+                                    <a href="#" class="print-invoice" data-href="'.route('sell.printInvoice', [$row->id]).'"><i class="fas fa-print" aria-hidden="true"></i>'.__('messages.print').'</a>
+                                </li>';
+
+                        if (config('constants.enable_download_pdf')) {
+                            $sub_status = $row->sub_status == 'proforma' ? 'proforma' : '';
+                            $html .= '<li>
+                                        <a href="'.route('quotation.downloadPdf', ['id' => $row->id, 'sub_status' => $sub_status]).'" target="_blank">
+                                            <i class="fas fa-print" aria-hidden="true"></i>'.__('lang_v1.download_pdf').'
+                                        </a>
+                                    </li>';
+                        }
+
+                        if ((auth()->user()->can('sell.create') || auth()->user()->can('direct_sell.access')) && config('constants.enable_convert_draft_to_invoice')) {
+                            $html .= '<li>
+                                        <a href="'.action([\App\Http\Controllers\SellPosController::class, 'convertToInvoice'], [$row->id]).'" class="convert-draft"><i class="fas fa-sync-alt"></i>'.__('lang_v1.convert_to_invoice').'</a>
+                                    </li>';
+                        }
+
+                        if ($row->sub_status != 'proforma') {
+                            $html .= '<li>
+                                        <a href="'.action([\App\Http\Controllers\SellPosController::class, 'convertToProforma'], [$row->id]).'" class="convert-to-proforma"><i class="fas fa-sync-alt"></i>'.__('lang_v1.convert_to_proforma').'</a>
+                                    </li>';
+                        }
+
+                        if (auth()->user()->can('draft.delete') || auth()->user()->can('quotation.delete')) {
+                            $html .= '<li>
+                                <a href="'.action([\App\Http\Controllers\SellPosController::class, 'destroy'], [$row->id]).'" class="delete-sale"><i class="fas fa-trash"></i>'.__('messages.delete').'</a>
+                                </li>';
+                        }
+
+                        if ($row->sub_status == 'quotation') {
+                            $html .= '<li>
+                                        <a href="'.action([\App\Http\Controllers\SellPosController::class, 'copyQuotation'], [$row->id]).'" 
+                                        class="copy_quotation"><i class="fas fa-copy"></i>'.
+                                        __('lang_v1.copy_quotation').'</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-href="'.action("\App\Http\Controllers\NotificationController@getTemplate", ['transaction_id' => $row->id, 'template_for' => 'new_quotation']).'" class="btn-modal" data-container=".view_modal"><i class="fa fa-envelope" aria-hidden="true"></i>'.__('lang_v1.new_quotation_notification').'
+                                        </a>
+                                    </li>';
+
+                            $html .= '<li>
+                                        <a href="'.action("\App\Http\Controllers\SellPosController@showInvoiceUrl", [$row->id]).'" class="view_invoice_url"><i class="fas fa-eye"></i>'.__('lang_v1.view_quote_url').'</a>
+                                    </li>';
+                        }
+
+                        $html .= '</ul></div>';
+
+                        return $html;
+                    })
+                ->removeColumn('id')
+                ->editColumn('invoice_no', function ($row) {
+                    $invoice_no = $row->invoice_no;
+                    if (! empty($row->woocommerce_order_id)) {
+                        $invoice_no .= ' <i class="fab fa-wordpress text-primary no-print" title="'.__('lang_v1.synced_from_woocommerce').'"></i>';
+                    }
+
+                    if ($row->sub_status == 'proforma') {
+                        $invoice_no .= '<br><span class="label bg-gray">'.__('lang_v1.proforma_invoice').'</span>';
+                    }
+
+                    if (! empty($row->is_export)) {
+                        $invoice_no .= '</br><small class="label label-default no-print" title="'.__('lang_v1.export').'">'.__('lang_v1.export').'</small>';
+                    }
+
+                    return $invoice_no;
+                })
+                ->editColumn('transaction_date', '{{@format_date($transaction_date)}}')
+                ->editColumn('total_items', '{{@format_quantity($total_items)}}')
+                ->editColumn('total_quantity', '{{@format_quantity($total_quantity)}}')
+                ->addColumn('conatct_name', '@if(!empty($supplier_business_name)) {{$supplier_business_name}}, <br>@endif {{$name}}')
+                ->filterColumn('conatct_name', function ($query, $keyword): void {
+                    $query->where(function ($q) use ($keyword): void {
+                        $q->where('contacts.name', 'like', "%{$keyword}%")
+                            ->orWhere('contacts.supplier_business_name', 'like', "%{$keyword}%");
+                    });
+                })
+                ->filterColumn('added_by', function ($query, $keyword): void {
+                    $query->whereRaw("CONCAT(COALESCE(u.surname, ''), ' ', COALESCE(u.first_name, ''), ' ', COALESCE(u.last_name, '')) like ?", ["%{$keyword}%"]);
+                })
+                ->setRowAttr([
+                    'data-href' => function ($row) {
+                        if (auth()->user()->can('sell.view')) {
+                            return action([\App\Http\Controllers\SellController::class, 'show'], [$row->id]);
+                        } else {
+                            return '';
+                        }
+                    }, ])
+                ->rawColumns(['action', 'invoice_no', 'transaction_date', 'conatct_name'])
+                ->make(true);
+        }
+    }
+
+    /**
+     * Creates copy of the requested sale.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function duplicateSell($id)
+    {
+        if (! auth()->user()->can('sell.create')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $business_id = request()->session()->get('user.business_id');
+            $user_id = request()->session()->get('user.id');
+
+            $transaction = Transaction::where('business_id', $business_id)
+                ->where('type', 'sell')
+                ->findorfail($id);
+            $duplicate_transaction_data = [];
+            foreach ($transaction->toArray() as $key => $value) {
+                if (! in_array($key, ['id', 'created_at', 'updated_at'])) {
+                    $duplicate_transaction_data[$key] = $value;
+                }
+            }
+            $duplicate_transaction_data['status'] = 'draft';
+            $duplicate_transaction_data['payment_status'] = null;
+            $duplicate_transaction_data['transaction_date'] = \Carbon::now();
+            $duplicate_transaction_data['created_by'] = $user_id;
+            $duplicate_transaction_data['invoice_token'] = null;
+
+            DB::beginTransaction();
+            $duplicate_transaction_data['invoice_no'] = $this->transactionUtil->getInvoiceNumber($business_id, 'draft', $duplicate_transaction_data['location_id']);
+
+            // Create duplicate transaction
+            $duplicate_transaction = Transaction::create($duplicate_transaction_data);
+
+            // Create duplicate transaction sell lines
+            $duplicate_sell_lines_data = [];
+
+            foreach ($transaction->sell_lines as $sell_line) {
+                $new_sell_line = [];
+                foreach ($sell_line->toArray() as $key => $value) {
+                    if (! in_array($key, ['id', 'transaction_id', 'created_at', 'updated_at', 'lot_no_line_id'])) {
+                        $new_sell_line[$key] = $value;
+                    }
+                }
+
+                $duplicate_sell_lines_data[] = $new_sell_line;
+            }
+
+            $duplicate_transaction->sell_lines()->createMany($duplicate_sell_lines_data);
+
+            DB::commit();
+
+            $output = ['success' => 0,
+                'msg' => trans('lang_v1.duplicate_sell_created_successfully'),
+            ];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => 0,
+                'msg' => trans('messages.something_went_wrong'),
+            ];
+        }
+
+        if (! empty($duplicate_transaction)) {
+            if ($duplicate_transaction->is_direct_sale == 1) {
+                return redirect()->action([\App\Http\Controllers\SellController::class, 'edit'], [$duplicate_transaction->id])->with(['status', $output]);
+            } else {
+                return redirect()->action([\App\Http\Controllers\SellPosController::class, 'edit'], [$duplicate_transaction->id])->with(['status', $output]);
+            }
+        } else {
+            abort(404, 'Not Found.');
+        }
+    }
+
+    /**
+     * Shows modal to edit shipping details.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editShipping($id)
+    {
+        $is_admin = $this->businessUtil->is_admin(auth()->user());
+
+        if (! $is_admin && ! auth()->user()->hasAnyPermission(['access_shipping', 'access_own_shipping', 'access_commission_agent_shipping'])) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $transaction = Transaction::where('business_id', $business_id)
+            ->with(['media', 'media.uploaded_by_user'])
+            ->findorfail($id);
+
+        $users = User::forDropdown($business_id, false, false, false);
+
+        $shipping_statuses = $this->transactionUtil->shipping_statuses();
+
+        $activities = Activity::forSubject($transaction)
+            ->with(['causer', 'subject'])
+            ->where('activity_log.description', 'shipping_edited')
+            ->latest()
+            ->get();
+
+        return view('sell.partials.edit_shipping')
+            ->with(compact('transaction', 'shipping_statuses', 'activities', 'users'));
+    }
+
+    /**
+     * Update shipping.
+     *
+     * @param  Request  $request,  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateShipping(Request $request, $id)
+    {
+        $is_admin = $this->businessUtil->is_admin(auth()->user());
+
+        if (! $is_admin && ! auth()->user()->hasAnyPermission(['access_shipping', 'access_own_shipping', 'access_commission_agent_shipping'])) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $input = $request->only([
+                'shipping_details', 'shipping_address',
+                'shipping_status', 'delivered_to', 'delivery_person', 'shipping_custom_field_1', 'shipping_custom_field_2', 'shipping_custom_field_3', 'shipping_custom_field_4', 'shipping_custom_field_5',
+            ]);
+
+            $business_id = $request->session()->get('user.business_id');
+
+            $transaction = Transaction::where('business_id', $business_id)
+                ->findOrFail($id);
+
+            $transaction_before = $transaction->replicate();
+
+            $transaction->update($input);
+
+            $activity_property = ['update_note' => $request->input('shipping_note', '')];
+            $this->transactionUtil->activityLog($transaction, 'shipping_edited', $transaction_before, $activity_property);
+
+            $output = ['success' => 1,
+                'msg' => trans('lang_v1.updated_success'),
+            ];
+        } catch (\Exception $e) {
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => 0,
+                'msg' => trans('messages.something_went_wrong'),
+            ];
+        }
+
+        return $output;
+    }
+
+    /**
+     * Display list of shipments.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function shipments()
+    {
+        $is_admin = $this->businessUtil->is_admin(auth()->user());
+
+        if (! $is_admin && ! auth()->user()->hasAnyPermission(['access_shipping', 'access_own_shipping', 'access_commission_agent_shipping'])) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $shipping_statuses = $this->transactionUtil->shipping_statuses();
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $business_locations = BusinessLocation::forDropdown($business_id, false);
+        $customers = Contact::customersDropdown($business_id, false);
+
+        $sales_representative = User::forDropdown($business_id, false, false, true);
+
+        $is_service_staff_enabled = $this->transactionUtil->isModuleEnabled('service_staff');
+
+        // Service staff filter
+        $service_staffs = null;
+        if ($this->productUtil->isModuleEnabled('service_staff')) {
+            $service_staffs = $this->productUtil->serviceStaffDropdown($business_id);
+        }
+
+        $delevery_person = User::forDropdown($business_id, false, false, true);
+
+        return view('sell.shipments')->with(compact('shipping_statuses'))
+            ->with(compact('business_locations', 'customers', 'sales_representative', 'is_service_staff_enabled', 'service_staffs', 'delevery_person'));
+    }
+
+    public function viewMedia($model_id)
+    {
+        if (request()->ajax()) {
+            $model_type = request()->input('model_type');
+            $business_id = request()->session()->get('user.business_id');
+
+            $query = Media::where('business_id', $business_id)
+                ->where('model_id', $model_id)
+                ->where('model_type', $model_type);
+
+            $title = __('lang_v1.attachments');
+            if (! empty(request()->input('model_media_type'))) {
+                $query->where('model_media_type', request()->input('model_media_type'));
+                $title = __('lang_v1.shipping_documents');
+            }
+
+            $medias = $query->get();
+
+            return view('sell.view_media')->with(compact('medias', 'title'));
+        }
+    }
+
+    public function resetMapping()
+    {
+        if (! auth()->user()->can('superadmin')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        Artisan::call('pos:mapPurchaseSell');
+
+        echo 'Mapping reset success';
+        exit;
+    }
+}

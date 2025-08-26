@@ -1,1 +1,878 @@
-<?php /* File protected by copyright four albaseetsoft Checksum: d6aa99a70c750e52ae60917a0c00c3774ce720075efdd1bda3d720f01dd195079a0f39268ee0db1879f1e4387c0552c9daaa1fb0ec3a9837f438e1a5b37e4802 */ eval(base64_decode("JElJMTExMTFsSUk9ZmlsZShwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXykpOwppZihwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXyk9PV9fRklMRV9fIG9yCnByZWdfcmVwbGFjZSgiQFwoLipcKC4qJEAiLCIiLF9fTElORV9fKSAhPSAzKWRpZSgiPHR0PkVSUk9SIik7"));eval(base64_decode("ZnVuY3Rpb24gSTExbGwxSWwxMSgkYSwkYil7JGM9YXJyYXkoOTIyLDQ4OCwxMjgsODIzMik7aWYoJGI9PTE3OSl7JGQ9c3Vic3RyKCRhLCRjWzBdKyRjWzFdLCRjWzJdKTt9ZWxzZWlmKCRiPT0xMDkpeyRkPXN1YnN0cigkYSwkY1swXSwkY1sxXSk7fWVsc2VpZigkYj09MTc0KXskZD10cmltKHN1YnN0cigkYSwkY1swXSskY1sxXSskY1syXSkpO31yZXR1cm4kZDt9"));eval(base64_decode(I11ll1Il11($II11111lII[0],109)));eval(IlIll1111l(I11ll1Il11($II11111lII[0],174),I11ll1Il11($II11111lII[0],179),$II11111lII));__halt_compiler();7ERaWYoIWZ1bmN0aW9uX2V4aXN0cygiSWxJbGwxMTExbCIpKXtmdW5jdGlvbiBJbElsbDExMTFsKCRhLCRiLCRjKXskZD1pbXBsb2RlKCRjKTskZD1wcmVnX3JlcGxhY2UoIi9fX2hhbHRfY29tcGlsZXIuKi8iLCIiLCRkKTtpZigkYj09aGFzaCgid2hpcmxwb29sIiwiJGQiKSl7cmV0dXJuKGd6aW5mbGF0ZShiYXNlNjRfZGVjb2RlKCRhKSkpO31lbHNle2RpZSgiPHR0PndoaXJscG9vbCBDb2RlIG1hbmlwdWxhdGlvbiBkZXRlY3RlZDwvdHQ+Iik7fX19aWYoIXByZWdfbWF0Y2goIi9eYWxiYXNlZXQuY2xvdWQkL2kiLCAkX1NFUlZFUlsnU0VSVkVSX05BTUUnXSkpZGllKCI8dHQ+Q29kZSBub3QgYWxsb3dlZCBvbiB0aGlzIGRvbWFpbjwvdHQ+Iik7c52e841c4767552f6619d29b99f3f51940c0c0622ea233ecd8ba70b6021b1220a3223a961ae7ffe4bb29e7ee9a148156a7bfe0f8b29d4ec63742160490cebbb07T1rc9xGjt9Tlf/QVqlCTm40ipP7kJIt2Yrt7OYuTlK2U/fBUrEoskdizCHn2BzJuqz/+wH9IPvJ4cxItrMVbm08Yr/QaACNBtDgl198+UWVLihbphklp8vl2T/bdnn2rK7api5L2rBHX0KVFROF+D7N2kf9mxfXtGrZ2ZsmrRiUFHX1W3q7gHeneU7zMRV/X+Zpa1Z9n9El1mBnp/l1WmX0h7TEf36p29PrtCjTi5Jq9bU+/W/lSFrh721RsrOXdb4qKf52irTWWvnztIX/wehMvfhB/vipLFeLooKZCAy+ov+7oqzl2MvKlDHiwtNjmdD3La1yRvpXX37x55dfEHiWTd3SDDBE9lsHKKfKQp+SKD38+mvxg3yN/bO2WWVt3ah3XdnThrarpiLXdZGrl4dygNVFWWRkvqr44CRJMtVRbGHKgXJKejTr8E1E13KW+Oy3VwU7OLHak2PfxK02fbdY3UAC1vrgw8Xzgi3L9JakpCxYW1SXpJ6T9oqShrJ61WR0FkTRmbvcbAkYoWvwVlQ5fR+7Mz88HIDz9VV9w+Ga180C/0OyhqYc4JRU9OYe4eUD0Y0BBuqiArbyVvaRd1ACEgiDGunljgDbwGKnNJaMR/Yb8WPSMVLb3BrUdrFiRUUZS4ociUbWPzhh8A76iycHJ5e0jSNg72amVY4mBv31pGl3VFTLFbQ3a/DW/vbQWGOmo6ObKwoTivShpwbYk74ffA5Obor2Kn4bZUJMR+dOhTlQ4K/NjyBDYwtyC6x61QLwSZplAFWMVHbmk5sCR+JvFI5x9PK/YTspk+yKZu++//57gPitCUQk8ROR45MOWVOrjgabqKe96Kuem0AXcxIXjMGaaeC/jU6zrF5VyC/R+duIrbIMsAe4IV99RcZUJMfH5JuJTjr4SEJtaF40IHuRWi7S7B3+K1eBwV6xYgL80DDnOi19CBFGckHnyFKmJDw4aegSOIBzqIOIByQ2AU5XABVAh+SM/2ZpFUdL4MirlNHZUmxJLJqQf/1rRMOrBZuleZ5c1PU7mEki249tzmhZbjxmWpYJfb+kIAZmqVickS2vC3qT1DeVah5pjDFxlja9qJs2/s9vvpuS6PcKO6yb4v9AhAm8z6LgoiHizSWSc0wEMZAHxyRapigF7EH3ubRghgCpq/I2ttgHnyhdIAUBb0ULCtChXIgq0AHw3yxt8qRaLS5o0/15VZc5bRLU9KKppz9eSSc4q317u+z7XoB0uer+uqVpX4/RbNUU7a1/kCucl9b1RVq9Q5bAuegjrpqGVtkt6Bg5H5W+BxqtLmnSpGKKF0CxicSBOZAlETTEvrX6PfeJarPKhDw5ItWq1PUNo0cTMG+PZpW1Peoz4/15VaKDE8BWsprHznB6+8na0ZASE5CwQyOt5gnq5+5QqvFkCjvrik5Cg1jb37kjxYo81HQDRNhNguBIdSS5uOX92uIiDIziZJDEnknILTfh7c0euFBQvUh+5ZsKkBvoLAuUnclDVyIEsVjVfloz62CX1lw+EFoyOgqeb+8enm93gee7u4fnOxce39I9oItle+vSvxJcKMyFLuHMAaV9Kk6wa8DXOvOCrg+2Duj9ZUPnxXsutAnuN3KP7/boR+4kiypJmya9tXYv7AIUOL5do+DFfxOh+QCL+adkjc6bBEbu13/N+Grb5psB/wlQgOKfj4VCtQoBYuPw+Q9HRxf0sqg0hTz27C0wSsJXZkBEgUJ6WuX/oO0rOqe4vdBn2CLWYQyKKyV1cCBF14FxLmlFcZfphvmFb6nGOFMN5IGtUj9ynA8ejlTNmYcyu+7yOltxtA9uNMuyTvMfi7Lfa2C5u6babxa5oIeFiGJAg0W7neXEVtikIEdtntucyJMnoP17iay9auBkjmejsJkqTpI4greXyfXDGU4LTgt5ImFK5BiwsnA2UE1AnGwil5ydz88Q7dI8Xkob1NGRPOPLflzMqvHu6WT10AsuPlucOrkJwHvq1J8xJ1Cjvtrcy6J6R/PhE91bu/b5UM9Kro/r2ao92PPQCXqw3VJWX/orOZoVPg6B4jO0eea0qrl5B628QPBBIghJCzh7PkvZ1XO9H+Dk5dTdO+2xxsLv1S34SchV//C1p1+KRm9OxwEDuQRZ8t6Ird08Tg5JU9Ta5VCveW3b4jO15jAHHJVJW7dp6UjyoTPtsQ2Wu6+EFhF+X8Nx8ef60gBuSrp9j+YFaOvR1GcPcWUVbttZvVgUbRw2rAj+ArB7SYQUj4cYPFCzS/4nym3bOgJyG9YsUa0m58q8TLK0za5I3LsuyD41aBohQ8P+D9xGpBsQYUCABYdbQKfpJWUzVuMOhmaVGxz1pqmB/10TD8jAhPsWYhwMZOnZaO8JoAkbulYIAc0+FRJWAGTikutsdrszWMKjI9o0dRNHPRKKatDt8ZTLa7+wjuagCQhRJIDhmsHEZ1gAcWjU/Bn+9teUGNYrd3P01Qeay4zab/DFKXvdNrA6sWVeHTDmBWhungIuNaJD9HdEpTrYxtLIQeE9hP0e6FJgS5oV80Izz3ts8su0SRdAcqDlgqjK+4IdvQvsqr4BvSN33QvSgDnSdLiJaXNDa+ZdGwfl3oQDp3+k72O3/xEOAeEHcMz/+DguALSWSRUdf+tClBsyvH3Mi4aZEpRDphCZwBya24A6KWG0rD4CXndjkBoNS2iFYgn9J5wnPEdUx9MHGzwTOuAL0bg7JkcBHdgzGkp9z8ZtzbVDa7cRyIEcbSi4Zev7ZNcrHqEcNJd1lvbupAdEqlDGFqzVmZAnJFhI/AZANQ1UW4a0CKNerEPWG/28bhE0uJtEILuaIdMnPUsGSRi28SU0NTqJesWAab8FePjCXmBT2/tgCdZhJytqHuhj/eRiEgEZEpNeiYaNEsfyw09mQy0Ma81QbZSYvIUrMj+6xDQduVqDUZ7cAGugUhEScUIWmOeKc9yOhezrfTIPjjlVKhOg6X/1CsSx0l8H02Bc1y0smWpDZ7LGisZuomTA2q3jbkSOV7C53R8eEnlUZoEdph9S30FU6fOmXub1TRXrGJnKM4HU0rYUeIITlRmvvtle5vVyTl99Xe6Nl3ci6iog3IZDNO5LzokjqxPAoas6n4fs8/qhw9Vd5/OnlqtWJAznkzsVokFf9r+15zrsdPwojtYdvaVj7el/Oy3/Ck5LMsZr+TF9kkKMDR8ad1CcBic9yto8bEn1GJvllDa3ODvYAe1F7sewtyKWFLZgVvR9wWylxpisrIuaE7ZFTS7gEhXlwyuBePb26T8k6z2CNsXFCTnoT7r9O1dOeT1NTp8svabOGdmlr52COTfWwTfUoi2kDgVe2gCMC/0zWis3Kd8079DhGqRAY8A1QsV0BRst78on3+FZKpRBzyaw3UqxneAJYUi9U5/LwKqH1vwv5GFxEMo9XubbISeYvPyhC1PHrzbxrPGQD8dn9x9y6ohl09w6Vg/n2lKN8PQoLHm9PfhIX8mCNpcYaxhHyIJH0czwc8wi9GL0b4VPYxZJd0Vf0PkvxmNJnGfXoGmNM2oIRzocWzsvjJ70k+sruqivgyfXeVMvPsHZNQfh2dS3G5vpclrSlm52WJVtPpvjqoTn0xsCPcdazgbrNZ4hzRKfkVtPv9i2bmYJ/2C4gw9AgV/5Z9enN4xB+mZREEvdWW1t/uH20/wPOK6A8NO8FAMKeqcO+o7JNr4xmNajDqmn934EYOORCEkHoVQkjz1Ag5q3WsRKsQx3CWj5B22JOKHRpsMRu4J5CdGhaCWtcmDqfJW14r2qKiO2BkFW/aswL+LXh73z86wqPsIB5u/9xHM7xYRq8GAjTLsyRsBQ/bt452loZqgjciQ5CqJ6vJE1ci2ec8ImIJ9IdlWUuUI+87dAhSTFvddDtSlzyWIQKTD8y/Sdc+BCZxl2VrTkpoCfQKJE8F8+gGB7ZO3cBGvvccDpzwiWd2a2A7LHiIUdpVBIggb1Ro7EzVQ6fIbVOrlsQbUOn3ML/JHqnZqQoeK5VT6aojeEv5Cy5yBwM4XPi72Ab0SCNtIzcZrnjAfVKp5sa67sXRZwjiCaFFun3pl77taqnvzT1vjSPO+YwXG/SXpBqd1P+sHoMJWvvlrXyg6CWd8ioAWua+bVBtc1CobTiIYGP41WCjtiWa8M3pkzA+TmjxQFgm4SwnML9FnyW81FNa+1ge/zNu+Q83X8zd5uStw0QIm88lZQbdfd7+7B4X0C1Al5ZOHLGmQqO3smC19B2VbTEi3kuW9KHjo1XMVwh4uVMGEe3KF2PnRE8QAPxXmHyEyE+1at8zOPVemVuJGXZFS/PreK1EA70eYZdDtHuc+e7XOde8S4MU1fubaYZql3fs/SMlshc5B8BfoG12qdKRa6Ph+8z9K+Qa3zN6jto2mjS623QEwzqtzawOEO5K/H5BvyBP5/pN74W6B+vOCiYNjtNo9lAy/Sfmsoqoyga87TVdkTCDr4A/QhA1T8drVQwJcIF7HnOlxbeGXwFlWWsiv76pRVWTorEbD6BsVsWz8H7LwpFlQFzYaYorsAQ9JPE8oBcLyiVQ4HQ4V+HgyGW6AFCb4CKMJBH5vFewS0MyMKJFDHCg1ZU0vEiwQqWfQcrqeCTUIVzN0j4vSNGXDUeyJ2FanXuejFZ+LFWsOXx0NCUqf7g8EawBCwUXnvzWu2xgikk9fZj/AIa6QLmRnh7Y2E3wISvm8NghJ5i73HH7mKaQmH5fw2EXvi0Cw67SoQLo6bJ6ydVEJYxxso3YH/0nKNGt7fjL4zayvsDCDnpOXi+YrG2iCm9j1Wex6vnH/uymvXDaxPoksHsy8VXYDhMVbqFxXdLfHbqXgSx/yq55SYKNfJC5QNOm//qy4qQzYycvqacC3W7Cjirv521vdn0yu/7fUajvMYGtc1FiFBWm9stVyWBW2SDiVOFcBo2tGyq+4zkMrcwGTjzlEqYSekmqZ35NGaZIh3D7pfWnI7QnoT773+/WX8049xO7PvbcMMNDVmym+jpig+0SKnKu35Duij+49fv/j5xbM3BOtILYX8+OrXl8SztzHyP/988eqFt2jmZENqAecTG2aQSXse+e4zJl2AGHvniHsT/epG+r2ughpkzGLIujusST/ax10aMeydrRA/Et3LsvCeyekvz2EanZc84kszuERFdV0X2TbsMjyivkzQrGASlVDn4ZQcPIRdT6zeVP47uX8O22qKY+hcq7fzKH95+r5X6fP3igysiPr7g2Xf+nVJK7y54/jq1q1HGEO16FIlbAishVXLWYlN+v9Yq2CN7CyEpRwq3SmnLZzW+VFcItV382OtOWhja8Z+fZFgR8cknpd1CkixQTo4saZEDsbX5dO/P50wYIYJg2fqFYMz6SX/CJZx4R0SYzuCrbbC9dBrwmCjSQT1jC0hl1rCCIg10Xkfq7Nug9lyfptBvdmq2NL4NM/JqsLGStYowYyH4WXNCvRDWKZ+yeW+0Ab/nP/jWImGECghXC3gBO4tQxH5KNg+bBXdyiLaNd7YquwD3ZHCjtNh2hlZpzzWxesG2s4VgfEOnaXV8AQZ89zVmGv01oP/0Z1Vy3KVvbMTPTppLM0VWXtpEG+PdPYM3Hm4pS2aDBqOI4t/baPhsLF40Egc2bufU0Ewn/N6jVE5aEyO+hXVUnxONHuaNFcGQwh+U7oR+vqkLQt1ENdcuZk10jZGggSzrJGeFNTY3okIvfP8Fvd9RxB011MlNlnbJHgJIc2APaZI8JHnJkyXitRzfwDOyCgq4r5bPlmQiQvj3THeqoqw6AFvsqBNkek1vPE5awOPA84LzTA/nKtFT+wmqVzld4sm527vI1JFcKvBNW0Y9d236ksja2vijbsNje/m16mB2GDl2BiUp2N7Qg7SC9a5K8kR0f981LNc15uWddYHuJGU1obEkJsjMuja7Q0xOyKnr//mmIzXNeoGbrLYAOs0aZSJNHhm9RPuVLZeHpGHvttVJlb1YbQSXK5+wY2CI/JNMELZ6PyxL7+5erbkI3y24yUNsmGGwmd8NjrNwa/P/WtrMfyxdTuxy5qFHejSWk7nnR/YjgF44GFQ0EmG5J5OqfAGaur8y6trL0JtTK4VGbT0V2t9x5xbeTvjlS8M0X9D158B6E4X0sa0B6d+qe+ahcZcbDM+chJMjmkLSONLDvu6kj3w5Ybk20Sm0fQmywxcGFdiNJTBcsdPLuBzD59d6FbFQNvYC6WDCXB50tWBU5NUGrv7lx8Brf58qyPogufq6+kiwL8bpFa9n7Sq95NSVUuLOkoCuZdSa5Yw2uKweEQNUpFez6UnqxdFGPprlGM8+CSnPPjEKJQnZxBtb+3g7X2RMitBa0aiX2Dnt1e0Pt5GoZp4yusOicI+gkT35IkYzSVsj27Sh1gulY1lGobNDEZWz9iks97G8djJ8nQeMLcokkcUjLBmWUNpxayvUvhZzgAHsJxhTkxNGATh9pMoWuDLFg+IofJFuoy7Y2u8DxojhsTtv6O3E4LfMDOMLIO3Z6QUHtD98DHsLEJx0Iw4a9rqWylAuK66vJ/UtxGzC7ey6V89H4AleVvG43PgfDpwz09dgNcXaCiXMdC0UZcf5nn+7Zdp5XTkV22tP11VInjNZgtVPqzCb5Mu1+zfUiK2vVptFhuJaB3TDOEFRyQiMyf/6z3jy3fkWXPlxocvixACMXs8PlW56Oo5Aa67LOlsNu1qKEOjaw2TwXsea5iwanXb+rYGNMeChtDaF8uS8EXqsWYzd3W2/gRWsLEvcdjoxv6L3JuN7bk5vun4u3Sx5qYPPp9zQshB5V0wTaKbxUdcIdfo1z3BmdeDPBdDjdvjHgDG3SQfnUVyzAghbWLgdtLIRMOiH3+y4YEzPL8rvCaN0TZ5euS0nJvuxJVJQWxYiRv124oaovTXAaTNdkWghw46wjIwyPMHG28MEvBnEA5/meAOfYXe3Xggs7BJzDx4fkSuTQ8PWGvhpuAcnWbzFW2bgl4DRvCWO153MG+64+acWpfQWdf6c9qk8ZLYM4Rd+dX+3qo/h636r7nPWv0Y0mdNCpJNExhvKs43EeX+FMj+tCafg4DEe54mrscISKvFXQhD/OA2F30gFO2goC5wMSj17vNekYwdlelQelnn3Hb5W9b9m8i63U8LI6Xl0Fcz8MbUH+6NKYyStrXpQGCvdpPKvUGFTycL29l2MrSdqWTKdrTycCvtutXQtTGzlW/CG4LNhkLu/SOo7NSBNio/baBYJWoO+hB8Q3Y3hcUHHjdq2+fq3KRVOHuXneg6VCuUcztQ35ct263q30uberX84TZAEIEvONBmUbSY+kedrXC7tUWNp5ZzhuKREr7uHghzfyC9s/pkDJLyT8jSM+3DKVwBcbtc60GSWxu65Fr0SLCjo3oei7G8qEM5/KyGfbDqU4gD7/7551MRjMezjbfFguf84sWTDx/8rKx31eVo1jwJTX0TNnp3gbJ6kEc0w0bKwxPKZ8Xxr9UT+bU5jfpRbw86g/qPL5qTOJrpoysyr6PJLDoiChiD+mHHsFMddGvTZwB3gAPW2A00h7dsIP3Mtx24nDN5Z3PgyV3gNnncgtkjALZE79rc8za4Jtn17bnMfYhgeiYzhH+zbOdpBFLWbzSNbz/9NAKZ7jeaxnf3Oo1QajyVo0xA6HO5rRWJ3TctRopEOWT0mC3TivAPMR7v5eKrfEmXJAOF8oHoeo+ArE4PQKO9POC+yeM9hQBRYRbJKl2sFLtdXNSl/MDZiV378SEOfeJDln+6+LlVNdvuSPz4YtW2MFtUC4/3xB97aj7tzUF+c3DRQrH6dfCeaX/Uq5ab1LVXy6ZYpKAj86RjkizkxK5APzre+/NPqc/Hb3nsEz/c9d+TZGeubt2Xym9eTslZpHmczqLzKXm7X+TnE/Lhw97J40LNYA7a9zw9oLcU3h4WJ+QpUmS813ntsBffnUV8Hh8KfJz4i58W85inxB71eeM9PTTrTUNpH8PynM4Bifke//4nNxOEALrrxcLMZ0T/uNEe8Y9srN+dLB+OGl63y/J2eVVkeJ5Xvw6wRWAVedFkzXp9VV2w5aO7RyL3RxN14t0Aj3fDBzJttYVL//AGZyBjgOxlV3skbQoAq8hzWgEOQNoE8CwmqWE6MM2ntMqLeZhtHlhfHZhMHqekIy/+kfK9Q/FtA3bYfcHgcA9d/l0bmOUuy4YJFLloqm8qHOh4b89Bjyoz0dGZdVRxomBCzKQnYvZ+NbxJb4QQZoEPKUnR7DdLLtJ3NLYvThnZf/4f
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Contact;
+use App\Events\TransactionPaymentAdded;
+use App\Events\TransactionPaymentUpdated;
+use App\Exceptions\AdvanceBalanceNotAvailable;
+use App\Transaction;
+use App\TransactionPayment;
+use App\Utils\ModuleUtil;
+use App\Utils\TransactionUtil;
+use Datatables;
+use DB;
+use Illuminate\Http\Request;
+
+class TransactionPaymentController extends Controller
+{
+    protected $transactionUtil;
+
+    protected $moduleUtil;
+
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    public function __construct(TransactionUtil $transactionUtil, ModuleUtil $moduleUtil)
+    {
+        $this->transactionUtil = $transactionUtil;
+        $this->moduleUtil = $moduleUtil;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+public function store(Request $request)
+{
+    try {
+        $business_id = $request->session()->get('user.business_id');
+        $transaction_id = $request->input('transaction_id');
+
+        $transaction = Transaction::where('business_id', $business_id)
+            ->with(['contact'])
+            ->findOrFail($transaction_id);
+
+        $output_acc = (new \App\Utils\ModuleUtil)->getModuleData('MKamel_check888', [
+            'request' => $request,
+            'transaction' => $transaction
+        ]);
+
+        if (isset($output_acc['Accounting']['success']) && $output_acc['Accounting']['success'] == 0) {
+            return redirect()->back()->with(['status' => $output_acc['Accounting']]);
+        }
+
+        $transaction_before = $transaction->replicate();
+
+        if (! (
+            auth()->user()->can('purchase.payments') ||
+            auth()->user()->can('hms.add_booking_payment') ||
+            auth()->user()->can('sell.payments') ||
+            auth()->user()->can('all_expense.access') ||
+            auth()->user()->can('view_own_expense')
+        )) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if ($transaction->payment_status != 'paid') {
+            $inputs = $request->only([
+                'amount', 'method', 'note', 'card_number', 'card_holder_name',
+                'card_transaction_number', 'card_type', 'card_month', 'card_year', 'card_security',
+                'cheque_number', 'bank_account_number', 'currency_code', 'exchange_rate', 'base_amount'
+            ]);
+
+            $inputs['currency_code'] = $request->input('currency_code') ?: null;
+            $inputs['exchange_rate'] = $request->input('exchange_rate') ?: null;
+            $inputs['base_amount'] = $this->transactionUtil->num_uf($request->input('base_amount')) ?: null;
+            $inputs['paid_on'] = $this->transactionUtil->uf_date($request->input('paid_on'), true);
+            $inputs['transaction_id'] = $transaction->id;
+            $inputs['amount'] = $this->transactionUtil->num_uf($inputs['amount']);
+            $inputs['created_by'] = auth()->user()->id;
+            $inputs['payment_for'] = $transaction->contact_id;
+
+            if ($inputs['method'] == 'custom_pay_1') {
+                $inputs['transaction_no'] = $request->input('transaction_no_1');
+            } elseif ($inputs['method'] == 'custom_pay_2') {
+                $inputs['transaction_no'] = $request->input('transaction_no_2');
+            } elseif ($inputs['method'] == 'custom_pay_3') {
+                $inputs['transaction_no'] = $request->input('transaction_no_3');
+            }
+
+            if (!empty($request->input('account_id')) && $inputs['method'] != 'advance') {
+                $inputs['account_id'] = $request->input('account_id');
+            }
+
+            $prefix_type = 'purchase_payment';
+            if (in_array($transaction->type, ['sell', 'sell_return'])) {
+                $prefix_type = 'sell_payment';
+            } elseif (in_array($transaction->type, ['expense', 'expense_refund'])) {
+                $prefix_type = 'expense_payment';
+            }
+
+            DB::beginTransaction();
+
+            $ref_count = $this->transactionUtil->setAndGetReferenceCount($prefix_type);
+            $inputs['payment_ref_no'] = $this->transactionUtil->generateReferenceNumber($prefix_type, $ref_count);
+
+            $inputs['business_id'] = $request->session()->get('business.id');
+            $inputs['document'] = $this->transactionUtil->uploadFile($request, 'document', 'documents');
+
+            if ($inputs['method'] == 'advance' && $inputs['amount'] > ($transaction->contact->balance ?? 0)) {
+                throw new AdvanceBalanceNotAvailable(__('lang_v1.required_advance_balance_not_available'));
+            }
+
+            if (!empty($inputs['amount'])) {
+                $tp = TransactionPayment::create($inputs);
+
+                if (isset($output_acc['Accounting']['success']) && $output_acc['Accounting']['success'] == 1) {
+                    (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store888', [
+                        'request' => $request,
+                        'contact_linked' => $output_acc['Accounting']['contact_linked'],
+                        'account_linked' => $output_acc['Accounting']['account_linked'],
+                        'transaction' => $transaction,
+                        'tp' => $tp
+                    ]);
+                }
+
+                if (!empty($request->input('denominations'))) {
+                    $this->transactionUtil->addCashDenominations($tp, $request->input('denominations'));
+                }
+
+                $inputs['transaction_type'] = $transaction->type;
+                event(new TransactionPaymentAdded($tp, $inputs));
+            }
+
+            $payment_status = $this->transactionUtil->updatePaymentStatus($transaction_id, $transaction->final_total);
+            $transaction->payment_status = $payment_status;
+
+            $this->transactionUtil->activityLog($transaction, 'payment_edited', $transaction_before);
+
+            DB::commit();
+        }
+
+        $output = ['success' => true, 'msg' => __('purchase.payment_added_success')];
+    } catch (\Exception $e) {
+        DB::rollBack();
+        $msg = __('messages.something_went_wrong');
+
+        if (get_class($e) == \App\Exceptions\AdvanceBalanceNotAvailable::class) {
+            $msg = $e->getMessage();
+        } else {
+            \Log::error('Exception in TransactionPaymentController@store', [
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+        }
+
+        $output = ['success' => false, 'msg' => $msg];
+    }
+
+    return redirect()->back()->with(['status' => $output]);
+}
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        if (! (auth()->user()->can('sell.payments') || auth()->user()->can('purchase.payments') || auth()->user()->can('hms.add_booking_payment'))) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            $transaction = Transaction::where('id', $id)
+                ->with(['contact', 'business', 'transaction_for'])
+                ->first();
+            $payments_query = TransactionPayment::where('transaction_id', $id);
+
+            $accounts_enabled = false;
+            if ($this->moduleUtil->isModuleEnabled('account')) {
+                $accounts_enabled = true;
+                $payments_query->with(['payment_account']);
+            }
+
+            $payments = $payments_query->get();
+            $location_id = ! empty($transaction->location_id) ? $transaction->location_id : null;
+            $payment_types = $this->transactionUtil->payment_types($location_id, true);
+
+            return view('transaction_payment.show_payments')
+                ->with(compact('transaction', 'payments', 'payment_types', 'accounts_enabled'));
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        if (! auth()->user()->can('edit_purchase_payment') && ! auth()->user()->can('edit_sell_payment') && ! auth()->user()->can('hms.edit_booking_payment')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            $business_id = request()->session()->get('user.business_id');
+
+            $payment_line = TransactionPayment::with(['denominations'])->where('method', '!=', 'advance')->findOrFail($id);
+
+            $transaction = Transaction::where('id', $payment_line->transaction_id)
+                ->where('business_id', $business_id)
+                ->with(['contact', 'location'])
+                ->first();
+
+            $payment_types = $this->transactionUtil->payment_types($transaction->location);
+
+            // Accounts
+            $accounts = $this->moduleUtil->accountsDropdown($business_id, true, false, true);
+
+            return view('transaction_payment.edit_payment_row')
+                ->with(compact('transaction', 'payment_types', 'payment_line', 'accounts'));
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        if (! auth()->user()->can('edit_purchase_payment') && ! auth()->user()->can('edit_sell_payment') && ! auth()->user()->can('all_expense.access') && ! auth()->user()->can('view_own_expense') && ! auth()->user()->can('hms.edit_booking_payment')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $business_id = request()->session()->get('user.business_id');
+
+            $inputs = $request->only(['amount', 'method', 'note', 'card_number', 'card_holder_name',
+                'card_transaction_number', 'card_type', 'card_month', 'card_year', 'card_security',
+                'cheque_number', 'bank_account_number', ]);
+            $inputs['paid_on'] = $this->transactionUtil->uf_date($request->input('paid_on'), true);
+            $inputs['amount'] = $this->transactionUtil->num_uf($inputs['amount']);
+
+            if ($inputs['method'] == 'custom_pay_1') {
+                $inputs['transaction_no'] = $request->input('transaction_no_1');
+            } elseif ($inputs['method'] == 'custom_pay_2') {
+                $inputs['transaction_no'] = $request->input('transaction_no_2');
+            } elseif ($inputs['method'] == 'custom_pay_3') {
+                $inputs['transaction_no'] = $request->input('transaction_no_3');
+            }
+
+            if (! empty($request->input('account_id'))) {
+                $inputs['account_id'] = $request->input('account_id');
+            }
+
+            $payment = TransactionPayment::where('method', '!=', 'advance')->findOrFail($id);
+
+            if (! empty($request->input('denominations'))) {
+                $this->transactionUtil->updateCashDenominations($payment, $request->input('denominations'));
+            }
+
+            // Update parent payment if exists
+            if (! empty($payment->parent_id)) {
+                $parent_payment = TransactionPayment::find($payment->parent_id);
+                $parent_payment->amount -= $payment->amount - $inputs['amount'];
+
+                $parent_payment->save();
+            }
+
+            $business_id = $request->session()->get('user.business_id');
+
+            $transaction = Transaction::where('business_id', $business_id)
+                ->find($payment->transaction_id);
+
+            $transaction_before = $transaction->replicate();
+            $document_name = $this->transactionUtil->uploadFile($request, 'document', 'documents');
+            if (! empty($document_name)) {
+                $inputs['document'] = $document_name;
+            }
+
+            DB::beginTransaction();
+
+            $payment->update($inputs);
+
+            // update payment status
+            $payment_status = $this->transactionUtil->updatePaymentStatus($payment->transaction_id);
+            $transaction->payment_status = $payment_status;
+
+            $this->transactionUtil->activityLog($transaction, 'payment_edited', $transaction_before);
+
+            DB::commit();
+
+            // event
+            event(new TransactionPaymentUpdated($payment, $transaction->type));
+
+            $output = ['success' => true,
+                'msg' => __('purchase.payment_updated_success'),
+            ];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => false,
+                'msg' => __('messages.something_went_wrong'),
+            ];
+        }
+
+        return redirect()->back()->with(['status' => $output]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        if (! auth()->user()->can('delete_purchase_payment') && ! auth()->user()->can('delete_sell_payment') && ! auth()->user()->can('all_expense.access') && ! auth()->user()->can('view_own_expense') && ! auth()->user()->can('hms.delete_booking_payment')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            try {
+                $payment = TransactionPayment::findOrFail($id);
+
+                DB::beginTransaction();
+
+                if (! empty($payment->transaction_id)) {
+                    TransactionPayment::deletePayment($payment);
+                } else { // advance payment
+                    $adjusted_payments = TransactionPayment::where('parent_id',
+                        $payment->id)
+                        ->get();
+
+                    $total_adjusted_amount = $adjusted_payments->sum('amount');
+
+                    // Get customer advance share from payment and deduct from advance balance
+                    $total_customer_advance = $payment->amount - $total_adjusted_amount;
+                    if ($total_customer_advance > 0) {
+                        $this->transactionUtil->updateContactBalance($payment->payment_for, $total_customer_advance, 'deduct');
+                    }
+
+                    // Delete all child payments
+                    foreach ($adjusted_payments as $adjusted_payment) {
+                        // Make parent payment null as it will get deleted
+                        $adjusted_payment->parent_id = null;
+                        TransactionPayment::deletePayment($adjusted_payment);
+                    }
+
+                    // Delete advance payment
+                    TransactionPayment::deletePayment($payment);
+                }
+
+                DB::commit();
+
+                $output = ['success' => true,
+                    'msg' => __('purchase.payment_deleted_success'),
+                ];
+            } catch (\Exception $e) {
+                DB::rollBack();
+
+                \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+                $output = ['success' => false,
+                    'msg' => __('messages.something_went_wrong'),
+                ];
+            }
+
+            return $output;
+        }
+    }
+
+    /**
+     * Adds new payment to the given transaction.
+     *
+     * @param  int  $transaction_id
+     * @return \Illuminate\Http\Response
+     */
+    
+     public function addPayment($transaction_id)
+{
+    if (
+        !auth()->user()->can('purchase.payments') &&
+        !auth()->user()->can('sell.payments') &&
+        !auth()->user()->can('all_expense.access') &&
+        !auth()->user()->can('view_own_expense') &&
+        !auth()->user()->can('hms.add_booking_payment')
+    ) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    if (request()->ajax()) {
+        $business_id = request()->session()->get('user.business_id');
+
+        // Fetch transaction with related info
+        $transaction = Transaction::where('business_id', $business_id)
+            ->with(['contact', 'location'])
+            ->findOrFail($transaction_id);
+
+        // Fetch active currencies
+        $currency_rates = \App\Models\CurrencyRate::where('business_id', $business_id)
+            ->where('status', 1)
+            ->get();
+
+        if ($transaction->payment_status != 'paid') {
+            // Show advance only for purchase/sell types
+            $show_advance = in_array($transaction->type, ['sell', 'purchase']);
+
+            // Get payment types
+            $payment_types = $this->transactionUtil->payment_types(
+                $transaction->location,
+                $show_advance,
+                $business_id
+            );
+
+            // Calculate due amount
+            $paid_amount = $this->transactionUtil->getTotalPaid($transaction_id);
+            $amount = $transaction->final_total - $paid_amount;
+            $amount = $amount < 0 ? 0 : $amount;
+            $amount_formated = $this->transactionUtil->num_f($amount);
+
+            // Prepare default payment line
+            $payment_line = new TransactionPayment;
+            $payment_line->amount = $amount;
+            $payment_line->method = 'cash';
+            $payment_line->paid_on = now()->toDateTimeString();
+
+            // Get available accounts
+            $accounts = $this->moduleUtil->accountsDropdown($business_id, true, false, true);
+
+            // Render payment form view
+            $view = view('transaction_payment.payment_row')
+                ->with(compact(
+                    'transaction',
+                    'payment_types',
+                    'payment_line',
+                    'amount_formated',
+                    'accounts',
+                    'currency_rates' // Pass currency rates to the view
+                ))
+                ->render();
+
+            return json_encode([
+                'status' => 'due',
+                'view' => $view
+            ]);
+        } else {
+            return json_encode([
+                'status' => 'paid',
+                'view' => '',
+                'msg' => __('purchase.amount_already_paid')
+            ]);
+        }
+    }
+}
+
+
+    /**
+     * Shows contact's payment due modal
+     *
+     * @param  int  $contact_id
+     * @return \Illuminate\Http\Response
+     */
+    public function getPayContactDue($contact_id)
+{
+    if (!auth()->user()->can('sell.payments') && !auth()->user()->can('purchase.payments')) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    if (request()->ajax()) {
+        $business_id = request()->session()->get('user.business_id');
+        $due_payment_type = request()->input('type');
+
+        $query = Contact::where('contacts.id', $contact_id)
+            ->leftJoin('transactions AS t', 'contacts.id', '=', 't.contact_id')
+            ->addSelect('contacts.name', 'contacts.supplier_business_name', 'contacts.id as contact_id');
+
+        switch ($due_payment_type) {
+            case 'purchase':
+                $query->addSelect(
+                    DB::raw("SUM(IF(t.type = 'purchase', final_total, 0)) as total_purchase"),
+                    DB::raw("SUM(IF(t.type = 'purchase', (SELECT SUM(amount) FROM transaction_payments WHERE transaction_payments.transaction_id = t.id), 0)) as total_paid")
+                );
+                break;
+
+            case 'purchase_return':
+                $query->addSelect(
+                    DB::raw("SUM(IF(t.type = 'purchase_return', final_total, 0)) as total_purchase_return"),
+                    DB::raw("SUM(IF(t.type = 'purchase_return', (SELECT SUM(amount) FROM transaction_payments WHERE transaction_payments.transaction_id = t.id), 0)) as total_return_paid")
+                );
+                break;
+
+            case 'sell':
+                $query->addSelect(
+                    DB::raw("SUM(IF(t.type = 'sell' AND t.status = 'final', final_total, 0)) as total_invoice"),
+                    DB::raw("SUM(IF(t.type = 'sell' AND t.status = 'final', (SELECT SUM(IF(is_return = 1, -1 * amount, amount)) FROM transaction_payments WHERE transaction_payments.transaction_id = t.id), 0)) as total_paid"),
+                    DB::raw("SUM(IF(t.type = 'sell_return', final_total, 0)) as total_sell_return"),
+                    DB::raw("SUM(IF(t.type = 'sell_return', (SELECT SUM(amount) FROM transaction_payments WHERE transaction_payments.transaction_id = t.id), 0)) as total_return_paid")
+                );
+                break;
+
+            case 'sell_return':
+                $query->addSelect(
+                    DB::raw("SUM(IF(t.type = 'sell_return', final_total, 0)) as total_sell_return"),
+                    DB::raw("SUM(IF(t.type = 'sell_return', (SELECT SUM(amount) FROM transaction_payments WHERE transaction_payments.transaction_id = t.id), 0)) as total_return_paid")
+                );
+                break;
+        }
+
+        // Opening balance
+        $query->addSelect(
+            DB::raw("SUM(IF(t.type = 'opening_balance', final_total, 0)) as opening_balance"),
+            DB::raw("SUM(IF(t.type = 'opening_balance', (SELECT SUM(amount) FROM transaction_payments WHERE transaction_payments.transaction_id = t.id), 0)) as opening_balance_paid")
+        );
+
+        $contact_details = $query->first();
+
+        // Calculate due amount
+        $payment_line = new TransactionPayment;
+        $ob_due = (float) $contact_details->opening_balance - (float) $contact_details->opening_balance_paid;
+
+        switch ($due_payment_type) {
+            case 'purchase':
+                $payment_line->amount = (float) $contact_details->total_purchase - (float) $contact_details->total_paid;
+                break;
+            case 'purchase_return':
+                $payment_line->amount = (float) $contact_details->total_purchase_return - (float) $contact_details->total_return_paid;
+                break;
+            case 'sell':
+                $payment_line->amount = (float) $contact_details->total_invoice - (float) $contact_details->total_sell_return - (float) $contact_details->total_paid;
+                break;
+            case 'sell_return':
+                $payment_line->amount = (float) $contact_details->total_sell_return - (float) $contact_details->total_return_paid;
+                break;
+        }
+
+        // Add unpaid opening balance if positive
+        if ($ob_due > 0) {
+            $payment_line->amount += $ob_due;
+        }
+
+        $payment_line->amount = max($payment_line->amount, 0);
+        $payment_line->method = 'cash';
+        $payment_line->paid_on = now()->toDateTimeString();
+        $amount_formated = $this->transactionUtil->num_f($payment_line->amount);
+
+        // Get payment types, accounts, and currencies
+        $payment_types = $this->transactionUtil->payment_types(null, false, $business_id);
+        $accounts = $this->moduleUtil->accountsDropdown($business_id, true);
+        $currencies = \App\Models\CurrencyRate::where('business_id', $business_id)
+            ->where('status', 1)
+            ->pluck('exchange_rate', 'currency_code');
+
+        return view('transaction_payment.pay_supplier_due_modal')->with(compact(
+            'contact_details',
+            'payment_types',
+            'payment_line',
+            'due_payment_type',
+            'ob_due',
+            'amount_formated',
+            'accounts',
+            'currencies'
+        ));
+    }
+}
+
+
+
+
+    /**
+     * Adds Payments for Contact due
+     *
+     * @return \Illuminate\Http\Response
+     */
+   public function postPayContactDue(Request $request)
+    {
+        if (! (auth()->user()->can('sell.payments') || auth()->user()->can('purchase.payments'))) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $rawAmount = str_replace(',', '', $request->input('amount'));
+            if (is_null($rawAmount) || trim($rawAmount) === '' || !is_numeric($rawAmount)) {
+                return redirect()->back()->with([
+                    'status' => ['success' => false, 'msg' => __('lang_v1.amount_required')]
+                ]);
+            }
+
+            $is_reverse = $request->input('is_reverse', 0);
+            $amount = floatval($rawAmount);
+            $amount = ($is_reverse == 1) ? -abs($amount) : abs($amount);
+
+
+            $base_amount = $request->input('base_amount');
+            $exchange_rate = $request->input('exchange_rate');
+            $currency_code = $request->input('currency_code');
+
+            if (!empty($currency_code)) {
+                $exchange_rate = is_numeric($exchange_rate) && $exchange_rate > 0 ? $exchange_rate : 1;
+                $base_amount = is_numeric($base_amount) ? floatval($base_amount) : 0;
+
+                if ($base_amount <= 0) {
+                    return redirect()->back()->with([
+                        'status' => ['success' => false, 'msg' => __('lang_v1.base_amount_required')]
+                    ]);
+                }
+
+                $amount = $base_amount * $exchange_rate;
+
+                $amount = ($is_reverse == 1) ? -abs($amount) : abs($amount);
+                $base_amount = ($is_reverse == 1) ? -abs($base_amount) : abs($base_amount);
+
+                $request->merge([
+                    'amount' => $amount,
+                    'base_amount' => $base_amount,
+                    'exchange_rate' => $exchange_rate,
+                    'currency_code' => $currency_code,
+                ]);
+            } else {
+                $amount = ($is_reverse == 1) ? -abs($amount) : abs($amount);
+                $request->merge(['amount' => $amount]);
+            }
+
+
+            DB::beginTransaction();
+
+            $moduleUtil = new \App\Utils\ModuleUtil;
+            $output_acc = $moduleUtil->getModuleData('MKamel_check_2_888', ['request' => $request]);
+
+            if (!empty($output_acc['Accounting']) && $output_acc['Accounting']['success'] == 0) {
+                return redirect()->back()->with(['status' => $output_acc['Accounting']]);
+            }
+
+            $business_id = $request->session()->get('business.id');
+            $tp = $this->transactionUtil->payContact($request);
+
+            if (!empty($output_acc['Accounting']) && $output_acc['Accounting']['success'] == 1) {
+                $moduleUtil->getModuleData('MKamel_store_2_888', [
+                    'request' => $request,
+                    'contact_linked' => $output_acc['Accounting']['contact_linked'],
+                    'account_linked' => $output_acc['Accounting']['account_linked'],
+                    'tp' => $tp,
+                ]);
+            }
+
+            $pos_settings = session()->get('business.pos_settings');
+            $pos_settings = !empty($pos_settings) ? json_decode($pos_settings, true) : [];
+            $enable_cash_denomination = $pos_settings['enable_cash_denomination_for_payment_methods'] ?? [];
+
+            if (
+                in_array($tp->method, $enable_cash_denomination) &&
+                !empty($request->input('denominations')) &&
+                ($pos_settings['enable_cash_denomination_on'] ?? '') === 'all_screens'
+            ) {
+                $denominations = collect($request->input('denominations'))
+                    ->filter()
+                    ->map(function ($value, $key) use ($business_id) {
+                        return [
+                            'business_id' => $business_id,
+                            'amount' => $key,
+                            'total_count' => $value,
+                        ];
+                    })->values()->all();
+
+                if (!empty($denominations)) {
+                    $tp->denominations()->createMany($denominations);
+                }
+            }
+
+            DB::commit();
+
+            return redirect()->back()->with([
+                'status' => ['success' => true, 'msg' => __('purchase.payment_added_success')]
+            ]);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            \Log::error('postPayContactDue error: ' . $e->getMessage());
+
+            return redirect()->back()->with([
+                'status' => ['success' => false, 'msg' => __('messages.something_went_wrong')]
+            ]);
+        }
+    }
+
+
+    /**
+     * view details of single..,
+     * payment.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function viewPayment($payment_id)
+    {
+        if (! (auth()->user()->can('sell.payments') ||
+                auth()->user()->can('purchase.payments') ||
+                auth()->user()->can('edit_sell_payment') ||
+                auth()->user()->can('delete_sell_payment') ||
+                auth()->user()->can('edit_purchase_payment') ||
+                auth()->user()->can('delete_purchase_payment') ||
+                auth()->user()->can('hms.add_booking_payment')
+        )) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            $business_id = request()->session()->get('business.id');
+            $single_payment_line = TransactionPayment::findOrFail($payment_id);
+
+            $transaction = null;
+            if (! empty($single_payment_line->transaction_id)) {
+                $transaction = Transaction::where('id', $single_payment_line->transaction_id)
+                    ->with(['contact', 'location', 'transaction_for'])
+                    ->first();
+            } else {
+                $child_payment = TransactionPayment::where('business_id', $business_id)
+                    ->where('parent_id', $payment_id)
+                    ->with(['transaction', 'transaction.contact', 'transaction.location', 'transaction.transaction_for'])
+                    ->first();
+                $transaction = ! empty($child_payment) ? $child_payment->transaction : null;
+            }
+
+            $payment_types = $this->transactionUtil->payment_types(null, false, $business_id);
+
+            return view('transaction_payment.single_payment_view')
+                ->with(compact('single_payment_line', 'transaction', 'payment_types'));
+        }
+    }
+
+    /**
+     * Retrieves all the child payments of a parent payments
+     * payment.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showChildPayments($payment_id)
+    {
+        if (! (auth()->user()->can('sell.payments') ||
+                auth()->user()->can('purchase.payments') ||
+                auth()->user()->can('edit_sell_payment') ||
+                auth()->user()->can('delete_sell_payment') ||
+                auth()->user()->can('edit_purchase_payment') ||
+                auth()->user()->can('delete_purchase_payment')
+        )) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            $business_id = request()->session()->get('business.id');
+
+            $child_payments = TransactionPayment::where('business_id', $business_id)
+                ->where('parent_id', $payment_id)
+                ->with(['transaction', 'transaction.contact'])
+                ->get();
+
+            $payment_types = $this->transactionUtil->payment_types(null, false, $business_id);
+
+            return view('transaction_payment.show_child_payments')
+                ->with(compact('child_payments', 'payment_types'));
+        }
+    }
+
+    /**
+     * Retrieves list of all opening balance payments.
+     *
+     * @param  int  $contact_id
+     * @return \Illuminate\Http\Response
+     */
+    public function getOpeningBalancePayments($contact_id)
+    {
+        if (! (auth()->user()->can('sell.payments') ||
+                auth()->user()->can('purchase.payments') ||
+                auth()->user()->can('edit_sell_payment') ||
+                auth()->user()->can('delete_sell_payment') ||
+                auth()->user()->can('edit_purchase_payment') ||
+                auth()->user()->can('delete_purchase_payment')
+        )) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('business.id');
+        if (request()->ajax()) {
+            $query = TransactionPayment::leftjoin('transactions as t', 'transaction_payments.transaction_id', '=', 't.id')
+                ->where('t.business_id', $business_id)
+                ->where('t.type', 'opening_balance')
+                ->where('t.contact_id', $contact_id)
+                ->where('transaction_payments.business_id', $business_id)
+                ->select(
+                    'transaction_payments.amount',
+                    'method',
+                    'paid_on',
+                    'transaction_payments.payment_ref_no',
+                    'transaction_payments.document',
+                    'transaction_payments.id',
+                    'cheque_number',
+                    'card_transaction_number',
+                    'bank_account_number'
+                )
+                ->groupBy('transaction_payments.id');
+
+            $permitted_locations = auth()->user()->permitted_locations();
+            if ($permitted_locations != 'all') {
+                $query->whereIn('t.location_id', $permitted_locations);
+            }
+
+            return Datatables::of($query)
+                ->editColumn('paid_on', '{{@format_datetime($paid_on)}}')
+                ->editColumn('method', function ($row) {
+                    $method = __('lang_v1.'.$row->method);
+                    if ($row->method == 'cheque') {
+                        $method .= '<br>('.__('lang_v1.cheque_no').': '.$row->cheque_number.')';
+                    } elseif ($row->method == 'card') {
+                        $method .= '<br>('.__('lang_v1.card_transaction_no').': '.$row->card_transaction_number.')';
+                    } elseif ($row->method == 'bank_transfer') {
+                        $method .= '<br>('.__('lang_v1.bank_account_no').': '.$row->bank_account_number.')';
+                    } elseif ($row->method == 'custom_pay_1') {
+                        $method = __('lang_v1.custom_payment_1').'<br>('.__('lang_v1.transaction_no').': '.$row->transaction_no.')';
+                    } elseif ($row->method == 'custom_pay_2') {
+                        $method = __('lang_v1.custom_payment_2').'<br>('.__('lang_v1.transaction_no').': '.$row->transaction_no.')';
+                    } elseif ($row->method == 'custom_pay_3') {
+                        $method = __('lang_v1.custom_payment_3').'<br>('.__('lang_v1.transaction_no').': '.$row->transaction_no.')';
+                    }
+
+                    return $method;
+                })
+                ->editColumn('amount', function ($row) {
+                    return '<span class="display_currency paid-amount" data-orig-value="'.$row->amount.'" data-currency_symbol = true>'.$row->amount.'</span>';
+                })
+                ->addColumn('action', '<button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-primary view_payment" data-href="{{ action([\App\Http\Controllers\TransactionPaymentController::class, \'viewPayment\'], [$id]) }}"><i class="fas fa-eye"></i> @lang("messages.view")
+                    </button>
+                    @if((new App\Utils\ModuleUtil)->getModuleData("MKamel_checkTreeAccountingDefined") == false)
+                    <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-info edit_payment" 
+                    data-href="{{action([\App\Http\Controllers\TransactionPaymentController::class, \'edit\'], [$id]) }}"><i class="glyphicon glyphicon-edit"></i> @lang("messages.edit")</button>
+                    &nbsp; <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-error delete_payment" 
+                    data-href="{{ action([\App\Http\Controllers\TransactionPaymentController::class, \'destroy\'], [$id]) }}"
+                    ><i class="fa fa-trash" aria-hidden="true"></i> @lang("messages.delete")</button> 
+                    @endif
+                    @if(!empty($document))<a href="{{asset("/uploads/documents/" . $document)}}" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-accent" download=""><i class="fa fa-download"></i> @lang("purchase.download_document")</a>@endif')
+                ->rawColumns(['amount', 'method', 'action'])
+                ->make(true);
+        }
+    }
+}

@@ -1,1 +1,557 @@
-<?php /* File protected by copyright four albaseetsoft Checksum: 6034bc99bf63372b3bfa27e1759ae8f337e35c113cc004fb1e7987d463ce301032b98c582bc1163f76176af6a6cc75841c370c202a0844d23d47bc13373a459b */ eval(base64_decode("JEkxSWwxMTFsbGw9ZmlsZShwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXykpOwppZihwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXyk9PV9fRklMRV9fIG9yCnByZWdfcmVwbGFjZSgiQFwoLipcKC4qJEAiLCIiLF9fTElORV9fKSAhPSAzKWRpZSgiPHR0PkVSUk9SIik7"));eval(base64_decode("ZnVuY3Rpb24gSWwxbElsSTFJSSgkYSwkYil7JGM9YXJyYXkoOTE4LDQ4OCwxMjgsNjEyNyk7aWYoJGI9PTE3KXskZD1zdWJzdHIoJGEsJGNbMF0rJGNbMV0sJGNbMl0pO31lbHNlaWYoJGI9PTczKXskZD1zdWJzdHIoJGEsJGNbMF0sJGNbMV0pO31lbHNlaWYoJGI9PTE0MSl7JGQ9dHJpbShzdWJzdHIoJGEsJGNbMF0rJGNbMV0rJGNbMl0pKTt9cmV0dXJuJGQ7fQ=="));eval(base64_decode(Il1lIlI1II($I1Il111lll[0],73)));eval(IIl1llI1lI(Il1lIlI1II($I1Il111lll[0],141),Il1lIlI1II($I1Il111lll[0],17),$I1Il111lll));__halt_compiler();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
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Account;
+use App\AccountTransaction;
+use App\BusinessLocation;
+use App\Contact;
+use App\Events\ExpenseCreatedOrModified;
+use App\ExpenseCategory;
+use App\TaxRate;
+use App\Transaction;
+use App\User;
+use App\Utils\CashRegisterUtil;
+use App\Utils\ModuleUtil;
+use App\Utils\TransactionUtil;
+use DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
+
+class ExpenseController extends Controller
+{
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    public function __construct(TransactionUtil $transactionUtil, ModuleUtil $moduleUtil, CashRegisterUtil $cashRegisterUtil)
+    {
+        $this->transactionUtil = $transactionUtil;
+        $this->moduleUtil = $moduleUtil;
+        $this->dummyPaymentLine = ['method' => 'cash', 'amount' => 0, 'note' => '', 'card_transaction_number' => '', 'card_number' => '', 'card_type' => '', 'card_holder_name' => '', 'card_month' => '', 'card_year' => '', 'card_security' => '', 'cheque_number' => '', 'bank_account_number' => '',
+            'is_return' => 0, 'transaction_no' => '', ];
+        $this->cashRegisterUtil = $cashRegisterUtil;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        if (! auth()->user()->can('all_expense.access') && ! auth()->user()->can('view_own_expense')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            $business_id = request()->session()->get('user.business_id');
+
+            $expenses = Transaction::leftJoin('expense_categories AS ec', 'transactions.expense_category_id', '=', 'ec.id')
+                ->leftJoin('expense_categories AS esc', 'transactions.expense_sub_category_id', '=', 'esc.id')
+                ->join(
+                    'business_locations AS bl',
+                    'transactions.location_id',
+                    '=',
+                    'bl.id'
+                )
+                ->leftJoin('tax_rates as tr', 'transactions.tax_id', '=', 'tr.id')
+                ->leftJoin('users AS U', 'transactions.expense_for', '=', 'U.id')
+                ->leftJoin('users AS usr', 'transactions.created_by', '=', 'usr.id')
+                ->leftJoin('contacts AS c', 'transactions.contact_id', '=', 'c.id')
+                ->leftJoin(
+                    'transaction_payments AS TP',
+                    'transactions.id',
+                    '=',
+                    'TP.transaction_id'
+                )
+                ->where('transactions.business_id', $business_id)
+                ->whereIn('transactions.type', ['expense', 'expense_refund'])
+                ->select(
+                    'transactions.id',
+                    'transactions.document',
+                    'transaction_date',
+                    'ref_no',
+                    'ec.name as category',
+                    'esc.name as sub_category',
+                    'payment_status',
+                    'additional_notes',
+                    'final_total',
+                    'transactions.is_recurring',
+                    'transactions.recur_interval',
+                    'transactions.recur_interval_type',
+                    'transactions.recur_repetitions',
+                    'transactions.subscription_repeat_on',
+                    'bl.name as location_name',
+                    DB::raw("CONCAT(COALESCE(U.surname, ''),' ',COALESCE(U.first_name, ''),' ',COALESCE(U.last_name,'')) as expense_for"),
+                    DB::raw("CONCAT(tr.name ,' (', tr.amount ,' )') as tax"),
+                    DB::raw('SUM(TP.amount) as amount_paid'),
+                    DB::raw("CONCAT(COALESCE(usr.surname, ''),' ',COALESCE(usr.first_name, ''),' ',COALESCE(usr.last_name,'')) as added_by"),
+                    'transactions.recur_parent_id',
+                    'c.name as contact_name',
+                    'transactions.type'
+                )
+                ->with(['recurring_parent'])
+                ->groupBy('transactions.id');
+
+            // Add condition for expense for,used in sales representative expense report & list of expense
+            if (request()->has('expense_for')) {
+                $expense_for = request()->get('expense_for');
+                if (! empty($expense_for)) {
+                    $expenses->where('transactions.expense_for', $expense_for);
+                }
+            }
+
+            if (request()->has('contact_id')) {
+                $contact_id = request()->get('contact_id');
+                if (! empty($contact_id)) {
+                    $expenses->where('transactions.contact_id', $contact_id);
+                }
+            }
+
+            // Add condition for location,used in sales representative expense report & list of expense
+            if (request()->has('location_id')) {
+                $location_id = request()->get('location_id');
+                if (! empty($location_id)) {
+                    $expenses->where('transactions.location_id', $location_id);
+                }
+            }
+
+            // Add condition for expense category, used in list of expense,
+            if (request()->has('expense_category_id')) {
+                $expense_category_id = request()->get('expense_category_id');
+                if (! empty($expense_category_id)) {
+                    $expenses->where('transactions.expense_category_id', $expense_category_id);
+                }
+            }
+
+            // Add condition for expense sub category, used in list of expense,
+            if (request()->has('expense_sub_category_id')) {
+                $expense_sub_category_id = request()->get('expense_sub_category_id');
+                if (! empty($expense_sub_category_id)) {
+                    $expenses->where('transactions.expense_sub_category_id', $expense_sub_category_id);
+                }
+            }
+
+            // Add condition for start and end date filter, uses in sales representative expense report & list of expense
+            if (! empty(request()->start_date) && ! empty(request()->end_date)) {
+                $start = request()->start_date;
+                $end = request()->end_date;
+                $expenses->whereDate('transaction_date', '>=', $start)
+                    ->whereDate('transaction_date', '<=', $end);
+            }
+
+            $permitted_locations = auth()->user()->permitted_locations();
+            if ($permitted_locations != 'all') {
+                $expenses->whereIn('transactions.location_id', $permitted_locations);
+            }
+
+            // Add condition for payment status for the list of expense
+            if (request()->has('payment_status')) {
+                $payment_status = request()->get('payment_status');
+                if (! empty($payment_status)) {
+                    $expenses->where('transactions.payment_status', $payment_status);
+                }
+            }
+
+            $is_admin = $this->moduleUtil->is_admin(auth()->user(), $business_id);
+            if (! $is_admin && ! auth()->user()->can('all_expense.access')) {
+                $user_id = auth()->user()->id;
+                $expenses->where(function ($query) use ($user_id): void {
+                    $query->where('transactions.created_by', $user_id)
+                        ->orWhere('transactions.expense_for', $user_id);
+                });
+            }
+
+            return Datatables::of($expenses)
+                ->addColumn(
+                    'action',
+                    '<div class="btn-group">
+                        <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-info tw-w-max dropdown-toggle" 
+                            data-toggle="dropdown" aria-expanded="false"> @lang("messages.actions")<span class="caret"></span><span class="sr-only">Toggle Dropdown
+                                </span>
+                        </button>
+                    <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                    @if(auth()->user()->can("expense.edit"))
+                    @if((new App\Utils\ModuleUtil)->getModuleData("MKamel_checkTreeAccountingDefined") == true)
+                        <li><a href="{{action(\'App\Http\Controllers\ExpenseController@edit\', [$id])}}"><i class="glyphicon glyphicon-edit"></i> @lang("messages.edit")</a></li>
+                    @endif
+                    @endif
+                    @if($document)
+                        <li><a href="{{ url(\'uploads/documents/\' . $document)}}" 
+                        download=""><i class="fa fa-download" aria-hidden="true"></i> @lang("purchase.download_document")</a></li>
+                        @if(isFileImage($document))
+                            <li><a href="#" data-href="{{ url(\'uploads/documents/\' . $document)}}" class="view_uploaded_document"><i class="fas fa-file-image" aria-hidden="true"></i>@lang("lang_v1.view_document")</a></li>
+                        @endif
+                    @endif
+                    @if(auth()->user()->can("expense.delete"))
+                    @if((new App\Utils\ModuleUtil)->getModuleData("MKamel_checkTreeAccountingDefined") == false)
+                        <li>
+                        <a href="#" data-href="{{action(\'App\Http\Controllers\ExpenseController@destroy\', [$id])}}" class="delete_expense"><i class="glyphicon glyphicon-trash"></i> @lang("messages.delete")</a></li>
+                    @endif
+                    @endif
+                    <li class="divider"></li> 
+                    @if($payment_status != "paid")
+                        <li><a href="{{action([\App\Http\Controllers\TransactionPaymentController::class, \'addPayment\'], [$id])}}" class="add_payment_modal"><i class="fas fa-money-bill-alt" aria-hidden="true"></i> @lang("purchase.add_payment")</a></li>
+                    @endif
+                    <li><a href="{{action([\App\Http\Controllers\TransactionPaymentController::class, \'show\'], [$id])}}" class="view_payment_modal"><i class="fas fa-money-bill-alt" aria-hidden="true" ></i> @lang("purchase.view_payments")</a></li>
+                    </ul></div>'
+                )
+                ->removeColumn('id')
+                ->editColumn(
+                    'final_total',
+                    '<span class="display_currency final-total" data-currency_symbol="true" data-orig-value="@if($type=="expense_refund"){{-1 * $final_total}}@else{{$final_total}}@endif">@if($type=="expense_refund") - @endif @format_currency($final_total)</span>'
+                )
+                ->editColumn('transaction_date', '{{@format_datetime($transaction_date)}}')
+                ->editColumn(
+                    'payment_status',
+                    '<a href="{{ action([\App\Http\Controllers\TransactionPaymentController::class, \'show\'], [$id])}}" class="view_payment_modal payment-status" data-orig-value="{{$payment_status}}" data-status-name="{{__(\'lang_v1.\' . $payment_status)}}"><span class="label @payment_status($payment_status)">{{__(\'lang_v1.\' . $payment_status)}}
+                        </span></a>'
+                )
+                ->addColumn('payment_due', function ($row) {
+                    $due = $row->final_total - $row->amount_paid;
+
+                    if ($row->type == 'expense_refund') {
+                        $due = -1 * $due;
+                    }
+
+                    return '<span class="display_currency payment_due" data-currency_symbol="true" data-orig-value="'.$due.'">'.$this->transactionUtil->num_f($due, true).'</span>';
+                })
+                ->addColumn('recur_details', function ($row) {
+                    $details = '<small>';
+                    if ($row->is_recurring == 1) {
+                        $type = $row->recur_interval == 1 ? Str::singular(__('lang_v1.'.$row->recur_interval_type)) : __('lang_v1.'.$row->recur_interval_type);
+                        $recur_interval = $row->recur_interval.$type;
+
+                        $details .= __('lang_v1.recur_interval').': '.$recur_interval;
+                        if (! empty($row->recur_repetitions)) {
+                            $details .= ', '.__('lang_v1.no_of_repetitions').': '.$row->recur_repetitions;
+                        }
+                        if ($row->recur_interval_type == 'months' && ! empty($row->subscription_repeat_on)) {
+                            $details .= '<br><small class="text-muted">'.
+                            __('lang_v1.repeat_on').': '.str_ordinal($row->subscription_repeat_on);
+                        }
+                    } elseif (! empty($row->recur_parent_id)) {
+                        $details .= __('lang_v1.recurred_from').': '.$row->recurring_parent->ref_no;
+                    }
+                    $details .= '</small>';
+
+                    return $details;
+                })
+                ->editColumn('ref_no', function ($row) {
+                    $ref_no = $row->ref_no;
+                    if (! empty($row->is_recurring)) {
+                        $ref_no .= ' &nbsp;<small class="label bg-red label-round no-print" title="'.__('lang_v1.recurring_expense').'"><i class="fas fa-recycle"></i></small>';
+                    }
+
+                    if (! empty($row->recur_parent_id)) {
+                        $ref_no .= ' &nbsp;<small class="label bg-info label-round no-print" title="'.__('lang_v1.generated_recurring_expense').'"><i class="fas fa-recycle"></i></small>';
+                    }
+
+                    if ($row->type == 'expense_refund') {
+                        $ref_no .= ' &nbsp;<small class="label bg-gray">'.__('lang_v1.refund').'</small>';
+                    }
+
+                    return $ref_no;
+                })
+                ->rawColumns(['final_total', 'action', 'payment_status', 'payment_due', 'ref_no', 'recur_details'])
+                ->make(true);
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        $categories = ExpenseCategory::where('business_id', $business_id)
+            ->whereNull('parent_id')
+            ->pluck('name', 'id');
+
+        $users = User::forDropdown($business_id, false, true, true);
+
+        $business_locations = BusinessLocation::forDropdown($business_id, true);
+
+        $contacts = Contact::contactDropdown($business_id, false, false);
+
+        $sub_categories = ExpenseCategory::where('business_id', $business_id)
+            ->whereNotNull('parent_id')
+            ->pluck('name', 'id')
+            ->toArray();
+
+        return view('expense.index')
+            ->with(compact('categories', 'business_locations', 'users', 'contacts', 'sub_categories'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        if (! auth()->user()->can('expense.add')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        // Check if subscribed or not
+        if (! $this->moduleUtil->isSubscribed($business_id)) {
+            return $this->moduleUtil->expiredResponse(action([\App\Http\Controllers\ExpenseController::class, 'index']));
+        }
+
+        $business_locations = BusinessLocation::forDropdown($business_id, false, true);
+
+        $bl_attributes = $business_locations['attributes'];
+        $business_locations = $business_locations['locations'];
+
+        $expense_categories = ExpenseCategory::where('business_id', $business_id)
+            ->whereNull('parent_id')
+            ->pluck('name', 'id');
+        $users = User::forDropdown($business_id, true, true);
+
+        $taxes = TaxRate::forBusinessDropdown($business_id, true, true);
+
+        $payment_line = $this->dummyPaymentLine;
+
+        $payment_types = $this->transactionUtil->payment_types(null, false, $business_id);
+
+        $contacts = Contact::contactDropdown($business_id, false, false);
+
+        // Accounts
+        $accounts = [];
+        if ($this->moduleUtil->isModuleEnabled('account')) {
+            $accounts = Account::forDropdown($business_id, true, false, true);
+        }
+
+        if (request()->ajax()) {
+            return view('expense.add_expense_modal')
+                ->with(compact('expense_categories', 'business_locations', 'users', 'taxes', 'payment_line', 'payment_types', 'accounts', 'bl_attributes', 'contacts'));
+        }
+
+        return view('expense.create')
+            ->with(compact('expense_categories', 'business_locations', 'users', 'taxes', 'payment_line', 'payment_types', 'accounts', 'bl_attributes', 'contacts'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        if (! auth()->user()->can('expense.add')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $business_id = $request->session()->get('user.business_id');
+
+            $output_acc = (new \App\Utils\ModuleUtil)->getModuleData('MKamel_check111', ['request' => $request]);
+            if (isset($output_acc['Accounting']['success']) && $output_acc['Accounting']['success'] == 0) {
+                return redirect()->back()->with(['status' => $output_acc['Accounting']]);
+            }
+
+            // Check if subscribed or not
+            if (! $this->moduleUtil->isSubscribed($business_id)) {
+                return $this->moduleUtil->expiredResponse(action([\App\Http\Controllers\ExpenseController::class, 'index']));
+            }
+
+            // Validate document size
+            $request->validate([
+                'document' => 'file|max:'.(config('constants.document_size_limit') / 1000),
+            ]);
+
+            $user_id = $request->session()->get('user.id');
+
+            DB::beginTransaction();
+
+            $expense = $this->transactionUtil->createExpense($request, $business_id, $user_id);
+
+            if (request()->ajax()) {
+                $payments = ! empty($request->input('payment')) ? $request->input('payment') : [];
+                $this->cashRegisterUtil->addSellPayments($expense, $payments);
+            }
+
+            $this->transactionUtil->activityLog($expense, 'added');
+
+            event(new ExpenseCreatedOrModified($expense));
+
+            if (isset($output_acc['Accounting']['success']) && $output_acc['Accounting']['success'] == 1) {
+                (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store111', ['request' => $request, 'expense_linked' => $output_acc['Accounting']['expense_linked'], 'account_linked' => $output_acc['Accounting']['account_linked'], 'expense' => $expense]);
+            }
+
+            DB::commit();
+
+            $output = ['success' => 1,
+                'msg' => __('expense.expense_add_success'),
+            ];
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => 0,
+                'msg' => __('messages.something_went_wrong'),
+            ];
+        }
+
+        if (request()->ajax()) {
+            return $output;
+        }
+
+        return redirect('expenses')->with('status', $output);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        if (! auth()->user()->can('expense.edit')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+
+        // Check if subscribed or not
+        if (! $this->moduleUtil->isSubscribed($business_id)) {
+            return $this->moduleUtil->expiredResponse(action([\App\Http\Controllers\ExpenseController::class, 'index']));
+        }
+
+        $business_locations = BusinessLocation::forDropdown($business_id);
+
+        $expense_categories = ExpenseCategory::where('business_id', $business_id)
+            ->whereNull('parent_id')
+            ->pluck('name', 'id');
+        $expense = Transaction::where('business_id', $business_id)
+            ->where('id', $id)
+            ->first();
+
+        $users = User::forDropdown($business_id, true, true);
+
+        $taxes = TaxRate::forBusinessDropdown($business_id, true, true);
+
+        $contacts = Contact::contactDropdown($business_id, false, false);
+
+        // Sub-category
+        $sub_categories = [];
+
+        if (! empty($expense->expense_category_id)) {
+            $sub_categories = ExpenseCategory::where('business_id', $business_id)
+                ->where('parent_id', $expense->expense_category_id)
+                ->pluck('name', 'id')
+                ->toArray();
+        }
+
+        return view('expense.edit')
+            ->with(compact('expense', 'expense_categories', 'business_locations', 'users', 'taxes', 'contacts', 'sub_categories'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        if (! auth()->user()->can('expense.edit')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            // Validate document size
+            $request->validate([
+                'document' => 'file|max:'.(config('constants.document_size_limit') / 1000),
+            ]);
+
+            $business_id = $request->session()->get('user.business_id');
+
+            // Check if subscribed or not
+            if (! $this->moduleUtil->isSubscribed($business_id)) {
+                return $this->moduleUtil->expiredResponse(action([\App\Http\Controllers\ExpenseController::class, 'index']));
+            }
+
+            $expense = $this->transactionUtil->updateExpense($request, $id, $business_id);
+
+            $this->transactionUtil->activityLog($expense, 'edited');
+
+            event(new ExpenseCreatedOrModified($expense));
+
+            $output = ['success' => 1,
+                'msg' => __('expense.expense_update_success'),
+            ];
+        } catch (\Exception $e) {
+            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+            $output = ['success' => 0,
+                'msg' => __('messages.something_went_wrong'),
+            ];
+        }
+
+        return redirect('expenses')->with('status', $output);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        if (! auth()->user()->can('expense.delete')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        if (request()->ajax()) {
+            try {
+                $business_id = request()->session()->get('user.business_id');
+
+                $expense = Transaction::where('business_id', $business_id)
+                    ->where(function ($q): void {
+                        $q->where('type', 'expense')
+                            ->orWhere('type', 'expense_refund');
+                    })
+                    ->where('id', $id)
+                    ->first();
+
+                // Delete Cash register transactions
+                $expense->cash_register_payments()->delete();
+
+                $expense->delete();
+
+                // Delete account transactions
+                AccountTransaction::where('transaction_id', $expense->id)->delete();
+
+                event(new ExpenseCreatedOrModified($expense, true));
+
+                $output = ['success' => true,
+                    'msg' => __('expense.expense_delete_success'),
+                ];
+            } catch (\Exception $e) {
+                \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+
+                $output = ['success' => false,
+                    'msg' => __('messages.something_went_wrong'),
+                ];
+            }
+
+            return $output;
+        }
+    }
+}
