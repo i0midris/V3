@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\DB;
 class UpdateRewardPoints extends Command
 {
     /**
+     * Utility instances.
+     */
+    protected TransactionUtil $transactionUtil;
+    protected ProductUtil $productUtil;
+    protected NotificationUtil $notificationUtil;
+
+    /**
      * The name and signature of the console command.
      *
      * @var string
@@ -31,8 +38,11 @@ class UpdateRewardPoints extends Command
      *
      * @return void
      */
-    public function __construct(TransactionUtil $transactionUtil, ProductUtil $productUtil, NotificationUtil $notificationUtil)
-    {
+    public function __construct(
+        TransactionUtil $transactionUtil,
+        ProductUtil $productUtil,
+        NotificationUtil $notificationUtil
+    ) {
         parent::__construct();
 
         $this->transactionUtil = $transactionUtil;
@@ -43,27 +53,29 @@ class UpdateRewardPoints extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         try {
             ini_set('max_execution_time', 0);
             ini_set('memory_limit', '512M');
 
-            $businesses = Business::get();
+            $businesses = Business::all();
 
             DB::beginTransaction();
+
             foreach ($businesses as $business) {
                 if ($business->enable_rp != 1 || empty($business->rp_expiry_period)) {
                     continue;
                 }
 
-                $transaction_date_to_be_expired = \Carbon::now();
-                if ($business->rp_expiry_type == 'month') {
-                    $transaction_date_to_be_expired = $transaction_date_to_be_expired->subMonths($business->rp_expiry_period);
-                } elseif ($business->rp_expiry_type == 'year') {
-                    $transaction_date_to_be_expired = $transaction_date_to_be_expired->subYears($business->rp_expiry_period);
+                $transaction_date_to_be_expired = now();
+
+                if ($business->rp_expiry_type === 'month') {
+                    $transaction_date_to_be_expired->subMonths($business->rp_expiry_period);
+                } elseif ($business->rp_expiry_type === 'year') {
+                    $transaction_date_to_be_expired->subYears($business->rp_expiry_period);
                 }
 
                 $transactions = Transaction::where('business_id', $business->id)
@@ -71,17 +83,22 @@ class UpdateRewardPoints extends Command
                     ->where('status', 'final')
                     ->whereDate('transaction_date', '<=', $transaction_date_to_be_expired->format('Y-m-d'))
                     ->whereNotNull('rp_earned')
-                    ->with(['contact'])
+                    ->with('contact')
                     ->select(
                         DB::raw('SUM(COALESCE(rp_earned, 0)) as total_rp_expired'),
                         'contact_id'
-                    )->groupBy('contact_id')
+                    )
+                    ->groupBy('contact_id')
                     ->get();
 
                 foreach ($transactions as $transaction) {
-                    if (! empty($transaction->total_rp_expired) && $transaction->contact->total_rp_used < $transaction->total_rp_expired) {
-                        $contact = $transaction->contact;
+                    $contact = $transaction->contact;
 
+                    if (
+                        !empty($transaction->total_rp_expired)
+                        && $contact
+                        && $contact->total_rp_used < $transaction->total_rp_expired
+                    ) {
                         $diff = $transaction->total_rp_expired - $contact->total_rp_used;
 
                         $contact->total_rp -= $diff;
@@ -92,11 +109,13 @@ class UpdateRewardPoints extends Command
             }
 
             DB::commit();
+            return 0;
         } catch (\Exception $e) {
             DB::rollBack();
-            \Log::emergency('File:'.$e->getFile().'Line:'.$e->getLine().'Message:'.$e->getMessage());
+            \Log::emergency('File: '.$e->getFile().' Line: '.$e->getLine().' Message: '.$e->getMessage());
 
-            exit($e->getMessage());
+            $this->error($e->getMessage());
+            return 1;
         }
     }
 }

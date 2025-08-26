@@ -1,10 +1,10 @@
 {
     "name": "pnn/ageingreport",
-    "description": "Invoice Ageing Report ",
+    "description": "Ageing Report for UltimatePOS",
     "authors": [
         {
-            "name": "Idris Alshobate",
-            "email": "idrisalshobate@gmail.com"
+            "name": "PNN Solutions",
+            "email": "mail.pnnsolutions@gmail.com"
         }
     ],    "extra": {
         "laravel": {

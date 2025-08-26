@@ -63,9 +63,9 @@
 					</div>
 				</div>
 				<div class="col-sm-12">
-					<table class="table tw-border table-striped" id="sell_return_table">
-						<thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
-							<tr>
+					<table class="table bg-gray" id="sell_return_table">
+						<thead>
+							<tr class="bg-green">
 								<th>#</th>
 								<th>@lang('product.product_name')</th>
 								<th>@lang('sale.unit_price')</th>
@@ -150,7 +150,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						{!! Form::label('discount_amount', __( 'purchase.discount_amount' ) . ':') !!}
-						{!! Form::text('discount_amount', @num_format($discount_amount), ['class' => 'form-control input_number']); !!}
+{!! Form::text('discount_amount', number_format($discount_amount, 4, '.', ''), ['class' => 'form-control input_number', 'readonly']); !!}
 					</div>
 				</div>
 			</div>

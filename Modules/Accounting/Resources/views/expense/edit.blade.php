@@ -18,46 +18,46 @@
 
     <div class="box box-solid">
         <div class="box-body">
-            <div class="row">
+            <div class="row lg:tw-p-4 tw-mt-4">
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('ref_no', __('purchase.ref_no').':') !!}
                     @show_tooltip(__('lang_v1.leave_empty_to_autogenerate'))
                     {!! Form::text('ref_no',  $mapping_transaction->ref_no, ['class' => 'form-control']); !!}
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('from_account',  __( 'lang_v1.payment_method' ) .":*") !!}
                     {!! Form::select('from_account', [ $debit_tansaction->accounting_account_id =>  $debit_tansaction->account()->first()->name ?? "" ] , $debit_tansaction->accounting_account_id, ['class' => 'form-control accounts-dropdown', 'required',
                         'parent_ids' => $cash.','.$bank,
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('to_account', __( 'accounting::lang.acc_expence_to' ) .":*") !!}
                     {!! Form::select('to_account', [ $credit_tansaction->accounting_account_id =>  $credit_tansaction->account()->first()->name ?? "" ] , $credit_tansaction->accounting_account_id, ['class' => 'form-control accounts-dropdown', 'required',
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('amount', __( 'sale.amount' ) .":*") !!}
                     {!! Form::text('amount', isset($credit_tansaction2->id) ? $debit_tansaction->amount - $credit_tansaction2->amount : $debit_tansaction->amount, ['class' => 'form-control input_number',
                         'required','placeholder' => __( 'sale.amount' ) ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('to_account2', __( 'business.tax' ) .":") !!}
                     {!! Form::select('to_account2', isset($credit_tansaction2->id) ? [ $credit_tansaction2->accounting_account_id =>  $credit_tansaction2->account()->first()->name ?? "" ] : [] , isset($credit_tansaction2->id) ? $credit_tansaction2->accounting_account_id : "", ['class' => 'form-control accounts-dropdown',
                          'same_ids' => '2105',
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('amount2', __( 'accounting::lang.amount_tax' ) .":") !!}
                     {!! Form::text('amount2', isset($credit_tansaction2->id) ? $credit_tansaction2->amount+0 : "", ['class' => 'form-control input_number',
                        'placeholder' => __( 'sale.amount' ) ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('operation_date', __( 'messages.date' ) .":*") !!}
                     <div class="input-group">
                         {!! Form::text('operation_date',  @format_datetime($mapping_transaction->operation_date), ['class' => 'form-control',
@@ -67,26 +67,26 @@
                 </span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('location_id', __( 'business.location' ) .":*") !!}
                     {!! Form::select('location_id',  $locations_array, $debit_tansaction->location_id, ['class' => 'form-control locations-dropdown', 'required',
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group col-md-8">
                     {!! Form::label('note', __( 'brand.note' )) !!}
                     {!! Form::textarea('note',  $mapping_transaction->note, ['class' => 'form-control',
                         'placeholder' => __( 'brand.note' ), 'rows' => 4]); !!}
                 </div>
             </div>
+            <div class="row tw-mt-4 text-center">
+                <button type="submit" class="tw-dw-btn tw-dw-btn-primary tw-text-white">@lang( 'messages.update' )</button>
+            </div>
         </div>
     </div> <!--box end-->
 
 
-    <div class="col-sm-12 text-center">
-        <button type="submit" class="btn btn-primary">@lang( 'messages.update' )</button>
-    </div>
     {!! Form::close() !!}
 </section>
 @endsection

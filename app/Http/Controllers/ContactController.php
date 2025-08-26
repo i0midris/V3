@@ -776,7 +776,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+        public function update(Request $request, $id)
     {
         if (! auth()->user()->can('supplier.update') && ! auth()->user()->can('customer.update') && ! auth()->user()->can('customer.view_own') && ! auth()->user()->can('supplier.view_own')) {
             abort(403, 'Unauthorized action.');
@@ -1237,7 +1237,7 @@ class ContactController extends Controller
                 }
                 if (! $is_valid) {
                     throw new \Exception($error_msg);
-                }
+                } 
 
                 if (! empty($formated_data)) {
                     foreach ($formated_data as $contact_data) {
@@ -1256,11 +1256,79 @@ class ContactController extends Controller
                         $contact_data['business_id'] = $business_id;
                         $contact_data['created_by'] = $user_id;
 
-                        $contact = Contact::create($contact_data);
+                        // Avoid duplicate by checking if contact_id OR (first_name + mobile) already exist
+$existing_contact = Contact::where('business_id', $business_id)
+    ->where(function ($query) use ($contact_data) {
+        $query->where('contact_id', $contact_data['contact_id'])
+              ->orWhere(function ($q) use ($contact_data) {
+                  $q->where('first_name', $contact_data['first_name'])
+                    ->where('mobile', $contact_data['mobile']);
+              });
+    })->first();
 
-                        if (! empty($opening_balance)) {
-                            $this->transactionUtil->createOpeningBalanceTransaction($business_id, $contact->id, $opening_balance, $user_id, false);
-                        }
+if ($existing_contact) {
+    \Log::info('ImportContacts: Skipping duplicate contact', [
+        'contact_id' => $contact_data['contact_id'],
+        'first_name' => $contact_data['first_name'],
+        'mobile' => $contact_data['mobile']
+    ]);
+    continue; // skip this row
+}
+
+$contact = Contact::create($contact_data);
+
+// Check for existing opening balance transaction
+$existing_ob = \App\Transaction::where('business_id', $business_id)
+    ->where('contact_id', $contact->id)
+    ->where('type', 'opening_balance')
+    ->first();
+
+$opening_balance_transaction = null;
+
+if (!empty($opening_balance) && !$existing_ob) {
+    \Log::debug('ImportContacts: Creating opening balance transaction', [
+        'business_id' => $business_id,
+        'contact_id' => $contact->id,
+        'amount' => $opening_balance,
+        'user_id' => $user_id
+    ]);
+
+    $opening_balance_transaction = $this->transactionUtil->createOpeningBalanceTransaction(
+        $business_id,
+        $contact->id,
+        $opening_balance,
+        $user_id,
+        false
+    );
+
+    if ($opening_balance_transaction) {
+        \Log::debug('ImportContacts: Opening balance transaction created', [
+            'transaction_id' => $opening_balance_transaction->id ?? null
+        ]);
+    } else {
+        \Log::warning('ImportContacts: Failed to create opening balance transaction', [
+            'contact_id' => $contact->id
+        ]);
+    }
+}
+
+
+
+                        // Push to COA using MKamel_store000
+                        $data_for_module = [
+                            'request' => $request,
+                            'input' => $contact_data,
+                            'output' => [
+                                'data' => $contact,
+                                'opening_balance_transaction' => $opening_balance_transaction,
+                            ],
+                        ];
+
+                        (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store000', $data_for_module);
+
+                        // Log activity
+                        $this->transactionUtil->activityLog($contact, 'imported');
+
 
                         $this->transactionUtil->activityLog($contact, 'imported');
                     }

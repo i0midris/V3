@@ -280,6 +280,10 @@ Route::get('/currency-rates/get-rate/{code}', [CurrencyRateController::class, 'g
     Route::get('/sells/pos/get-featured-products/{location_id}', [SellPosController::class, 'getFeaturedProducts']);
     Route::get('/reset-mapping', [SellController::class, 'resetMapping']);
 
+    // routes/web.php
+Route::get('/pos/commission-agents/{user}', [\App\Http\Controllers\SellPosController::class, 'getAgentCommissionPercent'])
+    ->name('pos.agent.commission');
+
     Route::resource('pos', SellPosController::class);
 
     Route::resource('roles', RoleController::class);
@@ -569,33 +573,3 @@ Route::middleware(['setData', 'auth', 'SetSessionData', 'language', 'timezone'])
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
-//test print section 
-
-// use Illuminate\Support\Facades\Route;
-
-use App\Utils\TransactionUtil;
-// use Illuminate\Support\Facades\Route;
-
-Route::get('/test-print/{transaction_id}', function($transaction_id) {
-
-    // Example values for other arguments
-    $location_id = 1;
-    $business_id = 1;
-    $receipt_type = 'invoice'; // or 'sale', etc
-    $show_barcode = true;
-    $show_qr = false;
-
-    // Call TransactionUtil
-    $receipt_details = TransactionUtil::getReceiptDetails(
-        $transaction_id,
-        $location_id,
-        $business_id,
-        $receipt_type,
-        $show_barcode,
-        $show_qr
-    );
-
-    return view('sale_pos.receipts.classic', compact('receipt_details'));
-});

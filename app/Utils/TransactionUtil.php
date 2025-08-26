@@ -24,6 +24,7 @@ use App\TransactionPayment;
 use App\TransactionSellLine;
 use App\TransactionSellLinesPurchaseLines;
 use App\Variation;
+use App\User;
 use App\VariationLocationDetails;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -84,6 +85,7 @@ class TransactionUtil extends Util
             'custom_field_4' => ! empty($input['custom_field_4']) ? $input['custom_field_4'] : null,
             'is_direct_sale' => ! empty($input['is_direct_sale']) ? $input['is_direct_sale'] : 0,
             'commission_agent' => $input['commission_agent'] ?? null,
+            'commission_amount' => $input['commission_amount'] ?? null,
             'is_quotation' => isset($input['is_quotation']) ? $input['is_quotation'] : 0,
             'shipping_details' => isset($input['shipping_details']) ? $input['shipping_details'] : null,
             'shipping_address' => isset($input['shipping_address']) ? $input['shipping_address'] : null,
@@ -148,6 +150,20 @@ class TransactionUtil extends Util
 
         return $transaction;
     }
+    private function calculateProfitLoss($business_id, $start_date, $end_date, $location_id = null, $user_id = null)
+{
+    $permitted_locations = auth()->user()->permitted_locations();
+
+    return $this->transactionUtil->getProfitLossDetails(
+        $business_id,
+        $location_id,
+        $start_date,
+        $end_date,
+        $user_id,
+        $permitted_locations
+    );
+}
+
 
     /**
      * Add Sell transaction
@@ -207,6 +223,7 @@ class TransactionUtil extends Util
             'custom_field_3' => ! empty($input['custom_field_3']) ? $input['custom_field_3'] : null,
             'custom_field_4' => ! empty($input['custom_field_4']) ? $input['custom_field_4'] : null,
             'commission_agent' => $input['commission_agent'],
+            'commission_amount' => $input['commission_amount'],
             'is_quotation' => isset($input['is_quotation']) ? $input['is_quotation'] : 0,
             'sub_status' => ! empty($input['sub_status']) ? $input['sub_status'] : null,
             'shipping_details' => isset($input['shipping_details']) ? $input['shipping_details'] : null,
@@ -1421,11 +1438,16 @@ class TransactionUtil extends Util
         $output['discount_label'] .= ($transaction->discount_type == 'percentage') ? ' <small>('.$this->num_f($transaction->discount_amount, false, $business_details).'%)</small> :' : '';
 
         if ($transaction->discount_type == 'percentage') {
-            $discount = ($transaction->discount_amount / 100) * $transaction->total_before_tax;
-        } else {
-            $discount = $transaction->discount_amount;
-        }
-        $output['discount'] = ($discount != 0) ? $this->num_f($discount, $show_currency, $business_details) : 0;
+    $discount_percentage = (float)$transaction->discount_amount;
+
+    // Always use original subtotal BEFORE discount
+    $pre_discount_subtotal = $transaction->total_before_tax / (1 - $discount_percentage / 100);
+
+    $discount = $pre_discount_subtotal * ($discount_percentage / 100);
+} else {
+    $discount = (float)$transaction->discount_amount;
+}
+$output['discount'] = $this->num_f($discount, $show_currency, $business_details);
 
         // reward points
         if ($business_details->enable_rp == 1 && ! empty($transaction->rp_redeemed)) {
@@ -4126,30 +4148,36 @@ class TransactionUtil extends Util
      * @param  int  $amount
      * @return void
      */
-    public function createOpeningBalanceTransaction($business_id, $contact_id, $amount, $created_by, $uf_data = true)
-    {
-        $business_location = BusinessLocation::where('business_id', $business_id)
-            ->first();
-        $final_amount = $uf_data ? $this->num_uf($amount) : $amount;
-        $ob_data = [
-            'business_id' => $business_id,
-            'location_id' => $business_location->id,
-            'type' => 'opening_balance',
-            'status' => 'final',
-            'payment_status' => 'due',
-            'contact_id' => $contact_id,
-            'transaction_date' => \Carbon::now(),
-            'total_before_tax' => $final_amount,
-            'final_total' => $final_amount,
-            'created_by' => $created_by,
-        ];
-        // Update reference count
-        $ob_ref_count = $this->setAndGetReferenceCount('opening_balance', $business_id);
-        // Generate reference number
-        $ob_data['ref_no'] = $this->generateReferenceNumber('opening_balance', $ob_ref_count, $business_id);
-        // Create opening balance transaction
-        Transaction::create($ob_data);
-    }
+   public function createOpeningBalanceTransaction($business_id, $contact_id, $amount, $created_by, $uf_data = true)
+{
+    $business_location = BusinessLocation::where('business_id', $business_id)
+        ->first();
+
+    $final_amount = $uf_data ? $this->num_uf($amount) : $amount;
+
+    $ob_data = [
+        'business_id' => $business_id,
+        'location_id' => $business_location->id,
+        'type' => 'opening_balance',
+        'status' => 'final',
+        'payment_status' => 'due',
+        'contact_id' => $contact_id,
+        'transaction_date' => \Carbon::now(),
+        'total_before_tax' => $final_amount,
+        'final_total' => $final_amount,
+        'created_by' => $created_by,
+    ];
+
+    // Update reference count
+    $ob_ref_count = $this->setAndGetReferenceCount('opening_balance', $business_id);
+
+    // Generate reference number
+    $ob_data['ref_no'] = $this->generateReferenceNumber('opening_balance', $ob_ref_count, $business_id);
+
+    // Create and RETURN the transaction
+    return Transaction::create($ob_data);
+}
+
 
     /**
      * Updates quantity sold in purchase line for sell return
@@ -4496,14 +4524,34 @@ class TransactionUtil extends Util
                 DB::raw("SUM(IF(transactions.type='purchase', IF(discount_type = 'percentage', COALESCE(discount_amount, 0)*total_before_tax/100, COALESCE(discount_amount, 0)), 0)) as total_purchase_discount")
             );
         }
+// before adding selects, add this join once:
+$preDiscountSub = DB::table('transaction_sell_lines as tsl')
+    ->select('tsl.transaction_id',
+        DB::raw('SUM(tsl.quantity * tsl.unit_price_before_discount) as pre_total'))
+    ->groupBy('tsl.transaction_id');
 
-        if (in_array('sell', $transaction_types)) {
-            $query->addSelect(
-                DB::raw("SUM(IF(transactions.type='sell' AND transactions.status='final', IF(discount_type = 'percentage', COALESCE(discount_amount, 0)*total_before_tax/100, COALESCE(discount_amount, 0)), 0)) as total_sell_discount"),
-                DB::raw("SUM(IF(transactions.type='sell' AND transactions.status='final', rp_redeemed_amount, 0)) as total_reward_amount"),
-                DB::raw("SUM(IF(transactions.type='sell' AND transactions.status='final', round_off_amount, 0)) as total_sell_round_off")
-            );
-        }
+$query->leftJoinSub($preDiscountSub, 'pre', function ($join) {
+    $join->on('pre.transaction_id', '=', 'transactions.id');
+});
+
+if (in_array('sell', $transaction_types)) {
+    $query->addSelect(
+        DB::raw("SUM(
+            IF(
+                transactions.type='sell' AND transactions.status='final',
+                IF(
+                    discount_type = 'percentage',
+                    COALESCE(discount_amount, 0) * COALESCE(pre.pre_total, 0) / 100,
+                    COALESCE(discount_amount, 0)
+                ),
+                0
+            )
+        ) as total_sell_discount"),
+        DB::raw("SUM(IF(transactions.type='sell' AND transactions.status='final', rp_redeemed_amount, 0)) as total_reward_amount"),
+        DB::raw("SUM(IF(transactions.type='sell' AND transactions.status='final', round_off_amount, 0)) as total_sell_round_off")
+    );
+}
+
 
         $transaction_totals = $query->first();
         $output = [];
@@ -5582,6 +5630,32 @@ class TransactionUtil extends Util
             $permitted_locations
         );
 
+        // Commission from transactions (already in schema)
+$total_sell_commission = \App\Transaction::where('business_id', $business_id)
+    ->where('type', 'sell')
+    ->where('status', 'final')
+    ->when($location_id, fn($q)=>$q->where('location_id',$location_id))
+    ->when($user_id, fn($q)=>$q->where('created_by',$user_id))
+    ->when($start_date && $end_date, fn($q)=> $start_date===$end_date
+        ? $q->whereDate('transaction_date',$end_date)
+        : $q->whereBetween('transaction_date', [$start_date,$end_date]))
+    ->sum('commission_amount');
+
+$total_sell_return_commission = \App\Transaction::where('business_id', $business_id)
+    ->where('type', 'sell_return')
+    ->where('status', 'final')
+    ->when($location_id, fn($q)=>$q->where('location_id',$location_id))
+    ->when($user_id, fn($q)=>$q->where('created_by',$user_id))
+    ->when($start_date && $end_date, fn($q)=> $start_date===$end_date
+        ? $q->whereDate('transaction_date',$end_date)
+        : $q->whereBetween('transaction_date', [$start_date,$end_date]))
+    ->sum('commission_amount');
+
+// Deduct returns
+$data['commission_amount'] = (float) $total_sell_commission - (float) $total_sell_return_commission;
+
+
+
         $data['total_purchase_shipping_charge'] = ! empty($purchase_details['total_shipping_charges']) ? $purchase_details['total_shipping_charges'] : 0;
         $data['total_sell_shipping_charge'] = ! empty($sell_details['total_shipping_charges']) ? $sell_details['total_shipping_charges'] : 0;
 
@@ -5677,8 +5751,8 @@ class TransactionUtil extends Util
         //                         + $data['total_purchase_return']
         //                         - $data['total_sell_return'];
         $data['net_profit'] = $module_total + $gross_profit
-                                + ($data['total_sell_round_off'] + $data['total_recovered'] + $data['total_sell_shipping_charge'] + $data['total_purchase_discount'] + $data['total_sell_additional_expense'] + $data['total_sell_return_discount']
-                                ) - ($data['total_reward_amount'] + $data['total_expense'] + $data['total_adjustment'] + $data['total_transfer_shipping_charges'] + $data['total_purchase_shipping_charge'] + $data['total_purchase_additional_expense'] + $data['total_sell_discount']
+                                + ($data['total_sell_round_off'] + $data['total_recovered'] + $data['total_sell_shipping_charge'] + $data['total_purchase_discount'] + $data['total_sell_additional_expense'] + $data['total_sell_return_discount'] + $data['commission_amount']
+                                ) - ($data['total_reward_amount'] + $data['total_expense'] + $data['total_adjustment'] + $data['total_transfer_shipping_charges'] + $data['total_purchase_shipping_charge'] + $data['total_purchase_additional_expense'] + $data['total_sell_discount'] 
                                 );
 
         // get gross profit from Project Module
@@ -5704,6 +5778,7 @@ class TransactionUtil extends Util
         }
 
         $data['gross_profit'] = $gross_profit;
+
 
         // get sub type for total sales
         $sales_by_subtype = Transaction::where('business_id', $business_id)
@@ -6027,113 +6102,115 @@ if ($request->has('exchange_rate')) {
         return $parent_payment;
     }
 
-    public function addSellReturn($input, $business_id, $user_id, $uf_number = true)
+   public function addSellReturn($input, $business_id, $user_id, $uf_number = true)
 {
-    $discount = [
-        'discount_type' => $input['discount_type'] ?? 'fixed',
-        'discount_amount' => $input['discount_amount'] ?? 0,
-    ];
+    $sell = Transaction::where('business_id', $business_id)
+    ->with(['sell_lines', 'sell_lines.sub_unit'])
+    ->findOrFail($input['transaction_id']);
 
-    $business = Business::with(['currency'])->findOrFail($business_id);
+$discount = [
+    'discount_type' => $sell->discount_type,
+    'discount_amount' => $sell->discount_amount,
+];
+
+
+    $business = Business::with('currency')->findOrFail($business_id);
     $productUtil = new \App\Utils\ProductUtil;
 
     $input['tax_id'] = $input['tax_id'] ?? null;
 
     $sell = Transaction::where('business_id', $business_id)
-    ->with(['sell_lines', 'sell_lines.sub_unit'])
-    ->findOrFail($input['transaction_id']);
-
-$total_sold_qty = $sell->sell_lines->sum('quantity');
-$input['total_sold_qty'] = $total_sold_qty; // pass this for prorating logic
-
-
-$invoice_total = $productUtil->calculateInvoiceTotal(
-    $input['products'],
-    $input['tax_id'],
-    $discount,
-    $uf_number,
-    $input['total_sold_qty'] ?? null // 👈 NEW argument
-);
-
-
-    $sell = Transaction::where('business_id', $business_id)
         ->with(['sell_lines', 'sell_lines.sub_unit'])
         ->findOrFail($input['transaction_id']);
 
-    $sell_return = Transaction::where('business_id', $business_id)
+    $total_sold_qty = $sell->sell_lines->sum('quantity');
+    $input['total_sold_qty'] = $total_sold_qty;
+
+    $invoice_total = $productUtil->calculateInvoiceTotal(
+        $input['products'],
+        $input['tax_id'],
+        $discount,
+        $uf_number,
+        $total_sold_qty
+    );
+
+    $existing_return = Transaction::where('business_id', $business_id)
         ->where('type', 'sell_return')
         ->where('return_parent_id', $sell->id)
         ->first();
 
     $sell_return_data = [
-        'invoice_no' => $input['invoice_no'] ?? null,
-        'discount_type' => $discount['discount_type'],
-        'discount_amount' => $uf_number ? $this->num_uf($discount['discount_amount']) : $discount['discount_amount'],
-        'tax_id' => $input['tax_id'],
+        'invoice_no'       => $input['invoice_no'] ?? null,
+        'discount_type'    => $discount['discount_type'],
+        'discount_amount'  => round($uf_number ? $this->num_uf($discount['discount_amount']) : $discount['discount_amount'], 4),
+        'tax_id'           => $input['tax_id'],
+        'transaction_date' => !empty($input['transaction_date'])
+            ? ($uf_number ? $this->uf_date($input['transaction_date'], true) : $input['transaction_date'])
+            : null,
     ];
 
-    if (!empty($input['transaction_date'])) {
-        $sell_return_data['transaction_date'] = $uf_number
-            ? $this->uf_date($input['transaction_date'], true)
-            : $input['transaction_date'];
-    }
-
-    if (empty($sell_return_data['invoice_no']) && empty($sell_return)) {
+    if (empty($sell_return_data['invoice_no']) && !$existing_return) {
         $ref_count = $this->setAndGetReferenceCount('sell_return', $business_id);
         $sell_return_data['invoice_no'] = $this->generateReferenceNumber('sell_return', $ref_count, $business_id);
     }
 
-    if (!empty($sell_return)) {
-        $sell_return_data['tax_amount'] = $sell_return->tax_amount + $invoice_total['tax'];
-        $sell_return_data['total_before_tax'] = $sell_return->total_before_tax + $invoice_total['total_before_tax'];
-        $sell_return_data['final_total'] = $sell_return->final_total + $invoice_total['final_total'];
+    $invoice_total_tax = round($invoice_total['tax'], 3);
+    $invoice_total_before_tax = round($invoice_total['total_before_tax'], 3);
+    $invoice_final_total = round($invoice_total['final_total'], 3);
+
+    if ($existing_return) {
+        $sell_return_data['tax_amount']        = round($existing_return->tax_amount + $invoice_total_tax, 3);
+        $sell_return_data['total_before_tax']  = round($existing_return->total_before_tax + $invoice_total_before_tax, 3);
+        $sell_return_data['final_total']       = round($existing_return->final_total + $invoice_final_total, 3);
     } else {
-        $sell_return_data['tax_amount'] = $invoice_total['tax'];
-        $sell_return_data['total_before_tax'] = $invoice_total['total_before_tax'];
-        $sell_return_data['final_total'] = $invoice_total['final_total'];
+        $sell_return_data['tax_amount']        = $invoice_total_tax;
+        $sell_return_data['total_before_tax']  = $invoice_total_before_tax;
+        $sell_return_data['final_total']       = $invoice_final_total;
     }
 
-    if (empty($sell_return)) {
+    if (!$existing_return) {
         $sell_return_data = array_merge($sell_return_data, [
-            'transaction_date' => $sell_return_data['transaction_date'] ?? \Carbon::now(),
-            'business_id' => $business_id,
-            'location_id' => $sell->location_id,
-            'contact_id' => $sell->contact_id,
-            'customer_group_id' => $sell->customer_group_id,
-            'type' => 'sell_return',
-            'status' => 'final',
-            'created_by' => $user_id,
-            'return_parent_id' => $sell->id,
+            'transaction_date'   => $sell_return_data['transaction_date'] ?? now(),
+            'business_id'        => $business_id,
+            'location_id'        => $sell->location_id,
+            'contact_id'         => $sell->contact_id,
+            'customer_group_id'  => $sell->customer_group_id,
+            'type'               => 'sell_return',
+            'status'             => 'final',
+            'created_by'         => $user_id,
+            'return_parent_id'   => $sell->id,
         ]);
 
         $sell_return = Transaction::create($sell_return_data);
-        $parent_transaction = Transaction::find($sell_return->return_parent_id);
 
-        if (strtolower($parent_transaction->payment_status) === 'paid') {
+        if (strtolower($sell->payment_status) === 'paid') {
             $sell_return->payment_status = 'paid';
             $sell_return->save();
         }
 
         $this->activityLog($sell_return, 'added');
     } else {
-        $sell_return_data['invoice_no'] = $sell_return_data['invoice_no'] ?? $sell_return->invoice_no;
-        $sell_return_before = $sell_return->replicate();
-        $sell_return->update($sell_return_data);
+        $sell_return_data['invoice_no'] = $sell_return_data['invoice_no'] ?? $existing_return->invoice_no;
 
-        $parent_transaction = Transaction::find($sell_return->return_parent_id);
-        if (strtolower($parent_transaction->payment_status) === 'paid') {
-            $sell_return->payment_status = 'paid';
-            $sell_return->save();
+        $sell_return_before = $existing_return->replicate();
+        $existing_return->update($sell_return_data);
+
+        if (strtolower($sell->payment_status) === 'paid') {
+            $existing_return->payment_status = 'paid';
+            $existing_return->save();
         }
 
-        $this->activityLog($sell_return, 'edited', $sell_return_before);
+        $this->activityLog($existing_return, 'edited', $sell_return_before);
+        $sell_return = $existing_return;
     }
 
+    // Reward point logic
     if ($business->enable_rp == 1 && !empty($sell->rp_earned)) {
         if (!$this->isRewardExpired($sell->transaction_date, $business_id)) {
             $diff = $sell->final_total - $sell_return->final_total;
             $new_rp = $this->calculateRewardPoints($business_id, $diff);
             $this->updateCustomerRewardPoints($sell->contact_id, $new_rp, $sell->rp_earned);
+
             $sell->rp_earned = $new_rp;
             $sell->save();
         }
@@ -6142,15 +6219,14 @@ $invoice_total = $productUtil->calculateInvoiceTotal(
     $this->updatePaymentStatus($sell_return->id, $sell_return->final_total);
     $this->payCustomerForReturn($sell_return, $business_id, $user_id);
 
-    // Handle return lines and update return quantities
+    // Handle returned products
     foreach ($input['products'] as $product_line) {
         $sell_line = \App\TransactionSellLine::find($product_line['sell_line_id']);
-        if (!$sell_line) continue;
+        if (!$sell_line) {
+            continue;
+        }
 
-        $return_qty = $uf_number
-            ? $this->num_uf($product_line['quantity'])
-            : $product_line['quantity'];
-
+        $return_qty = $uf_number ? $this->num_uf($product_line['quantity']) : $product_line['quantity'];
         $multiplier = !empty($sell_line->sub_unit) ? $sell_line->sub_unit->base_unit_multiplier : 1;
         $new_return_qty = $return_qty * $multiplier;
 
@@ -6165,6 +6241,7 @@ $invoice_total = $productUtil->calculateInvoiceTotal(
         $sell_line->save();
 
         $this->updateQuantitySoldFromSellLine($sell_line, $total_returned, $quantity_before, false);
+
         $productUtil->updateProductQuantity(
             $sell_return->location_id,
             $sell_line->product_id,
@@ -6174,35 +6251,31 @@ $invoice_total = $productUtil->calculateInvoiceTotal(
             null,
             false
         );
-        
 
-        $unit_price_inc_tax = $uf_number
-            ? $this->num_uf($product_line['unit_price_inc_tax'])
-            : $product_line['unit_price_inc_tax'];
-
+        $unit_price_inc_tax = $uf_number ? $this->num_uf($product_line['unit_price_inc_tax']) : $product_line['unit_price_inc_tax'];
         $tax_percent = optional($sell_line->tax)->amount ?? 0;
-        $unit_price_excl_tax = $unit_price_inc_tax / (1 + $tax_percent / 100);
+
+        $unit_price_excl_tax = $unit_price_inc_tax / (1 + ($tax_percent / 100));
         $item_tax = $unit_price_inc_tax - $unit_price_excl_tax;
 
         $discount_per_unit = $invoice_total['line_discounts'][$sell_line->id]['amount_per_unit'] ?? 0;
 
-\App\TransactionSellLine::create([
-    'transaction_id' => $sell_return->id,
-    'product_id' => $sell_line->product_id,
-    'variation_id' => $sell_line->variation_id,
-    'quantity' => $return_qty,
-    'unit_price_before_discount' => $unit_price_excl_tax,
-    'unit_price' => $unit_price_excl_tax,
-    'unit_price_inc_tax' => $unit_price_inc_tax,
-    'item_tax' => $item_tax * $return_qty,
-    'tax_id' => $sell_line->tax_id,
-    'line_discount_type' => 'fixed',
-    'line_discount_amount' => $discount_per_unit,
-    'sub_unit_id' => $sell_line->sub_unit_id,
-    'sell_line_note' => $sell_line->sell_line_note,
-    'parent_sell_line_id' => $sell_line->id,
-]);
-
+        \App\TransactionSellLine::create([
+            'transaction_id'           => $sell_return->id,
+            'product_id'               => $sell_line->product_id,
+            'variation_id'             => $sell_line->variation_id,
+            'quantity'                 => $return_qty,
+            'unit_price_before_discount' => round($unit_price_excl_tax, 4),
+            'unit_price'               => round($unit_price_excl_tax, 4),
+            'unit_price_inc_tax'       => round($unit_price_inc_tax, 4),
+            'item_tax'                 => round($item_tax * $return_qty, 4),
+            'tax_id'                   => $sell_line->tax_id,
+            'line_discount_type'       => 'fixed',
+            'line_discount_amount'     => round($discount_per_unit, 4),
+            'sub_unit_id'              => $sell_line->sub_unit_id,
+            'sell_line_note'           => $sell_line->sell_line_note,
+            'parent_sell_line_id'      => $sell_line->id,
+        ]);
     }
 
     return $sell_return;
@@ -6217,12 +6290,13 @@ public function payCustomerForReturn($transaction, $business_id, $user_id)
         \Log::info("Skipping auto refund for Sell Return #{$transaction->invoice_no} (ID: {$transaction->id}) - parent status is '{$status}'");
         return;
     }
-    try {
-        $already_refunded = $transaction->payment_lines()->sum('amount');
-        $final_total = (float) $transaction->final_total;
-        $to_refund = $final_total - $already_refunded;
 
-        if ($to_refund <= 0) {
+    try {
+        $already_refunded = round((float) $transaction->payment_lines()->sum('amount'), 3);
+        $final_total = round((float) $transaction->final_total, 3);
+        $to_refund = round($final_total - $already_refunded, 3);
+
+        if ($to_refund <= 0.000) {
             \Log::info("No refund needed for Sell Return #{$transaction->invoice_no} (ID: {$transaction->id}). Already refunded: {$already_refunded}, Final total: {$final_total}");
             return;
         }
@@ -6260,6 +6334,7 @@ public function payCustomerForReturn($transaction, $business_id, $user_id)
         ]);
     }
 }
+
 
 
 

@@ -1,5 +1,5 @@
 <section class="no-print">
-    <nav class="navbar navbar-default bg-white m-4">
+    <nav class="navbar-default tw-transition-all tw-duration-5000 tw-rounded-md tw-border tw-mx-4 tw-mt-4 tw-rounded-md !tw-bg-white">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

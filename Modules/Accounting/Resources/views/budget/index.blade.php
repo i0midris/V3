@@ -26,7 +26,7 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1>@lang( 'accounting::lang.budget' )</h1>
+    <h1>@lang( 'accounting::lang.budget' )dsfjk</h1>
 </section>
 <section class="content">
 	@component('components.widget', ['class' => 'box-solid'])

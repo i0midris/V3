@@ -1,7 +1,7 @@
 {
     "name": "AgeingReport",
     "alias": "AgeingReport",
-    "description": "Invoice Ageing Report ",
+    "description": "Ageing Report for UltimatePOS",
     "keywords": [],
     "active": 1,
     "order": 0,

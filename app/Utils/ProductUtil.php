@@ -617,93 +617,101 @@ class ProductUtil extends Util
      * @param  array  $discount['discount_type',  'discount_amount']
      * @return mixed (false, array)
      */
-    public function calculateInvoiceTotal($products, $tax_id, $discount = null, $uf_number = true, $total_sold_qty = null)
-    {
-        if (empty($products)) {
-            return false;
-        }
-    
-        $output = [
-            'total_before_tax' => 0,
-            'tax' => 0,
-            'discount' => 0,
-            'final_total' => 0,
-            'line_discounts' => [] // 👈 Add this to return individual discount mapping
-        ];
-    
-        $total_line_amount = 0;
-    
-        // Step 1: Calculate total line amount for fixed discount prorating
-        foreach ($products as $product) {
-            $unit_price_inc_tax = $uf_number ? $this->num_uf($product['unit_price_inc_tax']) : $product['unit_price_inc_tax'];
-            $quantity = $uf_number ? $this->num_uf($product['quantity']) : $product['quantity'];
-    
-            $line_total = $unit_price_inc_tax * $quantity;
-            $total_line_amount += $line_total;
-        }
-    
-        // Step 2: Calculate per-line discounts and totals
-        foreach ($products as $product) {
-            $sell_line_id = $product['sell_line_id'] ?? null;
-    
-            $unit_price_inc_tax = $uf_number ? $this->num_uf($product['unit_price_inc_tax']) : $product['unit_price_inc_tax'];
-            $quantity = $uf_number ? $this->num_uf($product['quantity']) : $product['quantity'];
-            $line_total = $unit_price_inc_tax * $quantity;
-    
-            $line_discount_total = 0;
-            $per_unit_discount = 0;
-    
-            if (is_array($discount)) {
-                $discount_amount = $uf_number ? $this->num_uf($discount['discount_amount']) : $discount['discount_amount'];
-    
-                if ($discount['discount_type'] === 'fixed' && $total_line_amount > 0) {
-                    $discount_ratio = $line_total / $total_line_amount;
-                    $line_discount_total = $discount_amount * $discount_ratio;
-                    $per_unit_discount = $line_discount_total / $quantity;
-                } elseif ($discount['discount_type'] === 'percentage') {
-                    $line_discount_total = ($discount_amount / 100) * $line_total;
-                    $per_unit_discount = ($discount_amount / 100) * $unit_price_inc_tax;
-                }
-            }
-    
-            $output['discount'] += $line_discount_total;
-            $output['total_before_tax'] += ($line_total - $line_discount_total);
-    
-            // Store per-line discount info (used in sell return line creation)
-            if (!empty($sell_line_id)) {
-                $output['line_discounts'][$sell_line_id] = [
-                    'amount_per_unit' => round($per_unit_discount, 4),
-                    'total_discount' => round($line_discount_total, 4),
-                ];
-            }
-    
-            // Handle modifiers
-            if (!empty($product['modifier_price'])) {
-                foreach ($product['modifier_price'] as $key => $modifier_price) {
-                    $modifier_price = $uf_number ? $this->num_uf($modifier_price) : $modifier_price;
-                    $modifier_qty = isset($product['modifier_quantity'][$key]) ? $product['modifier_quantity'][$key] : 0;
-                    $modifier_total = $modifier_price * $modifier_qty;
-                    $output['total_before_tax'] += $modifier_total;
-                }
-            }
-        }
-    
-        // Step 3: Tax
-        if (!empty($tax_id)) {
-            $tax_details = TaxRate::find($tax_id);
-            if (!empty($tax_details)) {
-                $output['tax_id'] = $tax_id;
-                $output['tax'] = ($tax_details->amount / 100) * $output['total_before_tax'];
-            }
-        }
-    
-        // Step 4: Final total
-        $output['final_total'] = $output['total_before_tax'] + $output['tax'];
-    
-        return $output;
+  public function calculateInvoiceTotal($products, $tax_id, $discount = null, $uf_number = true, $total_sold_qty = null)
+{
+    if (empty($products)) {
+        return false;
     }
-    
-    
+
+    $output = [
+        'total_before_tax' => 0,
+        'tax' => 0,
+        'discount' => 0,
+        'final_total' => 0,
+        'line_discounts' => [],
+        'effective_discount_percent' => 0,
+    ];
+
+    $total_line_amount = 0;
+
+    // Step 1: Calculate total line amount (used for fixed discount ratio)
+    foreach ($products as $product) {
+        $unit_price_inc_tax = $uf_number ? $this->num_uf($product['unit_price_inc_tax']) : $product['unit_price_inc_tax'];
+        $quantity = $uf_number ? $this->num_uf($product['quantity']) : $product['quantity'];
+
+        $line_total = $unit_price_inc_tax * $quantity;
+        $total_line_amount += $line_total;
+    }
+
+    // Step 2: Calculate per-line discount and adjusted line totals
+    foreach ($products as $product) {
+        $sell_line_id = $product['sell_line_id'] ?? null;
+        $unit_price_inc_tax = $uf_number ? $this->num_uf($product['unit_price_inc_tax']) : $product['unit_price_inc_tax'];
+        $quantity = $uf_number ? $this->num_uf($product['quantity']) : $product['quantity'];
+        $line_total = $unit_price_inc_tax * $quantity;
+
+        $line_discount_total = 0;
+        $per_unit_discount = 0;
+
+        if (is_array($discount)) {
+            $discount_amount = $uf_number ? $this->num_uf($discount['discount_amount']) : $discount['discount_amount'];
+
+            if ($discount['discount_type'] === 'fixed' && $total_line_amount > 0) {
+                $discount_ratio = $line_total / $total_line_amount;
+                $line_discount_total = $discount_amount * $discount_ratio;
+                $per_unit_discount = $line_discount_total / $quantity;
+            } elseif ($discount['discount_type'] === 'percentage') {
+                $line_discount_total = round(($discount_amount / 100) * $line_total, 6);
+$per_unit_discount = round(($discount_amount / 100) * $unit_price_inc_tax, 6);
+
+            }
+        }
+
+        $output['discount'] += $line_discount_total;
+        $output['total_before_tax'] += ($line_total - $line_discount_total);
+
+        if (!empty($sell_line_id)) {
+            $output['line_discounts'][$sell_line_id] = [
+                'amount_per_unit' => $per_unit_discount,
+                'total_discount' => $line_discount_total,
+            ];
+        }
+
+        // Handle modifiers
+        if (!empty($product['modifier_price'])) {
+            foreach ($product['modifier_price'] as $key => $modifier_price) {
+                $modifier_price = $uf_number ? $this->num_uf($modifier_price) : $modifier_price;
+                $modifier_qty = isset($product['modifier_quantity'][$key]) ? $product['modifier_quantity'][$key] : 0;
+                $modifier_total = $modifier_price * $modifier_qty;
+                $output['total_before_tax'] += $modifier_total;
+            }
+        }
+    }
+
+    // Step 3: Tax calculation
+    if (!empty($tax_id)) {
+        $tax_details = TaxRate::find($tax_id);
+        if (!empty($tax_details)) {
+            $output['tax_id'] = $tax_id;
+            $output['tax'] = round(($tax_details->amount / 100) * $output['total_before_tax'], 2);
+        }
+    }
+
+    // Step 4: Final total
+    $output['final_total'] = round($output['total_before_tax'] + $output['tax'], 2);
+
+    // Step 5: Include effective percentage for logging/debugging
+    if (is_array($discount)) {
+        if ($discount['discount_type'] === 'percentage') {
+            $output['effective_discount_percent'] = $discount['discount_amount'];
+        } elseif ($discount['discount_type'] === 'fixed' && $total_line_amount > 0) {
+            $output['effective_discount_percent'] = round(($output['discount'] / $total_line_amount) * 100, 6);
+        }
+    }
+
+    return $output;
+}
+
 
     /**
      * Generates product sku
@@ -1212,139 +1220,146 @@ class ProductUtil extends Util
      * @param  string  $before_status  = null
      * @return array
      */
-    public function createOrUpdatePurchaseLines($transaction, $input_data, $currency_details, $enable_product_editing, $before_status = null)
-    {
-        $updated_purchase_lines = [];
-        $updated_purchase_line_ids = [0];
-        $exchange_rate = ! empty($transaction->exchange_rate) ? $transaction->exchange_rate : 1;
+   public function createOrUpdatePurchaseLines($transaction, $input_data, $currency_details, $enable_product_editing, $before_status = null)
+{
+    $updated_purchase_lines = [];
+    $updated_purchase_line_ids = [0];
+    $exchange_rate = !empty($transaction->exchange_rate) ? $transaction->exchange_rate : 1;
 
-        foreach ($input_data as $data) {
-            $multiplier = 1;
-            if (isset($data['sub_unit_id']) && $data['sub_unit_id'] == $data['product_unit_id']) {
-                unset($data['sub_unit_id']);
+    foreach ($input_data as $data) {
+        $multiplier = 1;
+        if (isset($data['sub_unit_id']) && $data['sub_unit_id'] == $data['product_unit_id']) {
+            unset($data['sub_unit_id']);
+        }
+
+        if (!empty($data['sub_unit_id'])) {
+            $unit = Unit::find($data['sub_unit_id']);
+            $multiplier = !empty($unit->base_unit_multiplier) ? $unit->base_unit_multiplier : 1;
+        }
+
+        $new_quantity = $this->num_uf($data['quantity']) * $multiplier;
+        $new_quantity_f = $this->num_f($new_quantity);
+        $old_qty = 0;
+
+        if (isset($data['purchase_line_id'])) {
+            $purchase_line = PurchaseLine::findOrFail($data['purchase_line_id']);
+            $updated_purchase_line_ids[] = $purchase_line->id;
+            $old_qty = $purchase_line->quantity;
+
+            $this->updateProductStock($before_status, $transaction, $data['product_id'], $data['variation_id'], $new_quantity, $purchase_line->quantity, $currency_details);
+        } else {
+            $purchase_line = new PurchaseLine;
+            $purchase_line->product_id = $data['product_id'];
+            $purchase_line->variation_id = $data['variation_id'];
+
+            if ($transaction->status == 'received') {
+                $this->updateProductQuantity($transaction->location_id, $data['product_id'], $data['variation_id'], $new_quantity_f, 0, $currency_details);
+            }
+        }
+
+        // Base calculations
+        $pp_without_discount = ($this->num_uf($data['pp_without_discount'], $currency_details) * $exchange_rate) / $multiplier;
+        $discount_percent = isset($data['discount_percent']) ? $this->num_uf($data['discount_percent'], $currency_details) : 0;
+
+        // Calculate discounted price
+        $discounted_price = $pp_without_discount;
+        if ($discount_percent > 0) {
+            $discounted_price = $pp_without_discount * (1 - ($discount_percent / 100));
+        }
+
+        // Assign all fields
+        $purchase_line->quantity = $new_quantity;
+        $purchase_line->pp_without_discount = $pp_without_discount;
+        $purchase_line->discount_percent = $discount_percent;
+        $purchase_line->purchase_price = $discounted_price;
+        $purchase_line->purchase_price_inc_tax = ($this->num_uf($data['purchase_price_inc_tax'], $currency_details) * $exchange_rate) / $multiplier;
+        $purchase_line->item_tax = ($this->num_uf($data['item_tax'], $currency_details) * $exchange_rate) / $multiplier;
+        $purchase_line->tax_id = $data['purchase_line_tax_id'];
+        $purchase_line->lot_number = !empty($data['lot_number']) ? $data['lot_number'] : null;
+        $purchase_line->mfg_date = !empty($data['mfg_date']) ? $this->uf_date($data['mfg_date']) : null;
+        $purchase_line->exp_date = !empty($data['exp_date']) ? $this->uf_date($data['exp_date']) : null;
+        $purchase_line->sub_unit_id = !empty($data['sub_unit_id']) ? $data['sub_unit_id'] : null;
+        $purchase_line->purchase_order_line_id = !empty($data['purchase_order_line_id']) ? $data['purchase_order_line_id'] : null;
+        $purchase_line->purchase_requisition_line_id = !empty($data['purchase_requisition_line_id']) && $transaction->type == 'purchase_order' ? $data['purchase_requisition_line_id'] : null;
+
+        if (!empty($data['secondary_unit_quantity'])) {
+            $purchase_line->secondary_unit_quantity = $this->num_uf($data['secondary_unit_quantity']);
+        }
+
+        $updated_purchase_lines[] = $purchase_line;
+
+        // Product price update
+        if ($enable_product_editing == 1 && $transaction->type == 'purchase') {
+            $variation_data = [
+                'variation_id' => $purchase_line->variation_id,
+                'pp_without_discount' => $pp_without_discount,
+                'purchase_price' => $discounted_price,
+            ];
+
+            if (isset($data['default_sell_price'])) {
+                $variation_data['sell_price_inc_tax'] = ($this->num_uf($data['default_sell_price'], $currency_details)) / $multiplier;
             }
 
-            if (! empty($data['sub_unit_id'])) {
-                $unit = Unit::find($data['sub_unit_id']);
-                $multiplier = ! empty($unit->base_unit_multiplier) ? $unit->base_unit_multiplier : 1;
-            }
-            $new_quantity = $this->num_uf($data['quantity']) * $multiplier;
+            $this->updateProductFromPurchase($variation_data);
+        }
 
-            $new_quantity_f = $this->num_f($new_quantity);
-            $old_qty = 0;
-            // update existing purchase line
-            if (isset($data['purchase_line_id'])) {
-                $purchase_line = PurchaseLine::findOrFail($data['purchase_line_id']);
-                $updated_purchase_line_ids[] = $purchase_line->id;
-                $old_qty = $purchase_line->quantity;
+        if ($transaction->type == 'purchase_order') {
+            $this->updatePurchaseOrderLine($purchase_line->purchase_requisition_line_id, $purchase_line->quantity, $old_qty);
+        }
 
-                $this->updateProductStock($before_status, $transaction, $data['product_id'], $data['variation_id'], $new_quantity, $purchase_line->quantity, $currency_details);
-            } else {
-                // create newly added purchase lines
-                $purchase_line = new PurchaseLine;
-                $purchase_line->product_id = $data['product_id'];
-                $purchase_line->variation_id = $data['variation_id'];
+        $this->updatePurchaseOrderLine($purchase_line->purchase_order_line_id, $purchase_line->quantity, $old_qty);
+    }
 
-                // Increase quantity only if status is received
-                if ($transaction->status == 'received') {
-                    $this->updateProductQuantity($transaction->location_id, $data['product_id'], $data['variation_id'], $new_quantity_f, 0, $currency_details);
+    // Handle deletions
+    $delete_purchase_lines = null;
+    if (!empty($updated_purchase_line_ids)) {
+        $delete_purchase_lines = PurchaseLine::where('transaction_id', $transaction->id)
+            ->whereNotIn('id', $updated_purchase_line_ids)
+            ->get();
+
+        if ($delete_purchase_lines->count()) {
+            $delete_purchase_line_ids = [];
+
+            foreach ($delete_purchase_lines as $delete_purchase_line) {
+                $delete_purchase_line_ids[] = $delete_purchase_line->id;
+
+                if ($before_status == 'received') {
+                    $this->decreaseProductQuantity(
+                        $delete_purchase_line->product_id,
+                        $delete_purchase_line->variation_id,
+                        $transaction->location_id,
+                        $delete_purchase_line->quantity
+                    );
                 }
-            }
 
-            $purchase_line->quantity = $new_quantity;
-            $purchase_line->pp_without_discount = ($this->num_uf($data['pp_without_discount'], $currency_details) * $exchange_rate) / $multiplier;
-            $purchase_line->discount_percent = $this->num_uf($data['discount_percent'], $currency_details);
-            $purchase_line->purchase_price = ($this->num_uf($data['purchase_price'], $currency_details) * $exchange_rate) / $multiplier;
-            $purchase_line->purchase_price_inc_tax = ($this->num_uf($data['purchase_price_inc_tax'], $currency_details) * $exchange_rate) / $multiplier;
-            $purchase_line->item_tax = ($this->num_uf($data['item_tax'], $currency_details) * $exchange_rate) / $multiplier;
-            $purchase_line->tax_id = $data['purchase_line_tax_id'];
-            $purchase_line->lot_number = ! empty($data['lot_number']) ? $data['lot_number'] : null;
-            $purchase_line->mfg_date = ! empty($data['mfg_date']) ? $this->uf_date($data['mfg_date']) : null;
-            $purchase_line->exp_date = ! empty($data['exp_date']) ? $this->uf_date($data['exp_date']) : null;
-            $purchase_line->sub_unit_id = ! empty($data['sub_unit_id']) ? $data['sub_unit_id'] : null;
-            $purchase_line->purchase_order_line_id = ! empty($data['purchase_order_line_id']) ? $data['purchase_order_line_id'] : null;
-            $purchase_line->purchase_requisition_line_id = ! empty($data['purchase_requisition_line_id']) && $transaction->type == 'purchase_order' ? $data['purchase_requisition_line_id'] : null;
-
-            if (! empty($data['secondary_unit_quantity'])) {
-                $purchase_line->secondary_unit_quantity = $this->num_uf($data['secondary_unit_quantity']);
-            }
-
-            $updated_purchase_lines[] = $purchase_line;
-
-            // Edit product price
-            if ($enable_product_editing == 1 && $transaction->type == 'purchase') {
-                if (isset($data['default_sell_price'])) {
-                    $variation_data['sell_price_inc_tax'] = ($this->num_uf($data['default_sell_price'], $currency_details)) / $multiplier;
+                if (!empty($delete_purchase_line->purchase_order_line_id)) {
+                    $this->updatePurchaseOrderLine($delete_purchase_line->purchase_order_line_id, 0, $delete_purchase_line->quantity);
                 }
-                $variation_data['pp_without_discount'] = ($this->num_uf($data['pp_without_discount'], $currency_details) * $exchange_rate) / $multiplier;
-                $variation_data['variation_id'] = $purchase_line->variation_id;
-                $variation_data['purchase_price'] = $purchase_line->purchase_price;
 
-                $this->updateProductFromPurchase($variation_data);
+                if (!empty($delete_purchase_line->purchase_requisition_line_id)) {
+                    $this->updatePurchaseOrderLine($delete_purchase_line->purchase_requisition_line_id, 0, $delete_purchase_line->quantity);
+                }
             }
 
             if ($transaction->type == 'purchase_order') {
-                // Update purchase requisition line quantity received
-                $this->updatePurchaseOrderLine($purchase_line->purchase_requisition_line_id, $purchase_line->quantity, $old_qty);
+                PurchaseLine::whereIn('purchase_order_line_id', $delete_purchase_line_ids)
+                    ->update(['purchase_order_line_id' => null]);
             }
 
-            // Update purchase order line quantity received
-            $this->updatePurchaseOrderLine($purchase_line->purchase_order_line_id, $purchase_line->quantity, $old_qty);
+            PurchaseLine::where('transaction_id', $transaction->id)
+                ->whereIn('id', $delete_purchase_line_ids)
+                ->delete();
         }
-
-        // unset deleted purchase lines
-        $delete_purchase_line_ids = [];
-        $delete_purchase_lines = null;
-        if (! empty($updated_purchase_line_ids)) {
-            $delete_purchase_lines = PurchaseLine::where('transaction_id', $transaction->id)
-                ->whereNotIn('id', $updated_purchase_line_ids)
-                ->get();
-
-            if ($delete_purchase_lines->count()) {
-                foreach ($delete_purchase_lines as $delete_purchase_line) {
-                    $delete_purchase_line_ids[] = $delete_purchase_line->id;
-
-                    // decrease deleted only if previous status was received
-                    if ($before_status == 'received') {
-                        $this->decreaseProductQuantity(
-                            $delete_purchase_line->product_id,
-                            $delete_purchase_line->variation_id,
-                            $transaction->location_id,
-                            $delete_purchase_line->quantity
-                        );
-                    }
-
-                    // If purchase order line set decrease quntity
-                    if (! empty($delete_purchase_line->purchase_order_line_id)) {
-                        $this->updatePurchaseOrderLine($delete_purchase_line->purchase_order_line_id, 0, $delete_purchase_line->quantity);
-                    }
-
-                    // If purchase order line set decrease quntity
-                    if (! empty($delete_purchase_line->purchase_requisition_line_id)) {
-                        $this->updatePurchaseOrderLine($delete_purchase_line->purchase_requisition_line_id, 0, $delete_purchase_line->quantity);
-                    }
-                }
-
-                // unset if purchase order line from purchase lines if exists
-                if ($transaction->type == 'purchase_order') {
-                    PurchaseLine::whereIn('purchase_order_line_id', $delete_purchase_line_ids)
-                        ->update(['purchase_order_line_id' => null]);
-                }
-
-                // Delete deleted purchase lines
-                PurchaseLine::where('transaction_id', $transaction->id)
-                    ->whereIn('id', $delete_purchase_line_ids)
-                    ->delete();
-            }
-        }
-
-        // update purchase lines
-        if (! empty($updated_purchase_lines)) {
-            $transaction->purchase_lines()->saveMany($updated_purchase_lines);
-        }
-
-        return $delete_purchase_lines;
     }
+
+    // Save updates
+    if (!empty($updated_purchase_lines)) {
+        $transaction->purchase_lines()->saveMany($updated_purchase_lines);
+    }
+
+    return $delete_purchase_lines;
+}
+
 
     public function updatePurchaseOrderLine($purchase_order_line_id, $new_qty, $old_qty = 0)
     {

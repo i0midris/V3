@@ -28,16 +28,18 @@
 	</td>
 	<td>
 		<div class="input-group">
-			{!! Form::text('ingredients[' . $row_index . '][waste_percent]', !empty($ingredient->waste_percent) ? @num_format($ingredient->waste_percent) : 0, ['class' => 'form-control input_number waste_percent input-sm', 'placeholder' => __('lang_v1.waste_percent')]); !!}
-			<span class="input-group-addon"><i class="fa fa-percent"></i></span>
+			{!! Form::text('ingredients[' . $row_index . '][waste_percent]', !empty($ingredient->waste_percent) ? @num_format($ingredient->waste_percent) : 0, ['class' => 'form-control input_number waste_percent', 'placeholder' => __('lang_v1.waste_percent')]); !!}
+			<span class="input-group-addon">
+				<i class="fa fa-percent"></i>
+			</span>
 		</div>
 	</td>
 	<td>
 		<div class="@if(empty($ingredient->sub_units)) input-group @else input_inline @endif">
-			{!! Form::text('ingredients[' . $row_index . '][quantity]', !empty($ingredient->quantity) ? @format_quantity($ingredient->quantity) : 1, ['class' => 'form-control input_number quantity input-sm', 'placeholder' => __('lang_v1.quantity'), 'required']); !!}
+			{!! Form::text('ingredients[' . $row_index . '][quantity]', !empty($ingredient->quantity) ? @format_quantity($ingredient->quantity) : 1, ['class' => 'form-control input_number quantity', 'placeholder' => __('lang_v1.quantity'), 'required']); !!}
 			<span class="@if(empty($ingredient->sub_units)) input-group-addon @endif">
 				@if(!empty($ingredient->sub_units))
-					<select name="ingredients[{{$row_index}}][sub_unit_id]" class="form-control input-sm row_sub_unit_id">
+					<select name="ingredients[{{$row_index}}][sub_unit_id]" class="form-control row_sub_unit_id">
 						@foreach($ingredient->sub_units as $key => $value)
 							<option 
 								value="{{$key}}"
@@ -60,5 +62,7 @@
 		$price = $price * $ingredient->multiplier;
 	@endphp
 	<td><span class="ingredient_price">{{@num_format($price)}}</span></td>
-	<td><button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-error remove_ingredient"><i class="fas fa-times"></i></button></td>
+	<td><button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline  tw-dw-btn-error remove_ingredient">
+		<svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+	</button></td>
 </tr>

@@ -79,6 +79,8 @@
 
     @yield('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
 
     
     <!-- ionicon library -->
@@ -883,6 +885,62 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
            </a>
 -->
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/serviceworker.js')
+      .then(function(reg) {
+        console.log('Service Worker registered with scope:', reg.scope);
+      }).catch(function(err) {
+        console.error('Service Worker registration failed:', err);
+      });
+  }
+</script>
+
+<script>
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const btn = document.getElementById('installBtn');
+    if (btn) btn.style.display = 'block';
+
+    btn?.addEventListener('click', () => {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted install');
+        } else {
+          console.log('User dismissed install');
+        }
+        deferredPrompt = null;
+        btn.style.display = 'none';
+      });
+    });
+  });
+</script>
+
+<button id="installBtn"
+    style="
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        display: none;
+        z-index: 1000;
+        background: #000;
+        color: white;
+        padding: 16px 28px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    ">
+    📲 تثبيت ERP Enough
+</button>
+
+
 
 </body>
 <style>

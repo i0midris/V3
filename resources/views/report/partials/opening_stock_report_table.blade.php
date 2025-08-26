@@ -1,4 +1,3 @@
-
 <table class="table table-striped">
     <tr>
         <th>{{ __('report.opening_stock') }} <br><small class="text-muted">(@lang('lang_v1.by_purchase_price'))</small>:</th>
@@ -34,6 +33,14 @@
             <span class="display_currency" data-currency_symbol="true">{{$data['total_expense']}}</span>
         </td>
     </tr>
+    <tr>
+    <th>{{ __('lang_v1.total_commission') }}:</th>
+    <td>
+        <span class="display_currency" data-currency_symbol="true">
+            {{ $data['commission_amount'] ?? 0 }}
+        </span>
+    </td>
+</tr>
     <tr>
         <th>{{ __('lang_v1.total_purchase_shipping_charge') }}:</th>
         <td>

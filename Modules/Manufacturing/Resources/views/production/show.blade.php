@@ -85,8 +85,8 @@
                     <h4>@lang('manufacturing::lang.ingredients')</h4>
                 </div>
                 <div class="col-md-12">
-                    <table class="table">
-                        <thead>
+                    <table class="table table-striped tw-border">
+                        <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
                             <tr>
                                 <th>@lang('manufacturing::lang.ingredient')</th>
                                 <th>@lang('manufacturing::lang.input_quantity')</th>
@@ -161,7 +161,7 @@
                                 @endforeach
                             @endif
                         </tbody>
-                        <tfoot>
+                        <tfoot style="background-color: #e9ecef;">
                             <tr>
                                 <td colspan="4" class="text-right"><strong>@lang('manufacturing::lang.ingredients_cost')</strong></td>
                                 <td><span class="display_currency" data-currency_symbol="true">{{$total_ingredient_price}}</span></td>

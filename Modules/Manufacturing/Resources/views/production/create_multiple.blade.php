@@ -1,7 +1,8 @@
 <style>
     .x3{
-        font-size: 16px;
+        font-size: 10px;
         color: crimson !important;
+        margin-top:2px;
     }
     .x1 {
         font-size: 18px;
@@ -28,17 +29,16 @@
 
     <div class="box box-solid">
         <div class="box-body">
-        <div class="form-group x1">
-    <label for="default_location">@lang('purchase.business_location')</label>
-    {!! Form::select('default_location', $business_locations, null, ['id' => 'default_location', 'class' => 'form-control select2']) !!}
-    <small class="form-text text-muted x3">
-قم بتحديد الفرع الافتراضي لتحميل جميع الوصفات.*
-</small>
-</div>    
-<br>
-
-            <table class="table table-bordered" id="multiple_production_table">
-                <thead>
+            <div class="form-group x1">
+                <label for="default_location">@lang('purchase.business_location')</label>
+                {!! Form::select('default_location', $business_locations, null, ['id' => 'default_location', 'class' => 'form-control select2']) !!}
+                <small class="form-text text-muted x3">
+                    قم بتحديد الفرع الافتراضي لتحميل جميع الوصفات.*
+                </small>
+            </div>    
+            <br>
+            <table class="table tw-border table-striped" id="multiple_production_table">
+                <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
                     <tr>
                         <th>@lang('sale.product')</th>
                         <th>@lang('lang_v1.quantity')</th>
@@ -51,9 +51,9 @@
                 <tbody>
                     <tr>
                         <td>
-                        <select name="productions[0][variation_id]" class="form-control variation-combo-selector" required>
-    <option value="">@lang("messages.please_select")</option>
-</select>
+                            <select name="productions[0][variation_id]" class="form-control variation-combo-selector" required>
+                                <option value="">@lang("messages.please_select")</option>
+                            </select>
                         </td>
                         <td><input type="text" name="productions[0][quantity]" class="form-control input_number quantity" value="1" required></td>
                         <td><input type="text" name="productions[0][price]" class="form-control input_number price" value="0" required></td>
@@ -68,7 +68,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tfoot>
+                <tfoot style="background-color: #e9ecef;">
                     <tr>
                         <th class="text-left">@lang('manufacturing::lang.total')</th>
                         <th class="text-left" id="total_quantity">@lang('manufacturing::lang.total_quantity') : 0</th>
@@ -78,22 +78,24 @@
                 </tfoot>
             </table>
 
-            <button type="button" class="btn btn-success btn-sm" id="add_row">
-                <i class="fa fa-plus"></i> @lang('messages.add')
-            </button>
-            
+            <div class="tw-flex tw-gap-1">
+                <button type="button" class="custom-tbtn btn-success" id="add_row">
+                    <i class="fa fa-plus"></i> @lang('messages.add')
+                </button>
+                
 
-            <button type="button" class="btn btn-info btn-sm" id="fetch_all_recipes">
-    <i class="fa fa-download"></i> @lang('manufacturing::lang.fetch_all_recipes')
-</button>
+                <button type="button" class="custom-tbtn btn-info" id="fetch_all_recipes">
+                    <i class="fa fa-download"></i> @lang('manufacturing::lang.fetch_all_recipes')
+                </button>
+            </div>
 
+            <div class="tw-mt-4 tw-flex tw-justify-center tw-gap-4">
+                <button type="button" class="tw-dw-btn tw-dw-btn-neutral tw-text-white" id="btn-save-print">@lang('messages.save') & @lang('messages.print')</button>
+                <button type="submit" class="tw-dw-btn tw-dw-btn-primary tw-text-white" id="btn-save">@lang('messages.save')</button>
+            </div>
         </div>
     </div>
 
-    <div class="box-footer">
-        <button type="submit" class="btn btn-primary pull-right" id="btn-save">@lang('messages.save')</button>
-        <button type="button" class="btn btn-secondary pull-right mr-2" id="btn-save-print">@lang('messages.save') & @lang('messages.print')</button>
-    </div>
 
     {!! Form::close() !!}
 </section>

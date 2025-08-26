@@ -48,6 +48,15 @@ class Util
         return (float) $num;
     }
 
+    public function raw_num_uf($input_number)
+{
+    // Remove any commas or spaces just in case, and convert to float
+    $clean = str_replace([',', ' '], '', $input_number);
+
+    return (float) $clean;
+}
+
+
     /**
      * This function formats a number and returns them in specified format
      *

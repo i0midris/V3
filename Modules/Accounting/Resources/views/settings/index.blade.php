@@ -8,7 +8,7 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
-	<h1>@lang( 'messages.settings' )</h1>
+	<h1>@lang( 'messages.settings' )fnj</h1>
 </section>
 <section class="content">
 	<div class="row">

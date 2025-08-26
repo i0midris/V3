@@ -98,6 +98,8 @@
     @include('sale_pos.partials.recent_transactions_modal')
 
     @include('sale_pos.partials.weighing_scale_modal')
+    @include('sale_pos.partials.pos_edit_commission_modal')
+
 
 @stop
 @section('css')
@@ -132,3 +134,62 @@
         @endforeach
     @endif
 @endsection
+
+@push('scripts')
+<script>
+(function () {
+  // Safely parse localized numeric strings (if any)
+  function num(x){ x = (x==null?'':String(x)).replace(/,/g,''); var n=Number(x); return isNaN(n)?0:n; }
+
+  // “Before tax” basis for preview. If tax isn’t available inline, we’ll just use final_total as a fallback.
+  function basisBeforeTax(){
+    var total = num($('#final_total_input').val());               // POS keeps this updated
+    var tax   = num($('#tax_calculation_amount').val());          // hidden in totals panel
+    // If your UI keeps shipping in another field, include it here if you want it excluded from basis
+    return Math.max(0, total - tax);
+  }
+
+  function applyPercentToUi(percent){
+    // Tell backend we’re supplying a percentage (not a fixed amount)
+    $('#commission_type').val('percentage');
+    $('#commission_amount').val(percent);        // <- IMPORTANT: this is a PERCENT value
+    $('#commission_chosen').val('1');            // if you use this marker
+
+    // Live preview (purely visual; totals aren’t changed)
+    var computed = Math.round(basisBeforeTax() * (Math.max(0, Number(percent)) / 100) * 100) / 100;
+    if (typeof __currency_trans_from_en === 'function') {
+      $('#total_commission').text(__currency_trans_from_en(computed, true));
+    } else {
+      $('#total_commission').text(computed.toFixed(2));
+    }
+
+    // Keep the modal (if open) in sync
+    $('#commission_amount_modal').val(percent);
+    $('#commission_type_modal').val('percentage').trigger('change.select2');
+  }
+
+  // When user picks an agent, fetch their default percent and fill everything
+  $(document).on('change', 'select[name="commission_agent"]', function(){
+    var id = $(this).val();
+
+    if (!id) {
+      // Cleared: revert to server fallback (empty input) and wipe preview
+      $('#commission_amount').val('');
+      $('#commission_chosen').val('0');
+      $('#total_commission').text('0');
+      return;
+    }
+
+    $.get('{{ route('pos.agent.commission', ['user' => ':id']) }}'.replace(':id', id))
+      .done(function (res) { applyPercentToUi(res && res.percent ? res.percent : 0); })
+      .fail(function () { applyPercentToUi(0); });
+  });
+
+  // Recompute preview when totals/tax change
+  $(document).on('keyup change', '#final_total_input, #tax_calculation_amount, #shipping_charges_modal', function(){
+    var p = Number($('#commission_amount').val());
+    if ($('#commission_type').val() === 'percentage' && p) applyPercentToUi(p);
+  });
+})();
+</script>
+@endpush

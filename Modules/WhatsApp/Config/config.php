@@ -10,6 +10,6 @@ return [
     'module_version' => '1.1',
     'author' => 'DreamCasters',
     'pid' => 910,
-    'app_desc' => 'WhatsApp Notification Notifications For ERP-Enough',
+    'app_desc' => 'WhatsApp Notification Notifications For UltimatePOS',
     'version' => '1.1',
 ];

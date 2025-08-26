@@ -7,75 +7,75 @@
 @endsection
 
 @section('content')
-    <ul class="nav nav-tabs">
-        <li class="nav-item active">
-            <a id="inventoryDone" class="nav-link" href="#">@lang('inventorymanagement::inventory.products_inv_done')</a>
-        </li>
-        <li class="nav-item">
-            <a id="inventoryUndone" class="nav-link" href="#">@lang('inventorymanagement::inventory.products_inv_not_done')</a>
-        </li>
-    </ul>
     <section class="content-header">
         <h1>@lang('inventorymanagement::inventory.stock_inventory')</h1>
     </section>
 
-    <section class="content">
-        <div class="box box-primary">
-            <div class="box-header text-center" style="background-color:#484848;color:#EDAF11;font-size: 30px;">
-                @lang("inventorymanagement::inventory.products_reports")
+    <section class="content tw-mt-4">
+        <div class="box box-solid">
+            <div class="box-header">
+                <h3 class="box-title">@lang("inventorymanagement::inventory.products_reports")</h3>
             </div>
-        </div>
-        <div class="box-body">
-            <div class="row">
-                <div class="col-sm-12">
-                    <input type="hidden" id="product_row_index" value="0">
-                    <input type="hidden" id="total_amount" name="final_total" value="0">
-                    <div class="table-responsive">
+            <div class="box-body">
+                <div class="row">
+                    <div class="tw-border tw-rounded-xl tw-shadow-md tw-overflow-hidden tw-mx-4">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs nav-justified custom-nav-tabs"> 
+                                <li class="nav-item active">
+                                    <a id="inventoryDone" class="nav-link" href="#">@lang('inventorymanagement::inventory.products_inv_done')</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="inventoryUndone" class="nav-link" href="#">@lang('inventorymanagement::inventory.products_inv_not_done')</a>
+                                </li>
+                            </ul>
+                        </div>  
+                        <input type="hidden" id="product_row_index" value="0">
+                        <input type="hidden" id="total_amount" name="final_total" value="0">
+                        <div class="table-responsive tw-px-4">
+                            <table id="doneProducts" class="table table-striped tw-border nowrap" style="width:100%;border-bottom-color:#ddd;">
+                                <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
+                                    <tr>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.product_name")</th>
+                                        <th  style="text-align: right">SKU</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.current_amount")</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_after_inventory")</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_difference")</th>
+                                        {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.options")</th> --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @include("inventorymanagement::partials.inventoryDoneList" , [$inventories ])
+                                </tbody>
 
+                            </table>
+
+                            <table id="undoneProducts" class="table table-striped tw-border nowrap" style="width:100%;display:none;border-bottom-color:#ddd;">
+                                <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
+                                    <tr>
+                                        
+                                        <th style="text-align: right">#</th>
+                                        <th style="text-align: right">@lang("inventorymanagement::inventory.product_name")</th>
+                                        <th style="text-align: right">SKU</th>
+                                        <th style="text-align: right">@lang("inventorymanagement::inventory.current_amount")</th>
+                                        {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_after_inventory")</th> --}}
+                                        {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_difference")</th> --}}
+                                        {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.options")</th> --}}
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @include("inventorymanagement::partials.inventoryNotDoneList" , $notExistsProducts)
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <div class="clearfix"></div>
+    
                 </div>
-                <div class="clearfix"></div>
-
             </div>
         </div>
 
-        <table id="doneProducts" class="display nowrap" style="width:100%">
-            <thead>
-            <tr>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.product_name")</th>
-                <th  style="text-align: right">SKU</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.current_amount")</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_after_inventory")</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_difference")</th>
-                {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.options")</th> --}}
-
-            </tr>
-            </thead>
-            <tbody>
-              @include("inventorymanagement::partials.inventoryDoneList" , [$inventories ])
-            </tbody>
-
-        </table>
-
-        <table id="undoneProducts" class="nowrap" style="width:100%;display:none;">
-            <thead>
-            <tr>
-                
-                <th style="text-align: right">#</th>
-                <th style="text-align: right">@lang("inventorymanagement::inventory.product_name")</th>
-                <th style="text-align: right">SKU</th>
-                <th style="text-align: right">@lang("inventorymanagement::inventory.current_amount")</th>
-                {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_after_inventory")</th> --}}
-                {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_difference")</th> --}}
-                {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.options")</th> --}}
-
-            </tr>
-            </thead>
-            <tbody>
-            @include("inventorymanagement::partials.inventoryNotDoneList" , $notExistsProducts)
-            </tbody>
-
-        </table>
+        
 
     </section>
 
@@ -87,6 +87,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#doneProducts').DataTable({
+                dom: `
+                    <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                        <"drps-section tw-flex tw-gap-2 tw-items-center"
+                            <" tw-flex tw-items-center tw-gap-2"B>
+                            l
+                        >
+                        f
+                    >
+                    rt
+                    <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+                `,
                 columnDefs: [
                     {
                         targets: [0],
@@ -103,6 +114,17 @@
                 ],
             });
             $('#undoneProducts').DataTable({
+                dom: `
+                    <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                        <"drps-section tw-flex tw-gap-2 tw-items-center"
+                            <" tw-flex tw-items-center tw-gap-2"B>
+                            l
+                        >
+                        f
+                    >
+                    rt
+                    <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+                `,
                 columnDefs: [
                     {
                         targets: [0],

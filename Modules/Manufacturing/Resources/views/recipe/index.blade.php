@@ -14,11 +14,11 @@
         @can("manufacturing.add_recipe")
         @slot('tool')
             <div class="box-tools">
-            <button class="tw-dw-btn tw-bg-gradient-to-r tw-from-indigo-600 tw-to-blue-500 tw-font-bold tw-text-white tw-border-none tw-rounded-full pull-right btn-modal"
+            <button class="add-btn tw-gap-1 pull-right btn-modal"
                 data-container="#recipe_modal"
                 data-href="{{action([\Modules\Manufacturing\Http\Controllers\RecipeController::class, 'create'])}}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
                         class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M12 5l0 14" />
@@ -29,8 +29,8 @@
         @endslot
         @endcan
         <div class="table-responsive">
-            <table class="table table-bordered table-striped" id="recipe_table">
-                <thead>
+            <table class="table tw-border table-striped" id="recipe_table">
+                <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
                     <tr>
                         <th><input type="checkbox" id="select-all-row" data-table-id="recipe_table"></th>
                         <th>@lang( 'manufacturing::lang.recipe' )</th>

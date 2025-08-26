@@ -256,7 +256,7 @@
                         extend: 'csvHtml5',
                         text: '<i class="fa fa-file-csv"></i> Export to CSV',
                         titleAttr: 'CSV',
-                        className: 'btn btn-default buttons-csv buttons-html5 btn-sm'
+                        className: 'btn btn-light buttons-csv buttons-html5 btn-sm p-2'
                     },
                     {
                         extend: 'excelHtml5',

@@ -1761,6 +1761,102 @@ function get_subtotal() {
     return price_total;
 }
 
+function renderCommissionLabel() {
+  if (!$('#commission_type').length) return;
+
+  // Do NOT clobber the server-rendered value on edit when unchanged
+  if ($('#commission_chosen').val() === '-1') return;
+
+  var subtotal = get_subtotal();
+  var tpe  = $('#commission_type').val() || 'percentage';
+  var raw  = ($('#commission_amount').val() || '').toString().trim();
+  var amt  = parseFloat(raw.replace(/,/g, ''));
+  var money = 0;
+  var defPct = parseFloat($('#commission_default_percent').val() || '0');
+
+  if (!isNaN(amt) && raw !== '') {
+    money = (tpe === 'percentage') ? (subtotal * (amt / 100)) : amt;
+  } else {
+    money = subtotal * (defPct / 100);
+  }
+  $('#total_commission').text(__currency_trans_from_en(money, false));
+}
+
+
+// repaint commission after price/tax/recalc
+(function hookCommissionIntoTotals() {
+  var _orig = pos_total_row;
+  pos_total_row = function() {
+    _orig.apply(this, arguments);
+    renderCommissionLabel();
+  };
+})();
+
+function t(key, fallback){
+  return (window.LANG && LANG[key]) ? LANG[key] : fallback;
+}
+
+function updateCommissionModalHint() {
+  var tpe = $('#commission_type_modal').val() || 'percentage';
+  $('#commission_modal_hint').text(
+    tpe === 'percentage'
+      ? t('stored_as_fixed_on_submit', '٪ من إجمالي الفاتورة — سيتم تخزينه كقيمة ثابتة عند الحفظ')
+      : t('fixed_amount_in_sale_currency', 'مبلغ ثابت بعملة البيع')
+  );
+}
+
+
+
+// Prefill + hint
+$('#posEditCommissionModal').on('show.bs.modal', function () {
+  var t = ($('#commission_type').val() || 'percentage');
+  var a = ($('#commission_amount').val() || '0');
+  $('#commission_type_modal').val(t).trigger('change');
+  $('#commission_amount_modal').val(a);
+  updateCommissionModalHint();
+});
+
+$(document).on('change', '#commission_type_modal, #commission_amount_modal', updateCommissionModalHint);
+
+
+// Save → hidden inputs; mark chosen; update display label; close
+$('#posEditCommissionModalUpdate').on('click', function () {
+  var t   = $('#commission_type_modal').val() || 'percentage';
+  var raw = ($('#commission_amount_modal').val() || '').trim();
+  var amt = parseFloat(raw.replace(/,/g, ''));
+  if (isNaN(amt)) { amt = ''; } // blank -> allow fallback
+
+  $('#commission_type').val(t);
+  $('#commission_amount').val(amt);
+  $('#commission_chosen').val(1);        // <-- user explicitly chose
+
+  if (typeof renderCommissionLabel === 'function') renderCommissionLabel();
+  $('#posEditCommissionModal').modal('hide');
+});
+
+
+function syncCommissionDefaultFromAgent() {
+  var $sel = $('#commission_agent');
+  if (!$sel.length) return;
+
+  var pct = parseFloat($sel.find(':selected').data('cmmsn'));
+  if (isNaN(pct)) pct = 0;
+  $('#commission_default_percent').val(pct);
+
+  // If edit screen was in "unchanged" mode, allow preview now
+  if ($('#commission_chosen').val() === '-1') {
+    $('#commission_chosen').val('0');
+  }
+  // Clear any typed value so we preview using the default %
+  $('#commission_amount').val('');
+
+  renderCommissionLabel();
+}
+
+$(document).on('change', '#commission_agent', syncCommissionDefaultFromAgent);
+$(document).ready(syncCommissionDefaultFromAgent);
+
+
 function calculate_billing_details(price_total) {
     var discount = pos_discount(price_total);
     if ($('#reward_point_enabled').length) {
@@ -2011,6 +2107,16 @@ function reset_pos_form(){
     //reset contact due
     $('.contact_due_text').find('span').text('');
     $('.contact_due_text').addClass('hide');
+
+if ($('#commission_type').length) {
+  $('#commission_type').val($('#commission_type').data('default') || 'percentage');
+}
+if ($('#commission_amount').length) {
+  $('#commission_amount').val(''); // <-- critical: empty, not 0
+}
+$('#commission_chosen').val(0);
+$('#total_commission').text(__currency_trans_from_en(0, false));
+
 
     $(document).trigger('sell_form_reset');
 }

@@ -32,7 +32,7 @@
 	@component('components.widget', ['class' => 'box-primary'])
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                     {!! Form::label('ref_no', __('purchase.ref_no').':') !!}
                     @show_tooltip(__('lang_v1.leave_empty_to_autogenerate'))
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-md-3 col-sm-6">
 				<div class="form-group">
 					{!! Form::label('journal_date', __('accounting::lang.journal_date') . ':*') !!}
 					<div class="input-group">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('note', __('purchase.payment_note')) !!}
                     {!! Form::textarea('note', null, ['class' => 'form-control', 'rows' => 3]); !!}
@@ -63,75 +63,76 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row tw-mt-4">
             <div class="col-sm-12">
                 <div style="overflow-x:auto;">
-            <table class="table table-bordered table-striped hide-footer" id="journal_table">
-                <thead>
-                    <tr>
-                        <th >#</th>
-                        <th class="col-md-4">@lang( 'accounting::lang.account' )</th>
-                        <th class="col-md-1">@lang( 'accounting::lang.debit' )</th>
-                        <th class="col-md-1">@lang( 'accounting::lang.credit' )</th>
-                        <th class="col-md-2">@lang( 'purchase.business_location' )</th>
-                        <th class="col-md-4">@lang( 'purchase.payment_note' )</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for($i = 1; $i <= 4; $i++)
-                        <tr>
-                            <td>{{$i}}</td>
-                            <td>
-                                {!! Form::select('account_id[' . $i . ']', [], null, 
-                                            ['class' => 'form-control accounts-dropdown account_id', 
-                                            'placeholder' => __('messages.please_select'), 'style' => 'width: 100%;min-width:150px']); !!}
-                            </td>
+                    <table class="table table-bordered table-striped hide-footer" id="journal_table">
+                        <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
+                            <tr>
+                                <th >#</th>
+                                <th class="col-md-4">@lang( 'accounting::lang.account' )</th>
+                                <th class="col-md-1">@lang( 'accounting::lang.debit' )</th>
+                                <th class="col-md-1">@lang( 'accounting::lang.credit' )</th>
+                                <th class="col-md-2">@lang( 'purchase.business_location' )</th>
+                                <th class="col-md-4">@lang( 'purchase.payment_note' )</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for($i = 1; $i <= 4; $i++)
+                                <tr>
+                                    <td>{{$i}}</td>
+                                    <td>
+                                        {!! Form::select('account_id[' . $i . ']', [], null, 
+                                                    ['class' => 'form-control accounts-dropdown account_id', 
+                                                    'placeholder' => __('messages.please_select'), 'style' => 'width: 100%;min-width:150px']); !!}
+                                    </td>
 
-                            <td>
-                                {!! Form::text('debit[' . $i . ']', null, ['class' => 'form-control input_number debit','style' => 'width: 100%;min-width:100px']); !!}
-                            </td>
+                                    <td>
+                                        {!! Form::text('debit[' . $i . ']', null, ['class' => 'form-control input_number debit','style' => 'width: 100%;min-width:100px']); !!}
+                                    </td>
 
-                            <td>
-                                {!! Form::text('credit[' . $i . ']', null, ['class' => 'form-control input_number credit','style' => 'width: 100%;min-width:100px']); !!}
-                            </td>
-                            <td>
-    {!! Form::select('location_id[' . $i . ']', [], null,
-        [
-            'class' => 'form-control locations-dropdown location_id',
-            'placeholder' => __('messages.please_select'),
-            'required' => true,
-            'style' => 'width: 100%;min-width:100px'
-        ]); !!}
-</td>
+                                    <td>
+                                        {!! Form::text('credit[' . $i . ']', null, ['class' => 'form-control input_number credit','style' => 'width: 100%;min-width:100px']); !!}
+                                    </td>
+                                    <td>
+                                        {!! Form::select('location_id[' . $i . ']', [], null,
+                                            [
+                                                'class' => 'form-control locations-dropdown location_id',
+                                                'placeholder' => __('messages.please_select'),
+                                                'required' => true,
+                                                'style' => 'width: 100%;min-width:100px'
+                                            ]); !!}
+                                    </td>
 
-                            <td>
-                                {!! Form::text('rec_note[' . $i . ']', null, ['class' => 'form-control','style' => 'width: 100%;min-width:200px']); !!}
-                            </td>
-                        </tr>
-                    @endfor
-                </tbody>
+                                    <td>
+                                        {!! Form::text('rec_note[' . $i . ']', null, ['class' => 'form-control','style' => 'width: 100%;min-width:200px']); !!}
+                                    </td>
+                                </tr>
+                            @endfor
+                        </tbody>
 
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th class="text-center">@lang( 'accounting::lang.total' )</th>
-                        <th><input type="hidden" class="total_debit_hidden"><span class="total_debit"></span></th>
-                        <th><input type="hidden" class="total_credit_hidden"><span class="total_credit"></span></th>
-                    </tr>
-                </tfoot>
-            </table>
+                        <tfoot  class="tw-w-full" style="background-color: #e9ecef;">
+                            <tr>
+                                <th></th>
+                                <th class="text-center">@lang( 'accounting::lang.total' )</th>
+                                <th><input type="hidden" class="total_debit_hidden"><span class="total_debit"></span></th>
+                                <th colspan="3"><input type="hidden" class="total_credit_hidden"><span class="total_credit"></span></th>
+                                
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
         </div>
 
 
-        <button type="button" id="add_journal_row" class="btn btn-primary btn-sm" style="margin-bottom: 10px; border-radius: 5px; font-weight: 500;">
+        <button type="button" id="add_journal_row" class="add-btn tw-gap-1 !tw-text-xs" style="margin-bottom: 10px; border-radius: 5px; font-weight: 500;">
             <i class="fa fa-plus-circle" style="margin-right: 5px;"></i> @lang('messages.add_row')
         </button>
 
         <div class="row">
             <div class="col-sm-12">
-                <button type="button" class="btn btn-primary pull-right btn-flat journal_add_btn">@lang('messages.save')</button>
+                <button type="button" class="add-btn pull-right journal_add_btn">@lang('messages.save')</button>
             </div>
         </div>
         

@@ -17,8 +17,8 @@
       		</div>
       		<div class="row">
       			<div class="col-md-12">
-      				<table class="table">
-						<thead>
+      				<table class="table table-striped tw-border">
+						<thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
 							<tr>
 								<th>@lang('manufacturing::lang.ingredient')</th>
 								<th>@lang('lang_v1.quantity')</th>
@@ -70,10 +70,10 @@
 								@endforeach
 							@endforeach
 						</tbody>
-						<tfoot>
+						<tfoot style="background-color: #e9ecef;">
 							<tr>
-								<td colspan="3" class="text-right"><strong>@lang('manufacturing::lang.ingredients_cost')</strong></td>
-								<td><span class="display_currency" data-currency_symbol="true">{{$ingredient_total_price}}</span></td>
+								<td colspan="2" class="text-right"><strong>@lang('manufacturing::lang.ingredients_cost')</strong></td>
+								<td colspan="2"><span class="display_currency" data-currency_symbol="true">{{$ingredient_total_price}}</span></td>
 							</tr>
 						</tfoot>
 					</table>

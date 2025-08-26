@@ -11,20 +11,20 @@
 <!-- Main content -->
 <section class="content">
     @component('components.filters', ['title' => __('report.filters')])
-        <div class="col-md-3">
+        <div class="col-md-5">
             <div class="form-group">
                 {!! Form::label('productstion_list_filter_location_id',  __('purchase.business_location') . ':') !!}
 
                 {!! Form::select('productstion_list_filter_location_id', $business_locations, null, ['class' => 'form-control select2', 'style' => 'width:100%', 'placeholder' => __('lang_v1.all') ]); !!}
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
             <div class="form-group">
                 {!! Form::label('production_list_filter_date_range', __('report.date_range') . ':') !!}
                 {!! Form::text('production_list_filter_date_range', null, ['placeholder' => __('lang_v1.select_a_date_range'), 'class' => 'form-control', 'readonly']); !!}
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <div class="checkbox">
                     <br>
@@ -41,10 +41,10 @@
         <div class="box-tools tw-flex tw-gap-2 tw-justify-end">
     
             {{-- Blue "Add" Button --}}
-            <a class="tw-dw-btn tw-bg-gradient-to-r tw-from-indigo-600 tw-to-blue-500 tw-font-bold tw-text-white tw-border-none tw-rounded-full"
+            <a class="add-btn tw-gap-1"
                 href="{{ action([\Modules\Manufacturing\Http\Controllers\ProductionController::class, 'create']) }}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
                     class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M12 5l0 14" />
@@ -53,10 +53,10 @@
                 @lang('messages.add')
             </a>
             {{-- Green "Add Multiple" Button --}}
-            <a class="tw-dw-btn tw-bg-gradient-to-r tw-from-green-600 tw-to-emerald-500 tw-font-bold tw-text-white tw-border-none tw-rounded-full"
+            <a class="add-btn tw-gap-1"
                 href="{{ action([\Modules\Manufacturing\Http\Controllers\ProductionController::class, 'createMultiple']) }}">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="14" height="14"
+                    viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M12 5v14" />
@@ -68,30 +68,30 @@
 
         @endslot
         <div class="table-responsive">
-        <table class="table table-bordered table-striped" id="productions_table">
-    <thead>
-        <tr>
-            <th>@lang('messages.date')</th>
-            <th>@lang('purchase.ref_no')</th>
-            <th>@lang('purchase.location')</th>
-            <th>@lang('sale.product')</th>
-            <th>@lang('lang_v1.quantity')</th>
-            <th>@lang('manufacturing::lang.total_cost')</th>
-            <th>@lang('messages.action')</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th class="text-left">@lang('report.total')</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th id="footer_total_quantity"></th>
-            <th id="footer_total_cost"></th>
-            <th></th>
-        </tr>
-    </tfoot>
-</table>
+        <table class="table tw-border table-striped" id="productions_table">
+            <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
+                <tr>
+                    <th>@lang('messages.date')</th>
+                    <th>@lang('purchase.ref_no')</th>
+                    <th>@lang('purchase.location')</th>
+                    <th>@lang('sale.product')</th>
+                    <th>@lang('lang_v1.quantity')</th>
+                    <th>@lang('manufacturing::lang.total_cost')</th>
+                    <th>@lang('messages.action')</th>
+                </tr>
+            </thead>
+            <tfoot style="background-color: #e9ecef;">
+                <tr>
+                    <th class="text-left">@lang('report.total')</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th id="footer_total_quantity"></th>
+                    <th id="footer_total_cost"></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
 
         </div>
     @endcomponent
@@ -113,6 +113,17 @@
             processing: true,
             serverSide: true,
             aaSorting: [[0, 'desc']],
+            dom: `
+                <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                    <"drps-section tw-flex tw-gap-2 tw-items-center"
+                        <" tw-flex tw-items-center tw-gap-2"B>
+                        l
+                    >
+                    f
+                >
+                rt
+                <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+            `,
             ajax: {
                 url: '{{ action([\Modules\Manufacturing\Http\Controllers\ProductionController::class, 'index']) }}',
                 data: function (d) {

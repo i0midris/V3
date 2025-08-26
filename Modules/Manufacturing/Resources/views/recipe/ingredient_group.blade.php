@@ -2,7 +2,9 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-12">
-				<button class="tw-dw-btn tw-dw-btn-error tw-dw-btn-outline tw-dw-btn-xs pull-right remove_ingredient_group"><i class="fas fa-times"></i></button>
+				<button class="tw-dw-btn tw-dw-btn-error tw-dw-btn-outline tw-dw-btn-xs pull-right remove_ingredient_group">
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+				</button>
 			</div>
 		</div>
 		<div class="row">
@@ -30,8 +32,8 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-striped table-th-green text-center ingredients_table">
-					<thead>
+				<table class="table table-striped tw-border text-center ingredients_table">
+					<thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
 						<tr>
 							<th>@lang('manufacturing::lang.ingredient')</th>
 							<th>@lang('manufacturing::lang.waste_percent')</th>

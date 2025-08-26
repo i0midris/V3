@@ -10,8 +10,8 @@
 
     <div class="modal-body">
         <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
+            <div class="">
+                <div class="form-group col-md-6">
                     {!! Form::label('account_primary_type', __( 'accounting::lang.account_type' ) . ':*') !!}
                     <select class="form-control" name="account_primary_type" id="account_primary_type" required>
                         <option value="">@lang('messages.please_select')</option>
@@ -20,29 +20,29 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     {!! Form::label('account_sub_type', __( 'accounting::lang.account_sub_type' ) . ':*') !!}
                     <select class="form-control" name="account_sub_type_id" id="account_sub_type" required>
                         <option value="">@lang('messages.please_select')</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     {!! Form::label('parent_account', __( 'accounting::lang.parent_account' ) . ':') !!}
                     {!! Form::select('parent_account_id', [], null,
                         ['required','class' => 'form-control', 'placeholder' => __('messages.please_select'),
                         'id' => 'parent_account' ]); !!}
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     {!! Form::label('detail_type', __( 'accounting::lang.detail_type' ) . ':') !!}
                     {!! Form::select('detail_type_id', [], null,  ['class' => 'form-control',
                         'placeholder' => __('messages.please_select'), 'id' => 'detail_type' ]); !!}
                     <p class="help-block" id="detail_type_desc"></p>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     {!! Form::label('name', __( 'user.name' ) . ':*') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'required', 'placeholder' => __( 'user.name' ) ]); !!}
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     {!! Form::label('gl_code', __( 'accounting::lang.gl_code' ) . ':') !!}
                         {!! Form::text('gl_code', null, ['class' => 'form-control', 'placeholder' => __( 'accounting::lang.gl_code' ),'readonly' => 'readonly' ]); !!}
                     <p class="help-block">@lang( 'accounting::lang.gl_code_help' )</p>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>   
-        <div class="row"">
+        <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     {!! Form::label('description', __( 'lang_v1.description' ) . ':') !!}
@@ -79,8 +79,8 @@
     </div>
 
     <div class="modal-footer">
-      <button type="submit" onclick="return doNow()" class="btn btn-primary">@lang( 'messages.save' )</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">@lang( 'messages.close' )</button>
+      <button type="submit" onclick="return doNow()" class="tw-dw-btn tw-dw-btn-primary tw-text-white">@lang( 'messages.save' )</button>
+      <button type="button" class="tw-dw-btn tw-dw-btn-neutral tw-text-white" data-dismiss="modal">@lang( 'messages.close' )</button>
     </div>
 
     {!! Form::close() !!}

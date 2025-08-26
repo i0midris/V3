@@ -240,6 +240,21 @@ class ReportController extends Controller
         return view('report.profit_loss', compact('business_locations'));
     }
 
+    private function calculateProfitLoss($business_id, $start_date, $end_date, $location_id = null, $user_id = null)
+{
+    $permitted_locations = auth()->user()->permitted_locations();
+
+    return $this->transactionUtil->getProfitLossDetails(
+        $business_id,
+        $location_id,
+        $start_date,
+        $end_date,
+        $user_id,
+        $permitted_locations
+    );
+}
+
+
     /**
      * Shows product report of a business
      *

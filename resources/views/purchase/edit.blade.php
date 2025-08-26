@@ -512,10 +512,37 @@
       </div>
     </div>
     <div class="row">
-    <div class="col-md-12 text-right">
-      {!! Form::hidden('final_total', $purchase->final_total , ['id' => 'grand_total_hidden']); !!}
-      <b>@lang('purchase.purchase_total'): </b><span id="grand_total" class="display_currency" data-currency_symbol='true'>{{$purchase->final_total}}</span>
-    </div>
+   @php
+  $use_line_discount = false;
+  $calculated_total = 0;
+
+  foreach ($purchase->purchase_lines as $line) {
+      if (!empty($line->discount_percent) && $line->discount_percent > 0) {
+          $use_line_discount = true;
+      }
+
+      $price = $line->purchase_price_inc_tax * $line->quantity;
+      $calculated_total += $price;
+  }
+
+  // Add shipping and additional expenses
+  $calculated_total += $purchase->shipping_charges;
+  for ($i = 1; $i <= 4; $i++) {
+      $key = "additional_expense_value_$i";
+      $calculated_total += $purchase->$key ?? 0;
+  }
+
+  $final_total = $use_line_discount ? $calculated_total : $purchase->final_total;
+@endphp
+
+<div class="col-md-12 text-right">
+  {!! Form::hidden('final_total', $final_total , ['id' => 'grand_total_hidden']); !!}
+  <b>@lang('purchase.purchase_total'): </b>
+  <span id="grand_total" class="display_currency" data-currency_symbol='true'>
+    {{@num_format($final_total)}}
+  </span>
+</div>
+
     </div>
     @endcomponent
   

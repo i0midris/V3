@@ -125,14 +125,24 @@ class ContactUtil extends Util
             }
 
             // Add opening balance
-            if (! empty($opening_balance)) {
-                $transactionUtil = new TransactionUtil;
-                $transactionUtil->createOpeningBalanceTransaction($contact->business_id, $contact->id, $opening_balance, $contact->created_by, false);
-            }
+            $opening_balance_transaction = null;
+
+if (! empty($opening_balance)) {
+    $transactionUtil = new TransactionUtil;
+    $opening_balance_transaction = $transactionUtil->createOpeningBalanceTransaction(
+        $contact->business_id,
+        $contact->id,
+        $opening_balance,
+        $contact->created_by,
+        false
+    );
+}
+
 
             $output = ['success' => true,
                 'data' => $contact,
                 'msg' => __('contact.added_success'),
+                'opening_balance_transaction' => $opening_balance_transaction,
             ];
 
             return $output;
@@ -141,75 +151,88 @@ class ContactUtil extends Util
         }
     }
 
-    public function updateContact($input, $id, $business_id)
-    {
-        $count = 0;
-        // Check Contact id
-        if (! empty($input['contact_id'])) {
-            $count = Contact::where('business_id', $business_id)
-                ->where('contact_id', $input['contact_id'])
-                ->where('id', '!=', $id)
-                ->count();
-        }
+   public function updateContact($input, $id, $business_id)
+{
+    $count = 0;
 
-        if ($count == 0) {
-            // Get opening balance if exists
-            $ob_transaction = Transaction::where('contact_id', $id)
-                ->where('type', 'opening_balance')
-                ->first();
-
-            $opening_balance = isset($input['opening_balance']) ? $input['opening_balance'] : 0;
-            if (isset($input['opening_balance'])) {
-                unset($input['opening_balance']);
-            }
-
-            // Assigned the user
-            $assigned_to_users = [];
-            if (! empty($input['assigned_to_users'])) {
-                $assigned_to_users = $input['assigned_to_users'];
-                unset($input['assigned_to_users']);
-            }
-
-            $contact = Contact::where('business_id', $business_id)->findOrFail($id);
-            foreach ($input as $key => $value) {
-                $contact->$key = $value;
-            }
-            $contact->save();
-
-            // Assigned the user
-            if (! empty($assigned_to_users)) {
-                $contact->userHavingAccess()->sync($assigned_to_users);
-            }
-
-            // Opening balance update
-            $transactionUtil = new TransactionUtil;
-            if (! empty($ob_transaction)) {
-                $opening_balance_paid = $transactionUtil->getTotalAmountPaid($ob_transaction->id);
-                if (! empty($opening_balance_paid)) {
-                    $opening_balance += $opening_balance_paid;
-                }
-
-                $ob_transaction->final_total = $opening_balance;
-                $ob_transaction->save();
-                // Update opening balance payment status
-                $transactionUtil->updatePaymentStatus($ob_transaction->id, $ob_transaction->final_total);
-            } else {
-                // Add opening balance
-                if (! empty($opening_balance)) {
-                    $transactionUtil->createOpeningBalanceTransaction($business_id, $contact->id, $opening_balance, $contact->created_by, false);
-                }
-            }
-
-            $output = ['success' => true,
-                'msg' => __('contact.updated_success'),
-                'data' => $contact,
-            ];
-        } else {
-            throw new \Exception('Error Processing Request', 1);
-        }
-
-        return $output;
+    // Check for duplicate contact_id
+    if (! empty($input['contact_id'])) {
+        $count = Contact::where('business_id', $business_id)
+            ->where('contact_id', $input['contact_id'])
+            ->where('id', '!=', $id)
+            ->count();
     }
+
+    if ($count != 0) {
+        throw new \Exception('Error Processing Request: Duplicate Contact ID', 1);
+    }
+
+    // Prepare opening balance
+    $opening_balance = isset($input['opening_balance']) ? $input['opening_balance'] : 0;
+    unset($input['opening_balance']);
+
+    // Handle assigned users
+    $assigned_to_users = [];
+    if (! empty($input['assigned_to_users'])) {
+        $assigned_to_users = $input['assigned_to_users'];
+        unset($input['assigned_to_users']);
+    }
+
+    // Update contact record
+    $contact = Contact::where('business_id', $business_id)->findOrFail($id);
+    foreach ($input as $key => $value) {
+        $contact->$key = $value;
+    }
+    $contact->save();
+
+    // Sync assigned users
+    if (! empty($assigned_to_users)) {
+        $contact->userHavingAccess()->sync($assigned_to_users);
+    }
+
+    // Opening balance transaction handling
+    $transactionUtil = new TransactionUtil;
+    $opening_balance_transaction = null;
+
+    $ob_transaction = Transaction::where('contact_id', $id)
+        ->where('type', 'opening_balance')
+        ->first();
+
+    if (! empty($ob_transaction)) {
+        // If paid, preserve the paid amount
+        $opening_balance_paid = $transactionUtil->getTotalAmountPaid($ob_transaction->id);
+        if (! empty($opening_balance_paid)) {
+            $opening_balance += $opening_balance_paid;
+        }
+
+        $ob_transaction->final_total = $opening_balance;
+        $ob_transaction->save();
+
+        // Update payment status
+        $transactionUtil->updatePaymentStatus($ob_transaction->id, $ob_transaction->final_total);
+
+        $opening_balance_transaction = $ob_transaction;
+    } else {
+        // Create new opening balance transaction if none exists
+        if (! empty($opening_balance)) {
+            $opening_balance_transaction = $transactionUtil->createOpeningBalanceTransaction(
+                $business_id,
+                $contact->id,
+                $opening_balance,
+                $contact->created_by,
+                false
+            );
+        }
+    }
+
+    return [
+        'success' => true,
+        'msg' => __('contact.updated_success'),
+        'data' => $contact,
+        'opening_balance_transaction' => $opening_balance_transaction,
+    ];
+}
+
 
     public function getContactQuery($business_id, $type, $contact_ids = [])
     {

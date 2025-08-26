@@ -116,14 +116,17 @@ function update_sell_return_total() {
     // Step 2: Calculate discount
     let discount = 0;
 
-    if (discount_type === 'fixed') {
-        if (total_qty_sold > 0) {
-            const per_unit_discount = discount_amount / total_qty_sold;
-            discount = per_unit_discount * total_qty_returned;
-        }
-    } else if (discount_type === 'percentage') {
-        discount = __calculate_amount('percentage', discount_amount, net_return);
+   if (discount_type === 'fixed') {
+    if (total_qty_sold > 0) {
+        const original_total = net_return / total_qty_returned * total_qty_sold;
+        const fixed_to_percentage = (discount_amount / original_total) * 100;
+
+        $('#discount_type').val('percentage');
+        $('#discount_amount').val(fixed_to_percentage.toFixed(6));
+
+        discount = __calculate_amount('percentage', fixed_to_percentage, net_return);
     }
+}
 
     const discounted_total = net_return - discount;
 

@@ -80,6 +80,17 @@
     	recipe_table = $('#recipe_table').DataTable({
 	        processing: true,
 	        serverSide: true,
+            dom: `
+                <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                    <"drps-section tw-flex tw-gap-2 tw-items-center"
+                        <" tw-flex tw-items-center tw-gap-2"B>
+                        l
+                    >
+                    f
+                >
+                rt
+                <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+            `,
 	        ajax: '{{action([\Modules\Manufacturing\Http\Controllers\RecipeController::class, 'index'])}}',
 	        columnDefs: [
 	            {

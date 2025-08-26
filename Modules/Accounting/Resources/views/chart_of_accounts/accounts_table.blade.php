@@ -1,4 +1,4 @@
-<table class="table table-bordered table-striped">
+<table class="table tw-border table-striped">
     <thead>
         <tr>
             <th>@lang( 'messages.action' )</th>

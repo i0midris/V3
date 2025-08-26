@@ -17,33 +17,33 @@
        'method' => 'post', 'id' => 'receipt_form' ]) !!}
     <div class="box box-solid">
         <div class="box-body">
-            <div class="row">
+            <div class="row lg:tw-p-4">
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('ref_no', __('purchase.ref_no').':') !!}
                     @show_tooltip(__('lang_v1.leave_empty_to_autogenerate'))
                     {!! Form::text('ref_no', null, ['class' => 'form-control']); !!}
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('from_account', __( 'accounting::lang.user_acc' ) .":*") !!}
                     {!! Form::select('from_account', [], null, ['class' => 'form-control accounts-dropdown', 'required',
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('to_account', __( 'الصندوق او البنك' ) .":*") !!}
                     {!! Form::select('to_account', [], null, ['class' => 'form-control accounts-dropdown', 'required',
                         'parent_ids' => $cash.','.$bank,
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('amount', __( 'sale.amount' ) .":*") !!}
                     {!! Form::text('amount', 0, ['class' => 'form-control input_number',
                         'required','placeholder' => __( 'sale.amount' ) ]); !!}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('operation_date', __( 'messages.date' ) .":*") !!}
                     <div class="input-group">
                         {!! Form::text('operation_date', null, ['class' => 'form-control',
@@ -53,26 +53,26 @@
                 </span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-6 col-md-4">
                     {!! Form::label('location_id', __( 'business.location' ) .":*") !!}
                     {!! Form::select('location_id', [], null, ['class' => 'form-control locations-dropdown', 'required',
                         'placeholder' => __('messages.please_select') ]); !!}
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group col-sm-12 col-md-8">
                     {!! Form::label('note', __( 'brand.note' )) !!}
                     {!! Form::textarea('note', null, ['class' => 'form-control',
                         'placeholder' => __( 'brand.note' ), 'rows' => 4]); !!}
                 </div>
             </div>
+            <div class="row text-center tw-mt-4">
+                <button type="submit" class="tw-dw-btn tw-dw-btn-primary tw-text-white">@lang('messages.save')</button>
+            </div>
         </div>
     </div> <!--box end-->
 
 
-    <div class="col-sm-12 text-center">
-        <button type="submit" class="btn btn-primary btn-big">@lang('messages.save')</button>
-    </div>
     {!! Form::close() !!}
 </section>
 @endsection

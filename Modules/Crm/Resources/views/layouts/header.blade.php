@@ -9,16 +9,14 @@
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            &#9776;
-            <span class="sr-only">Toggle navigation</span>
-        </a>
+                &#9776;
+                <span class="sr-only">Toggle navigation</span>
+            </a>
 
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <button id="btnCalculator" title="@lang('lang_v1.calculator')" type="button" class="btn btn-success btn-flat pull-left m-8 hidden-xs btn-sm mt-10 popover-default" data-toggle="popover" data-trigger="click" data-content='@include("layouts.partials.calculator")' data-html="true" data-placement="bottom">
-                <strong>
                     <i class="fa fa-calculator fa-lg" aria-hidden="true"></i>
-                </strong>
             </button>
 
             <div class="m-8 pull-left mt-15 hidden-xs" style="color: #fff;">
@@ -31,6 +29,7 @@
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        d
                         <!-- The user image in the navbar-->
                         @php
                             $profile_photo = auth()->user()->media;

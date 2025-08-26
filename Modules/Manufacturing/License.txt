@@ -1,12 +1,13 @@
-Manufacturing 
+Manufacturing Module for UltimatePOS
 End User License Agreement
+Copyright, The Web Fosters,UltimateFosters (https://ultimatefosters.com/product/manufacturing-module-for-ultimatepos/)
 All rights reserved.
 
 By using the software, you agree to be bound by the terms of this license. If you have any questions 
 about the terms below, please contact nsp-code.com for clarification.
 
 
-1.) You must have paid to use the software.
+1.) You must have paid https://ultimatefosters.com/ to use the software.
 
 2.) The copyright holder retains all intellectual property rights to the software.
 

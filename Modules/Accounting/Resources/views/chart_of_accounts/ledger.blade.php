@@ -16,7 +16,7 @@
         <div class="col-md-5">
             <div class="box box-solid">
                 <div class="box-body" id="header_table2">
-                    <table class="table table-condensed">
+                    <table class="table table-condensed no-border">
                         <tr>
                             <th>@lang( 'user.name' ):</th>
                             <td>
@@ -80,7 +80,7 @@
                 <div class="box-header">
                     <h3 class="box-title"> <i class="fa fa-filter" aria-hidden="true"></i> @lang('report.filters'):</h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body" style="padding-top: 9px !important">
                     <div class="col-sm-6">
                         <div class="form-group">
                             {!! Form::label('all_accounts', __( 'accounting::lang.account' ) . ':') !!}
@@ -122,12 +122,12 @@
 <section class="content">
     <div class="row">
         <div class="col-sm-12">
-        	<div class="box">
+        	<div class="box box-solid">
                 <div class="box-body">
                     @can('account.access')
                         <div class="table-responsive">
-                    	<table class="table table-bordered table-striped" id="ledger">
-                    		<thead>
+                    	<table class="table tw-border table-striped tw-overflow-hidden" style="border-radius:0.5rem 0.5rem 0 0" id="ledger">
+                    		<thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
                     			<tr>
                                     <th>@lang( 'messages.date' )</th>
                                     <th>@lang( 'lang_v1.description' )</th>
@@ -1784,7 +1784,18 @@
         // Account Book
         ledger = $('#ledger').DataTable({
                             processing: true,
-                            serverSide: true,
+                            serverSide: true,                            
+                            dom: `
+                                <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                                    <"drps-section tw-flex tw-gap-2 tw-items-center"
+                                        <" tw-flex tw-items-center tw-gap-2"B>
+                                        l
+                                    >
+                                    f
+                                >
+                                rt
+                                <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+                            `,
                             ajax: {
                                 url: '{{action([\Modules\Accounting\Http\Controllers\CoaController::class, 'ledger'],[$account->id])}}',
                                 data: function(d) {

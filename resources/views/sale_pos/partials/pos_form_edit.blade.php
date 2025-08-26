@@ -59,17 +59,41 @@
 	<input type="hidden" name="pay_term_number" id="pay_term_number" value="{{$transaction->pay_term_number}}">
 	<input type="hidden" name="pay_term_type" id="pay_term_type" value="{{$transaction->pay_term_type}}">
 	
-	@if(!empty($commission_agent))
-		@php
-			$is_commission_agent_required = !empty($pos_settings['is_commission_agent_required']);
-		@endphp
-		<div class="col-sm-4">
-			<div class="form-group">
-			{!! Form::select('commission_agent', 
-						$commission_agent, $transaction->commission_agent, ['class' => 'form-control select2', 'placeholder' => __('lang_v1.commission_agent'), 'id' => 'commission_agent', 'required' => $is_commission_agent_required]); !!}
-			</div>
-		</div>
-		@endif
+@if(!empty($commission_agent))
+    @php
+        $is_commission_agent_required = !empty($pos_settings['is_commission_agent_required']);
+        $selected_agent = $transaction->commission_agent ?? '0'; // default to “None”
+    @endphp
+    <div class="col-sm-4">
+        <div class="form-group">
+            <select id="commission_agent"
+                    name="commission_agent"
+                    class="form-control select2"
+                    data-placeholder="{{ __('lang_v1.commission_agent') }}"
+                    style="width:100%;"
+                    {{ $is_commission_agent_required ? '' : '' }}>
+                {{-- Visible "None" option uses value="0" so Select2 shows it --}}
+                <option value="0" data-cmmsn="0" {{ (string)$selected_agent === '0' ? 'selected' : '' }}>
+                    {{ __('lang_v1.none') }}
+                </option>
+
+                @foreach($commission_agent as $id => $name)
+                    @php
+                        $pct = isset($agent_percents) ? ($agent_percents[$id] ?? 0)
+                              : (optional(\App\User::find($id))->cmmsn_percent ?? 0);
+                    @endphp
+                    <option value="{{ $id }}"
+                            data-cmmsn="{{ $pct }}"
+                            {{ (string)$selected_agent === (string)$id ? 'selected' : '' }}>
+                        {{ $name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+@endif
+
+		
 	@if(!empty($pos_settings['enable_transaction_date']))
 		<div class="col-md-4 col-sm-6">
 			<div class="form-group">

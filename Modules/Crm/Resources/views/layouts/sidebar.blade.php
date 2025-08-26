@@ -5,7 +5,7 @@
   <section class="sidebar">
 
 	<a href="{{action([\Modules\Crm\Http\Controllers\DashboardController::class, 'index'])}}" class="logo">
-		<span class="logo-lg">{{ Session::get('business.name') }}</span>
+		<span class="logo-lg">{{ Session::get('business.name') }}</span>jjj
 	</a>
 
     <!-- Sidebar Menu -->

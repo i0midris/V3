@@ -147,35 +147,37 @@
         });
     })
 
-    $(document).on('click', 'a.delete_sell_return', function(e) {
-        e.preventDefault();
-        swal({
-            title: LANG.sure,
-            icon: 'warning',
-            buttons: true,
-            dangerMode: true,
-        }).then(willDelete => {
-            if (willDelete) {
-                var href = $(this).attr('href');
-                var data = $(this).serialize();
+   $(document).on('click', 'a.delete_sell_return', function (e) {
+  e.preventDefault();
+  const $link = $(this);
 
-                $.ajax({
-                    method: 'DELETE',
-                    url: href,
-                    dataType: 'json',
-                    data: data,
-                    success: function(result) {
-                        if (result.success == true) {
-                            toastr.success(result.msg);
-                            sell_return_table.ajax.reload();
-                        } else {
-                            toastr.error(result.msg);
-                        }
-                    },
-                });
-            }
-        });
+  Swal.fire({
+    title: LANG.sure,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: LANG.delete || 'حذف',
+    cancelButtonText: LANG.cancel || 'Cancel',
+    reverseButtons: true
+  }).then(result => {
+    if (!result.isConfirmed) return;
+    $.ajax({
+      method: 'DELETE',
+      url: $link.attr('href'),
+      dataType: 'json',
+      // if needed for Laravel:
+      // data: { _token: $('meta[name="csrf-token"]').attr('content') },
+      success: function (res) {
+        if (res.success) {
+          toastr.success(res.msg);
+          sell_return_table.ajax.reload();
+        } else {
+          toastr.error(res.msg);
+        }
+      }
     });
+  });
+});
+
 </script>
 	
 @endsection

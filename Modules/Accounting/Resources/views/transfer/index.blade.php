@@ -47,15 +47,16 @@
                 @can('accounting.add_transfer')
                     @slot('tool')
                         <div class="box-tools">
-                            <button type="button" class="btn btn-block btn-primary btn-modal" 
+                            <button type="button" class="add-btn tw-gap-1 btn-block btn-primary btn-modal" 
                                 data-href="{{action([\Modules\Accounting\Http\Controllers\TransferController::class, 'create'])}}" 
                                 data-container="#create_transfer_modal" >
-                                <i class="fas fa-plus"></i> @lang( 'messages.add' )</a>
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                                 @lang( 'messages.add' )</a>
                         </div>
                     @endslot
                 @endcan
                 <table class="table table-bordered table-striped" id="transfer_table">
-                    <thead>
+                    <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
                         <tr>
                             <th>@lang('messages.action')</th>
                             <th>@lang( 'messages.date' )</th>
@@ -119,6 +120,17 @@
         transfer_table = $('#transfer_table').DataTable({
             processing: true,
             serverSide: true,
+            dom: `
+                <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                    <"drps-section tw-flex tw-gap-2 tw-items-center"
+                        <" tw-flex tw-items-center tw-gap-2"B>
+                        l
+                    >
+                    f
+                >
+                rt
+                <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+            `,
             ajax: {
                 url: "{{action([\Modules\Accounting\Http\Controllers\TransferController::class, 'index'])}}",
                 data: function(d) {

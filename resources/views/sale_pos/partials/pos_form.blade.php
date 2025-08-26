@@ -73,17 +73,33 @@
 	<input type="hidden" name="pay_term_number" id="pay_term_number" value="{{$walk_in_customer['pay_term_number'] ?? ''}}">
 	<input type="hidden" name="pay_term_type" id="pay_term_type" value="{{$walk_in_customer['pay_term_type'] ?? ''}}">
 	
-	@if(!empty($commission_agent))
-		@php
-			$is_commission_agent_required = !empty($pos_settings['is_commission_agent_required']);
-		@endphp
-		<div class="col-md-4 col-sm-6">
-			<div class="form-group">
-			{!! Form::select('commission_agent', 
-						$commission_agent, null, ['class' => 'form-control select2', 'placeholder' => __('lang_v1.commission_agent'), 'id' => 'commission_agent', 'required' => $is_commission_agent_required]); !!}
-			</div>
-		</div>
-	@endif
+@if(!empty($commission_agent))
+    @php
+        $is_commission_agent_required = !empty($pos_settings['is_commission_agent_required']);
+    @endphp
+    <div class="col-md-4">
+        <div class="form-group">
+            <select id="commission_agent"
+                    name="commission_agent"
+                    class="form-control select2"
+                    data-placeholder="{{ __('lang_v1.commission_agent') }}"
+                    {{ $is_commission_agent_required ? '' : '' }}>
+                {{-- Visible "None" item uses a non-empty value (0) so it shows in the dropdown --}}
+                <option value="0" data-cmmsn="0">{{ __('lang_v1.none') }}</option>
+
+                @foreach($commission_agent as $id => $name)
+                    @php
+                        $pct = isset($agent_percents) ? ($agent_percents[$id] ?? 0)
+                              : (optional(\App\User::find($id))->cmmsn_percent ?? 0);
+                    @endphp
+                    <option value="{{ $id }}" data-cmmsn="{{ $pct }}">{{ $name }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+@endif
+
+
 	@if(!empty($pos_settings['enable_transaction_date']))
 		<div class="col-md-4 col-sm-6">
 			<div class="form-group">
@@ -286,3 +302,41 @@
 		</table>
 	</div>
 </div>
+
+
+<script>
+$(function () {
+  var $ca = $('#commission_agent');
+  if (!$ca.length) return;
+
+  var NONE_VALUE = '0';
+
+  // keep allowClear if you also want the "x" button (optional)
+  $ca.select2({
+    allowClear: true,
+    placeholder: $ca.data('placeholder') || '{{ __("lang_v1.commission_agent") }}'
+  });
+
+  function handleCleared() {
+    $('#commission_amount').val('');
+    $('#commission_default_percent').val('0');
+    $('#commission_chosen').val('0');
+    $('#total_commission').text('0');
+    if (typeof calculate_billing === 'function') { calculate_billing(); }
+  }
+
+  $ca.on('change', function () {
+    var v = this.value;
+    if (!v || v === NONE_VALUE) {
+      handleCleared();
+    } else {
+      // normal agent selected -> your existing logic will read data-cmmsn
+    }
+  });
+
+  // Ensure form submits an empty value (not "0") when None is chosen
+  $('form').on('submit', function () {
+    if ($ca.val() === NONE_VALUE) $ca.val('');
+  });
+});
+</script>

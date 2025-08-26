@@ -14,13 +14,13 @@
 	{!! Form::open(['url' => action([\Modules\Manufacturing\Http\Controllers\ProductionController::class, 'store']), 'method' => 'post', 'id' => 'production_form', 'files' => true ]) !!}
 	@component('components.widget', ['class' => 'box-solid'])
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('ref_no', __('purchase.ref_no').':') !!} @show_tooltip(__('manufacturing::lang.ref_no_tooltip'))
 					{!! Form::text('ref_no', null, ['class' => 'form-control']); !!}
 				</div>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('transaction_date', __('manufacturing::lang.mfg_date') . ':*') !!}
 					<div class="input-group">
@@ -39,7 +39,7 @@
 			@else
 				@php $default_location = null; @endphp
 			@endif
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('location_id', __('purchase.business_location').':*') !!}
 					@show_tooltip(__('tooltip.purchase_location'))
@@ -47,23 +47,23 @@
 				</div>
 			</div>
 
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('variation_id', __('sale.product').':*') !!}
 					{!! Form::select('variation_id', $recipe_dropdown, null, ['class' => 'form-control select2', 'placeholder' => __('messages.please_select'), 'required']); !!}
 				</div>
 			</div>
 			
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="form-group">
 					{!! Form::label('recipe_quantity', __('lang_v1.quantity').':*') !!}
-					<div class="input-group" id="recipe_quantity_input">
+					<!-- <div class="input-group" id="recipe_quantity_input"> -->
 						{!! Form::text('quantity', 1, ['class' => 'form-control input_number', 'id' => 'recipe_quantity', 'required', 'data-rule-notEmpty' => 'true', 'data-rule-notEqualToWastedQuantity' => 'true']); !!}
-						<span class="input-group-addon" id="unit_html"></span>
-					</div>
+						<!-- 6 -->
+					<!-- </div> -->
 				</div>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
                 <div class="form-group">
                     {!! Form::label('upload_document', __('purchase.attach_document') . ':') !!}
                     {!! Form::file('documents[]', ['id' => 'upload_document', 'multiple', 'accept' => implode(',', array_keys(config('constants.document_upload_mimes_types')))]); !!}
@@ -87,7 +87,7 @@
 		<br>
 		<div class="row">
 			@if(request()->session()->get('business.enable_lot_number') == 1)
-				<div class="col-sm-3">
+				<div class="col-sm-6">
 					<div class="form-group">
 						{!! Form::label('lot_number', __('lang_v1.lot_number').':') !!}
 						{!! Form::text('lot_number', null, ['class' => 'form-control']); !!}
@@ -95,7 +95,7 @@
 				</div>
 			@endif
 			@if(session('business.enable_product_expiry'))
-				<div class="col-sm-3">
+				<div class="col-sm-6">
 					<div class="form-group">
 						{!! Form::label('exp_date', __('product.exp_date').':*') !!}
 						<div class="input-group">
@@ -107,16 +107,16 @@
 					</div>
 				</div>
 			@endif
-			<div class="col-md-3">
+			<div class="col-sm-6">
 				<div class="form-group">
 					{!! Form::label('mfg_wasted_units', __('manufacturing::lang.waste_units').':') !!} @show_tooltip(__('manufacturing::lang.wastage_tooltip'))
-					<div class="input-group">
+					<!-- <div class="input-group"> -->
 						{!! Form::text('mfg_wasted_units', 0, ['class' => 'form-control input_number']); !!}
-						<span class="input-group-addon" id="wasted_units_text"></span>
-					</div>
+						<!-- <span class="input-group-addon" id="wasted_units_text"></span> -->
+					<!-- </div> -->
 				</div> 
 			</div>
-			<div class="col-md-3">
+			<div class="col-sm-6">
 				<div class="form-group">
 					{!! Form::label('production_cost', __('manufacturing::lang.production_cost').':') !!} @show_tooltip(__('manufacturing::lang.production_cost_tooltip'))
 					<div class="input_inline">
@@ -131,18 +131,8 @@
 				<span id="total_production_cost" class="display_currency" data-currency_symbol="true">0</span></p>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 col-md-offset-9">
-				{!! Form::hidden('final_total', 0, ['id' => 'final_total']); !!}
-				<strong>
-					{{__('manufacturing::lang.total_cost')}}:
-				</strong>
-				<span id="final_total_text" class="display_currency" data-currency_symbol="true">0</span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 col-md-offset-9">
+			<!-- here -->
+			 <div class="col-sm-6">
 				<div class="form-group">
 					<br>
 					<div class="checkbox">
@@ -153,9 +143,21 @@
 		        </div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<button type="submit" class="tw-dw-btn tw-dw-btn-primary tw-text-white pull-right">@lang('messages.submit')</button>
+		<div class="row ">
+			<div class="col-md-3 col-md-offset-9">
+				{!! Form::hidden('final_total', 0, ['id' => 'final_total']); !!}
+				<strong>
+					{{__('manufacturing::lang.total_cost')}}:
+				</strong>
+				<span id="final_total_text" class="display_currency" data-currency_symbol="true">0</span>
+			</div>
+		</div>
+		<!-- <div class="row">
+			
+		</div> -->
+		<div class="row tw-mt-4">
+			<div class="col-md-12 tw-mt-5 text-center">
+				<button type="submit" class="tw-dw-btn tw-dw-btn-primary tw-text-white">@lang('messages.submit')</button>
 			</div>
 		</div>
 	@endcomponent

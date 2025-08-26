@@ -49,6 +49,50 @@
 							@endif
 							</div>
 
+<div class="{{ $col }} col-xs-6 d-inline-table" style="margin-bottom: 10px;">
+  <b class="tw-text-base md:tw-text-lg tw-font-bold">
+    @lang('lang_v1.commission') (-):
+    <i class="fas fa-edit cursor-pointer"
+       id="pos-edit-commission"
+       title="@lang('lang_v1.edit_commission')"
+       data-toggle="modal"
+       data-target="#posEditCommissionModal"></i>
+  </b>
+  <br/>
+
+  {{-- Show current commission when editing, else 0 --}}
+  <span class="tw-text-base md:tw-text-lg tw-font-semibold" id="total_commission">
+    @if(isset($transaction) && !is_null($transaction->commission_amount))
+      {{ @num_format($transaction->commission_amount) }}
+    @else
+      0
+    @endif
+  </span>
+
+  {{-- Hidden fields posted with the form --}}
+  <input type="hidden"
+         name="commission_type"
+         id="commission_type"
+         value="percentage"
+         data-default="percentage">
+
+  {{-- Keep EMPTY by default so server can fallback to agent default when untouched --}}
+  <input type="hidden"
+         name="commission_amount"
+         id="commission_amount"
+         value=""
+         data-default="">
+
+  {{-- IMPORTANT:
+       - On edit: -1 (unchanged) so we don't accidentally clear commission
+       - On create: 0 is fine (no commission unless cashier chooses) --}}
+  <input type="hidden"
+         name="commission_chosen"
+         id="commission_chosen"
+         value="{{ isset($edit) && $edit ? '-1' : '0' }}">
+</div>
+
+
 							<div class="{{$col}} col-xs-6 d-inline-table">
 
 								<span class="@if($pos_settings['disable_order_tax'] != 0) hide @endif">
@@ -219,3 +263,4 @@
 @endif
 
 @include('sale_pos.partials.edit_shipping_modal')
+@include('sale_pos.partials.pos_edit_commission_modal')

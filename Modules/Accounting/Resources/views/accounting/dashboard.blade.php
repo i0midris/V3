@@ -6,20 +6,50 @@
     @include('accounting::layouts.nav')
 
     <section class="content">
-        <div class="row">
+        <div class="row tw-mt-5">
             <div class="col-md-12">
                 @component('components.widget', ['class' => 'box-primary',
                 'title' => 'الربط التلقائي :'])
-                    <div>
-                        <p style="direction: rtl;">اضافة التلقائية للحسابات في شجرة الحسابات :<br/>1- اضافة وتعديل
-                            المستخدمون <br/>2- اضافة وتعديل العملاء <br/>3- اضافة وتعديل الموردين <br/>4- اضافة الحسابات
-                            المالية <br/>5- اضافة فئات المصاريف<br/><br/>اضافة تلقائية في القيود: <br/>1- اضافة وتعديل
-                            رصيد افتتاحي للمنتجات <br/>2- قيد اثبات فاتورة المشتريات <br/>3- قيد اثبات مرتج فاتورة
-                            المشتريات <br/>4- قيد اثبات فاتورة المبيعات <br/>5- قيد اثبات مرتجع المبيعات <br/>6- قيد
-                            تحويل المخزون <br/><br/>اضافة تلقائية لسند صرف: <br/>1- اضافة مصاريف <br/>2- اضافة قسط
-                            فاتورة مشتريات <br/>3- اضافة قسط مرتجع فاتورة المبيعات<br/>4- اضافة دفع مسبق
-                            للمورد<br/><br/>اضافة تلقائية لسند القبض: <br/>1- اضافة قسط مرتجع فاتورة المشتريات <br/>2-
-                            اضافة قسط فاتورة المبيعات<br/>3- اضافة دفع مسبق للعميل</p>
+                    <div class="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-4 tw-px-4" style="direction: rtl;">
+                        <div>
+                            <h5>اضافة التلقائية للحسابات في شجرة الحسابات:</h5>
+                            <ul class="tw-mx-5" style="list-style-type: decimal;">
+                                <li>اضافة وتعديل المستخدمون</li>
+                                <li>اضافة وتعديل العملاء</li>
+                                <li>اضافة وتعديل الموردين</li>
+                                <li>اضافة الحسابات المالية</li>
+                                <li>اضافة فئات المصاريف</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>اضافة تلقائية في القيود:</h5>
+                            <ul class="tw-mx-5" style="list-style-type: decimal;">
+                                <li>اضافة وتعديل رصيد افتتاحي للمنتجات</li>
+                                <li>قيد اثبات فاتورة المشتريات</li>
+                                <li>قيد اثبات مرتج فاتورة المشتريات</li>
+                                <li>قيد اثبات فاتورة المبيعات</li>
+                                <li>قيد اثبات مرتجع المبيعات</li>
+                                <li>قيد تحويل المخزون</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>اضافة تلقائية لسند صرف:</h5>
+                            <ul class="tw-mx-5" style="list-style-type: decimal;">
+                                <li>اضافة مصاريف</li>
+                                <li>اضافة قسط فاتورة مشتريات</li>
+                                <li>اضافة قسط مرتجع فاتورة المبيعات</li>
+                                <li>اضافة دفع مسبق للمورد</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>اضافة تلقائية لسند القبض:</h5>
+                            <ul class="tw-mx-5" style="list-style-type: decimal;">
+                                <li>اضافة قسط مرتجع فاتورة المشتريات</li>
+                                <li>اضافة قسط فاتورة المبيعات</li>
+                                <li>اضافة دفع مسبق للعميل</li>
+                            </ul>
+                        </div>
+
                     </div>
                 @endcomponent
             </div>
@@ -28,9 +58,9 @@
             <div class="col-md-12">
                 <div class="form-group pull-right">
                     <div class="input-group">
-                        <button type="button" class="btn btn-primary" id="dashboard_date_filter">
+                        <button type="button" class="add-btn tw-gap-3" id="dashboard_date_filter">
                             <span>
-                            <i class="fa fa-calendar"></i> {{ __('messages.filter_by_date') }}
+                            <i class="fa fa-calendar tw-ml-1"></i> {{ __('messages.filter_by_date') }}
                             </span>
                             <i class="fa fa-caret-down"></i>
                         </button>
@@ -43,41 +73,43 @@
                 @component('components.widget', ['class' => 'box-primary', 
                 'title' => __('accounting::lang.chart_of_account_overview')])
                     <div class="col-md-4">
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>@lang('accounting::lang.account_type')</th>
-                                <th>@lang('accounting::lang.current_balance')</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($account_types as $k => $v)
-                                @php
-                                    $bal = 0;
-                                    foreach($coa_overview as $overview) {
-                                        if($overview->account_primary_type==$k && !empty($overview->balance)) {
-                                            $bal = (float)$overview->balance;
-                                        }
-                                    }
-                                @endphp
+                        <div class="table-wrapper tw-border tw-overflow-hidden" style="border-radius:0.5rem">
 
-                                <tr>
-                                    <td>
-                                        {{$v['label']}}
-
-                                        {{-- Suffix CR/DR as per value --}}
-                                        @if($bal < 0)
-                                            {{ (in_array($v['label'], ['Asset', 'Expenses']) ? ' (CR)' : ' (DR)') }}
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @format_currency(abs($bal))
-                                    </td>
-                                </tr>
-
-                            @endforeach
-                            </tbody>
-                        </table>
+                            <table class="table table-striped" style="margin-bottom:0 !important">
+                                <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
+                                    <tr>
+                                        <th>@lang('accounting::lang.account_type')</th>
+                                        <th>@lang('accounting::lang.current_balance')</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($account_types as $k => $v)
+                                        @php
+                                            $bal = 0;
+                                            foreach($coa_overview as $overview) {
+                                                if($overview->account_primary_type==$k && !empty($overview->balance)) {
+                                                    $bal = (float)$overview->balance;
+                                                }
+                                            }
+                                        @endphp
+    
+                                        <tr>
+                                            <td>
+                                                {{$v['label']}}
+    
+                                                {{-- Suffix CR/DR as per value --}}
+                                                @if($bal < 0)
+                                                    {{ (in_array($v['label'], ['Asset', 'Expenses']) ? ' (CR)' : ' (DR)') }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @format_currency(abs($bal))
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         {!! $coa_overview_chart->container() !!}

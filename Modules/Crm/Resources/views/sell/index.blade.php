@@ -28,7 +28,7 @@
             <table class="table table-bordered table-striped ajax_view" id="contact_sell_table">
                 <thead>
                     <tr>
-                        <th>@lang('messages.action')</th>
+                        <th>@lang('messages.action')sdfh</th>
                         <th>@lang('messages.date')</th>
                         <th>@lang('sale.invoice_no')</th>
                         <th>@lang('sale.payment_status')</th>

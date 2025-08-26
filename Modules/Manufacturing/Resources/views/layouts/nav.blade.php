@@ -1,5 +1,5 @@
 <section class="no-print">
-    <nav class="navbar-default tw-transition-all tw-duration-5000 tw-shrink-0 tw-rounded-2xl tw-m-[16px] tw-border-2 !tw-bg-white">
+    <nav class="navbar-default tw-transition-all tw-duration-5000 tw-rounded-md tw-border tw-mx-4 tw-mt-4 tw-rounded-md !tw-bg-white">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -9,7 +9,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{action([\Modules\Manufacturing\Http\Controllers\RecipeController::class, 'index'])}}"><i class="fas fa-industry"></i> {{__('manufacturing::lang.manufacturing')}}</a>
+                <a class="navbar-brand" href="{{action([\Modules\Manufacturing\Http\Controllers\RecipeController::class, 'index'])}}">
+                    <i class="fas fa-industry"></i> 
+                    {{__('manufacturing::lang.manufacturing')}}
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

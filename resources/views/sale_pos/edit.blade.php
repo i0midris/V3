@@ -83,6 +83,11 @@
 
 @include('sale_pos.partials.weighing_scale_modal')
 
+@include('sale_pos.partials.pos_edit_commission_modal')
+<input type="hidden" name="commission_chosen" id="commission_chosen" value="-1">
+
+
+
 @stop
 
 @section('javascript')

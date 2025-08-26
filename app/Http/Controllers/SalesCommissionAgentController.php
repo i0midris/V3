@@ -96,6 +96,8 @@ class SalesCommissionAgentController extends Controller
             $input['is_cmmsn_agnt'] = 1;
 
             $user = User::create($input);
+            (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store100', ['request' => $request, 'user' => $user]);
+
 
             $output = ['success' => true,
                 'msg' => __('lang_v1.commission_agent_added_success'),
@@ -152,6 +154,8 @@ class SalesCommissionAgentController extends Controller
                     ->where('is_cmmsn_agnt', 1)
                     ->first();
                 $user->update($input);
+                (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store100', ['request' => $request, 'user' => $user]);
+
 
                 $output = ['success' => true,
                     'msg' => __('lang_v1.commission_agent_updated_success'),

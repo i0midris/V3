@@ -510,7 +510,7 @@ return [
     'from_bank' => 'بنك',
     'error_tax' => 'يجب أن يكون مبلغ الضريبة أقل من المبلغ الكلي',
     'amount_tax' => 'مبلغ الضريبة',
-    'acc_expence_to' => 'المستلم',
+    'acc_expence_to' => 'تم الصرف للمورد',
     'user_acc' => 'حساب العميل',
     'give_from' => 'سلمنا الى السادة',
     'add_opening_balance1' => 'اضافة قيد افتتاحي مدين',

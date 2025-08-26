@@ -5,11 +5,11 @@
 @section('content')
 
 @include('accounting::layouts.nav')
-<br><br>
+
 <!-- Content Header (Page header) -->
-<section class="content">
-    <div class="row">
-        <div class="col-md-3 col-md-offset-1">
+<section class="content tw-mt-5">
+    <div class="row tw-mt-5">
+        <div class="col-md-4 col-md-offset-1">
             <div class="form-group">
                 {!! Form::label('location_id',  __('purchase.business_location') . ':') !!}
                 {!! Form::select('location_id', $business_locations, request()->input('location_id'), 
@@ -19,13 +19,13 @@
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="box box-warning">
+            <div class="box box-custom">
                 <div class="box-header with-border text-center">
                     <h2 class="box-title">@lang( 'accounting::lang.account_payable_ageing_report' )</h2>
                 </div>
                 <div class="box-body">
                     <table class="table table-stripped table-bordered">
-                        <thead>
+                        <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
                             <tr>
                                 <th>@lang( 'lang_v1.supplier_name')</th>
                                 <th style="color: #2dce89 !important;">@lang( 'lang_v1.current')</th>

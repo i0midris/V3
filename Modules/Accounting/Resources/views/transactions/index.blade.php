@@ -185,6 +185,14 @@
         purchase_table = $('#purchase_table').DataTable({
             processing: true,
             serverSide: true,
+            dom: `
+                <"tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-4"
+                    <"tw-flex tw-items-center tw-gap-2"B l>
+                    f
+                >
+                rt
+                <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+            `,
             ajax: {
                 url: '/accounting/transactions/?datatable=purchase',
                 data: function(d) {

@@ -12,46 +12,39 @@
         <h1>@lang('inventorymanagement::inventory.stock_inventory')</h1>
     </section>
 
-    <section class="content">
-        <div class="box box-primary">
-            <div class="box-header text-center" style="background-color:#484848;color:#EDAF11;font-size: 30px;">
-                @lang("inventorymanagement::inventory.products_reports_decrease")
+    <section class="content tw-mt-4">
+        <div class="box box-solid">
+            <div class="box-header">
+                <h3 class="box-title">@lang("inventorymanagement::inventory.products_reports_decrease")</h3>
             </div>
-        </div>
-        <div class="box-body">
-            <div class="row">
-                <div class="col-sm-12">
-                    <input type="hidden" id="product_row_index" value="0">
-                    <input type="hidden" id="total_amount" name="final_total" value="0">
-                    <div class="table-responsive">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input type="hidden" id="product_row_index" value="0">
+                        <input type="hidden" id="total_amount" name="final_total" value="0">
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-striped tw-border nowrap" style="width:100%;border-bottom-color:#ddd;">
+                                <thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
+                                    <tr>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.product_name")</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.product_barcode")</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.current_amount")</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_after_inventory")</th>
+                                        <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_difference")</th>
+                                        {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.options")</th> --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @include("inventorymanagement::partials.disabilityReports" , [$disabilityProductReport])
+                                </tbody>
 
+                            </table>
+                        </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="clearfix"></div>
-
             </div>
         </div>
-
-        <table id="example1" class="display nowrap" style="width:100%">
-            <thead>
-            <tr>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.product_name")</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.product_barcode")</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.current_amount")</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_after_inventory")</th>
-                <th  style="text-align: right">@lang("inventorymanagement::inventory.amount_difference")</th>
-                {{-- <th  style="text-align: right">@lang("inventorymanagement::inventory.options")</th> --}}
-
-            </tr>
-            </thead>
-            <tbody>
-            @include("inventorymanagement::partials.disabilityReports" , [$disabilityProductReport])
-            </tbody>
-
-        </table>
-
-
-
     </section>
 
 @endsection
@@ -62,6 +55,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#example1').DataTable({
+                dom: `
+                    <"tw-mt-4 dt-section-toolbar tw-mb-4 tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-gap-2"
+                        <"drps-section tw-flex tw-gap-2 tw-items-center"
+                            <" tw-flex tw-items-center tw-gap-2"B>
+                            l
+                        >
+                        f
+                    >
+                    rt
+                    <"tw-mt-4 tw-flex tw-justify-between tw-items-center"ip>
+                `,
                 columnDefs: [
                     {
                         targets: [0],

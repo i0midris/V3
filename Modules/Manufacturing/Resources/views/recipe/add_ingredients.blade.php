@@ -14,12 +14,12 @@
 	<div id="box_group">
 	<div class="box box-solid">
 		<div class="box-header"> 
-			<h4 class="box-title"><strong>@lang('sale.product'): </strong>{{$variation->product_name}} @if($variation->product_type == 'variable') - {{$variation->product_variation_name}} - {{$variation->name}} @endif</h4>
+			<h4 class="box-title">@lang('sale.product'): {{$variation->product_name}} @if($variation->product_type == 'variable') - {{$variation->product_variation_name}} - {{$variation->name}} @endif</h4>
 		</div>
 		<div class="box-body">
 			<div class="row">
 				<div class="col-md-12">
-					<button type="button" class="tw-dw-btn tw-dw-btn-success tw-text-white pull-right" id="add_ingredient_group">@lang('manufacturing::lang.add_ingredient_group') @show_tooltip(__('manufacturing::lang.ingredient_group_tooltip'))</button>
+					<button type="button" class="add-btn tw-gap-1 pull-right" id="add_ingredient_group">@lang('manufacturing::lang.add_ingredient_group') @show_tooltip(__('manufacturing::lang.ingredient_group_tooltip'))</button>
 				</div>
 				<div class="col-md-10 col-md-offset-1">
 					<div class="form-group">
@@ -33,8 +33,8 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<table class="table table-striped table-th-green text-center ingredients_table">
-						<thead>
+					<table class="table table-striped tw-border text-center ingredients_table">
+						<thead class="tw-text-white tw-bg-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'primary'}}@endif-800">
 							<tr>
 								<th>@lang('manufacturing::lang.ingredient')</th>
 								<th>@lang('manufacturing::lang.waste_percent')</th>
@@ -106,7 +106,7 @@
 									>{{@num_format($ingredient_total)}}</span>
 									<input type="hidden" name="ingredients_cost" id="ingredients_cost" value="{{$recipe->ingredients_cost ?? 0}}">
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<div class="form-group">
 						{!! Form::label('waste_percent', __('manufacturing::lang.wastage').':') !!} @show_tooltip(__('manufacturing::lang.wastage_tooltip'))
 						<div class="input-group">
@@ -117,7 +117,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<div class="form-group">
 						{!! Form::label('total_quantity', __('manufacturing::lang.total_output_quantity').':') !!}
 						<div class="@if(!is_array($unit_html)) input-group @else input_inline @endif">
@@ -142,7 +142,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<div class="form-group">
 						{!! Form::label('extra_cost', __('manufacturing::lang.production_cost').':') !!} @show_tooltip(__('manufacturing::lang.production_cost_tooltip'))
 						<div class="input_inline">
@@ -157,7 +157,7 @@
 						<span id="total_production_cost" class="display_currency" data-currency_symbol="true">{{$total_production_cost}}</span></p>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<div class="form-group">
 						{!! Form::label('total', __('sale.total').':') !!}
 						<div class="input-group">
@@ -187,7 +187,7 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-sm-12 text-center">
 					<button type="submit" class="tw-dw-btn tw-dw-btn-primary tw-text-white pull-right">@lang('messages.save')</button>
 				</div>
 			</div>

@@ -84,9 +84,11 @@ class RecipeController extends Controller
                 );
 
             return Datatables::of($recipes)
-                ->addColumn('action', '<button data-href="{{action(\'\Modules\Manufacturing\Http\Controllers\RecipeController@show\', [$id])}}" class="tw-dw-btn tw-dw-btn-outline tw-dw-btn-xs tw-dw-btn-accent btn-modal" data-container=".view_modal"><i class="fa fa-eye"></i> @lang("messages.view")</button> &nbsp; @can("manufacturing.edit_recipe") <a href="{{action(\'\Modules\Manufacturing\Http\Controllers\RecipeController@addIngredients\')}}?variation_id={{$variation_id}}" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline tw-dw-btn-primary" ><i class="fa fa-edit"></i> @lang("messages.edit")</a>
-                    &nbsp; 
-                    <button data-href="{{action(\'\Modules\Manufacturing\Http\Controllers\RecipeController@destroy\',[$id])}}" class="tw-dw-btn tw-dw-btn-outline tw-dw-btn-xs tw-dw-btn-error delete_recipe"><i class="fa fa-trash"></i> @lang("messages.delete")</button> @endcan')
+                ->addColumn('action', 
+                '<div class="tw-flex tw-flwx-wrap tw-gap-1"><button data-href="{{action(\'\Modules\Manufacturing\Http\Controllers\RecipeController@show\', [$id])}}" class="custom-tbtn tw-dw-btn-outline tw-dw-btn-accent btn-modal" data-container=".view_modal"><i class="fa fa-eye"></i> @lang("messages.view")</button>
+                 @can("manufacturing.edit_recipe") <a href="{{action(\'\Modules\Manufacturing\Http\Controllers\RecipeController@addIngredients\')}}?variation_id={{$variation_id}}" class="custom-tbtn tw-dw-btn-outline tw-dw-btn-primary" ><i class="fa fa-edit"></i> @lang("messages.edit")</a>
+                    <button data-href="{{action(\'\Modules\Manufacturing\Http\Controllers\RecipeController@destroy\',[$id])}}" class="custom-tbtn tw-dw-btn-outline tw-dw-btn-error delete_recipe"><i class="fa fa-trash"></i> @lang("messages.delete")</button> @endcan </div>'
+                )
                 ->addColumn('recipe_total', function ($row) {
                     // Recipe price is dynamically calculated from each ingredients
                     $price = $this->mfgUtil->getRecipeTotal($row);

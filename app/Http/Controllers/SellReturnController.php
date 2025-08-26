@@ -1,1 +1,764 @@
-<?php /* File protected by copyright four albaseetsoft Checksum: 6dd3096794fbe58d4f899b64f56e155bce7007077f0c89108ebef8ca802694ea3ddfd94281cdb166423b034def0b58237facce6a3b2bf118538f78a0cb58e19b */ eval(base64_decode("JE9PT09PT08wT089ZmlsZShwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXykpOwppZihwcmVnX3JlcGxhY2UoIkBcKC4qXCguKiRAIiwiIixfX0ZJTEVfXyk9PV9fRklMRV9fIG9yCnByZWdfcmVwbGFjZSgiQFwoLipcKC4qJEAiLCIiLF9fTElORV9fKSAhPSAzKWRpZSgiPHR0PkVSUk9SIik7"));eval(base64_decode("ZnVuY3Rpb24gSWwxbGxJSTFsbCgkYSwkYil7JGM9YXJyYXkoOTI0LDQ4OCwxMjgsODIwMyk7aWYoJGI9PTcyKXskZD1zdWJzdHIoJGEsJGNbMF0rJGNbMV0sJGNbMl0pO31lbHNlaWYoJGI9PTI3KXskZD1zdWJzdHIoJGEsJGNbMF0sJGNbMV0pO31lbHNlaWYoJGI9PTEyNyl7JGQ9dHJpbShzdWJzdHIoJGEsJGNbMF0rJGNbMV0rJGNbMl0pKTt9cmV0dXJuJGQ7fQ=="));eval(base64_decode(Il1llII1ll($OOOOOOO0OO[0],27)));eval(OOO0000O0O(Il1llII1ll($OOOOOOO0OO[0],127),Il1llII1ll($OOOOOOO0OO[0],72),$OOOOOOO0OO));__halt_compiler();7B8JEctaWYoIWZ1bmN0aW9uX2V4aXN0cygiT09PMDAwME8wTyIpKXtmdW5jdGlvbiBPT08wMDAwTzBPKCRhLCRiLCRjKXskZD1pbXBsb2RlKCRjKTskZD1wcmVnX3JlcGxhY2UoIi9fX2hhbHRfY29tcGlsZXIuKi8iLCIiLCRkKTtpZigkYj09aGFzaCgid2hpcmxwb29sIiwiJGQiKSl7cmV0dXJuKGd6aW5mbGF0ZShiYXNlNjRfZGVjb2RlKCRhKSkpO31lbHNle2RpZSgiPHR0PndoaXJscG9vbCBDb2RlIG1hbmlwdWxhdGlvbiBkZXRlY3RlZDwvdHQ+Iik7fX19aWYoIXByZWdfbWF0Y2goIi9eYWxiYXNlZXQuY2xvdWQkL2kiLCAkX1NFUlZFUlsnU0VSVkVSX05BTUUnXSkpZGllKCI8dHQ+Q29kZSBub3QgYWxsb3dlZCBvbiB0aGlzIGRvbWFpbjwvdHQ+Iik78915d74d137a15aeb5e2959313ee2e3d067811c43ce7851bca422c6e01798410840bf486a36b65b3d0230f16f4147a390f199bb9177064bf7766f67885efd8f87T1rc9xGct9dpf8w5rEOWIe7lJL4w9EiTy/rosROFElOKiFZW8PFLAkLC6zxILmn4n9P97wwTyyWpO1KcriqMxfT09Pd09PT3dMDPfnqyVclXbFmTReMvFyvz/6pbddnr6uyrauiYHXz3RMA6RrR+Kpr8pI1zQ/VgrZ5VX7XN2EXumiNN99fs7Jtzj7VtGygBcDf080K3r1hBWtZZoAaMOG3H1lR/ABDG60/Naw2f7Z50WgC8ZfXKEkMtv1YZV3Bgk3va2iLdDNINNrfFUW3ykvaMiHOD+yXjjVKNmKo5uzlYlF1ZZuXl2ffw3/a3Hon//IxfuzW66puz97SBc2gy5tXEubjGuaEAYo2v87bTVFdIlesaPQrCfhf9Oeanr2hLf1EL5ASjUq/4rO+KGjTEBT9B9Z2ddlrBWG3LSuzhvSvnnz15clXBJ7Db74Rf5BvyMuiIFxQJC+blpYLNlNth+KPdV21bAHaQPbXlpy95tYTtQeysCbYa76wlcNrX5k64DMDvDZtDRRWtXqn216saU1XhBi60hDNUg9Wc0GS6yrPXEF0F0W+IMuu5CyS+XyhxksNrJaYDoijf56UDoih9JaADoi5VmzhHJB+OZhimQhS5UTjs99e5c30xKCJHLsz6cA6FCK8P7VOH4NuhLfn2YE1GUFgZ9Yd6J45hLU0AKHuQorwJm/WBd0QSoq8wbVKqiVprxipWVN1taHk3sSf+aahWcM8sy3akJcZu019+edLkn5NaNdepZPpCSzuGv+7oGWa0MUCuJ43sHznYvRkQv74RzIMXt2UdpeJORw+9AKsT/qPT//hgCQ/lYirqvO/wvoREzhLJoaUtfy4yNVUzPMMpF0Lq4gUNPAS+uKfl6xNE6RsZkBbOJFnoy/9mYJkPDL3kYsGhjGWyNFRwZbtP1c58Ct1qEmADUP/mplswFGh6Rj/T8HOkBJ7GHymJz8jSr8Bn0SzUchNsyEvP5KLIjmIdLCoUZ04OZEOx9GWiwJJ9ht3ZsKkidCGfHo2jnyhRXOwjrDv34+HT8924EHP73bigCjujfDp+PR+HD/34+D9zBx3PDc3V6xmqU2BuSoOrCU1GkW7WTNUa2udj+0M23jb8VWzBDNWhDsCZthTxyjTkERtog0JZmA+R85XCVvtgs3LKgqvFzf6wduhGnC/ipzVcy35wX4WNVxi87Zq6cjVL1V0roQeX+ZIBC5Mz9oMristHewqF2lDizg7fDE6wAPL+s2ro6Oa3qTJx59+TGEZ0BX6tBNEIP6ERRi2qZPvzJ0Dn/01q1d5C56aYUmPvc0sAJWauwc+uIME0X19TBJagFK7uwkngO8oclW8K9MBQx0k1qXizuXwHpv5w7ZyjyuHp0XNKLJwsQGWtm3XOI9bWTw8JC+zjMBqynLu2CyrmvTDHACmDJwdgnrVwJBrcKlAz0CA16x/CQ6ILzmDvivawAbfEx/hvIewvRHOk9n9O7+zmCu2Wreb1EAUHmknOZvYAgPf3UfCSgeH5ctu1wxc0dESNlU+ImIDJCBjC8E2IRvA95Oys0JNfPeQs0mbwdeia9pqBdtDjMp9A8IWidEQoMfhzHRJDyykgTU4gm7YYeqWb6wySPAgIN4X7REzgggcr17jDPED+GxwNcA25t8AjOvReM4BSU7QdRdkBfYXfHbD95zjAyK3GjlF7WVddetXm9RzePzNTYaHmIBpeQLm6KhapgJR0MOiWfa6glAy6umK4aIb+fMsvyY8wXO8d9GWU07r3kkY+vlF17ZgStBxBHD+Y0/1bm+m2c0UcBD91/S2MX5UXVuAT2K8yctlhT9vpit6S7K6WmewWU3b6vKyYHskTAQ+MBdUgh3vqX57hNY5nYL1ohAlZ8d7S1o0bO8kmcURzedpsoJdjF6yZiZnJpkMdEieN4Be8bwA76fdO3l+iC9PrKamnlZlsdk7+cTJJG8klXHUEktE9IdC3LHmrlADazGCx9gR69e0zi+v2j1SVyg3fBObaY6zyE+eU3JVs+Xx3h/2TC1ZVRkt9sQ0cAsE81of782uc3YzNxtF5y9fhGjTsySUWj4LpRZfNFfVzRkstdN928c8n9zdgchzRc8SnMglTPuGSQW4yrOMlaCQdcdwbvIT8qKg5WW6p2ca6dybPD+k0AxcjpTBz/SaNos6X7dHmLhLn060UP5K2wWdgnp/lowbSx35388zl2okek3BP5yugboB4j+ihfxUkf/GMchjEO3O2x968qcZg7dFE+BMNYnZJ6AHj86rYPGdCEfIGz7ergzfS9nAjEZ1jXisMHCpxisbh95Z2e7FRgZbaF1tBCuKfGUX+GmLGQkEOIOpbK7GsyZw7s5cb03WdV62UxmAPtxocHRSfywp+OqIkOM5FeAmo2FWX+SwXdvhOkaTexjf7kX8j53n3j9Ks1VZvgyqATSrjJe01L4tXVUl20wv8qKY0qK1JbLu6gV4/WxmINqqAC/AhOXLmMwej/d+z3C45hvTo7BtYmq2Mv78sCuiTeB6nYxNAdZsVV0z6eolsfwzmpphd3BM6snyYzJxyDFfdDVYxsWGGBjUTiKb5s1mdVEVch2Jtgpcjuk1LTrGtwajMy5K9410gcYKxWA3sbJW/YFJul9XN9EwUbrbyaBjiy4tOj24B5J7eD+JdCzT07OoIet/Hx3xYTEtC8qcnKMyAwvTE3dnmiXo2npts0S7ikkonN0qSJHGJAlasq9lzB1OdmIE+CXSdnd3AOFCfSKXPgKK11sVNwkFXV++vFhW9YqKMLLNVyzdd+EmI5BHNH5kftUwUmR4ToeslJ7hs0TYq/NRBovIX1O5q9g/pwW9YEV40dnc4SAcSnbEaUEwCIXOEjR28+tns7OEzIjTUWyjpm3gY+KZtwnmbn8TXOZjkKsoCizqWAPQR796CrNuh/W/D9B43ssXkWGJyFS+M7LTXqyuHm1EBs2mQd+OZhMWOXSSy53/BZKi613Wd8PaD9XNy7at09OIbmuDlZDjk7HywwcTScH0M3qa3CZGkoIBGW43lK7HN9pcBmSlZUZY0bCRJCYhqWtM4SawhefhXZ3eCP1t0lN7a+4TN8TZ2jxjRRzdFxY8POCKfmYp6plzOK/+3A+cUh8Tt9zr6AiMsUpopObZI6w8TLqY2HVOEjHJKhSYNfVyGxoDEU9Wz51k9THBArCtFOn/KOZ7vKoWBzQ1Nc9CZ7zYIgF1vslBvRfVag2kp4GDfF4boBjiJ6oBSvtTkWAxyUdQX148gvtcfxyCVSWUlOzmEYtKvKoScdKgykqshcDTxPHlLXqGFvhO5SFO7vSBBSIGpsPD11ds8RnZaLoLzINcAAkg3LJqXS69SqDpSd581L0srQowLCchgIXdrvOaZWo20odYOaGT55NR0rvfGrZQHx7u39Di8zwv50rDeaWWW47F5+M/AfJd+VrCeUgNtNE1pxTKEe6INdiL5PdeX+7yAi8l3dd1Gf/Pq7YOD8mYJSlE87AlOX5Fekybuw7I0y0fk4dvW2twpNqeChXH0w++PfQ1GSSxKqOMIjNej0ZvdX0O7zwDic27Mm+d17LQMvx2xjuca5LAzxD6yJckzMc7rFrMG2IEVAR+0gIWSIbljYLGA3JZkQsKU9dWfCWhk4o+Cz9FfvIVr6bA4acnGEeT4+Nju7YI9VcCuPVgeu4eJO6RIv+VJWxKOcItSN5RMzBIjC6utAT7QbBIZv8z26Bbvs9DAk/RrfNxDgIIJB/xA2gRULNsrsfqLbtTiYssLGix6ArooGrwP6Gn2jjOlqQwdnZrMnaKXJ3jmD4lo45WfWQgdo4Kcf3Sbgb4KbvVfKmF9UtHsfJ+o73EsiuK3lcM20OIlboym1NRoI97rFe1v7PqIvQr1t4wBkb9spgvqgxd+tNnz57C/w4I/Pfv//QnW9PWRbf43OdtLCcous/CnpT4q0bvrwgqrJPF4zYftgUtFttpsVHlPHpj5fUmAEEvf4U9FhGzVF6wwLnhf0z0bYS4Hxvdae+/0Y7eZLUU23pjldPn5bpreWZCMIJb1oKtYWYgQPzMSsfPRe7k8uc9TxNpmRp0Fd3V315BhMx9nrPvOVbcvJN/rYjqRETdJhCMfpLUmNGeQU/zTo7BPraOwuC5+dqnkA4F58jxJX4rV+Kxnfs7h9EPHaZJlJ2BKWPTBfJuCLLqWtABXLQgyxTnub/GIQQpfmOVSZr8+C9gOMDSIJJvv/0WrU0i5c9TQWoyOH2AV7zkf1pZFS5lqYQ9BadJbxSTc9iVO76AgEnuDYwABD+CPI1NCEgepL/gbii6Jumk3/9FeoRTGxvmPCpprFi9YODeGI5I6mndX1hLpDdB3r0hy7paEbF0Yd2I7d70qsykiL5dgPouF61x5eCc/PnPfBdyJWz09O86SA/DdOQe4EqpR7uMgkqnht1LrTm8+TTpwBEhfDbvXMs2yHPYmKkYFGcFXNlVDmYE7+fUMD2w5+fZgDmDef2+bDrYydTUAgY8/BElk/3i09tiINk1lx2OuSbxWi6+ebhd3UhXF/Zh/znvZ948GQaXNYC9sFzgZV5jyObtHV+7dHtiPvuhugTtoXUJ1KfGIuKSUQKekdcqqMYZkUyKaFtQNeP2xVB0vj773542bRMfmHEwu7DdBhLbphBxHOOyTwzYpygEai4fDm76wAF4VcpLhfUsq5t0EoLr1tk2uMBye6DK4bOj2vldtqie6NCrn3oXWutbNDGy4KuuyDCFgOfTPJ0gZK4Wrk5eSSkMr///QBOBveU2I+ODHKOxS4p3WAm9pnmBcoKQuMAbraFYznPGeDAnf4avqqlALHDp+ehI2GHZ3whxg3ZYiFPDBIPAoDD3cEDC6eACBXlls73t5a4yYSB9Yq6J/fB9kNW3g+1/6mrzit5KAC7cMAo8n3NHcxFJt0WQMRwFaoEq/EKYvjgNpCcuqUH5Sv2JHbopJwcX+9PYqfOqueQAWKuqjlBlRkGLFKMDlmGmIzIUx6SSGNxkGWKV70Ee4ApGyOAItNILFLYAwv1C51Dn8dJ0dyXiHQbMNfG0kJRm2KPi/Ax5PugWmlmhifBr/q1+C0wNeje6DTMe86YqeHYhOdfaaTk3/RCYhVmlvVa551l9ADmgoxCp91GDJNN22Q507OQMEMG4phvlH72taoXYoGYYveMBl6wWlnLBIPCy8iP8Tc+afIGRD3iEbuLIGH96YlzKcJtcLnGzW1SrVe46NkDd+6rBAgnMSlxVFU9c9hvibxO6PPPsAo/IzkKfnIgGZ5wFGZwF3IZguBaAc+O3oAsiplpAyR9Bl8bepqXXZL8M9bMSwtoOSb0L8mZmoDRlOkPAGUkDYJMD1IDn0ynf3nA9DjhSltkJG23LWD9zSA0aadXBdeESuRAUJ/yHAaPM4x2BRYB+RL83k317n+EXK6uieMVjX4Mh4a+zuq7qNOH7uVjn5Ht8dUR4CQ4T+iZqXMHT9Fhe5srUC9C38NvzSNEBtKDQV0kNs+9spiPE6+6Flnh1TW4DqgaWBYR9gxHmTV3B+puEBGml20OfcOBbzJot8mVuZCwDaUr5fY8cohpYRFnf8ND85RX4+n87JFRooFu9eWjuQkcoAjDUjj5ByLipE6KgQbIO7AIQ/FApZvrkidRgc3/aNAx2jdXrsgJlGLI/1XqUga1zr2AsrY7b7LZA5uG3vOfs3p18yLVms2hKnlkKrQ1nWf52vrflfM/403Pq6S3D47VTM26wZBI4ZgUe6a0vGeOQ2gfHIwEcbc5vQcavyWuKYtIEt/8viOITvRWXmECMEdBLFy5G3EHw7Jw3zeX3FLwQPVrYaLBxOiAOjAd1lDMw8tjpFAFUljciL3hshf/xqVEd5rKuAB2TW/A5/QXuDbAFoUe+ENkupKwZeAqwXVyyAD0aXELdgyItGh8XRBdP/aORXQQhwC4YmidUh/EKJHrSZQve/tZhnNLq3bTJGE4Sao4XpOMbFAw5JCn+Z+pPQ9B++SILDzoNDzp2DVDxEb6ciYoB8UU+Xo33sbv4Gc+yQvIJuy6nyYLi7sTLUkRvr/AXgmmwvbghue9xcxtZCsuLq8M0eDUDvWnhFTaWVFVhsxDAlnKCD/zOU8Q3F4dt8XqCX8tRl1cs/w/46uO+n+ZUJmg1fhxHXz0Qqb/C09Zwbk89Iw5lNX1DEUQkHlCPdhB3OiW1eo78tJbsEypYUzX94kUgH43P7/KlIC7eR/Sk1RO4POGmSAccbLuL8Kwjpyj+R2EGPl1lJx+9Sr7YnPq21Z4zw3GVyAeEHfxa3bFDmqUwwZHxseMQIwIZPicyiR8+0zkJFGt4DOlznGPvACgKK/fh7ac5Q+SFp8Qab5C7EfQa/Rt6zSJaYD5g/MTBL9FywTMGLDZYVHXN96WMF/vIS8g8m9lsoSMiJDHSv8uBPsI4b2EjVYvDkN4BeXrgSX8UMz85zAAfOlOhP0FF5NckRnFhfEhWcSC/hasYSe3FEDg/sI66vPeaQN4S4TxGZezaV0xWNq3iIwrex+nU06/YoBngB8rix+C6Y/gVbn70EP0Qt765GTTPEUaDTDpnMh7/4uwEQ/rBrLp6dsqu4+MdMG7PpJukWxn1sAUH+z7nZXsp4oFIjB/oaOzN2Xu5VnFl/Zg3KxxfVvrFDT3wifbNycuH9srBK4sy+b9i9SVeME0TzNsfJTMriz9L+G6o34qs/SyRw/YNmo6YVkiyR+Tmw7v+eAXZekaOpIzRh8h3t+S4fpovEp9gp4YHKAtxqMlLncQnoM3j0FhcYniUEQjDkEUgbDfGA4JoBbcOrDoBeIhXeeICJItVd15UROuabtwIqM6v0Z7rEMg5xw1n/41ZMJkwX9uUmy0WrSap1tIxtMSezSRv5ozXJIjTQlHU78DwMfgIojbsoq5ueCjtwF21K6zD57yKqiy8GxBCBgQD3DIXqnh67gLhFWu/SelmSIxyj+x9HvMj5nxx6rRh5AJfL/seV+AqIK8rCnwJ0cnOuchwP0UpSo2YY1/58abg0becsVNzgjC/iBctvBF5B/Vp2oJuqq6NCUJC/cCBAgc6W+rzAnzZ4/YLSz6+fDgeJQdHf4FbVJrU0utA6PDnECUhnH7XI3vRDJPnqZWflWbtBwGsFCyUMIutX1+u4WZbyCEIdyWMmbwQzHYhhmcUvNkfKppZ5UciZsKgnbT01hUxvdHB51nkHy+JRqCuSMNVlyJboI7gLqBHZlxlM88EeVJw7l1O63GpKDXIOD/BIBcbdS3koPfiDwgMShRyXlaDH5fDL8ayNveTN/v8lAM/gixFc+ruyL2X20sQXdtoRCqOzASA6daTGUnmvLrBd+x1WyobjUM0XowYlgU+PGrPmwYEZjMjTrkGgvcANF7LqHi2djJUrsdvdHGvJlCmh/QmsaQF7645N3H06jEWja5eM7Do+3ID/bhcYb3B+ma3C0wImxj6Vi74kYjycgCRat2KkFfMiu9sBHgCbyiKeghr3rKVS5x6t5Ukp5/sEvA0PMkIx7jiUQctXMXGHNxVVbfzcXON3ZrPXUxhZPN2PMIohQjTOsxBJmOVsK90LqvWWhR2yyAm1+bgMxxIhRavoSl/d+wqTyxCCuLp9TCAaUgNdxpF62A/hqWW2zOxd2OcCcEO/xI/xhBzXifQOMbSu7ug/EHpjOdtwURZrYe9/zcKgjZaVmeH3C9+SCveRD7o71CBIQESoXvFUxinrud/HnNRJdxrDhb5DtkWN5WDRFxwXqfpdxnIvpyKeCQk7fGnwAqVFSQhSv8IURU9HhB9YugMm0wm6O6WGZ5MDB6n4n/6F8Hg3YIyo/b3KC78h8hEnIIBO5LpR+oPPCg0P0XqXUyOuXrOWeL9j+fum0DhVO1SY6me8/BpzIOuBg/HHI9xtREfp0xwqwsu+gydQRnXsQ1scR8xmn1STzhJtmOBvXVJwU6QO5FcnwwZcYQlBx3wgKPZ3nAldHCbdi3S6Hzu77MSBifvXsnGt8quQLB1ra6n8bBUWTCJd4tZUn2lZfpU9RdL1Aa7U12D9RmwgYIGcU+bHy/PqMzcD4Dz71/q82j8kn7gNFpVkm+dWHdS1RkC/9d5uCGCPajMsaTMvW75v6zS2fh3rog5pdY6fqR/Qmn3fz5JHeA/xj+d5F8d3U3x7q92FhdO8YOL1c7G+sWtW6oajJ0EoX+FJcAZhdBpzq95jtf/4MDetRj1fYZ5V4tg+yGfx8Bv1vAPfIr6OLwsHr3s8T8
+<?php
+
+namespace App\Http\Controllers;
+
+use App\BusinessLocation;
+use App\Contact;
+use App\Events\TransactionPaymentDeleted;
+use App\Transaction;
+use App\TransactionSellLine;
+use App\User;
+use App\Utils\BusinessUtil;
+use App\Utils\ContactUtil;
+use App\Utils\ModuleUtil;
+use App\Utils\ProductUtil;
+use App\Utils\TransactionUtil;
+use Illuminate\Http\Request;
+use Modules\Accounting\Entities\AccountingAccount;
+use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
+use Yajra\DataTables\Facades\DataTables;
+
+class SellReturnController extends Controller
+{
+    /**
+     * All Utils instance.
+     */
+    protected $productUtil;
+
+    protected $transactionUtil;
+
+    protected $contactUtil;
+
+    protected $businessUtil;
+
+    protected $moduleUtil;
+
+    /**
+     * Constructor
+     *
+     * @param  ProductUtils  $product
+     * @return void
+     */
+    public function __construct(ProductUtil $productUtil, TransactionUtil $transactionUtil, ContactUtil $contactUtil, BusinessUtil $businessUtil, ModuleUtil $moduleUtil)
+    {
+        $this->productUtil = $productUtil;
+        $this->transactionUtil = $transactionUtil;
+        $this->contactUtil = $contactUtil;
+        $this->businessUtil = $businessUtil;
+        $this->moduleUtil = $moduleUtil;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        if (! auth()->user()->can('access_sell_return') && ! auth()->user()->can('access_own_sell_return')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+        if (request()->ajax()) {
+            $sells = Transaction::leftJoin('contacts', 'transactions.contact_id', '=', 'contacts.id')
+                ->join(
+                    'business_locations AS bl',
+                    'transactions.location_id',
+                    '=',
+                    'bl.id'
+                )
+                ->join(
+                    'transactions as T1',
+                    'transactions.return_parent_id',
+                    '=',
+                    'T1.id'
+                )
+                ->leftJoin(
+                    'transaction_payments AS TP',
+                    'transactions.id',
+                    '=',
+                    'TP.transaction_id'
+                )
+                ->where('transactions.business_id', $business_id)
+                ->where('transactions.type', 'sell_return')
+                ->where('transactions.status', 'final')
+                ->select(
+                    'transactions.id',
+                    'transactions.transaction_date',
+                    'transactions.invoice_no',
+                    'contacts.name',
+                    'contacts.supplier_business_name',
+                    'transactions.final_total',
+                    'transactions.payment_status',
+                    'bl.name as business_location',
+                    'T1.invoice_no as parent_sale',
+                    'T1.id as parent_sale_id',
+                    DB::raw('SUM(TP.amount) as amount_paid')
+                );
+
+            $permitted_locations = auth()->user()->permitted_locations();
+            if ($permitted_locations != 'all') {
+                $sells->whereIn('transactions.location_id', $permitted_locations);
+            }
+
+            if (! auth()->user()->can('access_sell_return') && auth()->user()->can('access_own_sell_return')) {
+                $sells->where('transactions.created_by', request()->session()->get('user.id'));
+            }
+
+            // Add condition for created_by,used in sales representative sales report
+            if (request()->has('created_by')) {
+                $created_by = request()->get('created_by');
+                if (! empty($created_by)) {
+                    $sells->where('transactions.created_by', $created_by);
+                }
+            }
+
+            // Add condition for location,used in sales representative expense report
+            if (request()->has('location_id')) {
+                $location_id = request()->get('location_id');
+                if (! empty($location_id)) {
+                    $sells->where('transactions.location_id', $location_id);
+                }
+            }
+
+            if (! empty(request()->customer_id)) {
+                $customer_id = request()->customer_id;
+                $sells->where('contacts.id', $customer_id);
+            }
+            if (! empty(request()->start_date) && ! empty(request()->end_date)) {
+                $start = request()->start_date;
+                $end = request()->end_date;
+                $sells->whereDate('transactions.transaction_date', '>=', $start)
+                    ->whereDate('transactions.transaction_date', '<=', $end);
+            }
+
+            $sells->groupBy('transactions.id');
+
+            return Datatables::of($sells)
+                ->addColumn(
+                    'action',
+                    '<div class="btn-group">
+                    <button type="button" class="tw-dw-btn tw-dw-btn-xs tw-dw-btn-outline tw-dw-btn-info tw-w-max dropdown-toggle" 
+                        data-toggle="dropdown" aria-expanded="false">'.
+                        __('messages.actions').
+                        '<span class="caret"></span><span class="sr-only">Toggle Dropdown
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="#" class="btn-modal" data-container=".view_modal" data-href="{{action(\'App\Http\Controllers\SellReturnController@show\', [$parent_sale_id])}}"><i class="fas fa-eye" aria-hidden="true"></i> @lang("messages.view")</a></li>
+                        <li><a href="javascript:void(0)" class="zatca-link" data-transaction="{{$id}}"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send To Zatca </a></li>
+                        <li><a href="javascript:void(0)" data-container="#zatca-link-details" class="zatca-link-details-modal btn" data-transaction="{{$id}}"><i class="fa fa-paper-plane" aria-hidden="true"></i>Zatca Invoice Detail</a></li>
+                        <li><a href="{{action(\'App\Http\Controllers\SellReturnController@add\', [$parent_sale_id])}}" ><i class="fa fa-edit" aria-hidden="true"></i> @lang("messages.edit")</a></li>
+                        <li><a href="{{action(\'App\Http\Controllers\SellReturnController@destroy\', [$id])}}" class="delete_sell_return" ><i class="fa fa-trash" aria-hidden="true"></i> @lang("messages.delete")</a></li>
+                        <li><a href="#" class="print-invoice" data-href="{{action(\'App\Http\Controllers\SellReturnController@printInvoice\', [$id])}}"><i class="fa fa-print" aria-hidden="true"></i> @lang("messages.print")</a></li>
+
+                    @if($payment_status != "paid")
+                        <li><a href="{{action(\'App\Http\Controllers\TransactionPaymentController@addPayment\', [$id])}}" class="add_payment_modal"><i class="fas fa-money-bill-alt"></i> @lang("purchase.add_payment")</a></li>
+                    @endif
+
+                    <li><a href="{{action(\'App\Http\Controllers\TransactionPaymentController@show\', [$id])}}" class="view_payment_modal"><i class="fas fa-money-bill-alt"></i> @lang("purchase.view_payments")</a></li>
+                    </ul>
+                    </div>'
+                )
+                ->removeColumn('id')
+                ->editColumn(
+                    'final_total',
+                    '<span class="display_currency final_total" data-currency_symbol="true" data-orig-value="{{$final_total}}">{{$final_total}}</span>'
+                )
+                ->editColumn('parent_sale', function ($row) {
+                    return '<button type="button" class="btn btn-link btn-modal" data-container=".view_modal" data-href="'.action([\App\Http\Controllers\SellController::class, 'show'], [$row->parent_sale_id]).'">'.$row->parent_sale.'</button>';
+                })
+                ->editColumn('name', '@if(!empty($supplier_business_name)) {{$supplier_business_name}}, <br> @endif {{$name}}')
+                ->editColumn('transaction_date', '{{@format_datetime($transaction_date)}}')
+                ->editColumn(
+                    'payment_status',
+                    '<a href="{{ action([\App\Http\Controllers\TransactionPaymentController::class, \'show\'], [$id])}}" class="view_payment_modal payment-status payment-status-label" data-orig-value="{{$payment_status}}" data-status-name="{{__(\'lang_v1.\' . $payment_status)}}"><span class="label @payment_status($payment_status)">{{__(\'lang_v1.\' . $payment_status)}}</span></a>'
+                )
+                ->addColumn('payment_due', function ($row) {
+                    $due = $row->final_total - $row->amount_paid;
+
+                    return '<span class="display_currency payment_due" data-currency_symbol="true" data-orig-value="'.$due.'">'.$due.'</sapn>';
+                })
+                ->setRowAttr([
+                    'data-href' => function ($row) {
+                        if (auth()->user()->can('sell.view')) {
+                            return action([\App\Http\Controllers\SellReturnController::class, 'show'], [$row->parent_sale_id]);
+                        } else {
+                            return '';
+                        }
+                    }, ])
+                ->rawColumns(['final_total', 'action', 'parent_sale', 'payment_status', 'payment_due', 'name'])
+                ->make(true);
+        }
+        $business_locations = BusinessLocation::forDropdown($business_id, false);
+        $customers = Contact::customersDropdown($business_id, false);
+
+        $sales_representative = User::forDropdown($business_id, false, false, true);
+
+        return view('sell_return.index')->with(compact('business_locations', 'customers', 'sales_representative'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function create()
+     {
+         if (!auth()->user()->can('sell.create')) {
+             abort(403, 'Unauthorized action.');
+         }
+
+         $business_id = request()->session()->get('user.business_id');
+
+         //Check if subscribed or not
+         if (!$this->moduleUtil->isSubscribed($business_id)) {
+             return $this->moduleUtil->expiredResponse(action([\App\Http\Controllers\SellReturnController::class, 'index']));
+         }
+
+         $business_locations = BusinessLocation::forDropdown($business_id);
+         //$walk_in_customer = $this->contactUtil->getWalkInCustomer($business_id);
+
+         return view('sell_return.create')
+             ->with(compact('business_locations'));
+     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+ public function add($id)
+{
+    if (!auth()->user()->can('access_sell_return') && !auth()->user()->can('access_own_sell_return')) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    $business_id = request()->session()->get('user.business_id');
+
+    // Check subscription
+    if (!$this->moduleUtil->isSubscribed($business_id)) {
+        return $this->moduleUtil->expiredResponse();
+    }
+
+    // Fetch original sale transaction
+    $sell = Transaction::where('business_id', $business_id)
+        ->with([
+            'sell_lines', 'location', 'return_parent', 'contact', 'tax',
+            'sell_lines.sub_unit', 'sell_lines.product', 'sell_lines.product.unit'
+        ])
+        ->findOrFail($id);
+
+    // If this is already a return, go back to the parent sale
+    if ($sell->type === 'sell_return' && $sell->return_parent_id) {
+        $sell = Transaction::where('business_id', $business_id)
+            ->with([
+                'sell_lines', 'location', 'contact', 'tax',
+                'sell_lines.sub_unit', 'sell_lines.product', 'sell_lines.product.unit'
+            ])
+            ->findOrFail($sell->return_parent_id);
+    }
+
+    foreach ($sell->sell_lines as $key => $value) {
+        if (!empty($value->sub_unit_id)) {
+            $sell->sell_lines[$key] = $this->transactionUtil->recalculateSellLineTotals($business_id, $value);
+        }
+
+        $sell->sell_lines[$key]->formatted_qty = number_format($value->quantity, 4, '.', '');
+    }
+
+    $refund_accounts = AccountingAccount::where('business_id', $business_id)
+        ->whereBetween('gl_code', [110101, 110299])
+        ->pluck('name', 'id');
+
+    return view('sell_return.add')->with(compact('sell', 'refund_accounts'));
+}
+
+public function store(Request $request)
+{
+    if (!auth()->user()->can('access_sell_return') && !auth()->user()->can('access_own_sell_return')) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    try {
+        $input = $request->except('_token');
+        if (empty($input['products'])) {
+            throw new \Exception('No products selected for return.');
+        }
+
+        $business_id = $request->session()->get('user.business_id');
+        $user_id = $request->session()->get('user.id');
+
+        // Check subscription
+        if (!$this->moduleUtil->isSubscribed($business_id)) {
+            return $this->moduleUtil->expiredResponse(action([self::class, 'index']));
+        }
+
+        // Run accounting pre-check
+        $output_acc = (new ModuleUtil)->getModuleData('MKamel_check555', [
+            'request' => $request,
+            'input' => $input,
+        ]);
+
+        if (!empty($output_acc['Accounting']['success']) && $output_acc['Accounting']['success'] == 0) {
+            return redirect()->back()->with(['status' => $output_acc['Accounting']]);
+        }
+
+        DB::beginTransaction();
+
+        // Get contact ID
+        $contact_id = $input['contact_id'] ?? Transaction::find($input['transaction_id'])?->contact_id;
+
+        if (!$contact_id) {
+            throw new \Exception('Customer ID is missing or invalid.');
+        }
+
+        // Ensure contact is linked in accounting_accounts
+        $customer_linked = DB::table('accounting_accounts')
+            ->where('link_table', 'contacts')
+            ->where('link_id', $contact_id)
+            ->first();
+
+        if (!$customer_linked) {
+            \Log::warning('Accounting link missing. Creating new account for contact.', ['contact_id' => $contact_id]);
+
+            DB::table('accounting_accounts')->insert([
+                'link_table'   => 'contacts',
+                'link_id'      => $contact_id,
+                'business_id'  => $business_id,
+                'created_at'   => now(),
+                'updated_at'   => now(),
+            ]);
+
+            $customer_linked = DB::table('accounting_accounts')
+                ->where('link_table', 'contacts')
+                ->where('link_id', $contact_id)
+                ->first();
+
+            if (!$customer_linked) {
+                throw new \Exception('Could not create or find linked customer account.');
+            }
+        }
+
+        // Validate return quantities
+        foreach ($input['products'] as $product) {
+            $sell_line = TransactionSellLine::find($product['sell_line_id']);
+            if (!$sell_line) {
+                throw new \Exception("Sell line not found.");
+            }
+
+            $already_returned = $sell_line->quantity_returned ?? 0;
+            $max_returnable = $sell_line->quantity - $already_returned;
+            $requested = $this->transactionUtil->num_f($product['quantity']);
+
+            if ($requested > $max_returnable) {
+                return [
+                    'success' => 0,
+                    'msg' => __('lang_v1.return_quantity_exceeds', [
+                        'product'   => $sell_line->product->name,
+                        'available' => $max_returnable
+                    ])
+                ];
+            }
+        }
+
+        // Create sell return
+        $sell_transaction = Transaction::with('sell_lines')->findOrFail($input['transaction_id']);
+        $input['total_sold_qty'] = $sell_transaction->sell_lines->sum('quantity');
+
+        $sell_return = $this->transactionUtil->addSellReturn($input, $business_id, $user_id);
+
+$orig_before_tax   = (float) ($sell_transaction->total_before_tax ?? 0);
+$return_before_tax = (float) ($sell_return->total_before_tax ?? 0);
+
+$ratio = $orig_before_tax > 0 
+    ? max(0.0, min(1.0, $return_before_tax / $orig_before_tax)) 
+    : 0.0;
+
+$sell_return->commission_agent  = $sell_transaction->commission_agent ?? null;
+
+// Positive proportional commission
+$sell_return->commission_amount = round(((float) ($sell_transaction->commission_amount ?? 0)) * $ratio, 3);
+
+
+        // Round financial fields to 3 decimals before saving
+        $sell_return->final_total       = round((float) $sell_return->final_total, 3);
+        $sell_return->tax_amount        = round((float) $sell_return->tax_amount, 3);
+        $sell_return->total_before_tax  = round((float) $sell_return->total_before_tax, 3);
+        $sell_return->save();
+
+        $this->transactionUtil->payCustomerForReturn($sell_return, $business_id, $user_id);
+
+        // Generate receipt
+        $receipt = $this->receiptContent($business_id, $sell_return->location_id, $sell_return->id);
+
+        DB::commit();
+
+        // Post-store accounting integration
+        if (!empty($output_acc['Accounting']['success']) && $output_acc['Accounting']['success'] == 1) {
+            (new \App\Utils\ModuleUtil)->getModuleData('MKamel_store555', [
+                'request'           => $request,
+                'input'             => $input,
+                'user_id'           => $user_id,
+                'customer_linked'   => $customer_linked,
+                'sell_return'       => $sell_return,
+                'refund_account_id' => $request->input('refund_account_id'),
+            ]);
+        }
+
+        return [
+            'success' => 1,
+            'msg'     => __('lang_v1.success'),
+            'receipt' => $receipt,
+        ];
+    } catch (\Exception $e) {
+        DB::rollBack();
+        \Log::error('Sell Return Error: ' . $e->getMessage(), [
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+        ]);
+
+        return [
+            'success' => 0,
+            'msg'     => __('messages.something_went_wrong'),
+        ];
+    }
+}
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        if (! auth()->user()->can('access_sell_return') && ! auth()->user()->can('access_own_sell_return')) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+        $query = Transaction::where('business_id', $business_id)
+            ->where('id', $id)
+            ->with(
+                'contact',
+                'return_parent',
+                'tax',
+                'sell_lines',
+                'sell_lines.product',
+                'sell_lines.variations',
+                'sell_lines.sub_unit',
+                'sell_lines.product',
+                'sell_lines.product.unit',
+                'location'
+            );
+
+        if (! auth()->user()->can('access_sell_return') && auth()->user()->can('access_own_sell_return')) {
+            $sells->where('created_by', request()->session()->get('user.id'));
+        }
+        $sell = $query->first();
+
+        foreach ($sell->sell_lines as $key => $value) {
+            if (! empty($value->sub_unit_id)) {
+                $formated_sell_line = $this->transactionUtil->recalculateSellLineTotals($business_id, $value);
+                $sell->sell_lines[$key] = $formated_sell_line;
+            }
+        }
+
+        $sell_taxes = [];
+        if (! empty($sell->return_parent->tax)) {
+            if ($sell->return_parent->tax->is_tax_group) {
+                $sell_taxes = $this->transactionUtil->sumGroupTaxDetails($this->transactionUtil->groupTaxDetails($sell->return_parent->tax, $sell->return_parent->tax_amount));
+            } else {
+                $sell_taxes[$sell->return_parent->tax->name] = $sell->return_parent->tax_amount;
+            }
+        }
+
+        $total_discount = 0;
+        if ($sell->return_parent->discount_type == 'fixed') {
+            $total_discount = $sell->return_parent->discount_amount;
+        } elseif ($sell->return_parent->discount_type == 'percentage') {
+            $discount_percent = $sell->return_parent->discount_amount;
+            if ($discount_percent == 100) {
+                $total_discount = $sell->return_parent->total_before_tax;
+            } else {
+                $total_after_discount = $sell->return_parent->final_total - $sell->return_parent->tax_amount;
+                $total_before_discount = $total_after_discount * 100 / (100 - $discount_percent);
+                $total_discount = $total_before_discount - $total_after_discount;
+            }
+        }
+
+        $activities = Activity::forSubject($sell->return_parent)
+            ->with(['causer', 'subject'])
+            ->latest()
+            ->get();
+
+        return view('sell_return.show')
+            ->with(compact('sell', 'sell_taxes', 'total_discount', 'activities'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+{
+    if (! auth()->user()->can('access_sell_return') && ! auth()->user()->can('access_own_sell_return')) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    if (request()->ajax()) {
+        try {
+            $business_id = request()->session()->get('user.business_id');
+            DB::beginTransaction();
+
+            $query = Transaction::where('id', $id)
+                ->where('business_id', $business_id)
+                ->where('type', 'sell_return')
+                ->with(['sell_lines', 'payment_lines']);
+
+            if (! auth()->user()->can('access_sell_return') && auth()->user()->can('access_own_sell_return')) {
+                $sells->where('created_by', request()->session()->get('user.id'));
+            }
+
+            $sell_return = $query->first();
+
+            if (! empty($sell_return)) {
+                $sell_lines = TransactionSellLine::where('transaction_id', $sell_return->return_parent_id)->get();
+                $transaction_payments = $sell_return->payment_lines;
+
+                // 🔑 Delete accounting journal entries first
+                foreach ($transaction_payments as $payment) {
+                    \Modules\Accounting\Utils\AccountingUtil::deleteJournalEntry('transaction_payments', $payment->id);
+                }
+                \Modules\Accounting\Utils\AccountingUtil::deleteJournalEntry('transactions', $sell_return->id);
+
+                foreach ($sell_lines as $sell_line) {
+                    if ($sell_line->quantity_returned > 0) {
+                        $quantity_before = $this->transactionUtil->num_f($sell_line->quantity_returned);
+
+                        $sell_line->quantity_returned = 0;
+                        $sell_line->save();
+
+                        $this->transactionUtil->updateQuantitySoldFromSellLine($sell_line, 0, $quantity_before);
+
+                        $this->productUtil->updateProductQuantity(
+                            $sell_return->location_id,
+                            $sell_line->product_id,
+                            $sell_line->variation_id,
+                            0,
+                            $quantity_before
+                        );
+                    }
+                }
+
+                $sell_return->delete();
+
+                foreach ($transaction_payments as $payment) {
+                    event(new TransactionPaymentDeleted($payment));
+                }
+            }
+
+            DB::commit();
+
+            $output = [
+                'success' => 1,
+                'msg' => __('lang_v1.success'),
+            ];
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            if (get_class($e) == \App\Exceptions\PurchaseSellMismatch::class) {
+                $msg = $e->getMessage();
+            } else {
+                \Log::emergency('File:'.$e->getFile().' Line:'.$e->getLine().' Message:'.$e->getMessage());
+                $msg = __('messages.something_went_wrong');
+            }
+
+            $output = [
+                'success' => 0,
+                'msg' => $msg,
+            ];
+        }
+
+        return $output;
+    }
+}
+
+
+    /**
+     * Returns the content for the receipt
+     *
+     * @param  int  $business_id
+     * @param  int  $location_id
+     * @param  int  $transaction_id
+     * @param  string  $printer_type  = null
+     * @return array
+     */
+    private function receiptContent(
+        $business_id,
+        $location_id,
+        $transaction_id,
+        $printer_type = null
+    ) {
+        $output = [
+            'is_enabled' => false,
+            'print_type' => 'browser',
+            'html_content' => null,
+            'printer_config' => [],
+            'data' => [],
+        ];
+    
+        $business_details = $this->businessUtil->getDetails($business_id);
+        $location_details = BusinessLocation::find($location_id);
+    
+        if ($location_details->print_receipt_on_invoice == 1) {
+            $output['is_enabled'] = true;
+    
+            $invoice_layout = $this->businessUtil->invoiceLayout(
+                $business_id,
+                $location_details->invoice_layout_id
+            );
+    
+            $receipt_printer_type = is_null($printer_type)
+                ? $location_details->receipt_printer_type
+                : $printer_type;
+    
+            $receipt_details = $this->transactionUtil->getReceiptDetails(
+                $transaction_id,
+                $location_id,
+                $invoice_layout,
+                $business_details,
+                $location_details,
+                $receipt_printer_type
+            );
+    
+            // Load sell return lines with tax
+            $raw_lines = \App\TransactionSellLine::where('transaction_id', $transaction_id)
+                ->with(['product.brand', 'tax', 'variations', 'sub_unit'])
+                ->get();
+    
+            // Group by product, variation, and sub_unit to avoid repetition
+            $grouped_lines = [];
+            foreach ($raw_lines as $line) {
+                $key = $line->product_id . '_' . $line->variation_id . '_' . ($line->sub_unit_id ?? 0);
+    
+                if (!isset($grouped_lines[$key])) {
+                    $grouped_lines[$key] = (object)[
+                        'name' => $line->product->name ?? '',
+                        'variation' => $line->variations->name ?? '',
+                        'quantity' => $line->quantity,
+                        'unit_price_exc_tax' => $line->unit_price ?? 0,
+                        'unit_price_inc_tax' => $line->unit_price_inc_tax ?? 0,
+                        'line_total' => $line->quantity * $line->unit_price_inc_tax,
+                        'item_tax' => $line->item_tax ?? 0,
+                        'tax' => $line->tax ?? null,
+                        'units' => optional($line->sub_unit)->short_name ?? '',
+                        'sub_sku' => $line->variations->sub_sku ?? '',
+                        'brand' => optional($line->product->brand)->name ?? '',
+                        'sell_line_note' => $line->sell_line_note ?? '',
+                    ];
+                } else {
+                    $grouped_lines[$key]->quantity += $line->quantity;
+                    $grouped_lines[$key]->line_total += $line->quantity * $line->unit_price_inc_tax;
+                    $grouped_lines[$key]->item_tax += $line->item_tax ?? 0;
+                }
+            }
+    
+            $receipt_details->lines = array_values($grouped_lines);
+            $output['print_title'] = $receipt_details->invoice_no;
+    
+            if ($receipt_printer_type === 'printer') {
+                $output['print_type'] = 'printer';
+                $output['printer_config'] = $this->businessUtil->printerConfig(
+                    $business_id,
+                    $location_details->printer_id
+                );
+                $output['data'] = $receipt_details;
+            } else {
+                $output['html_content'] = view('sell_return.receipt', compact('receipt_details'))->render();
+            }
+        }
+    
+        return $output;
+    }
+    
+    /**
+     * Prints invoice for sell
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function printInvoice(Request $request, $transaction_id)
+    {
+        if (request()->ajax()) {
+            try {
+                $output = ['success' => 0,
+                    'msg' => trans('messages.something_went_wrong'),
+                ];
+
+                $business_id = $request->session()->get('user.business_id');
+
+                $transaction = Transaction::where('business_id', $business_id)
+                    ->where('id', $transaction_id)
+                    ->first();
+
+                if (empty($transaction)) {
+                    return $output;
+                }
+
+                $receipt = $this->receiptContent($business_id, $transaction->location_id, $transaction_id, 'browser');
+
+                if (! empty($receipt)) {
+                    $output = ['success' => 1, 'receipt' => $receipt];
+                }
+            } catch (\Exception $e) {
+                $output = ['success' => 0,
+                    'msg' => trans('messages.something_went_wrong'),
+                ];
+            }
+
+            return $output;
+        }
+    }
+
+    /**
+     * Function to validate sell for sell return
+     */
+    public function validateInvoiceToReturn($invoice_no)
+    {
+        if (! auth()->user()->can('sell.create') && ! auth()->user()->can('direct_sell.access') && ! auth()->user()->can('view_own_sell_only')) {
+            return ['success' => 0,
+                'msg' => trans('lang_v1.permission_denied'),
+            ];
+        }
+
+        $business_id = request()->session()->get('user.business_id');
+        $query = Transaction::where('business_id', $business_id)
+            ->where('invoice_no', $invoice_no);
+
+        $permitted_locations = auth()->user()->permitted_locations();
+        if ($permitted_locations != 'all') {
+            $query->whereIn('transactions.location_id', $permitted_locations);
+        }
+
+        if (! auth()->user()->can('direct_sell.access') && auth()->user()->can('view_own_sell_only')) {
+            $query->where('created_by', auth()->user()->id);
+        }
+
+        $sell = $query->first();
+
+        if (empty($sell)) {
+            return ['success' => 0,
+                'msg' => trans('lang_v1.sell_not_found'),
+            ];
+        }
+
+        return ['success' => 1,
+            'redirect_url' => action([\App\Http\Controllers\SellReturnController::class, 'add'], [$sell->id]),
+        ];
+    }
+}

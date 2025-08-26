@@ -9,14 +9,14 @@
 
 	@include('superadmin::layouts.partials.currency')
 
-	<div class="box box-success">
-        <div class="box-header">
-            <h3 class="box-title">@lang('superadmin::lang.pay_and_subscribe')</h3>
-        </div>
+	<div class="box-header">
+		<h3>@lang('superadmin::lang.pay_and_subscribe')</h3>
+	</div>
+	<div class="box box-solid">
 
         <div class="box-body">
     		<div class="col-md-8">
-        		<h3>
+        		<h4>
         			{{$package->name}}
 
         			(<span class="display_currency" data-currency_symbol="true">{{$package->price}}</span>
@@ -24,8 +24,8 @@
 					<small>
 						/ {{$package->interval_count}} {{ucfirst($package->interval)}}
 					</small>)
-        		</h3>
-        		<ul>
+        		</h4>
+        		<ul style="list-style-type: inherit; padding-left: 20px;margin:0 2rem;">
 					<li>
 						@if($package->location_count == 0)
 							@lang('superadmin::lang.unlimited')
@@ -94,7 +94,7 @@
 						'method' => 'get',
 						'id' => 'coupon_check',
 					]) !!}
-					<div class="col-md-4">
+					<div class="col-md-6 tw-mt-5">
 						<div class="form-group">
 							{!! Form::label('coupon_code', __('superadmin::lang.coupon_code') . '*') !!}
 							{!! Form::text('code', request()->get('code') ?? null, [
@@ -104,17 +104,17 @@
 							]) !!}
 						</div>
 					</div>
-						<div class="col-md-4 ">
-							<div class="form-group" style="margin-top: 28px">
-								{!! Form::submit('Apply', ['class' => 'tw-dw-btn tw-dw-btn-success tw-text-white tw-dw-btn-sm']) !!}
-							</div>
+					<div class="col-md-4 ">
+						<div style="margin-top: 2.6rem">
+							{!! Form::submit('Apply', ['class' => 'add-btn']) !!}
 						</div>
+					</div>
 					{!! Form::close() !!}
 				</div>
-				<ul class="list-group">
+				<ul class="list-group ">
 					@foreach($gateways as $k => $v)
-						<div class="list-group-item">
-							<b>@lang('superadmin::lang.pay_via', ['method' => $v])</b>
+						<div class="list-group-item ">
+							<b class="tw-mb-2">@lang('superadmin::lang.pay_via', ['method' => $v])</b>
 							<div class="row" id="paymentdiv_{{$k}}">
 								@php 
 									$view = 'superadmin::subscription.partials.pay_'.$k;

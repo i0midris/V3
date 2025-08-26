@@ -11,10 +11,10 @@
         <h1>@lang( 'accounting::lang.reports' )</h1>
     </section>
 
-    <section class="content">
+    <section class="content tw-mt-4">
         <div class="row">
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.trial_balance')</h3>
                     </div>
@@ -22,14 +22,14 @@
                     <div class="box-body">
                         @lang( 'accounting::lang.trial_balance_description')
                         <br/>
-                        <a href="{{route('accounting.trialBalance')}}" class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                        <a href="{{route('accounting.trialBalance')}}" class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
 
                 </div>
             </div> 
 
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.ledger_report')</h3>
                     </div>
@@ -37,14 +37,14 @@
                     <div class="box-body">
                         @lang( 'accounting::lang.ledger_report_description')
                         <br/>
-                        <a @if($ledger_url) href="{{$ledger_url}}" @else onclick="alert(' @lang( 'accounting::lang.ledger_add_account') ')" @endif class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                        <a @if($ledger_url) href="{{$ledger_url}}" @else onclick="alert(' @lang( 'accounting::lang.ledger_add_account') ')" @endif class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
 
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.balance_sheet')</h3>
                     </div>
@@ -52,14 +52,14 @@
                     <div class="box-body">
                         @lang( 'accounting::lang.balance_sheet_description')
                         <br/>
-                        <a href="{{route('accounting.balanceSheet')}}" class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                        <a href="{{route('accounting.balanceSheet')}}" class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
 
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.account_recievable_ageing_report')</h3>
                     </div>
@@ -67,13 +67,13 @@
                         @lang( 'accounting::lang.account_recievable_ageing_report_description')
                         <br/>
                         <a href="{{route('accounting.account_receivable_ageing_report')}}"
-                           class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                           class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.account_payable_ageing_report')</h3>
                     </div>
@@ -81,13 +81,13 @@
                         @lang( 'accounting::lang.account_payable_ageing_report_description')
                         <br/>
                         <a href="{{route('accounting.account_payable_ageing_report')}}"
-                           class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                           class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.account_receivable_ageing_details')</h3>
                     </div>
@@ -95,27 +95,27 @@
                         @lang( 'accounting::lang.account_receivable_ageing_details_description')
                         <br/>
                         <a href="{{route('accounting.account_receivable_ageing_details')}}"
-                           class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                           class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-    <div class="box box-warning">
-        <div class="box-header with-border">
-            <h3 class="box-title">@lang('accounting::lang.contact_linked_accounts_report')</h3>
-        </div>
-        <div class="box-body">
-            @lang('accounting::lang.contact_linked_accounts_report_description')
-            <br/>
-            <a href="{{ route('accounting.contact_linked_accounts_report') }}"
-               class="btn btn-primary btn-sm pt-2">@lang('accounting::lang.view_report')</a>
-        </div>
-    </div>
-</div>
+                <div class="box box-custom">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@lang('accounting::lang.contact_linked_accounts_report')</h3>
+                    </div>
+                    <div class="box-body">
+                        @lang('accounting::lang.contact_linked_accounts_report_description')
+                        <br/>
+                        <a href="{{ route('accounting.contact_linked_accounts_report') }}"
+                        class="add-btn tw-mt-2 !tw-text-xs">@lang('accounting::lang.view_report')</a>
+                    </div>
+                </div>
+            </div>  
 
 
             <div class="col-md-6">
-                <div class="box box-warning">
+                <div class="box box-custom">
                     <div class="box-header with-border">
                         <h3 class="box-title">@lang( 'accounting::lang.account_payable_ageing_details')</h3>
                     </div>
@@ -123,7 +123,7 @@
                         @lang( 'accounting::lang.account_payable_ageing_details_description')
                         <br/>
                         <a href="{{route('accounting.account_payable_ageing_details')}}"
-                           class="btn btn-primary btn-sm pt-2">@lang( 'accounting::lang.view_report')</a>
+                           class="add-btn tw-mt-2 !tw-text-xs">@lang( 'accounting::lang.view_report')</a>
                     </div>
                 </div>
             </div>

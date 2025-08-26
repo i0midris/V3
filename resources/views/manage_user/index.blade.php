@@ -86,34 +86,36 @@
                     ]
                 });
         $(document).on('click', 'button.delete_user_button', function(){
-            swal({
-              title: LANG.sure,
-              text: LANG.confirm_delete_user,
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
+            Swal.fire({
+                title: LANG.sure,
+                text: LANG.confirm_delete_user,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: LANG.ok, // or 'Yes, delete it!'
+                cancelButtonText: LANG.cancel // optional
+                }).then((result) => {
+                if (result.isConfirmed) {
                     var href = $(this).data('href');
                     var data = $(this).serialize();
                     $.ajax({
-                        method: "DELETE",
-                        url: href,
-                        dataType: "json",
-                        data: data,
-                        success: function(result){
-                            if(result.success == true){
-                                toastr.success(result.msg);
-                                users_table.ajax.reload();
-                            } else {
-                                toastr.error(result.msg);
-                            }
+                    method: "DELETE",
+                    url: href,
+                    dataType: "json",
+                    data: data,
+                    success: function(result){
+                        if(result.success == true){
+                            toastr.success(result.msg);
+                            users_table.ajax.reload();
+                        } else {
+                            toastr.error(result.msg);
                         }
+                    }
                     });
                 }
-             });
-        });
-        
+                });
+        });        
     });
     
     

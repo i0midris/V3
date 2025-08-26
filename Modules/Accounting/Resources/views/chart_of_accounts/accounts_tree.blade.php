@@ -20,17 +20,17 @@ function getParentAccountTypeID($type)
 </table>
 @else
 <div class="row">
-    <div class="col-md-4 mb-12 col-md-offset-4">
-        <div class="input-group">
-            <input type="input" class="form-control" id="accounts_tree_search">
-            <span class="input-group-addon">
+    <div class="col-md-4 mb-12 col-md-offset-3">
+        <div class="form-group">
+            <input type="input" class="form-control" id="accounts_tree_search"  placeholder="@lang('lang_v1.search')">
+            <!-- <span class="input-group-addon">
                 <i class="fas fa-search"></i>
-            </span>
+            </span> -->
         </div>
     </div>
     <div class="col-md-4">
-        <button class="btn btn-primary btn-sm" id="expand_all">@lang('accounting::lang.expand_all')</button>
-        <button class="btn btn-primary btn-sm" id="collapse_all">@lang('accounting::lang.collapse_all')</button>
+        <button class="add-btn" style="font-size:x-small !important;" id="expand_all">@lang('accounting::lang.expand_all')</button>
+        <button class="add-btn" style="font-size:x-small !important;" id="collapse_all">@lang('accounting::lang.collapse_all')</button>
     </div>
     <div class="col-md-12" id="accounts_tree_container">
         <ul>

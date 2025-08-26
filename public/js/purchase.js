@@ -948,47 +948,71 @@ function update_table_total() {
 }
 
 function update_grand_total() {
-    var st_before_tax = __read_number($('input#st_before_tax_input'), true);
-    var total_subtotal = __read_number($('input#total_subtotal_input'), true);
+    // Totals produced by the table (already in base currency & already include inline discounts)
+    const st_before_tax  = __read_number($('#st_before_tax_input'), true) || 0;   // sum of row subtotals BEFORE tax
+    const total_subtotal = __read_number($('#total_subtotal_input'), true) || 0;  // sum of row subtotals AFTER tax
 
-    //Calculate Discount
-    var discount_type = $('select#discount_type').val();
-    var discount_amount = __read_number($('input#discount_amount'), true);
-    var discount = __calculate_amount(discount_type, discount_amount, total_subtotal);
-    $('#discount_calculated_amount').text(__currency_trans_from_en(discount, true, true));
+    // Do any rows have inline line-discount? (either user-entered or distributed globally)
+    let has_line_discount = false;
+    $('#purchase_entry_table tbody tr').each(function () {
+        if ((__read_number($(this).find('input.inline_discounts'), true) || 0) > 0) {
+            has_line_discount = true;
+            return false;
+        }
+    });
 
-    //Calculate Tax
-    var tax_rate = parseFloat($('option:selected', $('#tax_id')).data('tax_amount'));
-    var tax = __calculate_amount('percentage', tax_rate, total_subtotal - discount);
-    __write_number($('input#tax_amount'), tax);
+    // ----- DISCOUNT -----
+    // If lines have discounts, DO NOT apply a separate global discount again (avoid double counting).
+    let discount = 0;
+    if (!has_line_discount) {
+        const discount_type   = $('#discount_type').val();
+        const discount_amount = __read_number($('#discount_amount'), true) || 0;
+
+        // Always apply discount on BEFORE-TAX base
+        discount = __calculate_amount(discount_type, discount_amount, st_before_tax);
+        $('#discount_calculated_amount').text(__currency_trans_from_en(discount, true, true));
+    } else {
+        $('#discount_calculated_amount').text(__currency_trans_from_en(0, true, true));
+    }
+
+    // ----- TAX -----
+    // If any row has a tax selected, treat as line-level tax: it's already included in total_subtotal.
+    const anyLineTax = $('#purchase_entry_table tbody select.purchase_line_tax_id')
+        .filter(function(){ return $(this).val() && $(this).val() !== ''; }).length > 0;
+
+    let tax = 0;
+    if (anyLineTax) {
+        // afterTax − beforeTax  (both already include any line discounts)
+        tax = total_subtotal - st_before_tax;
+    } else {
+        // Global tax % applied on (beforeTax − discount)
+        const tax_rate = parseFloat($('#tax_id').find('option:selected').data('tax_amount')) || 0;
+        tax = __calculate_amount('percentage', tax_rate, Math.max(st_before_tax - discount, 0));
+    }
+    __write_number($('#tax_amount'), tax);
     $('#tax_calculated_amount').text(__currency_trans_from_en(tax, true, true));
 
-    //Calculate shipping
-    var shipping_charges = __read_number($('input#shipping_charges'), true);
+    // ----- SHIPPING & ADDITIONAL -----
+    const shipping = __read_number($('#shipping_charges'), true) || 0;
+    const add1 = __read_number($('#additional_expense_value_1'), true) || 0;
+    const add2 = __read_number($('#additional_expense_value_2'), true) || 0;
+    const add3 = __read_number($('#additional_expense_value_3'), true) || 0;
+    const add4 = __read_number($('#additional_expense_value_4'), true) || 0;
 
-    //calculate additional expenses
-    var additional_expense_1 = __read_number($('input#additional_expense_value_1'), true);
-    var additional_expense_2 = __read_number($('input#additional_expense_value_2'), true);
-    var additional_expense_3 = __read_number($('input#additional_expense_value_3'), true);
-    var additional_expense_4 = __read_number($('input#additional_expense_value_4'), true);
+    // Canonical formula:
+    //   (beforeTax − discount) + tax + shipping + additional
+    const grand_total = Math.max(st_before_tax - discount, 0) + tax + shipping + add1 + add2 + add3 + add4;
 
-    //Calculate Final total
-    grand_total = total_subtotal - discount + tax + shipping_charges + 
-    additional_expense_1 + additional_expense_2 + additional_expense_3 + additional_expense_4;
-
-    __write_number($('input#grand_total_hidden'), grand_total, true);
-
-    var payment = __read_number($('input.payment-amount'), true);
-
-    var due = grand_total - payment;
-    // __write_number($('input.payment-amount'), grand_total, true);
-
+    __write_number($('#grand_total_hidden'), grand_total, true);
     $('#grand_total').text(__currency_trans_from_en(grand_total, true, true));
 
+    // Payment due
+    const payment = __read_number($('input.payment-amount'), true) || 0;
+    const due = grand_total - payment;
     $('#payment_due').text(__currency_trans_from_en(due, true, true));
-
-    //__currency_convert_recursively($(document));
 }
+
+
 $(document).on('change', 'input.payment-amount', function() {
     var payment = __read_number($(this), true);
     var grand_total = __read_number($('input#grand_total_hidden'), true);
@@ -1359,3 +1383,53 @@ $("#purchase_requisition_ids").on("select2:unselect", function (e) {
 });
 
 
+function updateLineDiscountsFromGlobal() {
+    // Read global discount with your helper (already done correctly)
+    let globalDiscount = __read_number($('#discount_amount'), true) || 0;
+    let discountType   = $('#discount_type').val();
+
+    // 1) Use BEFORE-DISCOUNT, BEFORE-TAX totals as the base (consistent with row math)
+    let totalBeforeDiscount = 0;
+
+    $('#purchase_entry_table tbody tr').each(function () {
+        const $row = $(this);
+        const quantity = __read_number($row.find('.purchase_quantity'), true) || 0;
+        const unitCostBeforeDiscount = __read_number($row.find('.purchase_unit_cost_without_discount'), true) || 0;
+        totalBeforeDiscount += quantity * unitCostBeforeDiscount;
+    });
+
+    if (totalBeforeDiscount <= 0 || globalDiscount <= 0) return;
+
+    // 2) Apply proportional discount and WRITE with helper, then trigger recalcs
+    $('#purchase_entry_table tbody tr').each(function () {
+        const $row = $(this);
+        const quantity = __read_number($row.find('.purchase_quantity'), true) || 0;
+        const unitCostBeforeDiscount = __read_number($row.find('.purchase_unit_cost_without_discount'), true) || 0;
+
+        const lineTotalBeforeDiscount = quantity * unitCostBeforeDiscount;
+        if (lineTotalBeforeDiscount <= 0) return;
+
+        let discountPercent = 0;
+
+        if (discountType === 'fixed') {
+            // Split the fixed discount proportionally, then convert that slice to a percent of the line
+            const lineDiscountAmount = globalDiscount * (lineTotalBeforeDiscount / totalBeforeDiscount);
+            discountPercent = (lineDiscountAmount / lineTotalBeforeDiscount) * 100;
+        } else { // 'percentage'
+            discountPercent = globalDiscount;
+        }
+
+        // Safety: cap at 100% to avoid negative unit costs due to rounding
+        if (discountPercent > 100) discountPercent = 100;
+
+        // Use localized writer, then trigger change so downstream calcs run
+        __write_number($row.find('.inline_discounts'), discountPercent, true);
+        $row.find('.inline_discounts').trigger('change');
+    });
+}
+
+
+// Trigger update when global discount fields change
+$('#discount_amount, #discount_type').on('keyup change', function () {
+    updateLineDiscountsFromGlobal();
+});

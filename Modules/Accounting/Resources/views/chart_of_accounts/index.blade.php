@@ -14,14 +14,14 @@
     <h1>@lang( 'accounting::lang.chart_of_accounts' )</h1>
 </section>
 <section class="content">
-    <div class="row mb-12">
+    <div class="row" style="margin-bottom:10px !important">
         <div class="col-md-12">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-info active">
+            <div class="btn-group btn-group-toggle custom-btn-group" data-toggle="buttons">
+                <label class="btn btn-info custom-btn active">
                     <input type="radio" name="view_type" value="tree" class="view_type">
                     <i class="fas fa-list-ul"></i> @lang('accounting::lang.tree_view')
                 </label>
-                <label class="btn btn-info">
+                <label class="btn custom-btn btn-info">
                     <input type="radio" name="view_type" value="table" class="view_type">
                     <i class="fas fa-table"></i> @lang('accounting::lang.tabular_view')
                 </label>
@@ -35,12 +35,15 @@
             @slot('tool')
                 <div class="box-tools">
                     @if(\Modules\Accounting\Utils\AccountingUtil::checkTreeOfAccountsIsHere())
-                    <a class="btn btn-primary pull-right m-5 btn-modal"
-                       onclick="on_create = true;"
-                    href="{{action([\Modules\Accounting\Http\Controllers\CoaController::class, 'create'])}}" 
-                    data-href="{{action([\Modules\Accounting\Http\Controllers\CoaController::class, 'create'])}}" 
-                    data-container="#create_account_modal">
-                    <i class="fas fa-plus"></i> @lang( 'messages.add' )</a>
+                    <a 
+                        class="pull-right btn-modal add-btn tw-gap-1"
+                        onclick="on_create = true;"
+                        href="{{action([\Modules\Accounting\Http\Controllers\CoaController::class, 'create'])}}" 
+                        data-href="{{action([\Modules\Accounting\Http\Controllers\CoaController::class, 'create'])}}" 
+                        data-container="#create_account_modal"
+                    >
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                    @lang( 'messages.add' )</a>
                     @endif
                 </div>
             @endslot
@@ -49,7 +52,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             @component('components.filters', ['title' => __('report.filters')])
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         {!! Form::label('account_type_filter', __( 'accounting::lang.account_type' ) . ':') !!}
                                         {!! Form::select('account_type_filter', $account_types, null,
@@ -57,7 +60,7 @@
                                             'id' => 'account_type_filter', 'placeholder' => __('lang_v1.all')]); !!}
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         {!! Form::label('status_filter', __( 'sale.status' ) . ':') !!}
                                         {!! Form::select('status_filter', ['active' => __( 'accounting::lang.active' ),
@@ -120,8 +123,13 @@
             success: function(html) {
                 if(view_type=='table') {
                     $('#accounts_table').html(html);
+                    // Add Tailwind background & text color classes to table headers
+                    $('#accounts_table table thead').addClass(
+                        'tw-text-white tw-bg-@if(!empty(session("business.theme_color"))){{session("business.theme_color")}}@else{{"primary"}}@endif-800'
+                    );
                 } else {
                     $('#accounts_tree').html(html);
+                    
 
                     $.jstree.defaults.core.themes.variant = "large";
                     $('#accounts_tree_container').jstree({
