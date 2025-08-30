@@ -28,7 +28,7 @@
         }
     }
 </style>
-<aside class="side-bar tw-relative tw-fixed tw-hidden tw-h-full tw-bg-white tw-w-64 xl:tw-w-64 lg:tw-flex lg:tw-flex-col tw-shrink-0">
+<aside class="side-bar no-print tw-relative tw-fixed tw-hidden tw-h-full tw-bg-white tw-w-64 xl:tw-w-64 lg:tw-flex lg:tw-flex-col tw-shrink-0">
 
    <!-- <div> -->
    <div class="tw-bg-gray-100">

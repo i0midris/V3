@@ -865,6 +865,9 @@
                 .selectable_td > .row-select{
                     margin-top : 17px !important
                 }
+                .input-icheck{
+                    opacity: 100% !important;
+                }
                 /* .div.pos-tab-menu div.list-group > a:hover{
                     background-color: {{ $hoverBgColor }} !important;
                     color: white !important;

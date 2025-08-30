@@ -50,8 +50,8 @@
                 {!! Form::label('unit_id', __('product.unit') . ':*') !!}
                 <div class="input-group">
                     {!! Form::select('unit_id', $units, !empty($duplicate_product->unit_id) ? $duplicate_product->unit_id : session('business.default_unit'), ['class' => 'form-control select2 quick_add_unit', 'required']); !!}
-                    <span class="input-group-btn">
-                        <button type="button" @if(!auth()->user()->can('unit.create')) disabled @endif class="btn btn-default bg-white btn-flat btn-modal quick_add_unit" data-href="{{action([\App\Http\Controllers\UnitController::class, 'create'], ['quick_add' => true])}}" title="@lang('unit.add_unit')" data-container=".view_modal"><i class="fa fa-plus-circle text-primary fa-lg"></i></button>
+                    <span class="input-group-addon">
+                        <button type="button" @if(!auth()->user()->can('unit.create')) disabled @endif class="btn-flat btn-modal quick_add_unit" data-href="{{action([\App\Http\Controllers\UnitController::class, 'create'], ['quick_add' => true])}}" title="@lang('unit.add_unit')" data-container=".view_modal"><i class="fa fa-plus-circle text-white fa-lg"></i></button>
                     </span>
                 </div>
             </div>
@@ -78,8 +78,8 @@
                 {!! Form::label('brand_id', __('product.brand') . ':') !!}
                 <div class="input-group">
                     {!! Form::select('brand_id', $brands, !empty($duplicate_product->brand_id) ? $duplicate_product->brand_id : null, ['placeholder' => __('messages.please_select'), 'class' => 'form-control select2']); !!}
-                    <span class="input-group-btn">
-                        <button type="button" @if(!auth()->user()->can('brand.create')) disabled @endif class="btn btn-default bg-white btn-flat btn-modal quick_add_unit" data-href="{{action([\App\Http\Controllers\BrandController::class, 'create'], ['quick_add' => true])}}" title="@lang('brand.add_brand')" data-container=".view_modal"><i class="fa fa-plus-circle text-primary fa-lg"></i></button>
+                    <span class="input-group-addon">
+                        <button type="button" @if(!auth()->user()->can('brand.create')) disabled @endif class="btn-flat btn-modal quick_add_unit" data-href="{{action([\App\Http\Controllers\BrandController::class, 'create'], ['quick_add' => true])}}" title="@lang('brand.add_brand')" data-container=".view_modal"><i class="fa fa-plus-circle text-white fa-lg"></i></button>
                     </span>
                 </div>
             </div>

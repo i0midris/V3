@@ -86,7 +86,7 @@
             <div class="col-sm-6 letter_head_input">
                 <div class="form-group">
                     {!! Form::label('letter_head', __('lang_v1.letter_head') . ':') !!}
-                    {!! Form::file('letter_head', ['accept' => 'image/*']); !!}
+                    {!! Form::file('letter_head', ['class' => 'variation_images tw-p-1','accept' => 'image/*']); !!}
                     <span class="help-block">@lang('lang_v1.letter_head_help') <br> @lang('lang_v1.invoice_logo_help', ['max_size' => '1 MB']) <br> @lang('lang_v1.letter_head_help2')</span>
                 </div>
             </div>
@@ -96,7 +96,7 @@
         <div class="col-sm-6">
           <div class="form-group">
             {!! Form::label('logo', __('invoice.invoice_logo') . ':') !!}
-            {!! Form::file('logo', ['accept' => 'image/*']); !!}
+            {!! Form::file('logo', ['class' => 'variation_images tw-p-1','accept' => 'image/*']); !!}
             <span class="help-block">@lang('lang_v1.invoice_logo_help', ['max_size' => '1 MB'])<br> @lang('lang_v1.invoice_logo_help2')</span>
           </div>
         </div>
