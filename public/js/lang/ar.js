@@ -70,7 +70,7 @@ LANG = {
     'copy': 'نسخ',
     'export_to_csv': 'تصدير إلى CSV',
     'export_to_excel': 'تصدير إلى Excel',
-    'export' : 'تصدير',
+    'export' : 'تصدير وطباعة',
     'export_to_pdf': 'تصدير إلى PDF',
     'print': 'طباعة',
     'col_vis': 'رؤية العمود',
