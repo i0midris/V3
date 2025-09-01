@@ -56,7 +56,7 @@ return [
     'unit.update' => 'تعديل الوحدة',
     'unit.delete' => 'حذف الوحدة',
     'category.view' => 'عرض المجموعات',
-    'category.create' => 'إضافة صنف',
+    'category.create' => 'إضافة مجموعة',
     'category.update' => 'تعديل المجموعة',
     'category.delete' => 'حذف المجموعة',
     'select_all' => 'اختر الكل',

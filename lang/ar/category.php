@@ -12,6 +12,6 @@ return [
     'added_success' => 'تمت إضافة المجموعة بنجاح',
     'updated_success' => 'تم تحديث المجموعة بنجاح',
     'deleted_success' => 'تم حذف المجموعة بنجاح',
-    'add_category' => 'إضافة صنف',
-    'edit_category' => 'تعديل صنف',
+    'add_category' => 'إضافة مجموعة',
+    'edit_category' => 'تعديل مجموعة',
 ];
