@@ -147,16 +147,16 @@
     }
 
     // Layout: place "Total Tax" just above the totals row
-    $taxLabelLeft  = 250; // px
-    $taxValueLeft  = 630; // px (align with your right column)
-    $taxY          = 955; // px (a bit above totals at 975 to avoid overlap)
+    $taxLabelLeft  = 250; // px not needed because its already there at template
+    $taxValueLeft  = 365; // px (align with your right column)
+    $taxY          = 975; // px (a bit above totals at 975 to avoid overlap)
 @endphp
 
 {{-- Single "Total Tax" line --}}
 @if(!empty($totalTaxDisplay))
-    <div class="field" style="top: {{ $taxY }}px; left: {{ $taxLabelLeft }}px;">
+    <!-- <div class="field" style="top: {{ $taxY }}px; left: {{ $taxLabelLeft }}px;">
         {!! $receipt_details->tax_label ?? 'Total Tax' !!}
-    </div>
+    </div> -->
     <div class="field" style="top: {{ $taxY }}px; left: {{ $taxValueLeft }}px;">
         {{ $totalTaxDisplay }}
     </div>
