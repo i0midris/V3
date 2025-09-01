@@ -253,6 +253,7 @@ class InvoiceLayoutController extends Controller
             'slim' => __('lang_v1.slim').' ('.__('lang_v1.recomended_for_80mm').')',
             'slim2' => __('lang_v1.slim').' 2 ('.__('lang_v1.recomended_for_58mm').')',
             'slim3' => __('lang_v1.slim').' 3',
+            'custom' => 'Custom Design (for testing)',
         ];
     }
 }

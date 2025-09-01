@@ -467,7 +467,7 @@
 							<tr>
 								<th>{{$payment['method']}}</th>
 								<td class="" >{{$payment['amount']}}</td>
-								<!-- <td class="text-right">{{$payment['date']}}</td> -->
+								<td class="text-right">{{$payment['date']}}</td>
 							</tr>
 						@endforeach
 					@endif
