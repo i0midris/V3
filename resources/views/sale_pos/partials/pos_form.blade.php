@@ -141,7 +141,6 @@
 					class="form-control input_number"
 					placeholder="@lang('lang_v1.currency_exchange_rate')" readonly>
 			</div>
-			<small class="text-muted">@lang('lang_v1.exchange_rate_note')</small>
 		</div>
 	</div>
 

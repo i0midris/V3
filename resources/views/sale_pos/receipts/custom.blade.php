@@ -10,8 +10,8 @@
             position: relative !important;
             width: 210mm;
             height: 297mm;
-            background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
-            background-size: 100% 100% !important; 
+            /* background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
+            background-size: 100% 100% !important;  */
         }
         .field {
             position: absolute !important;
@@ -97,25 +97,84 @@
 			@endif
 
         <!-- VAT -->
-        @if(!empty($receipt_details->tax) )
-            <div class="field" style="top: 975px; left: 365px;">{{$receipt_details->tax}}</div>          
-        @endif
-        
-        @if(!empty($receipt_details->total_paid))
-            <!-- Total -->
-            <div class="field" style="top: 975px; left: 70px;">
-                {{ $receipt_details->total_paid }}
-            </div>
+        <!-- TOTAL TAX (single line) + TOTALS -->
+@php
+    // Prefer a preformatted total tax if your app provides it
+    $totalTaxDisplay = $receipt_details->total_tax ?? null;
 
-            <!-- Total Amount (Total Paid + Tax if exists) -->
-            <div class="field" style="top: 975px; left: 630px;">
-                @if(!empty($receipt_details->tax))
-                    {{ ($receipt_details->total_paid ?? 0) + ($receipt_details->tax ?? 0) }}
-                @else
-                    {{ $receipt_details->total_paid }}
-                @endif
-            </div>
-        @endif
+    // If not provided, sum group_tax_details OR taxes (fallback to single tax)
+    if ($totalTaxDisplay === null) {
+        $taxSum = 0.0;
+        $hasAny = false;
+
+        // Helper to coerce formatted strings like "SAR 12.34" to number
+        $num = function($v) {
+            if (is_numeric($v)) return (float)$v;
+            // keep digits, dot, and comma; then normalize comma to dot if needed
+            $s = preg_replace('/[^0-9.,-]/', '', (string)$v);
+            // if both separators exist, assume comma thousands -> remove commas
+            if (strpos($s, ',') !== false && strpos($s, '.') !== false) {
+                $s = str_replace(',', '', $s);
+            } else {
+                // if only comma exists, treat as decimal
+                if (strpos($s, ',') !== false && strpos($s, '.') === false) {
+                    $s = str_replace(',', '.', $s);
+                }
+            }
+            return is_numeric($s) ? (float)$s : 0.0;
+        };
+
+        if (!empty($receipt_details->group_tax_details)) {
+            foreach ($receipt_details->group_tax_details as $k => $v) {
+                $taxSum += $num($v);
+                $hasAny = true;
+            }
+        } elseif (!empty($receipt_details->taxes)) {
+            foreach ($receipt_details->taxes as $k => $v) {
+                $taxSum += $num($v);
+                $hasAny = true;
+            }
+        } elseif (!empty($receipt_details->tax)) {
+            $taxSum += $num($receipt_details->tax);
+            $hasAny = true;
+        }
+
+        // If you have a currency formatter upstream, you can keep $taxSum raw.
+        // Otherwise, show the same formatting the inputs had (simple fallback here):
+        if ($hasAny) {
+            $totalTaxDisplay = (string) ($taxSum);
+        }
+    }
+
+    // Layout: place "Total Tax" just above the totals row
+    $taxLabelLeft  = 250; // px not needed because its already there at template
+    $taxValueLeft  = 365; // px (align with your right column)
+    $taxY          = 975; // px (a bit above totals at 975 to avoid overlap)
+@endphp
+
+{{-- Single "Total Tax" line --}}
+@if(!empty($totalTaxDisplay))
+    <!-- <div class="field" style="top: {{ $taxY }}px; left: {{ $taxLabelLeft }}px;">
+        {!! $receipt_details->tax_label ?? 'Total Tax' !!}
+    </div> -->
+    <div class="field" style="top: {{ $taxY }}px; left: {{ $taxValueLeft }}px;">
+        {{ $totalTaxDisplay }}
+    </div>
+@endif
+
+{{-- Totals (render once) --}}
+@if(!empty($receipt_details->total_paid))
+    <!-- Left total (your existing left slot) -->
+    <div class="field" style="top: 975px; left: 70px;">
+        {{ $receipt_details->total_paid }}
+    </div>
+@endif
+
+<!-- Grand total on the right — use the app-provided formatted total -->
+<div class="field" style="top: 975px; left: 630px;">
+    {{ $receipt_details->total ?? ((!empty($receipt_details->total_paid) && !empty($totalTaxDisplay) && is_numeric($receipt_details->total_paid) && is_numeric($totalTaxDisplay)) ? ($receipt_details->total_paid + $totalTaxDisplay) : ($receipt_details->total_paid ?? '')) }}
+</div>
+
 
     </div>
 </body>
