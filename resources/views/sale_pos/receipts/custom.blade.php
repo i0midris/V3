@@ -10,8 +10,8 @@
             position: relative !important;
             width: 210mm;
             height: 297mm;
-            background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
-            background-size: 100% 100% !important; /* النموذج الخلفية*/
+            /* background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
+            background-size: 100% 100% !important;  */
         }
         .field {
             position: absolute !important;
