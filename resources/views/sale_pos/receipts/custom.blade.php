@@ -162,7 +162,13 @@
     </div>
 @endif
 
-
+{{-- Totals (render once) --}}
+@if(!empty($receipt_details->total_paid))
+    <!-- Left total (your existing left slot) -->
+    <div class="field" style="top: 975px; left: 70px;">
+        {{ $receipt_details->total_paid }}
+    </div>
+@endif
 
 <!-- Grand total on the right — use the app-provided formatted total -->
 <div class="field" style="top: 975px; left: 630px;">
