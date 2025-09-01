@@ -28,7 +28,7 @@ return [
     'purchase_quantity' => 'كمية المشتريات',
     'unit_cost_before_tax' => 'تكلفة الوحدة (قبل الضريبة)',
     'subtotal_before_tax' => 'الاجمالى قبل الضريبة',
-    'product_tax' => 'ضريبة الاصناف',
+    'product_tax' => 'ضريبة التصنيفات',
     'net_cost' => 'صافي التكلفة',
     'line_total' => 'اجمالى الصنف',
     'unit_selling_price' => 'سعر البيع للوحدة',
