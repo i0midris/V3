@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-4 col-sm-6">
+	<div class="col-sm-6">
 		<div class="form-group">
 			{!! Form::label('contact_id', __('lang_v1.contact_id') . ':') !!}
 
@@ -28,7 +28,7 @@
 			
 		</div>
 	</div>
-	<div class="col-md-4 col-sm-6">
+	<div class=" col-sm-6">
 		<div class="form-group">
 			{!! Form::label('search_product', __('lang_v1.search_product') . ':') !!}
 			<div class="input-group">
@@ -54,7 +54,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4 col-sm-6">
+	<div class="col-sm-6">
 		<div class="form-group">
 			{!! Form::label('temp_customer_name', __('lang_v1.temp_customer_name') . ':') !!}
 			{!! Form::text('temp_customer_name', null, ['class' => 'form-control', 'placeholder' => __('lang_v1.enter_temp_customer_name_if_needed')]) !!}
@@ -73,33 +73,17 @@
 	<input type="hidden" name="pay_term_number" id="pay_term_number" value="{{$walk_in_customer['pay_term_number'] ?? ''}}">
 	<input type="hidden" name="pay_term_type" id="pay_term_type" value="{{$walk_in_customer['pay_term_type'] ?? ''}}">
 	
-@if(!empty($commission_agent))
-    @php
-        $is_commission_agent_required = !empty($pos_settings['is_commission_agent_required']);
-    @endphp
-    <div class="col-md-4">
-        <div class="form-group">
-            <select id="commission_agent"
-                    name="commission_agent"
-                    class="form-control select2"
-                    data-placeholder="{{ __('lang_v1.commission_agent') }}"
-                    {{ $is_commission_agent_required ? '' : '' }}>
-                {{-- Visible "None" item uses a non-empty value (0) so it shows in the dropdown --}}
-                <option value="0" data-cmmsn="0">{{ __('lang_v1.none') }}</option>
-
-                @foreach($commission_agent as $id => $name)
-                    @php
-                        $pct = isset($agent_percents) ? ($agent_percents[$id] ?? 0)
-                              : (optional(\App\User::find($id))->cmmsn_percent ?? 0);
-                    @endphp
-                    <option value="{{ $id }}" data-cmmsn="{{ $pct }}">{{ $name }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-@endif
-
-
+	@if(!empty($commission_agent))
+		@php
+			$is_commission_agent_required = !empty($pos_settings['is_commission_agent_required']);
+		@endphp
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+			{!! Form::select('commission_agent', 
+						$commission_agent, null, ['class' => 'form-control select2', 'placeholder' => __('lang_v1.commission_agent'), 'id' => 'commission_agent', 'required' => $is_commission_agent_required]); !!}
+			</div>
+		</div>
+	@endif
 	@if(!empty($pos_settings['enable_transaction_date']))
 		<div class="col-md-4 col-sm-6">
 			<div class="form-group">
@@ -113,7 +97,7 @@
 		</div>
 	@endif
 	@if(!empty($currency_settings_enabled))
-    <div class="col-md-4 col-sm-6">
+    <div class="col-sm-6">
         <div class="form-group">
             {!! Form::label('currency_code', __('lang_v1.select_currency')) !!}
             <div class="input-group">
@@ -132,7 +116,7 @@
     </div>
 
     {{-- Exchange rate --}}
-	<div class="col-md-4 col-sm-6">
+	<div class="col-sm-6">
 		<div class="form-group">
 			{!! Form::label('exchange_rate', __('lang_v1.currency_exchange_rate')) !!}
 			<div class="input-group">
@@ -141,6 +125,7 @@
 					class="form-control input_number"
 					placeholder="@lang('lang_v1.currency_exchange_rate')" readonly>
 			</div>
+			<small class="text-muted">@lang('lang_v1.exchange_rate_note')</small>
 		</div>
 	</div>
 
@@ -149,7 +134,7 @@
 
 
 	@if(!empty($price_groups) && count($price_groups) > 1)
-		<div class="col-md-4 col-sm-6">
+		<div class="col-sm-6">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
@@ -178,7 +163,7 @@
 	@endif
 
 	@if(in_array('types_of_service', $enabled_modules) && !empty($types_of_service))
-		<div class="col-md-4 col-sm-6">
+		<div class="col-sm-6">
 			<div class="form-group">
 				{!! Form::label('types_of_service', __('lang_v1.types_of_service') . ':') !!}
 				<span>
@@ -207,7 +192,7 @@
 				$invoice_scheme_id = $default_location->invoice_scheme_id;
 			}
 		@endphp
-		<div class="col-md-4 col-sm-6">
+		<div class="col-sm-6">
 			<div class="form-group">
 				{!! Form::select('invoice_scheme_id', $invoice_schemes, $invoice_scheme_id, 
 					['class' => 'form-control', 'placeholder' => __('lang_v1.select_invoice_scheme'), 
@@ -216,7 +201,8 @@
 		</div>
 	@endif
 	@if(in_array('subscription', $enabled_modules))
-		<div class="col-md-4 col-sm-6">
+		<div class="col-sm-6">
+			<br>
 			<div class="input-group">
 				<span class="input-group-addon">
 					<button type="button" data-toggle="modal" data-target="#recurringInvoiceModal" class="btn btn-link"><i class="fa fa-external-link-square-alt text-white"></i></button>
@@ -232,7 +218,7 @@
 	
 	<!-- Call restaurant module if defined -->
     @if(in_array('tables' ,$enabled_modules) || in_array('service_staff' ,$enabled_modules))
-    	<div class="clearfix"></div>
+    	<div class="clearfix tw-mt-4"></div>
     	<span id="restaurant_module_span">
       		<div class="col-md-4 col-sm-6"></div>
     	</span>
@@ -260,7 +246,7 @@
         @endif
     @endforeach
 @endif
-<div class="row tw-mt-5">
+<div class="row" style="margin-top:1rem !important;">
 	<div class="col-sm-12 pos_product_div">
 		<input type="hidden" name="sell_price_tax" id="sell_price_tax" value="{{$business_details->sell_price_tax}}">
 
@@ -301,41 +287,3 @@
 		</table>
 	</div>
 </div>
-
-
-<script>
-$(function () {
-  var $ca = $('#commission_agent');
-  if (!$ca.length) return;
-
-  var NONE_VALUE = '0';
-
-  // keep allowClear if you also want the "x" button (optional)
-  $ca.select2({
-    allowClear: true,
-    placeholder: $ca.data('placeholder') || '{{ __("lang_v1.commission_agent") }}'
-  });
-
-  function handleCleared() {
-    $('#commission_amount').val('');
-    $('#commission_default_percent').val('0');
-    $('#commission_chosen').val('0');
-    $('#total_commission').text('0');
-    if (typeof calculate_billing === 'function') { calculate_billing(); }
-  }
-
-  $ca.on('change', function () {
-    var v = this.value;
-    if (!v || v === NONE_VALUE) {
-      handleCleared();
-    } else {
-      // normal agent selected -> your existing logic will read data-cmmsn
-    }
-  });
-
-  // Ensure form submits an empty value (not "0") when None is chosen
-  $('form').on('submit', function () {
-    if ($ca.val() === NONE_VALUE) $ca.val('');
-  });
-});
-</script>

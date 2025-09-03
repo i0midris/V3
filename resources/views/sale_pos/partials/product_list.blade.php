@@ -1,21 +1,28 @@
 <style>
 /* Product List Container */
 .product_list {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.product_box{
+    margin-bottom: 0 !important;
 }
 
 /* Card Main Styling */
 .card.product_box {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 260px;
+    flex-direction: row;
     direction: rtl;
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid #e2e8f0;
+}
+.product_box .image-container{
+    height: 5rem !important; 
+    width: 5rem !important;
+    margin : 0 !important;
+    border-radius: 0.5rem;
 }
 
 .card.product_box:hover {
@@ -25,8 +32,6 @@
 
 /* Image Container */
 .image-container {
-    min-height: 140px;
-    max-height: 160px;
     transition: all 0.3s ease-in-out;
     display: flex;
     align-items: center;
@@ -51,24 +56,18 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0.75rem;
-    text-align: center;
+    justify-content: flex-start;
+    padding: 0.25rem 0.75rem;
     direction: rtl;
     background: white;
+    align-items: flex-start;
 }
 
 /* Product Title */
 .card-title {
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
-    line-height: 1.4;
     color: #1a202c;
 }
 
@@ -139,16 +138,7 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-    .card.product_box {
-        min-height: 240px;
-    }
-    
-    .image-container {
-        min-height: 120px;
-        max-height: 140px;
-    }
-    
+@media (max-width: 768px) {    
     .card-title {
         font-size: 1rem;
     }
@@ -187,8 +177,8 @@
         $title = trim(preg_replace('/\s+/', ' ', strip_tags(ob_get_clean())));
     @endphp
 
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12 product_list no-print">
-        <div class="card h-100 shadow-lg product_box border-0 hover:tw-shadow-2xl transition-all duration-300" 
+    <div class="col-xs-12 product_list no-print">
+        <div class="card h-100 shadow-md product_box border-0 hover:tw-shadow-2xl transition-all duration-300" 
              data-variation_id="{{ $product->id }}" title="{{ $title }}">
             
             <div class="image-container" style="
@@ -198,7 +188,7 @@
                 background-size: contain;">
             </div>
 
-            <div class="card-body text-center">
+            <div class="card-body">
                 <h6 class="card-title mb-1" style="font-size: 100%;">
                     {{ $product->name }}
                     @if($product->type == 'variable')

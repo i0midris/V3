@@ -865,6 +865,22 @@
                 .selectable_td > .row-select{
                     margin-top : 17px !important
                 }
+                .iconSize{
+                    width: 1rem;
+                    height: 1rem;
+                }
+                .iconClass{
+                    padding : 0.4rem;
+                }
+                @media (min-width: 768px) {
+                    .iconSize {
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+                    .iconClass{
+                        padding : 0.5rem;
+                    }
+                }
                 
                 /* .div.pos-tab-menu div.list-group > a:hover{
                     background-color: {{ $hoverBgColor }} !important;
