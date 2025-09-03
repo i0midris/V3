@@ -16,7 +16,7 @@ return [
     'vendor' => 'AlbaseetSoft',
     'vendor_url' => 'https://albaseetsoft-ye.com',
     'email' => 'info@albaseetsoft-ye.com',
-    'app_version' => '3.0',
+    'app_version' => '3.1',
     'lic1' => 'aHR0cHM6Ly9sLnVsdGltYXRlZm9zdGVycy5jb20vYXBpL3R5cGVfMQ==',
     'pid' => 1,
     'envato_purchase_code' => env('ENVATO_PURCHASE_CODE', 0),

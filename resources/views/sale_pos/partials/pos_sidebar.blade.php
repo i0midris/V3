@@ -5,7 +5,7 @@
 </div>
 <div class="row tw-mb-1 text-center">
     @if (!empty($categories))
-        <div class="col-md-6 !tw-px-2" id="product_category_div">
+        <div class="col-xs-6 !tw-px-2" id="product_category_div">
             <div class="tw-dw-drawer tw-dw-drawer-end">
                 <input id="my-drawer-4" type="checkbox" class="tw-dw-drawer-toggle">
                 <div class="tw-dw-drawer-content">
@@ -43,7 +43,7 @@
                                 style="margin-bottom: 0px; margin-top:5px;">@lang('category.category')</h3>
 
                             <button type="button" class="tw-dw-btn tw-dw-btn-error close-side-bar-category">
-                                <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                <i class="fa fa-times-circle text-white" aria-hidden="true"></i>
                             </button>
 
                         </div>
@@ -104,7 +104,7 @@
     @endif
 
     @if (!empty($brands))
-        <div class="col-sm-6 col-sm-offset-3 !tw-px-2" id="product_brand_div">
+        <div class="col-xs-6 !tw-px-2" id="product_brand_div">
             <div class="tw-dw-drawer tw-dw-drawer-end">
                 <input id="my-drawer-brand" type="checkbox" class="tw-dw-drawer-toggle">
                 <div class="tw-dw-drawer-content">
