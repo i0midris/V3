@@ -241,6 +241,7 @@ tbody tr {
 			@endif
 
 	        <!-- customer info -->
+	        @if(!empty($receipt_details->customer_name) || !empty($receipt_details->customer_info))
 	        <div class="textbox-info">
 	        	<p style="vertical-align: top;"><strong>
 	        		{{$receipt_details->customer_label ?? ''}}
@@ -248,14 +249,15 @@ tbody tr {
 
 	        	<p>
 	        		@if(!empty($receipt_details->customer_name))
-    <br/>
-    <b>{{ $receipt_details->customer_label }}</b> <br> {{ $receipt_details->customer_name }} <br>
+	   <br/>
+	   <b>{{ $receipt_details->customer_label }}</b> <br> {{ $receipt_details->customer_name }} <br>
 @elseif(!empty($receipt_details->customer_info))
-    <br/>
-    <b>{{ $receipt_details->customer_label }}</b> <br> {!! $receipt_details->customer_info !!} <br>
+	   <br/>
+	   <b>{{ $receipt_details->customer_label }}</b> <br> {!! $receipt_details->customer_info !!} <br>
 @endif
 	        	</p>
 	        </div>
+	        @endif
 			
 			@if(!empty($receipt_details->client_id_label))
 				<div class="textbox-info">
@@ -722,12 +724,12 @@ tbody tr {
 				<img class="center-block mt-5" src="data:image/png;base64,{{DNS2D::getBarcodePNG($receipt_details->qr_code_text, 'QRCODE')}}">
 			@endif
 			
-			@if(!empty($receipt_details->footer_text))
+<!--			@if(!empty($receipt_details->footer_text))
 				<p class="centered">
 					{!! $receipt_details->footer_text !!}
 				</p>
 			@endif
-			
+-->			
         </div>
         <!-- <button id="btnPrint" class="hidden-print">Print</button>
         <script src="script.js"></script> -->
@@ -812,6 +814,7 @@ th.price {
 .ticket {
     width: 100%;
     max-width: 100%;
+    margin-bottom: 0;
 }
 
 img {

@@ -65,10 +65,10 @@
                                                     ['class' => 'form-control select2', 'style' => 'width:100%', 'id' => 'account_status'],
                                                 ) !!}
                                             </div>
-                                            <div class="col-md-8">
-                                                    <button 
-                                                        type="button" 
-                                                        class="btn-modal pull-right add-btn tw-gap-1"
+                                            <div class="col-md-8 text-right">
+                                                    <button
+                                                        type="button"
+                                                        class="btn-modal add-btn tw-gap-1"
                                                         data-container=".account_model"
                                                         data-href="{{ action([\App\Http\Controllers\AccountController::class, 'create']) }}">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
