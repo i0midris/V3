@@ -724,12 +724,12 @@ tbody tr {
 				<img class="center-block mt-5" src="data:image/png;base64,{{DNS2D::getBarcodePNG($receipt_details->qr_code_text, 'QRCODE')}}">
 			@endif
 			
-<!--			@if(!empty($receipt_details->footer_text))
+			@if(!empty($receipt_details->footer_text))
 				<p class="centered">
 					{!! $receipt_details->footer_text !!}
 				</p>
 			@endif
--->			
+			
         </div>
         <!-- <button id="btnPrint" class="hidden-print">Print</button>
         <script src="script.js"></script> -->
