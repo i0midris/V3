@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>تسجيل الدخول - ERP Enough</title>
 
@@ -56,7 +56,7 @@ body::before {
   z-index: 0;
 }
 
-/* ===== Gradient Animation Keyframes ===== */
+/* ===== Gradient Animation Keyframes =====
 @keyframes gradientMotion {
   0% {
     background-position: 0% 50%;
@@ -67,7 +67,7 @@ body::before {
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 /* ===== Wrapper ===== */
 .login-wrapper {
@@ -83,15 +83,16 @@ body::before {
 
 /* ===== Login Card with floating animation ===== */
 .login-card {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 2.5rem;
+  /* background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px); */
+  /* border-radius: 20px; */
+  /* padding: 2.5rem; */
   max-width: 420px;
+  max-height: 99%;
   width: 100%;
   text-align: center;
-  box-shadow: 0 0 30px rgba(44, 70, 136, 0.4);
-  animation: floatCard 6s ease-in-out infinite;
+  /* box-shadow: 0 0 30px rgba(44, 70, 136, 0.4); */
+  /* animation: floatCard 6s ease-in-out infinite; */
   z-index: 1;
 }
 
@@ -106,10 +107,12 @@ body::before {
 }
 
 /* ===== Logo ===== */
-.logo img {
+.loginLogo {
   width: 150px;
+  display: none;
   margin-bottom: 1rem;
 }
+
 
 /* ===== Headings ===== */
 .title {
@@ -118,16 +121,17 @@ body::before {
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
+.loginTitle{ color : black; }
 
 .subtitle {
   font-size: 0.95rem;
-  color: #f0f0f0;
+  color: gray;
   margin-bottom: 2rem;
 }
 
 /* ===== Form Group ===== */
 .form-group {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1rem;
   text-align: right;
 }
 
@@ -135,7 +139,7 @@ body::before {
   display: block;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: black;
 }
 
 /* ===== Input Fields ===== */
@@ -145,18 +149,18 @@ body::before {
 
 .input-icon input {
   width: 100%;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid #ffffff55;
+  border: 1px solid #ddd;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: #aaa;
   outline: none;
   transition: 0.3s;
 }
 
 .input-icon input::placeholder {
-  color: #ffffff99;
+  color: #bbb;
 }
 
 .input-icon i,
@@ -165,7 +169,7 @@ body::before {
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #ffffffaa;
+  color: #aaa;
   font-size: 1rem;
 }
 
@@ -188,6 +192,7 @@ body::before {
 .form-group.checkbox input[type="checkbox"] {
   width: 16px;
   height: 16px;
+  margin-left: 0.25rem
 }
 
 /* ===== Forgot Password ===== */
@@ -195,7 +200,7 @@ body::before {
   font-size: 0.85rem;
   display: inline-block;
   margin-top: 0.5rem;
-  color: #ffffffcc;
+  color: #aaa;
   text-decoration: none;
   transition: 0.2s;
 }
@@ -217,7 +222,7 @@ body::before {
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .btn-submit:hover {
@@ -227,15 +232,15 @@ body::before {
 
 /* ===== Error Message ===== */
 .error-message {
-  font-size: 0.85rem;
+  font-size: 0.5rem;
   color: #ffbaba;
   margin-top: 0.3rem;
 }
 
 /* ===== Register Link ===== */
 .register-link {
-  margin-top: 1.5rem;
-  color: #fff;
+  margin-top: 1rem;
+  color: gray;
   font-size: 0.9rem;
 }
 
@@ -276,20 +281,30 @@ body::before {
 }
 
 /* ===== Responsive ===== */
+@media (max-width:600px){
+    .loginLogo{ display : inline-block}
+    .loginTitle, .form-group label  { color : #ffffff; }
+    .subtitle, .register-link{ color : #f0f0f0; }
+    .input-icon input{border: 1px solid #ffffff55;background: rgba(255, 255, 255, 0.15); color: #fff;}
+    .input-icon input::placeholder{ color: #ffffff99; }
+    .input-icon i, .toggle-password {color: #ffffffaa;}
+    .toggle-password {color: #ffffffdd;}
+    .forgot-link{color: #ffffffcc;}
+
+}
+
 @media (max-width: 768px) {
-  .login-wrapper {
-    padding: 1rem;
-  }
+    .login-wrapper { padding: 1rem; }
+    .login-card { padding: 2rem 1.5rem; }
+    .social-footer { flex-wrap: wrap; gap: 0.8rem; font-size: 1.1rem; }
+    /* .title { font-size: 1.3rem; } */
 
-  .login-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .social-footer {
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    font-size: 1.1rem;
-  }
+}
+@media (max-width: 1025px) {
+    .title { font-size: 1.3rem; margin-bottom:0; }
+    .subtitle{ font-size: 0.9rem; }
+    .form-group label{ margin-bottom : 0.25rem; font-size:0.75rem; }
+    .forgot-link { font-size : 0.75rem; margin-top : 0 }
 }
 
     </style>
@@ -305,10 +320,10 @@ body::before {
         <div class="background-overlay"></div>
 
         <div class="login-card" data-aos="zoom-in">
-            <div class="logo">
-                <img src="{{ asset('img/logo-small.png') }}" alt="Logo">
-            </div>
-            <h2 class="title">تسجيل الدخول</h2>
+            <!-- <div class="logo"> -->
+                <img src="{{ asset('img/logo-small.png') }}" class="loginLogo" alt="Logo">
+            <!-- </div> -->
+            <h2 class="title loginTitle">تسجيل الدخول</h2>
             <p class="subtitle">الوصول إلى لوحة التحكم الخاصة بك</p>
 
             @php

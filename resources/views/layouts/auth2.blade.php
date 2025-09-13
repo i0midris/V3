@@ -29,7 +29,7 @@
     #E4191F 40%,
     #2C4688 60%,
     #E8EAF2 80%,
-    #2C4688 100%);
+    #2C4688 100%) !important;
   background-size: 400% 400%;
   animation: moveBackground 25s ease infinite;
   color: var(--text-light);
@@ -54,28 +54,15 @@
     background-position: 0% 50%;
   }
 }
-
-
-    .wrapper {
-      background: rgba(44, 70, 136, 0.95);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 0 30px rgba(44, 70, 136, 0.5);
-      backdrop-filter: blur(6px);
-      max-width: 600px;
-      width: 90%;
-    }
-
     .logo {
-      width: 200px;
-      margin-bottom: 1.2rem;
+      width: 220px;
+      /* margin-bottom: 1.2rem; */
     }
 
     .title {
       font-size: 2rem;
       font-weight: 900;
       color: var(--white);
-      margin-bottom: 0.6rem;
     }
 
     .tagline {
@@ -93,6 +80,7 @@
     }
 
     .btn {
+      display:none;
       background-color: var(--secondary);
       color: white;
       padding: 0.75rem 2rem;
@@ -112,25 +100,24 @@
     }
 
     .footer {
-      margin-top: 1.0rem;
+      margin-top: 1rem;
       font-size: 0.85rem;
-      color: #cbd5e1;
+      color: #ffffffaa;
     }
 
     .footer-bar {
-      position: fixed;
-      bottom: 15px;
+      position: absolute;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
-      z-index: 50;
     }
 
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
-      margin-bottom: 0.4rem;
+      gap: 2rem;
+      margin-bottom: -0.8rem;
     }
 
     .social-icons a {
@@ -145,9 +132,10 @@
     }
 
     .map-link {
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       color: #d9e0ef;
       text-decoration: none;
+      font-weight : bolder
     }
 
     .map-link:hover {
@@ -179,49 +167,179 @@
       width: 28px;
     }
 
-    @media (max-width: 600px) {
-      .title { font-size: 1.6rem; }
-      .tagline { font-size: 1rem; }
-      .description { font-size: 0.95rem; }
+    
+    .main-wrapper{
+      display: flex;
+      align-items: center;
+      margin-top : 8rem;
+      height : 95dvh;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(44, 70, 136, 0.5);
+      width: 80%;
+    }
+    .auth-wrapper{
+      display:flex;
+      align-items:center;
+      height: 100%;
+      width: 70%;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+    .loginWrapper{
+      width: 45%;
+      height: 100%;
+      background: white;
+      border-radius: 0 20px 20px 0;
+    }
+    .footer-social{
+      margin-bottom : 1rem;
+    }
+    .content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width:600px){
+        .description{ margin-bottom:1rem; }
+        .btn{ display : inline-block; }
+        .main-wrapper{ min-height: 90dvh}
+        /* .footer-bar{ transform:none; position:relative; left:0; bottom:0; } */
+        .footer{ margin-top:0}
+        .auth-wrapper{
+          width:100%;
+        }
+        .loginWrapper{
+          width: 100% !important;
+          background: none;
+          display:none;
+          border-radius : 20px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+      .main-wrapper{ width:97%; }
+      .title { font-size: 1.5rem; margin-top:-0.5rem }
+      .tagline { font-size: 0.9rem; margin-bottom : 0.75rem; }
+      .description { font-size: 0.75rem; }
       .btn { font-size: 0.95rem; padding: 0.7rem 1.6rem; }
       .social-icons { flex-wrap: wrap; gap: 0.8rem; }
+      .social-icons a{ font-size: 1rem; }
+      .social-icons{ gap:1rem}
     }
+    
+    /* for tablet */
+    @media (max-width: 1025px) {
+      .main-wrapper{ width : 90%; }
+      .logo{ width: 200px; }
+      .title { font-size: 1.5rem; }
+      .description { font-size: 0.95rem; }
+      .footer{ font-size: 0.6rem; }
+      .social-icons a{ font-size: 1.2rem; }
+      .footer-social{ margin-bottom : 0rem; }
+      .loginWrapper { width: 60%;}
+
+    }
+    /* @media (max-width: 1024px) {
+      
+    } */
   </style>
 </head>
 <body>
-<img src="{{ asset('img/logo-small.png') }}" alt="Logo" class="logo" />
 
-  <div class="wrapper">
-    <h1 class="title">ERP Enough</h1>
-    <div class="tagline">دقة - سرعة - أمان</div>
-    <p class="description">
-      نظام احترافي لإدارة الأعمال يقدم حلولًا متكاملة لتحسين الأداء، تسريع العمليات، وضمان الأمان الكامل لبياناتك، مع واجهة سلسة وتجربة استخدام مميزة.
-    </p>
-    <a href="{{ route('login') }}">
-      <button class="btn">تسجيل الدخول</button>
-    </a>
+  <div class="main-wrapper">
+    <div class="loginWrapper" id="login-wrapper">
+      @include('auth.login')
+    </div>
+    <div class="auth-wrapper" id="auth-wrapper">
+      <div class="content">
+          <img src="{{ asset('img/logo-small.png') }}" alt="Logo" class="logo" />
+        <h1 class="title" style="margin-bottom: -0.8rem !important;">ERP Enough</h1>
+        <div class="tagline">دقة - سرعة - أمان</div>
+        <p class="description">
+          نظام احترافي لإدارة الأعمال يقدم حلولًا متكاملة لتحسين الأداء، تسريع العمليات، وضمان الأمان الكامل لبياناتك، مع واجهة سلسة وتجربة استخدام مميزة.
+        </p>
+        <button id="login-button" class="btn">تسجيل الدخول</button>
+      </div>
+      <div class="footer-bar">
+        <div class="footer-social">
+          <div class="social-icons">
+            <a href="https://www.facebook.com/albaseetsoft.ye" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/albaseetsoft" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/albaseet_soft" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@AlbaseetSoft" target="_blank" title="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/967777335118" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <a href="https://maps.app.goo.gl/YRf8BLNCNkedeeA78" target="_blank" class="map-link">موقعنا على الخريطة</a>
+        </div>
+        <div class="footer">
+          © 2025 AlbaseetSoft - جميع الحقوق محفوظة
+        </div>    
+      </div>
+      
+      <!-- <a href="{{ route('login') }}">
+        <button class="btn">تسجيل الدخول</button>
+      </a> -->
+    </div>
 
   </div>
 
   <!-- Floating Social Icons + Location -->
-  <div class="footer-bar">
-    <div class="social-icons">
-      <a href="https://www.facebook.com/albaseetsoft.ye" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://x.com/albaseetsoft" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com/albaseet_soft" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@AlbaseetSoft" target="_blank" title="youtube"><i class="fab fa-youtube"></i></a>
-      <a href="https://wa.me/967777335118" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <a href="https://maps.app.goo.gl/YRf8BLNCNkedeeA78" target="_blank" class="map-link">موقعنا على الخريطة</a>
-    <div class="footer">
-      © 2025 AlbaseetSoft - جميع الحقوق محفوظة
-    </div>
-  </div>
+  
 
   <!-- WhatsApp Button -->
   <a href="https://wa.me/967777335118" class="whatsapp-button" target="_blank" title="تواصل معنا على واتساب">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
+  <script>
+        // Get references to the elements
+        const authWrapper = document.getElementById('auth-wrapper');
+        const loginWrapper = document.getElementById('login-wrapper');
+        const loginButton = document.getElementById('login-button');
+
+        // Function to toggle the display of the divs
+        function toggleDivs() {
+          // Get the computed style of loginWrapper
+          const isLoginHidden = window.getComputedStyle(loginWrapper).display === "none";
+
+          if (isLoginHidden) {
+              // If loginWrapper is hidden, show it and hide authWrapper
+              loginWrapper.style.display = "block";
+              authWrapper.style.display = "none";
+          } else {
+              // Otherwise, hide loginWrapper and show authWrapper
+              loginWrapper.style.display = "none";
+              authWrapper.style.display = "block";
+          }
+        }
+
+        // Add a click event listener to the button
+        loginButton.addEventListener('click', toggleDivs);
+
+        // Function to handle screen size changes
+        // function handleResize() {
+        //     // If the screen width is 768px or greater (the md breakpoint in Tailwind)
+        //     if (window.innerWidth >= 768) {
+        //         // Make sure both divs are visible
+        //         authWrapper.classList.remove('hidden');
+        //         loginWrapper.classList.remove('hidden');
+        //     } else {
+        //         // On smaller screens, only the auth-wrapper should be visible initially
+        //         // and the login-wrapper should be hidden
+        //         authWrapper.classList.remove('hidden');
+        //         loginWrapper.classList.add('hidden');
+        //     }
+        // }
+
+        // // Add an event listener for when the window is resized
+        // window.addEventListener('resize', handleResize);
+
+        // // Call the function once on load to set the initial state
+        // window.onload = handleResize;
+
+    </script>
 </body>
 </html>

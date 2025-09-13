@@ -23,7 +23,7 @@ return [
     'purchase_status' => 'حالة الشراء',
     'payment_status' => 'حالة الدفع',
     'grand_total' => 'المجموع',
-    'add_purchase' => 'أضف مشتريات',
+    'add_purchase' => 'فاتورة مشتريات',
     'purchase_date' => 'تاريخ الشراء',
     'purchase_quantity' => 'كمية المشتريات',
     'unit_cost_before_tax' => 'تكلفة الوحدة (قبل الضريبة)',
