@@ -278,7 +278,7 @@
           <!-- <a href="https://maps.app.goo.gl/YRf8BLNCNkedeeA78" target="_blank" class="map-link">موقعنا على الخريطة</a> -->
         </div>
         <div class="footer">
-          © 2025 AlbaseetSoft - جميع الحقوق محفوظة
+          جميع الحقوق محفوظة©AlbaseetSoft 
         </div>    
       </div>
       
