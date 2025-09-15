@@ -296,7 +296,7 @@ body::before {
 
 @media (max-width: 768px) {
     .login-wrapper { padding: 1rem; }
-    .login-card { padding: 1rem 1.5rem; }
+    .login-card { padding: 2rem 1.5rem; }
     .social-footer { flex-wrap: wrap; gap: 0.8rem; font-size: 1.1rem; }
     /* .title { font-size: 1.3rem; } */
 

@@ -39,8 +39,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* padding-bottom: 130px; */
-  /* overflow-x: hidden; */
+  padding-bottom: 130px; 
+  overflow-x: hidden; 
 }
 
 @keyframes moveBackground {
@@ -70,7 +70,6 @@
       font-weight: 600;
       color: var(--white);
       margin-bottom: 1rem;
-      margin-top:0.5rem;
     }
 
     .description {
@@ -173,8 +172,7 @@
     .main-wrapper{
       display: flex;
       align-items: center;
-      /* margin-top : 8rem; */
-      margin: auto auto;
+      margin-top : 8rem; 
       height : 95dvh;
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(12px);
@@ -226,7 +224,7 @@
     
     @media (max-width: 768px) {
       .main-wrapper{ width:97%; }
-      .title { font-size: 1.5rem;}
+      .title { font-size: 1.5rem; margin-top: -0.5rem}
       .tagline { font-size: 0.9rem; margin-bottom : 0.75rem; }
       /* .description { font-size: 0.75rem; } */
       .btn { font-size: 0.95rem; padding: 0.7rem 1.6rem; }
