@@ -425,7 +425,7 @@ return [
     'duplicate_sell_created_successfully' => 'تم إنشاء عملية بيع مكررة بنجاح',
     'modules' => 'وحدات',
     'theme' => 'تصميم',
-    'account' => 'الحساب',
+    'account' => 'الصناديق والبنوك',
     'expense_payment' => 'دفع المصروفات',
     'expense' => 'مصروف',
     'disabled_in_demo' => 'تم تعطيل الميزة في العرض!',

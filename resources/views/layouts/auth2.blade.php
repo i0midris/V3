@@ -100,12 +100,13 @@
     }
 
     .footer {
-      margin-top: 1rem;
-      font-size: 0.85rem;
+      /* margin-top: 0.5rem; */
+      font-size: 0.75rem;
       color: #ffffffaa;
     }
 
     .footer-bar {
+      width: 100%;
       position: absolute;
       bottom: 10px;
       left: 50%;
@@ -122,7 +123,7 @@
 
     .social-icons a {
       color: var(--white);
-      font-size: 1.5rem;
+      font-size: 1rem;
       transition: transform 0.3s, color 0.3s;
     }
 
@@ -194,20 +195,22 @@
       border-radius: 0 20px 20px 0;
     }
     .footer-social{
-      margin-bottom : 1rem;
+      margin-bottom : 0.5rem;
     }
     .content{
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: -2rem;
     }
+    /* @media(max-width:426px){
+    } */
 
     @media (max-width:600px){
         .description{ margin-bottom:1rem; }
         .btn{ display : inline-block; }
         .main-wrapper{ min-height: 90dvh}
         /* .footer-bar{ transform:none; position:relative; left:0; bottom:0; } */
-        .footer{ margin-top:0}
         .auth-wrapper{
           width:100%;
         }
@@ -223,7 +226,7 @@
       .main-wrapper{ width:97%; }
       .title { font-size: 1.5rem; margin-top:-0.5rem }
       .tagline { font-size: 0.9rem; margin-bottom : 0.75rem; }
-      .description { font-size: 0.75rem; }
+      /* .description { font-size: 0.75rem; } */
       .btn { font-size: 0.95rem; padding: 0.7rem 1.6rem; }
       .social-icons { flex-wrap: wrap; gap: 0.8rem; }
       .social-icons a{ font-size: 1rem; }
@@ -235,10 +238,10 @@
       .main-wrapper{ width : 90%; }
       .logo{ width: 200px; }
       .title { font-size: 1.5rem; }
-      .description { font-size: 0.95rem; }
+      .description { font-size: 0.75rem; }
       .footer{ font-size: 0.6rem; }
-      .social-icons a{ font-size: 1.2rem; }
-      .footer-social{ margin-bottom : 0rem; }
+      /* .social-icons a{ font-size: 1.2rem; } */
+      /* .footer-social{ margin-bottom : 0.5rem; } */
       .loginWrapper { width: 60%;}
 
     }
@@ -272,7 +275,7 @@
             <a href="https://www.youtube.com/@AlbaseetSoft" target="_blank" title="youtube"><i class="fab fa-youtube"></i></a>
             <a href="https://wa.me/967777335118" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
-          <a href="https://maps.app.goo.gl/YRf8BLNCNkedeeA78" target="_blank" class="map-link">موقعنا على الخريطة</a>
+          <!-- <a href="https://maps.app.goo.gl/YRf8BLNCNkedeeA78" target="_blank" class="map-link">موقعنا على الخريطة</a> -->
         </div>
         <div class="footer">
           © 2025 AlbaseetSoft - جميع الحقوق محفوظة

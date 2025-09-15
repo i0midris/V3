@@ -77,7 +77,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 0.5rem 2rem;
   z-index: 1;
 }
 
@@ -131,7 +131,7 @@ body::before {
 
 /* ===== Form Group ===== */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-align: right;
 }
 
@@ -207,7 +207,7 @@ body::before {
 
 .forgot-link:hover {
   text-decoration: underline;
-  color: #fff;
+  color: gray;
 }
 
 /* ===== Submit Button ===== */
@@ -239,7 +239,8 @@ body::before {
 
 /* ===== Register Link ===== */
 .register-link {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
   color: gray;
   font-size: 0.9rem;
 }
@@ -302,9 +303,9 @@ body::before {
 }
 @media (max-width: 1025px) {
     .title { font-size: 1.3rem; margin-bottom:0; }
-    .subtitle{ font-size: 0.9rem; }
+    .subtitle{ font-size: 0.75rem; margin-bottom:1rem }
     .form-group label{ margin-bottom : 0.25rem; font-size:0.75rem; }
-    .forgot-link { font-size : 0.75rem; margin-top : 0 }
+    .forgot-link { font-size : 0.6rem; margin-top : 0 }
 }
 
     </style>
