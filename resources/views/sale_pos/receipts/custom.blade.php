@@ -10,8 +10,12 @@
             position: relative !important;
             width: 210mm;
             height: 297mm;
-            /* background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
-            background-size: 100% 100% !important;  */
+            overflow: hidden;              /* don’t let it push to another page */
+            position: relative;
+            page-break-inside: avoid;
+            transform-origin: top left;    /* scaling keeps it aligned */
+            background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
+            background-size: 100% 100% !important; 
         }
         .field {
             position: absolute !important;
@@ -23,38 +27,51 @@
         
     </style>
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const page = document.querySelector('.page');
+    const pageHeightPx = 1123; // ~297mm at 96dpi
+
+    const actualHeight = page.scrollHeight;
+    if (actualHeight > pageHeightPx) {
+        const scale = pageHeightPx / actualHeight;
+        page.style.transform = "scale(" + scale + ")";
+        page.style.width = (210 / scale) + "mm"; // keep width correct
+    }
+});
+</script>
 <body>
     <div class="page">
          <!-- Header fields -->
-        <div class="field" style="top: 132px; left: 100px;">{{$receipt_details->invoice_no}}</div> <!-- Invoice No -->
-        <div class="field" style="top: 127px; left: 334px;">S.P-009</div>      <!-- near S.P -->
-        <div class="field" style="top: 129px; left: 670px;font-size: smaller !important;">{{$receipt_details->invoice_date}}</div>  <!-- Date -->
+        <div class="field" style="top: 69px; left: 62px;">{{$receipt_details->invoice_no}}</div> <!-- Invoice No -->
+        <div class="field" style="top: 64px; left: 296px;">S.P-009</div>      <!-- near S.P -->
+        <div class="field" style="top: 75px; left: 632px;font-size: smaller !important;">{{$receipt_details->invoice_date}}</div>  <!-- Date -->
         
         <!-- Customer Name -->
-        <div class="field" style="top: 160px; left: 115px;">
+        <div class="field" style="top: 100px; left: 77px;">
             @if(!empty($receipt_details->customer_name))
                 {{ $receipt_details->customer_name }} 
             @elseif(!empty($receipt_details->customer_info))
                 {!! $receipt_details->customer_info !!}
             @endif    
         </div>
-        <div class="field" style="top: 160px; left: 570px;">763254652632</div>     <!-- Customer contact number -->
+        <div class="field" style="top: 100px; left: 532px;">763254652632</div>     <!-- Customer contact number -->
         <!-- Product rows -->
 
         @php
             // The starting position from the top of the page for the entire block of items.
-            $topStart = 295;
+            $topStart = 225;
         @endphp
     
-        <div class="lines-container" style="position: absolute; top: {{ $topStart }}px; left: 30px;">
+        <div class="lines-container" style="position: absolute; top: {{ $topStart }}px; left: 0px;">
             @foreach($receipt_details->lines as $line)
                 <div class="line-item-row" style="margin-bottom: 30px !important;">
 
-                    <div class="field" style="left: 5px;">
+                    <div class="field" style="left: 0px;">
                         {{ $loop->iteration }}
                     </div>
 
-                    <div class="field" style="left: 40px;">
+                    <div class="field" style="left: 10px;">
                         {{$line['name']}} {{$line['product_variation']}} {{$line['variation']}}
                         @if(!empty($line['brand'])), {{$line['brand']}} @endif
                         @if(!empty($line['product_custom_fields'])) {{$line['product_custom_fields']}} @endif
@@ -62,19 +79,19 @@
                         @if(!empty($line['product_description'])){!!$line['product_description']!!}@endif
                     </div>
 
-                    <div class="field" style="left: 300px;">
+                    <div class="field" style="left: 320px;">
                         {{ $line['units'] }}
                     </div>
 
-                    <div class="field" style="left: 435px;">
+                    <div class="field" style="left: 415px;">
                         {{ $line['quantity'] }}
                     </div>
 
-                    <div class="field" style="left: 545px;">
+                    <div class="field" style="left: 525px;">
                         {{ $line['unit_price_before_discount'] }}
                     </div>
 
-                    <div class="field" style="left: 675px;">
+                    <div class="field" style="left: 655px;">
                         {{ $line['line_total'] }}
                     </div>
 
@@ -84,7 +101,7 @@
 
         <!-- barcode section -->
          @if($receipt_details->show_barcode || $receipt_details->show_qr_code)
-				<div style="position:absolute;top:850px;left:160px">
+				<div style="position:absolute;top:812px;left:122px">
 					@if($receipt_details->show_barcode)
 						{{-- Barcode --}}
 						<img class="center-block" src="data:image/png;base64,{{DNS1D::getBarcodePNG($receipt_details->invoice_no, 'C128', 2,30,array(39, 48, 54), true)}}">
@@ -157,7 +174,7 @@
     <!-- <div class="field" style="top: {{ $taxY }}px; left: {{ $taxLabelLeft }}px;">
         {!! $receipt_details->tax_label ?? 'Total Tax' !!}
     </div> -->
-    <div class="field" style="top: {{ $taxY }}px; left: {{ $taxValueLeft }}px;">
+    <div class="field" style="top: 937px; left: 327px;">
         {{ $totalTaxDisplay }}
     </div>
 @endif
@@ -165,13 +182,13 @@
 {{-- Totals (render once) --}}
 @if(!empty($receipt_details->total_paid))
     <!-- Left total (your existing left slot) -->
-    <div class="field" style="top: 975px; left: 70px;">
+    <div class="field" style="top: 937px; left: 32px;">
         {{ $receipt_details->total_paid }}
     </div>
 @endif
 
 <!-- Grand total on the right — use the app-provided formatted total -->
-<div class="field" style="top: 975px; left: 630px;">
+<div class="field" style="top: 937px; left: 592px;">
     {{ $receipt_details->total ?? ((!empty($receipt_details->total_paid) && !empty($totalTaxDisplay) && is_numeric($receipt_details->total_paid) && is_numeric($totalTaxDisplay)) ? ($receipt_details->total_paid + $totalTaxDisplay) : ($receipt_details->total_paid ?? '')) }}
 </div>
 
