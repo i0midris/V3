@@ -14,7 +14,7 @@
             position: relative;
             page-break-inside: avoid;
             transform-origin: top left;    /* scaling keeps it aligned */
-            background: url('{{ asset("img/template.jpg") }}') no-repeat center !important;
+           /* background: url('{{ asset("img/template.jpg") }}') no-repeat center !important; */
             background-size: 100% 100% !important; 
         }
         .field {
