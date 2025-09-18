@@ -38,27 +38,15 @@
             <span class="logo-lg">{{ Session::get('business.name') }}</span>
         </a> --}}
 
-        
-        <!-- <a 
-            href="{{route('home')}}" 
-            class="tw-flex tw-items-center tw-justify-center tw-w-full tw-border-r tw-h-15 tw-shrink-0"
-            style="background-color: {{ $bgColor }}; color: white;"
-        >
-            <p class="tw-text-lg tw-font-medium tw-text-white side-bar-heading tw-text-center">
-                {{ Session::get('business.name') }} 
-                <span class="tw-inline-block tw-w-3 tw-h-3 tw-bg-green-400 tw-rounded-full" title="Online"></span>
-            </p>
-        </a> -->
-        <!-- new title -->
         <a 
             href="{{route('home')}}" 
             class="tw-flex tw-items-center tw-justify-center tw-w-full tw-border-r tw-h-15 tw-shrink-0 tw-bg-gray-100"
         >
             <p 
-                class="tw-text-xl tw-font-bold tw-text-white side-bar-heading tw-text-center"
+                class="tw-text-xl tw-font-bold tw-text-white side-bar-heading tw-text-center tw-truncate"
                 style="color: {{ $bgColor }};">
-                {{ Session::get('business.name') }} 
-                <span class="tw-inline-block tw-w-3 tw-h-3 tw-bg-green-400 tw-rounded-full" title="Online"></span>
+                {{ Session::get('business.name') }}
+                <!-- <span class="tw-inline-block tw-w-3 tw-h-3 tw-bg-green-400 tw-rounded-full" title="Online"></span> -->
             </p>
         </a>
 
