@@ -75,9 +75,8 @@ body::before {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0.5rem 2rem;
+  padding: 10% 5%;
   z-index: 1;
 }
 
@@ -108,17 +107,16 @@ body::before {
 
 /* ===== Logo ===== */
 .loginLogo {
-  width: 150px;
+  width: 200px;
   display: none;
-  margin-bottom: 1rem;
+  margin-bottom: 15%;
 }
 
 
 /* ===== Headings ===== */
 .title {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #ffffff;
-  margin-bottom: 0.5rem;
   font-weight: 700;
 }
 .loginTitle{ color : black; }
@@ -131,7 +129,7 @@ body::before {
 
 /* ===== Form Group ===== */
 .form-group {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   text-align: right;
 }
 
@@ -149,8 +147,8 @@ body::before {
 
 .input-icon input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
   border: 1px solid #ddd;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.15);
@@ -197,9 +195,9 @@ body::before {
 
 /* ===== Forgot Password ===== */
 .forgot-link {
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: 0.1rem;
   color: #aaa;
   text-decoration: none;
   transition: 0.2s;
@@ -232,8 +230,8 @@ body::before {
 
 /* ===== Error Message ===== */
 .error-message {
-  font-size: 0.5rem;
-  color: #ffbaba;
+  font-size: 0.65rem;
+  color: red;
   margin-top: 0.3rem;
 }
 
@@ -283,6 +281,7 @@ body::before {
 
 /* ===== Responsive ===== */
 @media (max-width:600px){
+    .login-wrapper{  min-height: 55dvh;}
     .loginLogo{ display : inline-block}
     .loginTitle, .form-group label  { color : #ffffff; }
     .subtitle, .register-link{ color : #f0f0f0; }
@@ -295,8 +294,8 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .login-wrapper { padding: 1rem; }
-    .login-card { padding: 2rem 1.5rem; }
+    /* .login-wrapper { padding: 1rem; } */
+    .login-card { padding: 0rem 1.5rem; }
     .social-footer { flex-wrap: wrap; gap: 0.8rem; font-size: 1.1rem; }
     /* .title { font-size: 1.3rem; } */
 
@@ -322,7 +321,7 @@ body::before {
 
         <div class="login-card" data-aos="zoom-in">
             <!-- <div class="logo"> -->
-                <img src="{{ asset('img/logo-small.png') }}" class="loginLogo" alt="Logo">
+                <img src="{{ asset('img/new-logo-2.png') }}" class="loginLogo" alt="Logo">
             <!-- </div> -->
             <h2 class="title loginTitle">تسجيل الدخول</h2>
             <p class="subtitle">الوصول إلى لوحة التحكم الخاصة بك</p>
@@ -361,7 +360,7 @@ body::before {
                         <i class="fa fa-user"></i>
                     </div>
                     @if ($errors->has('username'))
-                        <span class="error-message">{{ $errors->first('username') }}</span>
+                        <span class="error-message">***{{ $errors->first('username') }}***</span>
                     @endif
                 </div>
 
@@ -369,7 +368,7 @@ body::before {
                     <label for="password">كلمة المرور</label>
                     <div class="input-icon">
                         <input type="password" name="password" id="password" class="form-control" value="{{ $password }}" required placeholder="ادخل كلمة المرور">
-                        <button type="button" id="show_hide_icon" class="toggle-password"><i class="fa fa-eye"></i></button>
+                        <button type="button" id="show_hide_icon" class="toggle-password" style="margin-left:-20px"><i class="fa fa-eye"></i></button>
                     </div>
                     @if ($errors->has('password'))
                         <span class="error-message">{{ $errors->first('password') }}</span>
@@ -437,8 +436,8 @@ body::before {
       const form = document.getElementById("login-form");
 
       if (usernameInput && passwordInput && form) {
-        usernameInput.value = btn.dataset.admin || "admin";
-        passwordInput.value = "123456";
+        usernameInput.value = btn.dataset.admin || "-";
+        passwordInput.value = "-";
         form.submit();
       }
     });
