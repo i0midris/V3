@@ -39,8 +39,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 130px; 
-  overflow-x: hidden; 
+  /* padding-bottom: 130px; */
+  /* overflow-x: hidden; */
 }
 
 @keyframes moveBackground {
@@ -55,28 +55,28 @@
   }
 }
     .logo {
-      width: 220px;
-      /* margin-bottom: 1.2rem; */
+      width: 250px;
+      margin-bottom: 5%;
     }
 
     .title {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--white);
+      margin-bottom: 0.5%;
     }
 
     .tagline {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--white);
-      margin-bottom: 1rem;
+      margin-bottom: 5%;
     }
 
     .description {
-      font-size: 1rem;
+      font-size: 0.85rem;
       color: #e2e8f0;
       line-height: 1.8;
-      margin-bottom: 2rem;
     }
 
     .btn {
@@ -108,7 +108,7 @@
     .footer-bar {
       width: 100%;
       position: absolute;
-      bottom: 10px;
+      bottom: 3%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -172,8 +172,9 @@
     .main-wrapper{
       display: flex;
       align-items: center;
-      margin-top : 8rem; 
-      height : 95dvh;
+      margin: auto auto;
+      height : auto;
+      max-height: 95dvh;
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(12px);
       border-radius: 20px;
@@ -182,10 +183,9 @@
     }
     .auth-wrapper{
       display:flex;
-      align-items:center;
       height: 100%;
       width: 70%;
-      padding: 1rem 2rem;
+      padding: 3% 5%;
       position: relative;
     }
     .loginWrapper{
@@ -195,22 +195,17 @@
       border-radius: 0 20px 20px 0;
     }
     .footer-social{
-      margin-bottom : 0.5rem;
+      margin-bottom : 5%;
     }
     .content{
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -2rem;
     }
-    /* @media(max-width:426px){
-    } */
-
     @media (max-width:600px){
-        .description{ margin-bottom:1rem; }
         .btn{ display : inline-block; }
-        .main-wrapper{ min-height: 90dvh}
-        /* .footer-bar{ transform:none; position:relative; left:0; bottom:0; } */
+        .main-wrapper{ min-height: 55dvh}
+        .logo{margin-top:5%;}
         .auth-wrapper{
           width:100%;
         }
@@ -224,9 +219,8 @@
     
     @media (max-width: 768px) {
       .main-wrapper{ width:97%; }
-      .title { font-size: 1.5rem; margin-top: -0.5rem}
-      .tagline { font-size: 0.9rem; margin-bottom : 0.75rem; }
-      /* .description { font-size: 0.75rem; } */
+      .title { font-size: 1.5rem;}
+      .tagline { font-size: 0.9rem; }
       .btn { font-size: 0.95rem; padding: 0.7rem 1.6rem; }
       .social-icons { flex-wrap: wrap; gap: 0.8rem; }
       .social-icons a{ font-size: 1rem; }
@@ -239,18 +233,13 @@
       .input-icon input { padding : 0.5rem 1rem !important;}
       .btn-submit{ padding : 0.5rem !important;}
       .register-link{ font-size:0.75rem !important;}
-      .logo{ width: 200px; }
+      .logo{ width: 200px; margin-bottom:7%; }
       .title { font-size: 1.5rem; }
-      .description { font-size: 0.75rem; }
+      .description { font-size: 0.75rem;margin-bottom:10%; }
       .footer{ font-size: 0.6rem; }
-      /* .social-icons a{ font-size: 1.2rem; } */
-      /* .footer-social{ margin-bottom : 0.5rem; } */
       .loginWrapper { width: 60%;}
 
     }
-    /* @media (max-width: 1024px) {
-      
-    } */
   </style>
 </head>
 <body>
@@ -261,9 +250,9 @@
     </div>
     <div class="auth-wrapper" id="auth-wrapper">
       <div class="content">
-          <img src="{{ asset('img/logo-small.png') }}" alt="Logo" class="logo" />
-        <h1 class="title" style="margin-bottom: -0.8rem !important;">ERP Enough</h1>
-        <div class="tagline">دقة - سرعة - أمان</div>
+          <img src="{{ asset('img/new-logo-2.png') }}" alt="Logo" class="logo" />
+        <h1 class="title">ERP Enough</h1>
+        <div class="tagline">دقة - سرعة - أمان - سهولة</div>
         <p class="description">
           نظام احترافي لإدارة الأعمال يقدم حلولًا متكاملة لتحسين الأداء، تسريع العمليات، وضمان الأمان الكامل لبياناتك، مع واجهة سلسة وتجربة استخدام مميزة.
         </p>
@@ -281,7 +270,7 @@
           <!-- <a href="https://maps.app.goo.gl/YRf8BLNCNkedeeA78" target="_blank" class="map-link">موقعنا على الخريطة</a> -->
         </div>
         <div class="footer">
-          جميع الحقوق محفوظة©AlbaseetSoft 
+          © 2025 AlbaseetSoft - جميع الحقوق محفوظة
         </div>    
       </div>
       
