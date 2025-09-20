@@ -250,9 +250,9 @@
     </div>
     <div class="auth-wrapper" id="auth-wrapper">
       <div class="content">
-          <img src="{{ asset('img/new-logo-2.png') }}" alt="Logo" class="logo" />
-        <h1 class="title">ERP Enough</h1>
-        <div class="tagline">دقة - سرعة - أمان - سهولة</div>
+          <img src="{{ asset('img/new-logo-2.jpg') }}" alt="Logo" class="logo" />
+        <h1 class="title">نظام الكاف,  Enough System</h1>
+        <div class="tagline">سهولة - دقة - سرعة - آمان</div>
         <p class="description">
           نظام احترافي لإدارة الأعمال يقدم حلولًا متكاملة لتحسين الأداء، تسريع العمليات، وضمان الأمان الكامل لبياناتك، مع واجهة سلسة وتجربة استخدام مميزة.
         </p>

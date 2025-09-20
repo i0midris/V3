@@ -301,7 +301,7 @@ body::before {
 
 }
 @media (max-width: 1025px) {
-    .title { font-size: 1.3rem; margin-bottom:0; }
+    .title { font-size: 1.2rem; margin-bottom:0; }
     .subtitle{ font-size: 0.75rem; margin-bottom:1rem }
     .form-group label{ margin-bottom : 0.25rem; font-size:0.75rem; }
     .forgot-link { font-size : 0.6rem; margin-top : 0 }
