@@ -577,6 +577,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // testing customer recipt
 
-Route::get('/test-custom-receipt', function () {
+Route::get('/test', function () {
     return view('sale_pos.receipts.custom');
 });

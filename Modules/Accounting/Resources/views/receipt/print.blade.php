@@ -3,33 +3,26 @@
         font-family: 'Arial', sans-serif;
         direction: rtl; /* Arabic alignment */
         text-align: right;
-        background-color: #f5f5f5;
+        -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+        print-color-adjust: exact !important; /* Modern browsers */
     }
 
     .receipt-container {
-        max-width: 900px;
-        margin: auto;
         padding: 20px;
+        width: 100%;
         background: #ffffff;
-        border-radius: 10px;
-        border: 3px solid #dd0000;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
+        position: fixed;
+        top: 10px;
+        left:0;
     }
 
     .header-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding: 10px;
-        background: #000;
         color: white;
         border-radius: 10px;
-    }
-
-    .header-container .title {
-        font-size: 22px;
-        font-weight: bold;
     }
 
     .amount-box {
@@ -41,12 +34,13 @@
         text-align: center;
     }
 
-    .info-box {
-        border: 2px solid #000;
-        padding: 10px;
+    .info-boxx {
         margin-top: 10px;
-        border-radius: 10px;
-        background: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size:1rem;
+        margin: 3rem 0;
     }
 
     .info-row {
@@ -59,29 +53,45 @@
     }
 
     .divider {
-        border-top: 2px dashed #000;
-        margin: 15px 0;
+        border-top: 1px solid #aaa;
+        margin: 5px 0;
     }
 
     .signature-section {
         display: flex;
-        justify-content: space-between;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: bold;
         margin-top: 20px;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        margin-top:1rem;
+        row-gap:0.25rem;
+    }
+
+    .title{
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        column-gap: 0.5rem;
+        background-color: oklch(97.7% 0.013 236.62) !important;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
     }
 
     .signature-box {
         text-align: center;
         width: 30%;
-        
     }
 
     .signature-box .line {
         display: block;
-        margin-top: 30px;
-        border-top: 2px dashed black;
-        width: 100%;
+        border-top: 1.5px dashed black;
+        width: 80%;
+        margin: 30px 10% 0 10%;
     }
 </style>
 
@@ -99,40 +109,32 @@
         }
     }
 @endphp
-    <div class="header">
+<div class="header">
 
-    </div>
+</div>
+
 <div class="receipt-container">
     <!-- Header Section -->
-    
     <div class="header-container" style="display: flex; justify-content: center; align-items: center;">
-            <?php $logo = asset('uploads/invoice_logos/' . $invoice_layout->logo); ?>
+        <?php $logo = asset('uploads/invoice_logos/' . $invoice_layout->logo); ?>
         @if(!empty($logo) && $invoice_layout->show_logo)
             <img src="{{$logo}}" class="logo">
         @endif
-</div>
-
-
-
-    <!-- Receipt Info -->
-    <div class="info-box">
-        <div class="info-row">
-            <span>الرقم: {{ $journal->ref_no }}</span>
-            <div class="title" style="font-size: 24px; font-weight: bold;">سند قبض</div>
-            <span>التاريخ: {{ @format_datetime($journal->operation_date) }}</span>
-        </div>
     </div>
 
-    <div class="divider"></div>
+    <!-- Receipt title -->
+    <div class="title"> سند قبض <span>رقم: {{ $journal->ref_no }}</span></div>
 
-    <!-- Receipt Body -->
-    <div class="info-box">
-        <p><strong>أستلمت أنا من الأخ / الإخوة:</strong> {{ $debit->account()->first()->name }}</p>
-        <p><strong>مبلغ وقدره:</strong> @format_currency($all_amount)</p>
-        <p><strong>المبلغ كتابةً:</strong> {{ number_to_words($all_amount) }}</p>
-        <p><strong>نقداً / شيك رقم:</strong> {{ $credit->account()->first()->name }}</p>
+    <!-- Receipt info -->
+    <div class="info-boxx">
+        <div style="display:flex; justify-content: space-between;">
+            <p><strong>أستلمت أنا من الأخ / الإخوة:</strong> {{ $debit->account()->first()->name }}</p>
+            <p><strong>التاريخ:</strong> {{ @format_datetime($journal->operation_date) }}</p>
+        </div>
+        <p><strong>مبلغ وقدره:</strong> @format_currency($all_amount) ({{ number_to_words($all_amount) }})</p>
+        <p><strong>نقداً / شيك رقم:</strong> {{ $credit->account()->first()->name }}</p>       
         <p><strong>على بنك:</strong> 
-            <?php $parent_credit = $credit->account()->first()->parent()->first(); ?>
+                <?php $parent_credit = $credit->account()->first()->parent()->first(); ?>
             @if(isset($parent_credit->id))
                 @if($parent_credit->gl_code == 1101)
                     @lang('lang_v1.cash')
@@ -147,26 +149,49 @@
         </p>
         <p><strong>وذلك مقابل:</strong> {{ $journal->note }}</p>
         <p><strong>يقيد على حساب:</strong> {{ $credit->account()->first()->name }}</p>
-
     </div>
-
-    <div class="divider"></div>
-
-
 
     <!-- Signature Section -->
     <div class="signature-section">
-        <div class="signature-box">
-            <p>اسم المسلم</p>
-            <span class="line"></span>
+        <div style="display:flex;justify-content: space-between;">
+            <div class="signature-box">
+                <p>المستلم</p>
+                <span class="line"></span>
+            </div>
+            <div class="signature-box">
+                <p>التوقيع</p>
+                <span class="line"></span>
+            </div>
+            <div class="signature-box">
+                <p>بتاريخ</p>
+                <p style="margin-top:15px">/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</p>
+            </div>
         </div>
-        <div class="signature-box">
-            <p>الحسابات</p>
-            <span class="line"></span>
-        </div>
-        <div class="signature-box">
-            <p>المدير</p>
-            <span class="line"></span>
-        </div>
+        <div style="display:flex;justify-content: space-between;margin-top:2rem;">
+            <div class="signature-box">
+                <p>أمين الصندوق</p>
+                <span class="line"></span>
+            </div>
+            <div class="signature-box">
+                <p>المحاسب</p>
+                <span class="line"></span>
+            </div>
+            <div class="signature-box">
+                <p>المدير المالي</p>
+                <span class="line"></span>
+            </div>
+            <div class="signature-box">
+                <p>المدير العام</p>
+                <span class="line"></span>
+            </div>
+        </div>  
+    </div>
+
+    <br><br>
+    <p style="font-size:0.75rem">{{now()}}</p>
+    <div class="divider"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+        <p style="font-weight:bold">الوثيقة صادرة من النظام الالي ولا تحتاج إلى توقيع أو ختم</p>
+        <p style="margin-top:0.5rem">bar code section **to be edit**</p>
     </div>
 </div>
